@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Study 5 stage 1: known-item / snowball-seed queries (strategy 2 of 3) + quasi-gold-standard
+# known-item / snowball-seed queries (strategy 2 of 3) + quasi-gold-standard
 # retrieval, incl. borderline cases and negative controls (00_protocol.md §2).
 set -u
 # Helpers: github.com/lingzhi227/agent-research-skills @ 9e6c085 (not redistributed). Set ARS_DIR to a checkout.
@@ -24,4 +24,4 @@ ki "A3-CodGen repository-level code generation local global third-party" a3codge
 # negative controls (expected exclusions if retrieved):
 ki "in-context autoencoder context compression large language model" nc_icae.jsonl
 ki "LongCoder long-range pre-trained language model code completion" nc_longcoder.jsonl
-echo "Study 5 known-item search done"
+echo "known-item search done"

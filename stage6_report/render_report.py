@@ -58,17 +58,22 @@ def table(name):
                        f"{'yes' if r.get('peer_reviewed') else 'no'} |")
         return "\n".join(out)
     if name == "audit":
-        out = ["Table: Study-level evidence audit of every record with a comparator.", "",
-               "| System | Model / config | Dataset, metric | Budget control | Arms compared | Other change | Reported delta | Verdict | Decided by | Rationale |",
-               "|---|---|---|---|---|---|---|---|---|---|"]
+        out = ["Table: Study-level evidence audit of every record coded as reporting a comparison. Verdict is the lenient reading; "
+               "'Decided by' says whether both checkers agreed, the tier rule settled it, or an author checked an assistant-proposed verdict.", "",
+               "| System | Model / config | Dataset, metric | Budget control | Arms compared | Other change | Reported delta | Verdict (A / B) | Decided by | Tier | Structure vs flat | Rationale |",
+               "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         def cl(t):  # one line per cell; "the record" in audit notes means our original extraction
             t = re.sub(r"\s+", " ", str(t or "")).replace("|", "/")
             t = t.replace("$", "\\$")  # literal dollars, not pandoc math
             return re.sub(r"\b([Tt])he record('s)?\b", lambda m: ("O" if m.group(1) == "T" else "o") + "ur original extraction" + (m.group(2) or ""), t)
+        DB = {"both checkers": "both checkers", "tier rule": "tier rule"}
         for a in stats["evidence_audit"]:
+            svf = (cl(a.get("outcome")) + (" [comparison switched; " + cl(a.get("tier_note")) + "]" if "witch" in str(a.get("tier_note", "")) else "")) \
+                if a.get("structure_vs_flat") else ""
             out.append(f"| {a['system']} | {cl(a['model_config'])} | {cl(a['dataset_metric'])} | {cl(a['budget_control'])} | "
-                       f"{cl(a['arm_a'])} vs {cl(a['arm_b'])} | {cl(a['other_changes'])} | {cl(a.get('delta'))} | {ab(a['evaluation'])} | "
-                       f"{'both checkers' if a['decided_by'] == 'both checkers' else 'author (proposed verdict)'} | {cl(a.get('human_reason') or a.get('rationale'))} |")
+                       f"{cl(a['arm_a'])} vs {cl(a['arm_b'])} | {cl(a['other_changes'])} | {cl(a.get('delta'))} | "
+                       f"{ab(a['evaluation'])} ({a['verdict_A']} / {a['verdict_B']}) | {DB.get(a['decided_by'], 'author (proposed verdict)')} | "
+                       f"{a.get('tier', '')} | {svf} | {cl(a.get('human_reason') or a.get('rationale'))} |")
         return "\n".join(out)
     sys.exit(f"render_report: unknown table {name}")
 

@@ -1,4 +1,9 @@
-# Stage 3 — Author Adjudication Log (Study 5, 2026-08-30)
+# Stage 3 — Author Adjudication Log (2026-08-30)
+
+> **Superseded (2026-10-09, amendment A2).** The evaluation recodes and the "10/83" budget-matched headline below belong to the
+> first version. The full-text evidence audit replaced the evaluation facet; see `evaudit_final.json`, the A2 entry in
+> `stage2_screening/decisions_adjudication.json`, and `stage5_map/_map_stats.json` for the current figures.
+
 
 Independent verification covered **all 83 eligible records, 235 numeric claims** (94.5% confirmed,
 13 wrong, 0 unretrievable) plus non-blind facet spot-checks; a blind second coder re-coded all 83 on

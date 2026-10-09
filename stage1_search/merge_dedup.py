@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study 5 stage 1->2: merge results, dedup (normalized TITLE ONLY -> title-Jaccard>=0.8; never
+"""->2: merge results, dedup (normalized TITLE ONLY -> title-Jaccard>=0.8; never
 title+year), pre-filter (code ∧ context-mechanism ∧ LLM signal), gold-set recall audit (incl.
 negative controls), cap check (seeded sample if >200), emit identified.jsonl + candidates.jsonl +
 compact screening chunks + a seeded 20% dual-screen sample."""
@@ -62,7 +62,7 @@ GOLD = ["repocoder", "graphcoder", "stall", "codeplan", "repofusion",
 NEG = ["incontext autoencoder|in context autoencoder", "longcoder"]
 nts = [norm(r["title"]) for r in rows]
 cand_nts = {norm(json.loads(l)["title"]) for l in open(f"{BASE}/stage2_screening/candidates.jsonl")}
-lines = ["# Gold-set recall audit (Study 5)", "", "| Item | Retrieved | Passed pre-filter |", "|---|---|---|"]
+lines = ["# Gold-set recall audit", "", "| Item | Retrieved | Passed pre-filter |", "|---|---|---|"]
 miss = 0
 for g in GOLD + [f"NEG:{n}" for n in NEG]:
     pats = g.replace("NEG:", "").split("|")

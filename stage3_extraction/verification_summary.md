@@ -1,4 +1,4 @@
-# Stage 3 — Independent Verification Summary (Study 5)
+# Stage 3 — Independent Verification Summary
 
 Records verified: 83. Key numbers checked: 235.
 - CONFIRMED: 222 (94.5% of checked; 94.5% of retrievable)

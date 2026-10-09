@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Study 5 stage 1: database search (arXiv + OpenAlex). Strategy 1 of 3 (see 00_protocol.md §2).
+# database search (arXiv + OpenAlex). Strategy 1 of 3 (see 00_protocol.md §2).
 set -u
 # Helpers: github.com/lingzhi227/agent-research-skills @ 9e6c085 (not redistributed). Set ARS_DIR to a checkout.
 DR="${ARS_DIR:?set ARS_DIR to a checkout of agent-research-skills}/skills/deep-research/scripts"
@@ -30,4 +30,4 @@ oa "repository-level context code large language model" oa_repo.jsonl
 oa "abstract syntax tree context large language model code" oa_ast.jsonl
 oa "context compression code generation LLM" oa_compress.jsonl
 oa "cross-file code completion context retrieval" oa_crossfile.jsonl
-echo "Study 5 database search done: $(ls "$R" | wc -l) result files"
+echo "database search done: $(ls "$R" | wc -l) result files"

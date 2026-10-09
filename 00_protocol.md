@@ -1,4 +1,4 @@
-# Review Protocol — Systematic Mapping Study (Study 5)
+# Review Protocol — Systematic Mapping Study
 
 **Working title:** *Seeing the Forest: A Systematic Mapping of Structure-Aware Context Engineering for
 Repository-Level Code LLMs and Agents.*
@@ -18,7 +18,7 @@ budget. No systematic review maps this space: which structural representations f
 selection/compression mechanisms are used where, what token-budget↔task-success trade-offs are actually
 measured, and whether "structure beats flat retrieval" claims are supported by budget-matched comparisons
 or confounded by giving the structured condition more or different context. (This study maps the
-*engineering* of the loop's perceive/context stage, whose attack surface program Study 3 mapped.)
+*engineering* of the loop's perceive/context stage, whose attack surface related studies mapped.)
 
 - **RQ1 (Representations).** What structural representations of a repository are used to construct LLM
   context — raw text windows, AST, call/dependency graph, code property graph, repo map/skeleton,
@@ -39,7 +39,7 @@ cross-task comparability) locate missing evaluation conventions.
 ## 2. Sources & search — three strategies
 
 1. **Database search:** arXiv API (≥3 s throttle) + OpenAlex, scripted (`stage1_search/run_search.sh`,
-   full strings + per-query hit counts in `search_log.md`). Justified as in Studies 1–4: the field is
+   full strings + per-query hit counts in `search_log.md`). Justified related studies: the field is
    preprint-dominated; Semantic Scholar unavailable (no API key). The 2-database ceiling is a disclosed
    limitation (DARE QC2), mitigated by strategies 2–3.
 2. **Snowballing:** known-item seed queries now (`run_known_items.sh`); after screening, one backward
@@ -83,7 +83,7 @@ against the gold set for false negatives) → LLM screening against I1–I4/E1�
 author adjudication of all uncertains + logged overrides. **Reliability action:** a seeded
 (`seed=20260830`) **20% sample of screened candidates is independently double-screened** by a second,
 blind LLM screener; include/exclude agreement and Cohen's κ are reported, disagreements author-adjudicated
-under a written rule (default to full-text check). This closes the no-screening-κ gap of program Studies 1–4.
+under a written rule (default to full-text check). This closes the no-screening-κ gap of related studies.
 
 ## 5. Classification scheme
 
@@ -110,7 +110,7 @@ budget_reported), F6, F7, scope(function/file/cross-file/repo), key_numbers(1–
 budget_tradeoff_detail, confound_note(what varies between compared conditions), stop_detail(mechanism as
 the paper states it), threats_to_that_datum`. **Full-corpus independent number verification** (every
 extracted number re-checked at its in-source location) + **blind full-corpus second coding** of F1-primary,
-F2, F5 with per-facet κ, as in Study 4.
+F2, F5 with per-facet κ, related studies.
 
 ## 7. Analysis & synthesis (named)
 
@@ -135,7 +135,7 @@ seeds, released pipeline).
 ## 9. Reporting
 
 Main body ≤ 8 pages (IEEE, split build); Appendices (verification, κ, complete per-record corpus table) in
-`supplementary.pdf`. AI-tooling disclosure as Studies 1–4 (scripted search; LLM screening/extraction,
+`supplementary.pdf`. AI-tooling disclosure related studies (scripted search; LLM screening/extraction,
 author-adjudicated; independent verification; blind second coder; dual-screened sample with κ).
 
 ## 10. Stage map

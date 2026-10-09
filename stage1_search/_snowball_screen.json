@@ -1,48 +1,183 @@
 [
  {
-  "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
-  "year": 2024,
-  "source_id": "arXiv:2403.00448 (DOI 10.1145/3639478.3647633)",
+  "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+  "year": 2023,
+  "source_id": "arXiv:2306.00381",
   "already_in_corpus": false,
   "decision": "include",
   "criterion": "I-all",
-  "reason": "RepoBugs benchmark + RLCE, a repository-level context extraction method that supplies precise cross-file context within the prompt limit for LLM repair."
+  "reason": "Queries a program analyzer for non-local (cross-file/dependency) information and studies how to feed it into completion-model context; ablates information types."
+ },
+ {
+  "title": "RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation",
+  "year": 2024,
+  "source_id": "arXiv:2402.16667",
+  "already_in_corpus": false,
+  "decision": "uncertain",
+  "criterion": "I2?",
+  "reason": "Repository-level documentation generation with an LLM; abstract names no context-construction mechanism (full text reportedly uses code-structure/reference context). Resolve at adjudication."
+ },
+ {
+  "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+  "year": 2024,
+  "source_id": "arXiv:2408.03910",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "LLM agent queries a graph database extracted from the repository for code-structure-aware context retrieval and navigation."
  },
  {
   "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
   "year": 2025,
-  "source_id": "arXiv:2506.10484 (DOI 10.1145/3808181)",
+  "source_id": "arXiv:2506.10484",
   "already_in_corpus": false,
   "decision": "include",
   "criterion": "I-all",
-  "reason": "Repository-level LLM repair whose contribution is context construction: retrieves past repair demonstrations (episodic) and insights (semantic) and composes them dynamically into the prompt."
+  "reason": "Repository-level repair that retrieves episodic demonstrations and semantic insights from memory and composes the prompt dynamically (context selection mechanism)."
  },
  {
-  "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
-  "year": 2024,
-  "source_id": "arXiv:2406.11147 (DOI 10.1145/3797277)",
+  "title": "Code Graph Model (CGM): A Graph-Integrated Large Language Model for Repository-Level Software Engineering Tasks",
+  "year": 2025,
+  "source_id": "arXiv:2505.16901",
   "already_in_corpus": false,
   "decision": "include",
   "criterion": "I-all",
-  "reason": "Knowledge-level RAG that retrieves distilled vulnerability knowledge into the LLM context for vulnerability detection; context construction for code LLMs at any scope (I1), same pattern as included 2510.27675 (example selection for LLM vulnerability detection). Function-level target, so facet coding should check E4 at full text."
+  "reason": "Repository code-graph structure mapped into the LLM input via an adapter, combined with an agentless graph-RAG framework; structural representation shaping context (not purely model-internal, so not E1)."
  },
  {
-  "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
-  "year": 2024,
-  "source_id": "arXiv:2405.17238",
+  "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+  "year": 2025,
+  "source_id": "arXiv:2503.09089",
   "already_in_corpus": false,
-  "decision": "uncertain",
-  "criterion": "I2?",
-  "reason": "IRIS: whole-repository vulnerability detection that combines LLMs with CodeQL. The LLM infers taint specifications that feed the static analyser (B1-like direction), and then filters paths in context. From the abstract, it is unclear whether static-analysis-selected context into the LLM is a mechanism the paper contributes."
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Parses the codebase into a heterogeneous dependency graph that LLM agents search to localize code."
  },
  {
-  "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
+  "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
   "year": 2024,
-  "source_id": "DOI 10.1145/3649828 (arXiv preprint 2308.00245, titled 'The Hitchhiker's Guide to Program Analysis')",
+  "source_id": "arXiv:2403.00448",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RepoBugs benchmark plus RLCE, a repository-level context extraction method that yields precise, length-bounded context for repair."
+ },
+ {
+  "title": "CoReQA: Uncovering Potentials of Language Models in Code Repository Question Answering",
+  "year": 2025,
+  "source_id": "arXiv:2501.03447",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Repository-level code QA benchmark comparing retrieval-based short-context against whole-repository long-context baselines (context-utilization study)."
+ },
+ {
+  "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+  "year": 2025,
+  "source_id": "arXiv:2505.07897",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Long-context (up to 1M) benchmark for repository-scale code QA and bug fixing; measures context utilization (Long Code Arena precedent)."
+ },
+ {
+  "title": "Aligning LLMs to Fully Utilize the Cross-file Context in Repository-level Code Completion",
+  "year": 2025,
+  "source_id": "arXiv:2503.15301",
+  "already_in_corpus": true,
+  "decision": "exclude",
+  "criterion": "E5",
+  "reason": "Already in corpus as 'aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context...' (same arXiv id; retitled). Supersedes the adjudication's E6 venue-check note, which missed the arXiv version."
+ },
+ {
+  "title": "LONGCODEU: Benchmarking Long-Context Language Models on Long Code Understanding",
+  "year": 2025,
+  "source_id": "arXiv:2503.04359",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Long code understanding benchmark incl. inter-code-unit relations; empirically measures context utilization as length grows (Long Code Arena precedent)."
+ },
+ {
+  "title": "RepoGenix: Dual Context-Aided Repository-Level Code Completion with Language Models",
+  "year": 2024,
+  "source_id": "doi:ASE2024-RepoGenix",
+  "already_in_corpus": false,
+  "decision": "exclude",
+  "criterion": "E6",
+  "reason": "Meets I1-I3 (context-aware selection/compression of analogous + relevant cross-file context), but no open full text; already logged identified-not-retrievable in decisions_adjudication.json."
+ },
+ {
+  "title": "Benchmarking Long-Context Language Models on Long Code Understanding",
+  "year": 2025,
+  "source_id": "ACL2025:LONGCODEU",
+  "already_in_corpus": false,
+  "decision": "exclude",
+  "criterion": "E5",
+  "reason": "ACL 2025 venue version of LONGCODEU (arXiv:2503.04359); same study, collapses under the dedup rule."
+ },
+ {
+  "title": "RepoChat: An LLM-Powered Chatbot for GitHub Repository Question-Answering",
+  "year": 2025,
+  "source_id": "MSR2025:RepoChat",
   "already_in_corpus": false,
   "decision": "uncertain",
-  "criterion": "I2?",
-  "reason": "LLift: static analysis plus an LLM for use-before-initialization bugs in the Linux kernel. Static path analysis and post-constraint guidance appear to shape what the LLM sees across a large codebase, but the abstract does not present this as a context-construction mechanism. Needs full text."
+  "criterion": "I1?",
+  "reason": "LLM translates questions into queries over a knowledge graph of repository metadata and uses results as context; structural context mechanism, but the questions concern commits/issues/users rather than a code task."
+ },
+ {
+  "title": "Beyond Functional Correctness: Exploring Hallucinations in LLM-Generated Code",
+  "year": 2024,
+  "source_id": "arXiv:2404.00971",
+  "already_in_corpus": false,
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Taxonomy of hallucinations in LLM-generated code; no context-construction mechanism or context-utilization study."
+ },
+ {
+  "title": "LoCoBench: A Benchmark for Long-Context Large Language Models in Complex Software Engineering",
+  "year": 2025,
+  "source_id": "arXiv:2509.09614",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Long-context benchmark (10K-1M tokens) for multi-file, whole-codebase software tasks; measures context utilization (Long Code Arena precedent)."
+ },
+ {
+  "title": "Repository-Level Code Understanding by LLMs via Hierarchical Summarization: Improving Code Search and Bug Localization",
+  "year": 2025,
+  "source_id": "doi:10.1007/978-3-031-97576-9_6",
+  "already_in_corpus": false,
+  "decision": "uncertain",
+  "criterion": "I2?/E6?",
+  "reason": "ICCSA 2025 chapter; abstract elided and closed access, no arXiv version found. Title suggests LLM hierarchical repository summaries used for code search/bug localization; whether the summaries feed an LLM's context (vs. B1 retrieval for developers) cannot be judged."
+ },
+ {
+  "title": "Issue Localization via LLM-Driven Iterative Code Graph Searching",
+  "year": 2025,
+  "source_id": "arXiv:2503.22424",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "COSIL: LLM-driven issue localization over dynamically built module/function call graphs with a pruner filtering irrelevant context."
+ },
+ {
+  "title": "Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories",
+  "year": 2025,
+  "source_id": "arXiv:2503.03586",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "JitVul benchmark for repository vulnerability detection comparing LLMs and ReAct agents that use interprocedural context (VulnGym/Antaeus precedent)."
+ },
+ {
+  "title": "RepoAudit: An Autonomous LLM-Agent for Repository-Level Code Auditing",
+  "year": 2025,
+  "source_id": "arXiv:2501.18160",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Repository-level auditing agent that explores code on demand along data-flow facts with agent memory, explicitly to cope with context-window limits and token cost."
  },
  {
   "title": "LLMxCPG: Context-Aware Vulnerability Detection Through Code Property Graph-Guided Large Language Models",
@@ -51,6 +186,15 @@
   "already_in_corpus": false,
   "decision": "include",
   "criterion": "I-all",
-  "reason": "Code-Property-Graph slice construction that compresses LLM input by 68-91% while keeping vulnerability-relevant context; it allows multi-function and project-scale analysis (a structural context-compression mechanism)."
+  "reason": "Code Property Graph-based slicing compresses code 68-91% while preserving vulnerability-relevant context, enabling multi-function/project-scale LLM analysis."
+ },
+ {
+  "title": "AOCI: Symbolic-Semantic Indexing for Practical Repository-Scale Code Understanding with LLMs",
+  "year": 2026,
+  "source_id": "arXiv:2605.02421",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "AOCI: symbolic-semantic repository index read by the LLM before any task; evaluated across six context conditions."
  }
 ]

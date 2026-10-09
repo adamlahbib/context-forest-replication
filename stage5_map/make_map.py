@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study 5 stage 5: derive ALL map statistics from extraction.json -> _map_stats.json +
+"""derive ALL map statistics from extraction.json -> _map_stats.json +
 systematic_map.md. Usage: make_map.py [base_with_extraction] [out_base]."""
 import json, sys, os, collections, re
 
@@ -70,7 +70,16 @@ if aud:
     mt = [a for a in aud if a["verdict"] == "budget-matched"]
     tc = collections.Counter(a.get("tier") for a in mt)
     stats["evaudit"]["tier"] = {k.replace("-", "_"): tc.get(k, 0) for k in ("measured-equal", "structured-smaller", "cap-filled")}
-    stats["evaudit"]["tier_dollars"] = sum("dollar" in str(a.get("note", "")) + str(a.get("tier_note", "")) for a in mt)
+    stats["evaudit"]["compared"] = sum(a["verdict"] != "no-comparator" for a in aud)
+    # strict reading: matched by BOTH independent checkers (no post-hoc rule)
+    both = [a for a in aud if a["verdict_A"] == a["verdict_B"] == "budget-matched"]
+    bsvf = [a for a in both if a.get("structure_vs_flat")]
+    stats["evaudit"]["strict"] = {"matched": len(both), "matched_B": sum(a["verdict_B"] == "budget-matched" for a in aud),
+                                  "svf": len(bsvf),
+                                  "structure_better": sum(a["outcome"].lower().startswith("structure better") for a in bsvf),
+                                  "flat_better": sum(a["outcome"].lower().startswith("flat better") for a in bsvf),
+                                  "no_difference": sum(a["outcome"].lower().startswith("no clear") for a in bsvf)}
+    stats["evaudit"]["svf_cap_only"] = sum(a.get("tier") == "cap-filled" for a in mt if a.get("structure_vs_flat"))
     svf = [a for a in mt if a.get("structure_vs_flat")]
     oc = collections.Counter(a["outcome"].split(":")[0].split(";")[0].split(".")[0].strip().lower() for a in svf)
     stats["evaudit"]["svf"] = {"n": len(svf), "structure_better": sum(o.startswith("structure better") for o in (a["outcome"].lower() for a in svf)),
@@ -96,7 +105,16 @@ stats["verification"] = {"records": len(ver), "claims": len(verdicts), "confirme
                          "wrong": vc.get("WRONG", 0), "unretrievable": vc.get("UNRETRIEVABLE", 0),
                          "pct_confirmed": round(100 * vc.get("CONFIRMED", 0) / len(verdicts), 1)}
 stats["kappa_coding"] = json.load(open(f"{S3}/_kappa.json"))
-kd = json.load(open(f"{S3}/_kappa_disagreements.json"))["repr_primary"]
+kdall = json.load(open(f"{S3}/_kappa_disagreements.json"))
+kd = kdall["repr_primary"]
+def kept_first(facet, key):
+    final = {r["arxiv_id"]: (prim(r.get("repr_classes")) if key == "repr" else r.get(key)) for r in rows}
+    ds = [x for x in kdall[facet] if x["arxiv_id"] in final]
+    return sum(final[x["arxiv_id"]] == x["first"] for x in ds), sum(final[x["arxiv_id"]] == x["second"] for x in ds), len(ds)
+for facet, key in (("repr_primary", "repr"), ("mechanism", "mechanism")):
+    f1, f2, n_ = kept_first(facet, key)
+    stats["kappa_coding"][facet]["final_first"], stats["kappa_coding"][facet]["final_second"] = f1, f2
+    stats["kappa_coding"][facet]["final_other"] = n_ - f1 - f2
 stats["kappa_coding"]["repr_disagreements"] = len(kd)
 stats["kappa_coding"]["repr_disagreements_hybrid"] = sum("hybrid" in (x["first"], x["second"]) for x in kd)
 first = {d["id"]: d["decision"] for f in glob.glob(f"{S2}/decisions_chunk*.json") for d in json.load(open(f))}
@@ -126,6 +144,10 @@ new_ = [x for x in scr if not x.get("already_in_corpus")]
 stats["snowball"] = {"papers": len(sc["papers"]), "resolved": sum(p["n_refs"] is not None for p in sc["papers"]),
                      "refs": sum(p["n_refs"] or 0 for p in sc["papers"]), "flagged": len(scr),
                      **{d: sum(x["decision"] == d for x in new_) for d in ("include", "uncertain", "exclude")}}
+aid = lambda t: (re.search(r"\d{4}\.\d{4,5}", t or "") or [None])[0]
+missed = {x.get("arxiv_id") or norm(x["title"]) for x in pf if x["decision"] == "include"} | \
+         {aid(x.get("source_id")) or norm(x["title"]) for x in new_ if x["decision"] == "include"}
+stats["coverage"] = {"missed_likely": len(missed), "recall_denominator": N + len(missed), "recall_pct": round(100 * N / (N + len(missed)))}
 
 json.dump(stats, open(f"{OUT}/stage5_map/_map_stats.json", "w"), indent=1)
 

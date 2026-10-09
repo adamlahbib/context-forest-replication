@@ -651,13 +651,13 @@
     "metric": "Input tokens, tutorial validation case study",
     "verdict": "CONFIRMED",
     "correct_value_if_wrong": "",
-    "note": "Table 4 ('Efficiency for Case Study 2', the tutorial case study): 112.3K -> 76.8K, -31.6% (~-32%), exactly."
+    "note": "Table 4 ('Efficiency for Case related studies', the tutorial case study): 112.3K -> 76.8K, -31.6% (~-32%), exactly."
    },
    {
     "metric": "Wall-clock time, tutorial validation case study",
     "verdict": "CONFIRMED",
     "correct_value_if_wrong": "",
-    "note": "Values correct (17.2 -> 11.4 min, -34%) but wrong table cited: this is in Table 4 ('Efficiency for Case Study 2'), not Table 3 (which covers Case Study 1 / API-reference, with unrelated values 4.1->3.2 min, -22%)."
+    "note": "Values correct (17.2 -> 11.4 min, -34%) but wrong table cited: this is in Table 4 ('Efficiency for Case related studies'), not Table 3 (which covers Case related studies / API-reference, with unrelated values 4.1->3.2 min, -22%)."
    },
    {
     "metric": "Issues surfaced",

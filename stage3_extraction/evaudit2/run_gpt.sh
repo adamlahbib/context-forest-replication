@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Second, independent evidence-audit check (Study 5 plan step 3). RUNS `codex exec` — user-gated; run only with approval.
+# Second, independent evidence-audit check (plan step 3). RUNS `codex exec` — user-gated; run only with approval.
 # One call per record, read-only sandbox, no web; each call sees only that record's paper.txt.
 set -u
 here=$(cd "$(dirname "$0")" && pwd); out="$here/out"; mkdir -p "$out"

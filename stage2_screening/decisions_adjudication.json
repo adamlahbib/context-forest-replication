@@ -1,10 +1,10 @@
 {
  "adjudicator": "author",
  "date": "2026-08-30",
- "rule": "Uncertains and dual-screen disagreements adjudicated from abstract; genuinely unresolvable I2 cases marked include-provisional and confirmed at full-text extraction (demotion logged with criterion) \u2014 the program's established pattern.",
+ "rule": "Uncertains and dual-screen disagreements adjudicated from abstract; genuinely unresolvable I2 cases marked include-provisional and confirmed at full-text extraction (demotion logged with criterion) — the established pattern.",
  "boundary_rules_added": [
   "B1: retrieval/search systems whose output feeds a developer or downstream classic tool (not an LLM's context) fail I2.",
-  "B2: structure-aware TRAINING objectives (e.g., AST-aware fill-in-the-middle) without a context-construction mechanism fail I2/E4 \u2014 the map is about what enters the context, not how the model was trained.",
+  "B2: structure-aware TRAINING objectives (e.g., AST-aware fill-in-the-middle) without a context-construction mechanism fail I2/E4 — the map is about what enters the context, not how the model was trained.",
   "B3: proof-assistant languages (Lean/Coq/Isabelle) count as code; theorem-proving agents with AST-based context mechanisms are in scope (I1 code QA/reasoning).",
   "B4: surveys are included only when their primary object is context construction/retrieval for code LLMs; broader SE-agent surveys that merely touch context fail E4."
  ],
@@ -113,7 +113,7 @@
    "item": "RepoGenix (ASE 2024)",
    "decision": "identified-not-retrievable",
    "criterion": "E6",
-   "reason": "Venue-check hit; no arXiv/open version found \u2014 logged per the accessibility rule."
+   "reason": "Venue-check hit; no arXiv/open version found — logged per the accessibility rule."
   },
   {
    "item": "Aligning LLMs to Fully Utilize the Cross-file Context (ASE 2025)",
@@ -124,6 +124,7 @@
  ],
  "dual_screen_note": "Binary include/exclude agreement 40/40 (kappa=1.00); the 3 three-way disagreements were uncertain-vs-decided cases, all resolved above.",
  "amendments": [
-  "D1 (2026-08-30, deviation): the protocol's promised post-screening backward/forward snowballing pass over included records was NOT executed (only the up-front known-item seeding was). Logged and disclosed in the report's threats section; the manuscript's search-strategy description was corrected to claim only what was executed."
+  "D1 (2026-08-30, deviation): the protocol's promised post-screening backward/forward snowballing pass over included records was NOT executed (only the up-front known-item seeding was). Logged and disclosed in the report's threats section; the manuscript's search-strategy description was corrected to claim only what was executed.",
+  "A2 (2026-10-09, reviewer-requested re-audit): every record coded as reporting a comparison (79) was re-judged at full text by two independent checkers (Claude agents, stage3_extraction/evaudit_out/; GPT via codex under a strict realised-budget rule, evaudit2/out/). The evaluation facet is replaced by four levels (budget-matched / unmatched / multi-change / no comparator). A lenient matching rule (shared hard cap, or structured arm measurably no larger; Table IV) was fixed after the checkers ran and is reported beside the strict reading (both checkers agree). A third full-text pass recorded budget tiers and structure-vs-flat outcomes (evaudit2/tier_out*.json); 15 disagreements were resolved by the lenient rule, 8 by an author checking assistant-proposed verdicts (evaudit2/human_decisions.json). Rule R1 applied to five retrieval-based records still coded raw_window (apply_adjudications.py)."
  ]
 }

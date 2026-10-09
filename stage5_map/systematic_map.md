@@ -5,9 +5,9 @@
 | value | n |
 |---|---|
 | hybrid | 21 |
+| embedding_retrieval | 17 |
 | call_dep_graph | 16 |
-| raw_window | 15 |
-| embedding_retrieval | 12 |
+| raw_window | 10 |
 | repo_map_skeleton | 8 |
 | ast | 7 |
 | cpg_dataflow | 2 |
@@ -17,8 +17,8 @@
 
 | value | n |
 |---|---|
+| embedding_retrieval | 42 |
 | raw_window | 42 |
-| embedding_retrieval | 39 |
 | call_dep_graph | 31 |
 | hybrid | 28 |
 | ast | 22 |
@@ -124,14 +124,14 @@
 
 | repr | budget_matched | unmatched_single | multi_change | demonstrated | not_eval |
 |---|---|---|---|---|---|
-| raw_window | 6 | 6 | 1 | 2 | 0 |
-| embedding_retrieval | 3 | 6 | 1 | 2 | 0 |
+| embedding_retrieval | 4 | 9 | 1 | 3 | 0 |
 | ast | 2 | 4 | 0 | 1 | 0 |
 | call_dep_graph | 5 | 9 | 2 | 0 | 0 |
 | hybrid | 8 | 9 | 3 | 0 | 1 |
 | repo_map_skeleton | 2 | 3 | 3 | 0 | 0 |
 | cpg_dataflow | 1 | 1 | 0 | 0 | 0 |
 | exec_traces | 2 | 0 | 0 | 0 | 0 |
+| raw_window | 5 | 3 | 1 | 1 | 0 |
 
 ## RQ4: budget-matched ablations (29/83)
 

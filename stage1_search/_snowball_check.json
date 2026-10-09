@@ -7,52 +7,100 @@
    "unknown": []
   },
   {
-   "arxiv_id": "2306.10763",
-   "n_refs": 66,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2309.12499",
-   "n_refs": 99,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2310.11248",
-   "n_refs": 44,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2402.14323",
-   "n_refs": 26,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2403.06095",
-   "n_refs": 55,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2405.19782",
-   "n_refs": 67,
-   "in_scope_by_title": 0,
-   "unknown": []
-  },
-  {
-   "arxiv_id": "2406.01359",
+   "arxiv_id": "2306.03091",
    "n_refs": 49,
    "in_scope_by_title": 0,
    "unknown": []
   },
   {
+   "arxiv_id": "2306.10763",
+   "n_refs": 66,
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2309.12499",
+   "n_refs": 99,
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2310.11248",
+   "n_refs": 44,
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2402.14323",
+   "n_refs": 26,
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2403.06095",
+   "n_refs": 55,
+   "in_scope_by_title": 2,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2405.19782",
+   "n_refs": 67,
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2406.01359",
+   "n_refs": 49,
+   "in_scope_by_title": 3,
+   "unknown": [
+    {
+     "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+     "year": 2023,
+     "known": false
+    }
+   ]
+  },
+  {
    "arxiv_id": "2406.01422",
    "n_refs": 52,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2406.03283",
@@ -63,12 +111,24 @@
   {
    "arxiv_id": "2406.04464",
    "n_refs": 15,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2406.07003",
    "n_refs": 63,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.11612",
+   "n_refs": 0,
    "in_scope_by_title": 0,
    "unknown": []
   },
@@ -91,10 +151,22 @@
    "unknown": []
   },
   {
-   "arxiv_id": "2505.14394",
-   "n_refs": 27,
+   "arxiv_id": "2504.08862",
+   "n_refs": 28,
    "in_scope_by_title": 0,
    "unknown": []
+  },
+  {
+   "arxiv_id": "2505.14394",
+   "n_refs": 27,
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2507.14791",
@@ -103,10 +175,37 @@
    "unknown": []
   },
   {
+   "arxiv_id": "2507.19942",
+   "n_refs": 47,
+   "in_scope_by_title": 3,
+   "unknown": [
+    {
+     "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "Code Graph Model (CGM): A Graph-Integrated Large Language Model for Repository-Level Software Engineering Tasks",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
    "arxiv_id": "2507.23348",
    "n_refs": 88,
-   "in_scope_by_title": 1,
+   "in_scope_by_title": 2,
    "unknown": [
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    },
     {
      "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
      "year": 2024,
@@ -121,26 +220,116 @@
    "unknown": []
   },
   {
+   "arxiv_id": "2508.21433",
+   "n_refs": 41,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2509.14635",
+   "n_refs": 86,
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "CoReQA: Uncovering Potentials of Language Models in Code Repository Question Answering",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
    "arxiv_id": "2509.16112",
    "n_refs": 29,
-   "in_scope_by_title": 0,
+   "in_scope_by_title": 1,
    "unknown": []
   },
   {
    "arxiv_id": "2510.00446",
    "n_refs": 80,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 6,
+   "unknown": [
+    {
+     "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "Aligning LLMs to Fully Utilize the Cross-file Context in Repository-level Code Completion",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LONGCODEU: Benchmarking Long-Context Language Models on Long Code Understanding",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "RepoGenix: Dual Context-Aided Repository-Level Code Completion with Language Models",
+     "year": 2024,
+     "known": false
+    },
+    {
+     "title": "Benchmarking Long-Context Language Models on Long Code Understanding",
+     "year": 2025,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2601.00376",
    "n_refs": 71,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 7,
+   "unknown": [
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2601.03708",
    "n_refs": 39,
+   "in_scope_by_title": 5,
+   "unknown": [
+    {
+     "title": "RepoChat: An LLM-Powered Chatbot for GitHub Repository Question-Answering",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    },
+    {
+     "title": "Beyond Functional Correctness: Exploring Hallucinations in LLM-Generated Code",
+     "year": 2024,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2601.13933",
+   "n_refs": 63,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2601.16746",
+   "n_refs": 79,
+   "in_scope_by_title": 4,
+   "unknown": [
+    {
+     "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2601.19929",
+   "n_refs": 6,
    "in_scope_by_title": 0,
    "unknown": []
   },
@@ -153,41 +342,100 @@
   {
    "arxiv_id": "2603.01327",
    "n_refs": 31,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2603.25770",
    "n_refs": 55,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 6,
+   "unknown": [
+    {
+     "title": "LoCoBench: A Benchmark for Long-Context Large Language Models in Complex Software Engineering",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2603.28119",
-   "n_refs": 43,
-   "in_scope_by_title": 0,
+   "n_refs": 44,
+   "in_scope_by_title": 1,
    "unknown": []
   },
   {
    "arxiv_id": "2605.15315",
    "n_refs": 36,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 4,
+   "unknown": [
+    {
+     "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+     "year": 2025,
+     "known": false
+    }
+   ]
   },
   {
-   "arxiv_id": "2606.07297",
+   "arxiv_id": "2606.08135",
    "n_refs": 33,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 3,
+   "unknown": [
+    {
+     "title": "Repository-Level Code Understanding by LLMs via Hierarchical Summarization: Improving Code Search and Bug Localization",
+     "year": 2025,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2606.14061",
-   "n_refs": 51,
-   "in_scope_by_title": 1,
+   "n_refs": 53,
+   "in_scope_by_title": 6,
    "unknown": [
     {
      "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
      "year": 2025,
+     "known": false
+    },
+    {
+     "title": "Issue Localization via LLM-Driven Iterative Code Graph Searching",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
      "known": false
     }
    ]
@@ -195,21 +443,16 @@
   {
    "arxiv_id": "2607.01138",
    "n_refs": 37,
-   "in_scope_by_title": 4,
+   "in_scope_by_title": 3,
    "unknown": [
     {
-     "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
-     "year": 2024,
+     "title": "Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories",
+     "year": 2025,
      "known": false
     },
     {
-     "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
-     "year": 2024,
-     "known": false
-    },
-    {
-     "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
-     "year": 2024,
+     "title": "RepoAudit: An Autonomous LLM-Agent for Repository-Level Code Auditing",
+     "year": 2025,
      "known": false
     },
     {
@@ -222,31 +465,92 @@
   {
    "arxiv_id": "2607.09691",
    "n_refs": 12,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 2,
+   "unknown": [
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2607.18213",
+   "n_refs": 61,
+   "in_scope_by_title": 3,
+   "unknown": [
+    {
+     "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+     "year": 2025,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2607.24882",
    "n_refs": 22,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    }
+   ]
   },
   {
-   "arxiv_id": "2607.24884",
-   "n_refs": 30,
-   "in_scope_by_title": 0,
-   "unknown": []
+   "arxiv_id": "2607.25431",
+   "n_refs": 78,
+   "in_scope_by_title": 5,
+   "unknown": [
+    {
+     "title": "AOCI: Symbolic-Semantic Indexing for Practical Repository-Scale Code Understanding with LLMs",
+     "year": 2026,
+     "known": false
+    },
+    {
+     "title": "Issue Localization via LLM-Driven Iterative Code Graph Searching",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+     "year": 2025,
+     "known": false
+    },
+    {
+     "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
+     "year": 2024,
+     "known": false
+    }
+   ]
   },
   {
    "arxiv_id": "2608.01927",
-   "n_refs": 57,
+   "n_refs": 58,
+   "in_scope_by_title": 1,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2608.24188",
+   "n_refs": 18,
    "in_scope_by_title": 0,
    "unknown": []
   }
  ],
  "unique_unknown": [
   {
-   "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
+   "title": "Better Context Makes Better Code Language Models: A Case Study on Function Call Argument Completion",
+   "year": 2023,
+   "known": false
+  },
+  {
+   "title": "RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation",
+   "year": 2024,
+   "known": false
+  },
+  {
+   "title": "CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases",
    "year": 2024,
    "known": false
   },
@@ -256,23 +560,93 @@
    "known": false
   },
   {
-   "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
+   "title": "Code Graph Model (CGM): A Graph-Integrated Large Language Model for Repository-Level Software Engineering Tasks",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "LocAgent: Graph-Guided LLM Agents for Code Localization",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
    "year": 2024,
    "known": false
   },
   {
-   "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+   "title": "CoReQA: Uncovering Potentials of Language Models in Code Repository Question Answering",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "LongCodeBench: Evaluating Coding LLMs at 1M Context Windows",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "Aligning LLMs to Fully Utilize the Cross-file Context in Repository-level Code Completion",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "LONGCODEU: Benchmarking Long-Context Language Models on Long Code Understanding",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "RepoGenix: Dual Context-Aided Repository-Level Code Completion with Language Models",
    "year": 2024,
    "known": false
   },
   {
-   "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
+   "title": "Benchmarking Long-Context Language Models on Long Code Understanding",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "RepoChat: An LLM-Powered Chatbot for GitHub Repository Question-Answering",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "Beyond Functional Correctness: Exploring Hallucinations in LLM-Generated Code",
    "year": 2024,
+   "known": false
+  },
+  {
+   "title": "LoCoBench: A Benchmark for Long-Context Large Language Models in Complex Software Engineering",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "Repository-Level Code Understanding by LLMs via Hierarchical Summarization: Improving Code Search and Bug Localization",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "Issue Localization via LLM-Driven Iterative Code Graph Searching",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "RepoAudit: An Autonomous LLM-Agent for Repository-Level Code Auditing",
+   "year": 2025,
    "known": false
   },
   {
    "title": "LLMxCPG: Context-Aware Vulnerability Detection Through Code Property Graph-Guided Large Language Models",
    "year": 2025,
+   "known": false
+  },
+  {
+   "title": "AOCI: Symbolic-Semantic Indexing for Practical Repository-Scale Code Understanding with LLMs",
+   "year": 2026,
    "known": false
   }
  ]

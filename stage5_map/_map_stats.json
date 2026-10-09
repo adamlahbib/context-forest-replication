@@ -2,17 +2,17 @@
  "N": 83,
  "repr_primary": {
   "hybrid": 21,
+  "embedding_retrieval": 17,
   "call_dep_graph": 16,
-  "raw_window": 15,
-  "embedding_retrieval": 12,
+  "raw_window": 10,
   "repo_map_skeleton": 8,
   "ast": 7,
   "cpg_dataflow": 2,
   "exec_traces": 2
  },
  "repr_any": {
+  "embedding_retrieval": 42,
   "raw_window": 42,
-  "embedding_retrieval": 39,
   "call_dep_graph": 31,
   "hybrid": 28,
   "ast": 22,
@@ -85,16 +85,10 @@
   "true": 23
  },
  "repr_x_eval": {
-  "raw_window": {
-   "budget_matched": 6,
-   "unmatched_single": 6,
-   "demonstrated": 2,
-   "multi_change": 1
-  },
   "embedding_retrieval": {
-   "budget_matched": 3,
-   "demonstrated": 2,
-   "unmatched_single": 6,
+   "budget_matched": 4,
+   "unmatched_single": 9,
+   "demonstrated": 3,
    "multi_change": 1
   },
   "ast": {
@@ -124,19 +118,17 @@
   },
   "exec_traces": {
    "budget_matched": 2
+  },
+  "raw_window": {
+   "budget_matched": 5,
+   "demonstrated": 1,
+   "unmatched_single": 3,
+   "multi_change": 1
   }
  },
  "repr_x_task": {
-  "raw_window": {
-   "completion": 6,
-   "qa_reasoning": 1,
-   "general_mixed": 4,
-   "editing_issue_resolution": 1,
-   "generation": 1,
-   "review": 2
-  },
   "embedding_retrieval": {
-   "completion": 7,
+   "completion": 12,
    "generation": 2,
    "translation": 2,
    "editing_issue_resolution": 1
@@ -169,6 +161,14 @@
   },
   "exec_traces": {
    "editing_issue_resolution": 2
+  },
+  "raw_window": {
+   "qa_reasoning": 1,
+   "general_mixed": 4,
+   "editing_issue_resolution": 1,
+   "generation": 1,
+   "completion": 1,
+   "review": 2
   }
  },
  "budget_matched_records": [
@@ -341,7 +341,16 @@
    "structured_smaller": 16,
    "cap_filled": 10
   },
-  "tier_dollars": 2,
+  "compared": 77,
+  "strict": {
+   "matched": 12,
+   "matched_B": 14,
+   "svf": 6,
+   "structure_better": 3,
+   "flat_better": 1,
+   "no_difference": 2
+  },
+  "svf_cap_only": 6,
   "svf": {
    "n": 12,
    "structure_better": 6,
@@ -379,7 +388,7 @@
    "tier_evidence": "\"The length of retrieved code snippets is set to half the prompt length.\" (Sec. 4 implementation details; prompt+output max 4,096 GPT-3.5 / 2,048 CodeGen)",
    "tier_note": "Both arms are flat retrievers (Jaccard vs UniXcoder) over the same 20-line sliding windows, so not structure-vs-flat. Paper says the length is 'set to' half the prompt but never states fill/truncation or per-arm realized lengths; with K<=10 x 20-line snippets the half-prompt allocation is plausibly but not provably filled. No structured arm exists anywhere in the paper.",
    "evaluation": "budget_matched",
-   "repr": "raw_window"
+   "repr": "embedding_retrieval"
   },
   {
    "arxiv_id": "2306.03091",
@@ -462,7 +471,7 @@
    "rationale": "Only the context production/ordering differs at an equal nominal slot capacity, but realized token use is not reported: \"the improved performance of NT-versions when compared to the T-versions, highlights the value of presenting complete context from top prompt proposals\". The retrieval-mechanism comparison (Fig. 3 right) is multi-change because BM25/RandomNN models were trained with \"a learning rate of 2.5e-5 and the setting N=63,l=512\".",
    "human_reason": null,
    "evaluation": "unmatched_single",
-   "repr": "raw_window"
+   "repr": "embedding_retrieval"
   },
   {
    "arxiv_id": "2309.12499",
@@ -713,7 +722,7 @@
    "tier_evidence": "\"%RAG = ratio of instances where RAG is performed.\" (Table 3 caption); cross-file context \"right-truncate[d] ... to 512 tokens\" (App. A)",
    "tier_note": "The selective arm omits cross-file context on 22-39% of instances, so the arms do not share a filled cap. Per-arm realized tokens are not reported; %RAG is only a proxy. The selective arm is smaller by construction, so this is a borderline structured-smaller, but tokens are never measured. No structured arm in the paper (Jaccard retrieval only).",
    "evaluation": "unmatched_single",
-   "repr": "raw_window"
+   "repr": "embedding_retrieval"
   },
   {
    "arxiv_id": "2405.19782",
@@ -1040,7 +1049,7 @@
    "rationale": "Same model and scaffold; only context differs, but the amount differs (in-file only vs filled to 4,096): 'This concatenation continues until the total length ... reaches the predetermined maximum token limit of 4096'.",
    "human_reason": null,
    "evaluation": "unmatched_single",
-   "repr": "raw_window"
+   "repr": "embedding_retrieval"
   },
   {
    "arxiv_id": "2411.11532",
@@ -1496,7 +1505,7 @@
    "rationale": "No downstream-quality number is reported for any alternative: the shard comparison measures retrieval hits only. The paper concedes 'The effect of contexts found by Single-shard towards the quality of code completed is not investigated'. Competitors appear only as ranks without scores.",
    "human_reason": "Only retrieval hit rate compared; no completion-quality comparison.",
    "evaluation": "demonstrated",
-   "repr": "raw_window"
+   "repr": "embedding_retrieval"
   },
   {
    "arxiv_id": "2601.00376",
@@ -2437,12 +2446,18 @@
   "repr_primary": {
    "kappa": 0.41,
    "agree": 43,
-   "n": 83
+   "n": 83,
+   "final_first": 33,
+   "final_second": 5,
+   "final_other": 2
   },
   "mechanism": {
    "kappa": 0.67,
    "agree": 61,
-   "n": 83
+   "n": 83,
+   "final_first": 19,
+   "final_second": 2,
+   "final_other": 1
   },
   "evaluation": {
    "kappa": 0.56,
@@ -2478,12 +2493,17 @@
   "cap_included": 0
  },
  "snowball": {
-  "papers": 35,
-  "resolved": 35,
-  "refs": 1583,
-  "flagged": 6,
-  "include": 4,
-  "uncertain": 2,
-  "exclude": 0
+  "papers": 46,
+  "resolved": 46,
+  "refs": 2113,
+  "flagged": 22,
+  "include": 15,
+  "uncertain": 3,
+  "exclude": 3
+ },
+ "coverage": {
+  "missed_likely": 32,
+  "recall_denominator": 115,
+  "recall_pct": 72
  }
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study 5: author adjudication of the verification pass + blind-second-coder disagreements.
+"""author adjudication of the verification pass + blind-second-coder disagreements.
 Applies accepted corrections onto extraction.json (in place, path via arg). Decisions and
 rationale in corrections_log.md. Run order: merge_extraction.py -> apply_adjudications.py ->
 summarize_verification.py -> make_map.py. Usage: apply_adjudications.py [base]"""
@@ -77,6 +77,13 @@ by["2508.02998"]["stop_detail"] = (by["2508.02998"].get("stop_detail","").rstrip
 by["2607.24884"]["stop_detail"] = (by["2607.24884"].get("stop_detail","").rstrip() +
     " [Adjudication: evidence filtering/ranking uses Eq. 6, distinct from the generation-uncertainty formula.]")
 
+# ---- Rule R1 applied consistently (amendment A2, 2026-10-09): these primaries were coded raw_window although their
+# context is composed of similarity-retrieved snippets (Jaccard/lexical); R1 codes that as embedding_retrieval.
+for aid in ("2303.12570", "2306.10998", "2403.10059", "2410.21157", "2510.12948"):
+    r = by[aid]; rc = r.get("repr_classes") or []
+    assert rc and rc[0] == "raw_window", aid
+    r["repr_classes"] = ["embedding_retrieval"] + [x for x in rc if x not in ("embedding_retrieval",)]
+
 # ---- Evidence audit (amendment A2, 2026-10-09; reviewer request). Every record with a comparator was re-judged at
 # full text by two independent checkers (Claude agents; GPT) on four levels; disagreements decided by the authors.
 LEVEL = {"budget-matched": "budget_matched", "unmatched-single": "unmatched_single",
@@ -90,4 +97,4 @@ for a in audit:
 
 for r in rows: r["adjudicated"] = True  # compute_kappa.py refuses post-adjudication data
 json.dump(rows, open(P, "w"), indent=1)
-print("Study 5 adjudications applied:", len(rows), "records")
+print("adjudications applied:", len(rows), "records")

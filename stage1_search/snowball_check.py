@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """Bounded backward-snowballing check (narrows deviation D1; not the full protocol pass).
 For each given arXiv id: list its references (Semantic Scholar), keep those whose title passes the
-search's own conjunction (LLM AND security AND structure/context), and report the ones the search never
+search's own conjunction (LLM AND code AND repository context/structure), and report the ones the search never
 identified. Output: stage1_search/_snowball_check.json. Usage: snowball_check.py <arxiv_id>..."""
 import json, re, sys, time, os, urllib.request, urllib.parse
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = {"User-Agent": "slr-snowball-check (mailto:anonymous@example.org)"}
 LLM = re.compile(r"\b(llms?|large language models?|gpt|chatgpt|language models?|codellama|code ?llms?)\b", re.I)
-SEC = re.compile(r"vulnerab|secur|exploit|taint|cwe|bug|patch|repair|malicious|false positive", re.I)
-STRUCT = re.compile(r"graph|ast\b|syntax|slice|slicing|flow|taint|context|retriev|rag\b|static analysis|program analysis|"
-                    r"call|inter-?procedural|repository|symbolic|semantic", re.I)
+# this study's pre-filter conjunction: code AND context mechanism AND LLM (00_protocol.md section 4)
+SEC = re.compile(r"\bcode\b|coding|program|software|repositor|issue|swe-?bench|completion", re.I)
+STRUCT = re.compile(r"context|retriev|rag\b|repositor|cross-?file|graph|\bast\b|syntax|skeleton|compress|prun|"
+                    r"dependenc|call|slice|explor|navigat|memory", re.I)
 
 
 def get(url):
