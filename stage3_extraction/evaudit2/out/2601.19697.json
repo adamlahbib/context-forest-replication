@@ -1,0 +1,1 @@
+{"arxiv_id":"2601.19697","comparison":"AlignCoder vs. w/o QH ablation","model_config":"DeepSeekCoder-7B generator","budget_control":"Not reported","arm_a":"AlignCoder","arm_b":"w/o QH","other_changes":"Query enhancement removed","verdict":"unmatched-single","quote":"w/o QH denotes the configuration without the query enhancement mechanism applied."}

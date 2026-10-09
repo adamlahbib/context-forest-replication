@@ -1,0 +1,526 @@
+{
+ "repr_primary": [
+  {
+   "arxiv_id": "2303.12570",
+   "system": "RepoCoder",
+   "first": "raw_window",
+   "second": "embedding_retrieval",
+   "note": "Abstract only; similarity-based retriever + iterative retrieval-generation, compared vs in-file/vanilla-RAG baselines, n"
+  },
+  {
+   "arxiv_id": "2306.10763",
+   "system": "MGD",
+   "first": "ast",
+   "second": "raw_window",
+   "note": "Full text; static-analysis monitor gates decoding (type-valid identifiers) rather than altering the raw local-file input"
+  },
+  {
+   "arxiv_id": "2306.10998",
+   "system": "RepoFusion",
+   "first": "raw_window",
+   "second": "embedding_retrieval",
+   "note": "Full-text (HTML). Raw chunks retrieved via heuristic proposals/BM25/CodeBERT-embeddings, fused via Fusion-in-Decoder; ma"
+  },
+  {
+   "arxiv_id": "2309.12499",
+   "system": "CodePlan",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text (HTML): prompt fuses dependency-graph spatial context, AST-folded class skeletons, and temporal before/after e"
+  },
+  {
+   "arxiv_id": "2310.11248",
+   "system": "CrossCodeEval",
+   "first": "embedding_retrieval",
+   "second": "raw_window",
+   "note": "Full text; benchmark paper - BM25/UniXCoder/ada embedding retrieval of fixed 10-line raw code fragments (top-5, \u2264512 tok"
+  },
+  {
+   "arxiv_id": "2312.10101",
+   "system": "Schonholtz23",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full text; pure literature review contrasting RepoCoder (sliding-window/BM25/embedding retrieval) vs RLPG (signature/ide"
+  },
+  {
+   "arxiv_id": "2402.12317",
+   "system": "EVOR",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full-text (HTML). Dense (INSTRUCTOR-xl) retrieval over docs+code+execution-feedback with iteratively evolving queries; F"
+  },
+  {
+   "arxiv_id": "2403.10059",
+   "system": "Repoformer",
+   "first": "raw_window",
+   "second": "embedding_retrieval",
+   "note": "Full text: LM self-triggers/abstains from retrieving cross-file code chunks via learned special token; Table2 compares N"
+  },
+  {
+   "arxiv_id": "2406.01422",
+   "system": "LingmaAgent",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text; AST-derived function-call knowledge graph guides MCTS, then agent issues search_class/method/code tool calls "
+  },
+  {
+   "arxiv_id": "2406.03283",
+   "system": "CatCoder",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full-text (HTML). Static-analyzer type-context restricted to direct neighbors in type-dependency graph + sparse/dense-re"
+  },
+  {
+   "arxiv_id": "2406.04464",
+   "system": "Kovrigin24",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text (HTML): ReAct-style agent gathers context via either a BM25 retrieval tool or AutoCodeRover's structure-aware "
+  },
+  {
+   "arxiv_id": "2406.10018",
+   "system": "STALL+",
+   "first": "repo_map_skeleton",
+   "second": "hybrid",
+   "note": "Full text: static-analysis-extracted cross-file class/method signatures and valid-name lists prepended to raw in-file te"
+  },
+  {
+   "arxiv_id": "2406.11612",
+   "system": "LongCodeArena",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full text; multi-task benchmark spanning raw-window, BM25/embedding retrieval (bug localization, API gen) and file-tree "
+  },
+  {
+   "arxiv_id": "2406.11927",
+   "system": "RepoExec",
+   "first": "call_dep_graph",
+   "second": "raw_window",
+   "note": "Full text (html): dependencies located via call-graph static analysis and repository graph mapping, inserted as raw code"
+  },
+  {
+   "arxiv_id": "2406.18294",
+   "system": "HCP",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text; import-dependency graph scopes candidate files, embedding similarity (ada-002) selects functions kept in full"
+  },
+  {
+   "arxiv_id": "2409.15204",
+   "system": "RAMBO",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full text (HTML): JDT/Joern static analysis extracts essential elements (called methods/fields/types) from a generated s"
+  },
+  {
+   "arxiv_id": "2503.15301",
+   "system": "aiXcoder-7B-v2",
+   "first": "hybrid",
+   "second": "raw_window",
+   "note": "Full text (html): cross-file context is raw text combining SCIP import-based dependency files and Jaccard-similarity-ret"
+  },
+  {
+   "arxiv_id": "2505.14394",
+   "system": "Athale25",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text; AST-derived Neo4j knowledge graph (class/method/function/attribute nodes) combined with full-text+embedding e"
+  },
+  {
+   "arxiv_id": "2507.14791",
+   "system": "RepoScope",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text: Repository Structural Semantic Graph (callers/call chains) plus similarity-retrieved functions/fragments both"
+  },
+  {
+   "arxiv_id": "2507.19942",
+   "system": "Prometheus",
+   "first": "hybrid",
+   "second": "call_dep_graph",
+   "note": "Full text; unified dependency knowledge graph traversed by LLM-directed agent with working memory; component-removal abl"
+  },
+  {
+   "arxiv_id": "2508.08322",
+   "system": "Haseeb25",
+   "first": "ast",
+   "second": "hybrid",
+   "note": "Full-text (HTML). Claude Code sub-agents combine AST-chunked (tree-sitter) embedding retrieval, grep/file tools, and Not"
+  },
+  {
+   "arxiv_id": "2509.14635",
+   "system": "SWE-QA",
+   "first": "raw_window",
+   "second": "hybrid",
+   "note": "Full text: benchmark compares direct-prompting, embedding-RAG chunks, and agentic tool-use (OpenHands/SWE-agent file+ter"
+  },
+  {
+   "arxiv_id": "2509.16112",
+   "system": "CodeRAG",
+   "first": "ast",
+   "second": "embedding_retrieval",
+   "note": "Full text; AST-derived code chunks retrieved via combined sparse+dense+dataflow-guided multi-path retrieval and rerankin"
+  },
+  {
+   "arxiv_id": "2510.12948",
+   "system": "SpareCodeSearch",
+   "first": "raw_window",
+   "second": "embedding_retrieval",
+   "note": "Abstract only (html/pdf full text unavailable); GPU-free keyword/lexical retrieval (no dense embeddings) of code chunks,"
+  },
+  {
+   "arxiv_id": "2601.00376",
+   "system": "InlineCoder",
+   "first": "call_dep_graph",
+   "second": "raw_window",
+   "note": "Full text: call-graph (Tree-Sitter/Pydepcall) traversal selects caller/callee raw source to inline around a draft anchor"
+  },
+  {
+   "arxiv_id": "2601.10112",
+   "system": "RIG",
+   "first": "repo_map_skeleton",
+   "second": "call_dep_graph",
+   "note": "Abstract-only (arxiv.org/abs, quotes were substantial but no separate html fetch): SPADE deterministically extracts a bu"
+  },
+  {
+   "arxiv_id": "2601.13933",
+   "system": "VulnResolver",
+   "first": "call_dep_graph",
+   "second": "raw_window",
+   "note": "Full text; CPCAgent gathers raw code snippets with metadata via search_code_element/read_code/resolve_code_symbol tools;"
+  },
+  {
+   "arxiv_id": "2601.19697",
+   "system": "AlignCoder",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full text (HTML): base snippets (split-aggregate chunking) plus tree-sitter-extracted dependency snippets (class hierarc"
+  },
+  {
+   "arxiv_id": "2602.05780",
+   "system": "Finkler26",
+   "first": "ast",
+   "second": "embedding_retrieval",
+   "note": "Full text: 'semantic scopes' are raw bracket-delimited code chunks retrieved via embedding cosine-similarity for the RAG"
+  },
+  {
+   "arxiv_id": "2602.05892",
+   "system": "ContextBench",
+   "first": "raw_window",
+   "second": "hybrid",
+   "note": "Full text; benchmark of coding agents using file-system navigation, embedding retrieval (Agentless), and graph retrieval"
+  },
+  {
+   "arxiv_id": "2603.25770",
+   "system": "ReCUBE",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text; benchmark contrasts full-repo raw-window context vs bash-only agent exploration vs agent+CCE dependency-graph"
+  },
+  {
+   "arxiv_id": "2606.04397",
+   "system": "CAIS",
+   "first": "hybrid",
+   "second": "embedding_retrieval",
+   "note": "Full text (html): despite the title, dependency chains are surfaced indirectly - CAIS is a BM25+dense (reciprocal rank f"
+  },
+  {
+   "arxiv_id": "2606.08135",
+   "system": "TICoder",
+   "first": "hybrid",
+   "second": "embedding_retrieval",
+   "note": "Full-text (HTML). Raw callee-function implementations retrieved via dual-view (functional+implementation) cosine similar"
+  },
+  {
+   "arxiv_id": "2606.14061",
+   "system": "SeeRepo",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text (HTML): text (code/docs/execution feedback) plus an AST-derived Graphviz visual graph (contains/imports/invoke"
+  },
+  {
+   "arxiv_id": "2607.01138",
+   "system": "Antaeus",
+   "first": "call_dep_graph",
+   "second": "hybrid",
+   "note": "Full text; hybrid of Tree-sitter-derived call/dependency graph + a repo-wide LLM-generated semantic summary bundle (trus"
+  },
+  {
+   "arxiv_id": "2607.09691",
+   "system": "SamBodden26",
+   "first": "ast",
+   "second": "hybrid",
+   "note": "Full text (html): oracle localization held fixed while representation is varied across deterministic rungs (full-body, m"
+  },
+  {
+   "arxiv_id": "2607.15205",
+   "system": "MM-IssueLoc",
+   "first": "embedding_retrieval",
+   "second": "hybrid",
+   "note": "Full text (HTML): benchmark pairs agentic (OpenHands/AgentLess) and retrieval (BM25/SWERank/VL-Embedding) issue-localiza"
+  },
+  {
+   "arxiv_id": "2607.18213",
+   "system": "SWE-Pruner Pro",
+   "first": "raw_window",
+   "second": "exec_traces",
+   "note": "Abstract only; a small trained head reads the coding agent's own internal representations to make keep-or-prune decision"
+  },
+  {
+   "arxiv_id": "2607.24882",
+   "system": "Agent Retrieval Bench",
+   "first": "repo_map_skeleton",
+   "second": "hybrid",
+   "note": "Full text: benchmarks lexical/dense-embedding retrieval, RepoMap (structural skeleton) and logged agentic trajectories a"
+  },
+  {
+   "arxiv_id": "2607.26805",
+   "system": "MRCoder",
+   "first": "hybrid",
+   "second": "embedding_retrieval",
+   "note": "Full text; BM25-retrieved function/class chunks filtered by draft-guided API-consistency + similarity (SADGS); Table 2-4"
+  }
+ ],
+ "mechanism": [
+  {
+   "arxiv_id": "2402.03630",
+   "system": "IDECoder",
+   "first": "slicing_static_analysis",
+   "second": "skeletonization",
+   "note": "Full text; IDE static analysis (AST/symbol table) extracts signatures/docstrings/types as skeleton context; EM 10.46% vs"
+  },
+  {
+   "arxiv_id": "2402.14323",
+   "system": "REPOFUSE",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full text (HTML): fuses BM25-retrieved 'analogy' chunks with code-property-graph-derived signature 'rationale' context; "
+  },
+  {
+   "arxiv_id": "2406.03283",
+   "system": "CatCoder",
+   "first": "slicing_static_analysis",
+   "second": "graph_guided_retrieval",
+   "note": "Full-text (HTML). Static-analyzer type-context restricted to direct neighbors in type-dependency graph + sparse/dense-re"
+  },
+  {
+   "arxiv_id": "2406.18294",
+   "system": "HCP",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full text; import-dependency graph scopes candidate files, embedding similarity (ada-002) selects functions kept in full"
+  },
+  {
+   "arxiv_id": "2409.15204",
+   "system": "RAMBO",
+   "first": "similarity_retrieval",
+   "second": "slicing_static_analysis",
+   "note": "Full text (HTML): JDT/Joern static analysis extracts essential elements (called methods/fields/types) from a generated s"
+  },
+  {
+   "arxiv_id": "2412.08063",
+   "system": "ContextModule",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full text; three co-primary context types (behavior-based raw code, similarity-retrieved snippets, static-analysis symbo"
+  },
+  {
+   "arxiv_id": "2503.15301",
+   "system": "aiXcoder-7B-v2",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full text (html): cross-file context is raw text combining SCIP import-based dependency files and Jaccard-similarity-ret"
+  },
+  {
+   "arxiv_id": "2504.10046",
+   "system": "GraphCodeAgent",
+   "first": "agentic_exploration",
+   "second": "graph_guided_retrieval",
+   "note": "Full text (HTML): dual Requirement Graph + Structural-Semantic Code Graph, traversed via an SSCGTraverse tool that retri"
+  },
+  {
+   "arxiv_id": "2508.02998",
+   "system": "MRG-Bench",
+   "first": "none_fixed_window",
+   "second": "graph_guided_retrieval",
+   "note": "Full text; benchmark contrasts in-file raw window, callee call-graph context (signature vs body), BM25/embedding RAG, an"
+  },
+  {
+   "arxiv_id": "2508.21433",
+   "system": "Lindenbauer25",
+   "first": "summarization",
+   "second": "none_fixed_window",
+   "note": "Abstract only; studies SWE-agent/OpenHands tool-output/observation history; coded mechanism as fixed/recency-window mask"
+  },
+  {
+   "arxiv_id": "2510.00446",
+   "system": "LongCodeZip",
+   "first": "learned_pruning",
+   "second": "learned_compression",
+   "note": "Full text (html): two-stage compression over raw function/class-level chunks - coarse-grained perplexity-based function "
+  },
+  {
+   "arxiv_id": "2510.08850",
+   "system": "Yanuganti25",
+   "first": "learned_pruning",
+   "second": "skeletonization",
+   "note": "Full text (PDF): six AST-derived hierarchical repo summaries (per-file, folder/file overview, mid/fine AST class-functio"
+  },
+  {
+   "arxiv_id": "2601.19697",
+   "system": "AlignCoder",
+   "first": "similarity_retrieval",
+   "second": "learned_pruning",
+   "note": "Full text (HTML): base snippets (split-aggregate chunking) plus tree-sitter-extracted dependency snippets (class hierarc"
+  },
+  {
+   "arxiv_id": "2603.25770",
+   "system": "ReCUBE",
+   "first": "graph_guided_retrieval",
+   "second": "agentic_exploration",
+   "note": "Full text; benchmark contrasts full-repo raw-window context vs bash-only agent exploration vs agent+CCE dependency-graph"
+  },
+  {
+   "arxiv_id": "2603.28119",
+   "system": "SWEzze",
+   "first": "learned_pruning",
+   "second": "learned_compression",
+   "note": "Full-text (HTML). AST-decomposed hierarchical units (file/function/block) with omitted units replaced by placeholders; S"
+  },
+  {
+   "arxiv_id": "2606.08135",
+   "system": "TICoder",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full-text (HTML). Raw callee-function implementations retrieved via dual-view (functional+implementation) cosine similar"
+  },
+  {
+   "arxiv_id": "2606.14061",
+   "system": "SeeRepo",
+   "first": "graph_guided_retrieval",
+   "second": "agentic_exploration",
+   "note": "Full text (HTML): text (code/docs/execution feedback) plus an AST-derived Graphviz visual graph (contains/imports/invoke"
+  },
+  {
+   "arxiv_id": "2607.01138",
+   "system": "Antaeus",
+   "first": "graph_guided_retrieval",
+   "second": "slicing_static_analysis",
+   "note": "Full text; hybrid of Tree-sitter-derived call/dependency graph + a repo-wide LLM-generated semantic summary bundle (trus"
+  },
+  {
+   "arxiv_id": "2607.15205",
+   "system": "MM-IssueLoc",
+   "first": "similarity_retrieval",
+   "second": "summarization",
+   "note": "Full text (HTML): benchmark pairs agentic (OpenHands/AgentLess) and retrieval (BM25/SWERank/VL-Embedding) issue-localiza"
+  },
+  {
+   "arxiv_id": "2607.24882",
+   "system": "Agent Retrieval Bench",
+   "first": "graph_guided_retrieval",
+   "second": "similarity_retrieval",
+   "note": "Full text: benchmarks lexical/dense-embedding retrieval, RepoMap (structural skeleton) and logged agentic trajectories a"
+  },
+  {
+   "arxiv_id": "2607.26805",
+   "system": "MRCoder",
+   "first": "learned_pruning",
+   "second": "similarity_retrieval",
+   "note": "Full text; BM25-retrieved function/class chunks filtered by draft-guided API-consistency + similarity (SADGS); Table 2-4"
+  },
+  {
+   "arxiv_id": "2608.01927",
+   "system": "DyCoder (DyRetriever)",
+   "first": "agentic_exploration",
+   "second": "graph_guided_retrieval",
+   "note": "Full-text (HTML). LLM-guided multi-hop traversal builds an on-demand partial function-level call/dependency graph, feedi"
+  }
+ ],
+ "evaluation": [
+  {
+   "arxiv_id": "2303.12570",
+   "system": "RepoCoder",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Abstract only; similarity-based retriever + iterative retrieval-generation, compared vs in-file/vanilla-RAG baselines, n"
+  },
+  {
+   "arxiv_id": "2306.10998",
+   "system": "RepoFusion",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full-text (HTML). Raw chunks retrieved via heuristic proposals/BM25/CodeBERT-embeddings, fused via Fusion-in-Decoder; ma"
+  },
+  {
+   "arxiv_id": "2310.11248",
+   "system": "CrossCodeEval",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text; benchmark paper - BM25/UniXCoder/ada embedding retrieval of fixed 10-line raw code fragments (top-5, \u2264512 tok"
+  },
+  {
+   "arxiv_id": "2312.10101",
+   "system": "Schonholtz23",
+   "first": "ablated_measured",
+   "second": "not_evaluated",
+   "note": "Full text; pure literature review contrasting RepoCoder (sliding-window/BM25/embedding retrieval) vs RLPG (signature/ide"
+  },
+  {
+   "arxiv_id": "2402.12317",
+   "system": "EVOR",
+   "first": "ablated_measured",
+   "second": "budget_matched_ablation",
+   "note": "Full-text (HTML). Dense (INSTRUCTOR-xl) retrieval over docs+code+execution-feedback with iteratively evolving queries; F"
+  },
+  {
+   "arxiv_id": "2406.01359",
+   "system": "R2C2-Coder",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text (html): dual pool of tree-sitter-derived abstract/declaration context and raw 10-line snippet context, retriev"
+  },
+  {
+   "arxiv_id": "2406.18294",
+   "system": "HCP",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text; import-dependency graph scopes candidate files, embedding similarity (ada-002) selects functions kept in full"
+  },
+  {
+   "arxiv_id": "2504.08862",
+   "system": "RTLRepoCoder",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full-text (HTML). Raw code chunks retrieved by cosine similarity, invoked only above a 10k-token threshold; chunk-size/e"
+  },
+  {
+   "arxiv_id": "2510.00446",
+   "system": "LongCodeZip",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text (html): two-stage compression over raw function/class-level chunks - coarse-grained perplexity-based function "
+  },
+  {
+   "arxiv_id": "2602.05892",
+   "system": "ContextBench",
+   "first": "demonstrated",
+   "second": "ablated_measured",
+   "note": "Full text; benchmark of coding agents using file-system navigation, embedding retrieval (Agentless), and graph retrieval"
+  },
+  {
+   "arxiv_id": "2604.24678",
+   "system": "Chand26",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text (HTML): entire DSL folder hierarchy linearized as path-preserving JSON with full file contents (no dynamic sel"
+  },
+  {
+   "arxiv_id": "2607.25431",
+   "system": "CodeNib",
+   "first": "budget_matched_ablation",
+   "second": "ablated_measured",
+   "note": "Full text (html): co-equal lexical/dense/structural(typed graph) views feed ranked retrieval (dense top-k) with optional"
+  }
+ ]
+}

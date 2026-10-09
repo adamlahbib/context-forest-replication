@@ -1,0 +1,213 @@
+[
+ {
+  "arxiv_id": "2312.10101",
+  "kind": "repr_primary",
+  "suggested": "raw_window",
+  "note": "repr_primary mislabeled: this review covers RepoCoder (BM25/Jaccard sliding-window snippets) and RLPG (rule-based context proposers + learned classifier) - neither uses embedding retrieval, so raw_win"
+ },
+ {
+  "arxiv_id": "2406.11612",
+  "kind": "repr_primary",
+  "suggested": "hybrid",
+  "note": "All three numbers confirmed exactly. repr_primary flagged: this is a 6-task benchmark with diverse per-task representations (BM25 keyword lists, file-tree proximity, raw diffs; embeddings appear only "
+ },
+ {
+  "arxiv_id": "2602.05892",
+  "kind": "number",
+  "metric": "File-level F1 (\"Bitter Lesson\" finding)",
+  "correct": "SWE-agent File-level F1 = 0.544, not 0.625 (0.625 is SWE-agent's Block-level Recall, a different column, in the same Table 2 row). mini-SWE-Agent's 0.634 is correct.",
+  "note": "Verified independently against two fetch endpoints (arxiv.org/html and ar5iv.labs.arxiv.org) with consistent results."
+ },
+ {
+  "arxiv_id": "2605.26177",
+  "kind": "repr_primary",
+  "suggested": "repo_map_skeleton",
+  "note": "All three numbers confirmed exactly. repr_primary flagged: RepoAnchor's central artifact (INSTRUCTIONS.md, a structured map of editing locations/runtime relations/cross-file dependencies) reads as rep"
+ },
+ {
+  "arxiv_id": "2607.06065",
+  "kind": "number",
+  "metric": "Resolve-rate-after-revision (RRR), Qwen3-30B after SFT",
+  "correct": "35.8% (not 35.1%); Table 2: Qwen3-30B-A3B RRR baseline 27.5% -> SWE-Review-30B-A3B 35.8% (+8.3pp).",
+  "note": "Verified twice against the raw Table 2 content; the baseline 27.5% is correct but the post-SFT figure is 35.8%, not 35.1%."
+ },
+ {
+  "arxiv_id": "2503.15301",
+  "kind": "number",
+  "metric": "Unseen-language generalization EM (C#, TypeScript)",
+  "correct": "Swap the pairing: TypeScript is +19.2% (46.96->55.96 EM) and C# is +20.6% (46.32->55.88 EM). The record lists '(C#, TypeScript)' = '+19.2%, +20.6%', which has the two languages reversed relative to Table III.",
+  "note": "Table III confirms both magnitudes (+19.2% and +20.6%) exist, but they are attributed to the wrong language in the record."
+ },
+ {
+  "arxiv_id": "2601.10112",
+  "kind": "mechanism",
+  "suggested": "skeletonization",
+  "note": "Mechanism mismatch: SPADE deterministically builds a whole-repo architectural map from CMake File API + CTest build/test metadata upfront -- this is better described as skeletonization (building an ab"
+ },
+ {
+  "arxiv_id": "2607.25431",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "Evaluation type mismatch: the Q5 token-reduction experiment holds quality constant (filters to policies where AnswerRecall@5 stays within an epsilon=0.05 margin of grep/read) and reports token usage a"
+ },
+ {
+  "arxiv_id": "2306.10763",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "All three key numbers confirmed exactly. Evaluation is a set of configuration comparisons across models/prompting/decoding strategies, not a budget-matched ablation (no held-constant token/line budget"
+ },
+ {
+  "arxiv_id": "2402.03630",
+  "kind": "evaluation",
+  "suggested": "demonstrated",
+  "note": "All three numbers confirmed exactly. No ablation study is present \u2014 the paper only compares IDECoder against baselines (in-file, all-import, RAG) with no isolation of its own components (e.g., linting"
+ },
+ {
+  "arxiv_id": "2406.18294",
+  "kind": "number",
+  "metric": "EM improvement, Starcoder2-7B",
+  "correct": "31.45% -> 35.76% is the correct Table 4 (top-k=5) EM. 35.22% is real but is the EM at Table 5's top-p=0.3 config (top-k fixed at 5), not Table 4's top-k=5 config as cited.",
+  "note": "Location/value mismatch: cited as 'Table 4 (HCP, top-k=5)' but Table 4 top-k=5 actually gives EM=35.76%, not 35.22%. The 35.22% figure belongs to a different table/config (Table 5, top-p=0.3)."
+ },
+ {
+  "arxiv_id": "2406.18294",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "EM number WRONG: Table 4 top-k=5 gives 35.76% not 35.22% (35.22% is actually from Table 5, top-p=0.3 \u2014 a mislabeled location). Evaluation varies top-k/top-p, which changes the resulting token budget a"
+ },
+ {
+  "arxiv_id": "2503.18305",
+  "kind": "number",
+  "metric": "Pass@1 (Claude-3.5-Sonnet, full K-Trans vs prompt-engineering baseline)",
+  "correct": "67.7% vs 49.1% is correct; the paper's own text calls this an 18.6-point/percent surpass ('substantially surpassing the best baseline PE by 17.8% and 18.6%'). 135.9% is the maximum relative improvement across ALL studied LLMs (specifically Qwen-2.5-Coder-14B) vs a Basic RAG baseline (per abstract), not Claude-3.5-Sonnet vs PE baseline.",
+  "note": "135.9% relative improvement figure is misattributed \u2014 it belongs to a different model/baseline pair, not Claude-3.5-Sonnet vs PE."
+ },
+ {
+  "arxiv_id": "2601.13933",
+  "kind": "repr_primary",
+  "suggested": "hybrid",
+  "note": "repr_primary disagreement: CPCAgent's collected context is output as a natural-language Context Analysis Report with embedded code snippets/citations (no explicit graph structure built), and the syste"
+ },
+ {
+  "arxiv_id": "2607.26805",
+  "kind": "mechanism",
+  "suggested": "similarity_retrieval",
+  "note": "mechanism disagreement: Structure-Aware Draft-Guided Selection uses fixed rule-based signals (exact API-call overlap + BM25 similarity to an LLM-generated draft) with no trained/learned scorer or clas"
+ },
+ {
+  "arxiv_id": "2306.10998",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "Both numbers CONFIRMED exactly. Evaluation is likely NOT budget-matched: the paper varies N (num contexts) and l (length) independently across experiments rather than holding total token budget consta"
+ },
+ {
+  "arxiv_id": "2504.08862",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "IMPORTANT: stop_detail mischaracterizes the mechanism \u2014 the paper states retrieved chunks are CONCATENATED with in-file context (Sec 3.3), not used to REPLACE full-repo context once the budget is exce"
+ },
+ {
+  "arxiv_id": "2508.08322",
+  "kind": "evaluation",
+  "suggested": "demonstrated",
+  "note": "Both numbers CONFIRMED exactly. Evaluation label questionable: this is a small 5-task qualitative case study on a single codebase, which the paper itself frames as limited/non-rigorous rather than a c"
+ },
+ {
+  "arxiv_id": "2601.16746",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "All three numbers CONFIRMED exactly. Evaluation is borderline: paper sets nominal 4x/8x compression targets across methods, but SWE-Pruner exceeds these targets vs. baselines at the 'same' nominal set"
+ },
+ {
+  "arxiv_id": "2603.28119",
+  "kind": "number",
+  "metric": "issue resolution rate vs no compression",
+  "correct": "GPT-5.2: 0.578 vs 0.532 (+4.6pp) is a +8.6% relative improvement, NOT +9.2%. The +9.2% relative figure actually belongs to DeepSeek-V3.2 (0.522 vs 0.478, +4.4pp = +9.2% relative). Qwen3-Coder: 0.420 vs 0.400 (+2.0pp = +5.0% relative) is correct.",
+  "note": "The GPT-5.2 relative-% figure (+9.2%) is misattributed \u2014 it is actually DeepSeek-V3.2's relative improvement per Table 2; GPT-5.2's own relative gain is +8.6%."
+ },
+ {
+  "arxiv_id": "2603.28119",
+  "kind": "number",
+  "metric": "compression ratio",
+  "correct": "5.95x-6.55x, not 6.03x-6.55x. Table 2 per-model ratios: DeepSeek-V3.2 6.03x, Qwen3-Coder-Next 5.95x, GPT-5.2 6.55x \u2014 the true minimum across the three models is 5.95x (Qwen3-Coder-Next), which is excluded from the stated range.",
+  "note": "Range should start at 5.95x (Qwen3-Coder-Next), not 6.03x (which is the middle value, from DeepSeek-V3.2)."
+ },
+ {
+  "arxiv_id": "2606.08135",
+  "kind": "number",
+  "metric": "Pass@1 (DevEval, GPT-4o-mini)",
+  "correct": "31.01% is correct, but '+22.76 pts' is actually a RELATIVE percentage improvement over AllianceCoder (baseline 25.26%), not percentage points. Verified: (31.01-25.26)/25.26 = 22.76% relative \u2014 exact match. The absolute point gap is only ~5.75 pts.",
+  "note": "'pts' label is incorrect \u2014 22.76 is a relative-% improvement, not an absolute percentage-point gap."
+ },
+ {
+  "arxiv_id": "2606.08135",
+  "kind": "number",
+  "metric": "Pass@1 (CoderEval Python, DeepSeek-V3)",
+  "correct": "56.09% is correct, but '+7.90 pts' is likely a relative percentage improvement over AllianceCoder (baseline ~52.17%), not percentage points (absolute point gap is only ~3.9-4.1 pts).",
+  "note": "Same 'pts' mislabeling pattern as the DevEval figure; the paper marks these gains with '\u2191X%' notation which is relative, not absolute points."
+ },
+ {
+  "arxiv_id": "2406.04464",
+  "kind": "repr_primary",
+  "suggested": "ast",
+  "note": "Paper never mentions call/dependency graphs; it explicitly borrows AutoCodeRover's 'code structure-aware tools' (well-documented elsewhere as AST-based search_class/search_method/search_code APIs, not"
+ },
+ {
+  "arxiv_id": "2504.10046",
+  "kind": "number",
+  "metric": "Pass@1 CoderEval, GPT-4o",
+  "correct": "58.14/53.91 vs 40.87% (not 42.17%)",
+  "note": "Table 4 row 'Sparse RACG | Text-based | 40.87 | 42.17' \u2014 the two numbers are GPT-4o and Gemini-1.5-Pro columns respectively. 40.87 is the GPT-4o value (and matches the stated 31.91% relative improvement: (53.91-40.87)/40.87=31.9%); 42.17 is Gemini-1.5-Pro's value, wrongly attributed to GPT-4o."
+ },
+ {
+  "arxiv_id": "2510.08850",
+  "kind": "mechanism",
+  "suggested": "learned_compression",
+  "note": "Mechanism mismatch: nothing is pruned from a given context \u2014 the paper explicitly frames this as compiling retrieval into model weights (\"compact, parametric index of the repository\"), i.e. learned_co"
+ },
+ {
+  "arxiv_id": "2604.24678",
+  "kind": "evaluation",
+  "suggested": "ablated_measured",
+  "note": "Evaluation mismatch: the representation (single nested-JSON full-project encoding) is held constant across ALL conditions \u2014 what's varied is the adaptation strategy (zero-shot / one-shot / QLoRA fine-"
+ },
+ {
+  "arxiv_id": "2310.11248",
+  "kind": "repr_primary",
+  "suggested": "raw_window",
+  "note": "The headline retrieved-context number (15.72%) is produced by BM25 lexical retrieval over raw contiguous code chunks (10-line fragments, top-5, capped at 512 BPE tokens) -- not dense embeddings -- so "
+ },
+ {
+  "arxiv_id": "2410.21157",
+  "kind": "number",
+  "metric": "Baseline (in-file only) EM",
+  "correct": "22.6%",
+  "note": "Actual baseline EM for DeepSeekCoder-6.7B is 22.6%, slightly outside the stated '~20-22%' approximate range."
+ },
+ {
+  "arxiv_id": "2508.21433",
+  "kind": "mechanism",
+  "suggested": "none_fixed_window",
+  "note": "Both numbers confirmed exactly. Labeling mechanism 'summarization' undersells the paper's central finding: fixed-window observation masking (none_fixed_window), not LLM summarization, is shown to be s"
+ },
+ {
+  "arxiv_id": "2607.01138",
+  "kind": "mechanism",
+  "suggested": "hybrid",
+  "note": "All three numbers confirmed exactly. Paper explicitly states its grounding approach 'combines local code detail with project-wide semantics rather than relying on graph-based retrieval or exhaustive a"
+ },
+ {
+  "arxiv_id": "2602.05780",
+  "kind": "number",
+  "metric": "model size vs accuracy",
+  "correct": "Paper only states that BASELINE (uncustomized) Llama-8B and Granite-8B are 'competitive... even relative to Qwen2.5-72B' (also uncustomized) \u2014 a baseline-vs-baseline comparison. It does not claim that CUSTOMIZED 8B models outperform uncustomized 72B Qwen2.5 across most categories.",
+  "note": "Mischaracterizes the comparison: the paper's finding is about uncustomized small models being competitive with an uncustomized large model, not customized-8B beating uncustomized-72B, and overstates 'competitive' as 'outperform ... across most categories'."
+ },
+ {
+  "arxiv_id": "2607.01425",
+  "kind": "number",
+  "metric": "benchmark scale",
+  "correct": "turicreate has 237 files (not 293) at depth 10; 1,725 functions is correct for turicreate. The 293-files figure in Table 1 belongs to a different repository in the benchmark (pants), not turicreate.",
+  "note": "File count is misattributed to turicreate; correct turicreate stats are 237 files / 1,725 functions. '6 repositories, depths 7-13' is otherwise correct."
+ }
+]

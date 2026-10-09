@@ -1,0 +1,98 @@
+[
+{
+"arxiv_id": "2306.10763",
+"title": "Guiding Language Models of Code with Global Context using Monitors",
+"repr_primary": "raw_window",
+"mechanism": "slicing_static_analysis",
+"evaluation": "budget_matched_ablation",
+"note": "Full text; static-analysis monitor gates decoding (type-valid identifiers) rather than altering the raw local-file input; MGD on/off compared at fixed 1536/512 token prompt/gen budget."
+},
+{
+"arxiv_id": "2402.03630",
+"title": "Enhancing LLM-Based Coding Tools through Native Integration of IDE-Derived Static Context",
+"repr_primary": "repo_map_skeleton",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"note": "Full text; IDE static analysis (AST/symbol table) extracts signatures/docstrings/types as skeleton context; EM 10.46% vs RAG baseline 9.77%, no budget matching stated."
+},
+{
+"arxiv_id": "2406.01422",
+"title": "Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; AST-derived function-call knowledge graph guides MCTS, then agent issues search_class/method/code tool calls for raw snippets; SWE-bench Lite 21.33% vs SWE-agent 18.00%, budget not controlled."
+},
+{
+"arxiv_id": "2406.18294",
+"title": "Hierarchical Context Pruning: Optimizing Real-World Code Completion with Repository-Level Pretrained Code LLMs",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; import-dependency graph scopes candidate files, embedding similarity (ada-002) selects functions kept in full vs header-only skeleton; ~50k to ~8k tokens with EM 36.69->42.85%, not budget-matched."
+},
+{
+"arxiv_id": "2503.18305",
+"title": "Evolving Triple Knowledge-Augmented LLMs for Code Translation in Repository Context",
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; BM25+UniXcoder retrieval for target-language samples and translation pairs (dependency examples via static analysis); K1/K2/K3Trans ablation pass@1 49.1->62.9->65.6->67.7%, budget not matched."
+},
+{
+"arxiv_id": "2508.02998",
+"title": "MRG-Bench: Evaluating and Exploring the Requirements of Context for Repository-Level Code Generation",
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; benchmark contrasts in-file raw window, callee call-graph context (signature vs body), BM25/embedding RAG, and whole-folder long-context, capped at 6000 tokens but not matched across conditions."
+},
+{
+"arxiv_id": "2510.04905",
+"title": "Retrieval-Augmented Code Generation: A Survey with Focus on Repository-Level Approaches",
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "not_evaluated",
+"note": "Abstract only; pure literature survey taxonomizing retrieval substrate/control regime/evaluation across graph-based and non-graph RACG methods, no original experiments."
+},
+{
+"arxiv_id": "2601.13933",
+"title": "VulnResolver: A Hybrid Agent Framework for LLM-Based Automated Vulnerability Issue Resolution",
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; CPCAgent gathers raw code snippets with metadata via search_code_element/read_code/resolve_code_symbol tools; ablation CPCAgent-only 61.3% vs non-agentic base 48.8% on SEC-bench Lite, budget not matched."
+},
+{
+"arxiv_id": "2603.25770",
+"title": "ReCUBE: Evaluating Repository-Level Context Utilization in Code Generation",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; benchmark contrasts full-repo raw-window context vs bash-only agent exploration vs agent+CCE dependency-graph toolkit; naturally varying context sizes (131K vs 400K windows), not budget-matched."
+},
+{
+"arxiv_id": "2606.07297",
+"title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "budget_matched_ablation",
+"note": "Full text; pure benchmark comparing BM25/TF-IDF/dense retrieval, general coding agents, and graph-based specialized localizers, all evaluated under an identical fixed line budget (B=500)."
+},
+{
+"arxiv_id": "2607.10621",
+"title": "WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation",
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; WebAppArchKG (Tree-sitter/AST-derived code graph fused with design-history knowledge) traversed via rule-based graph retrieval; ablation w/o design knowledge -11.40pp Pass@1, token counts not matched vs baselines."
+},
+{
+"arxiv_id": "2607.26805",
+"title": "MRCoder: An Efficient Context Selecting Approach for Repository-Level Code Generation",
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; BM25-retrieved function/class chunks filtered by draft-guided API-consistency + similarity (SADGS); Table 2-4 show token counts vary 30-50% across methods, not budget-matched."
+}
+]

@@ -1,0 +1,98 @@
+[
+{
+"arxiv_id": "2310.11248",
+"title": "CrossCodeEval: A Diverse and Multilingual Benchmark for Cross-File Code Completion",
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; benchmark paper - BM25/UniXCoder/ada embedding retrieval of fixed 10-line raw code fragments (top-5, ≤512 tokens), EM/ES/identifier-F1 vs in-file-only and oracle-reference baselines, budget not explicitly held constant across retrieval methods."
+},
+{
+"arxiv_id": "2403.06095",
+"title": "RepoHyper: Search-Expand-Refine on Semantic Graphs for Repository-Level Code Completion",
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; Repo-level Semantic Graph is a call/import/class-hierarchy dependency graph (no control/data-flow edges), Expand-and-Refine graph retrieval with link prediction, outperforms baselines with quantified accuracy, budget-matching not stated."
+},
+{
+"arxiv_id": "2406.07003",
+"title": "GraphCoder: Enhancing Repository-Level Code Completion via Code Context Graph-based Retrieval and Language Model",
+"repr_primary": "cpg_dataflow",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Abstract only; Code Context Graph explicitly encodes control-flow and data/control-dependence between statements, coarse-to-fine graph-guided retrieval, quantified EM/identifier-match gains (+6.06/+6.23) vs RAG baselines, no explicit budget matching."
+},
+{
+"arxiv_id": "2410.21157",
+"title": "M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation",
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; benchmark paper - model input is in-file text plus Jaccard-similarity-retrieved cross-file line fragments (max 4096 tokens); AST used only to label completion points/buckets, not as model input; compares in-file-only vs +retrieval, not a strict budget-matched design."
+},
+{
+"arxiv_id": "2505.14394",
+"title": "Knowledge Graph Based Repository-Level Code Generation",
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; AST-derived Neo4j knowledge graph (class/method/function/attribute nodes) combined with full-text+embedding entry search, n-hop graph traversal, and re-ranking - genuinely hybrid graph+retrieval. Pass@1 vs baselines on EvoCodeBench (20.73% vs 17.45%/7.27%), authors explicitly do not control for context length across conditions."
+},
+{
+"arxiv_id": "2508.21433",
+"title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management",
+"repr_primary": "exec_traces",
+"mechanism": "none_fixed_window",
+"evaluation": "ablated_measured",
+"note": "Abstract only; studies SWE-agent/OpenHands tool-output/observation history; coded mechanism as fixed/recency-window masking (the paper's central finding is that simply omitting older observations matches LLM summarization) - genuinely contests summarization/learned_pruning, and proposed hybrid; quantified cost/solve-rate on SWE-bench Verified, not budget-matched a priori (cost is the measured outcome)."
+},
+{
+"arxiv_id": "2510.12948",
+"title": "SpareCodeSearch: Searching for Code Context When You Have No Spare GPU",
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Abstract only (html/pdf full text unavailable); GPU-free keyword/lexical retrieval (no dense embeddings) of code chunks, evaluated via chrF (0.748 Kotlin, 0.725 Python) on Code Context Competition leaderboard - quantified but budget-matching vs other competition entries unconfirmed."
+},
+{
+"arxiv_id": "2601.19929",
+"title": "Stingy Context: 18:1 Hierarchical Code Compression for LLM Auto-Coding",
+"repr_primary": "repo_map_skeleton",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"note": "Full text (PDF); TREEFRAG builds a hierarchical metadata tree (name/category/type/tagline/description per function-level node), 18:1-24:1 compression vs raw code; beats flat-chunking/RAG/AST/call-graph/GraphRAG baselines in blinded task ranking (22/40 tasks) but budget is not held constant (compression is the manipulated variable). Note: single-author, patent-pending, self-published venue - quality/credibility concerns."
+},
+{
+"arxiv_id": "2605.14478",
+"title": "When Retrieval Hurts Code Completion: A Diagnostic Study of Stale Repository Context",
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; oracle-controlled diagnostic manipulation of stale-vs-current raw function-signature snippets (emulates but is not a real retriever) across current-only/stale-only/no-retrieval/mixed conditions on 17 curated samples; NOT budget-matched (mixed condition adds more content); quantified induced-staleness rates (up to 88.2pp) across 2 models."
+},
+{
+"arxiv_id": "2607.01138",
+"title": "Antaeus: Hunting Repository-Level Logic Vulnerabilities via Context-Grounded LLM Reasoning",
+"repr_primary": "hybrid",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"note": "Full text; hybrid of Tree-sitter-derived call/dependency graph + a repo-wide LLM-generated semantic summary bundle (trust boundaries/actors/protected objects) + function-level raw code, with static-analysis/keyword prioritization (149,758->4,859 functions) funneled into agentic LLM ranking; compared vs function-level and agentic baselines on 28 repos, no budget-matched ablation (cost/depth differ across methods)."
+},
+{
+"arxiv_id": "2607.18213",
+"title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
+"repr_primary": "exec_traces",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"note": "Abstract only; a small trained head reads the coding agent's own internal representations to make keep-or-prune decisions per line of tool-output/observation text; up to 39% token savings, +3.8% SWE-bench Verified resolve rate across 2 backbones/4 benchmarks, not budget-matched (savings vary by condition rather than being fixed)."
+},
+{
+"arxiv_id": "2608.24188",
+"title": "Paritok-4B: Intent-Conditioned Context Compression for Coding Agents",
+"repr_primary": "exec_traces",
+"mechanism": "learned_compression",
+"evaluation": "ablated_measured",
+"note": "Abstract only; 4B LoRA model (Qwen3-4B) extractively/intent-conditionally selects spans from agent trajectory tool-outputs/file-reads, distilled from OpenHands trajectories; compared vs gpt-4.1-mini/gpt-5 compressors on compression ratio (25.7%) and SWE-bench Lite solve-quality retention (86.5%), not budget-matched to a common target size; extractive span-selection also arguably fits learned_pruning."
+}
+]

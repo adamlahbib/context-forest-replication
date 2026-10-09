@@ -1,0 +1,56 @@
+[
+ {
+  "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
+  "year": 2024,
+  "source_id": "arXiv:2403.00448 (DOI 10.1145/3639478.3647633)",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RepoBugs benchmark + RLCE, a repository-level context extraction method that supplies precise cross-file context within the prompt limit for LLM repair."
+ },
+ {
+  "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
+  "year": 2025,
+  "source_id": "arXiv:2506.10484 (DOI 10.1145/3808181)",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Repository-level LLM repair whose contribution is context construction: retrieves past repair demonstrations (episodic) and insights (semantic) and composes them dynamically into the prompt."
+ },
+ {
+  "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
+  "year": 2024,
+  "source_id": "arXiv:2406.11147 (DOI 10.1145/3797277)",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Knowledge-level RAG that retrieves distilled vulnerability knowledge into the LLM context for vulnerability detection; context construction for code LLMs at any scope (I1), same pattern as included 2510.27675 (example selection for LLM vulnerability detection). Function-level target, so facet coding should check E4 at full text."
+ },
+ {
+  "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+  "year": 2024,
+  "source_id": "arXiv:2405.17238",
+  "already_in_corpus": false,
+  "decision": "uncertain",
+  "criterion": "I2?",
+  "reason": "IRIS: whole-repository vulnerability detection that combines LLMs with CodeQL. The LLM infers taint specifications that feed the static analyser (B1-like direction), and then filters paths in context. From the abstract, it is unclear whether static-analysis-selected context into the LLM is a mechanism the paper contributes."
+ },
+ {
+  "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
+  "year": 2024,
+  "source_id": "DOI 10.1145/3649828 (arXiv preprint 2308.00245, titled 'The Hitchhiker's Guide to Program Analysis')",
+  "already_in_corpus": false,
+  "decision": "uncertain",
+  "criterion": "I2?",
+  "reason": "LLift: static analysis plus an LLM for use-before-initialization bugs in the Linux kernel. Static path analysis and post-constraint guidance appear to shape what the LLM sees across a large codebase, but the abstract does not present this as a context-construction mechanism. Needs full text."
+ },
+ {
+  "title": "LLMxCPG: Context-Aware Vulnerability Detection Through Code Property Graph-Guided Large Language Models",
+  "year": 2025,
+  "source_id": "arXiv:2507.16585",
+  "already_in_corpus": false,
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Code-Property-Graph slice construction that compresses LLM input by 68-91% while keeping vulnerability-relevant context; it allows multi-function and project-scale analysis (a structural context-compression mechanism)."
+ }
+]

@@ -1,0 +1,577 @@
+[
+ {
+  "arxiv_id": "2306.10763",
+  "system": "MGD",
+  "title": "Guiding Language Models of Code with Global Context using Monitors",
+  "venue": "NeurIPS 2023",
+  "repr_classes": [
+   "ast"
+  ],
+  "mechanism": "slicing_static_analysis",
+  "task": "completion",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "PragmaticCode",
+   "DotPrompts",
+   "MGDMicroBench"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Compilation Rate, SantaCoder-1.1B-MGD vs text-davinci-003",
+    "value": "73.03% vs 62.66%",
+    "where": "Table 1, \u00a74.1"
+   },
+   {
+    "metric": "Next Identifier Match, SantaCoder-MGD vs text-davinci-003",
+    "value": "88.42% vs 86.18%",
+    "where": "Table 1, \u00a74.1"
+   },
+   {
+    "metric": "Improvement on high-complexity identifiers (36.97% of methods)",
+    "value": "21.79%-27.91% gain",
+    "where": "Appendix F, Figure 6"
+   }
+  ],
+  "budget_tradeoff_detail": "Total context budget fixed at 2048 tokens (1536 prompt + 512 generation) held identically across MGD and non-MGD arms; no budget-vs-quality tradeoff curve reported beyond this fixed setting.",
+  "confound_note": "Primary comparison (\u00a74.1) varies only presence/absence of monitor-guided logit masking; prompting strategy, decoding parameters, and token budgets are held constant, isolating the mechanism's effect."
+ },
+ {
+  "arxiv_id": "2312.10101",
+  "system": "Schonholtz23",
+  "title": "A Review of Repository Level Prompting for LLMs",
+  "venue": "arXiv (Northeastern University NLP course project, not peer-reviewed venue)",
+  "repr_classes": [
+   "embedding_retrieval",
+   "hybrid"
+  ],
+  "mechanism": "similarity_retrieval",
+  "task": "completion",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "RepoCoder benchmark (8 Python repos, 373 samples)",
+   "Repository-Level Prompt Generation benchmark (47 Java repos, 189,557 holes)"
+  ],
+  "budget_reported": false,
+  "key_numbers": [
+   {
+    "metric": "line completion exact match",
+    "value": "57% (RepoCoder, GPT-3.5-Turbo) vs 40.56% no-retrieval baseline",
+    "where": "Sec. Comparing Oracle Retrieval Systems"
+   },
+   {
+    "metric": "completion success rate",
+    "value": "68.51% (RLPG-H) vs 58.73% Codex baseline; oracle upper bound 79.63%",
+    "where": "Sec. Comparing Oracle Retrieval Systems"
+   }
+  ],
+  "budget_tradeoff_detail": "none reported (review discusses accuracy/success-rate gains of the two surveyed systems, not token-cost tradeoffs)",
+  "confound_note": "Review juxtaposes two independently published systems (RLPG's learned classifier over rule-based context proposers vs RepoCoder's iterative BM25 similarity retrieval) that differ in representation, mechanism, dataset, and base model simultaneously; it is a narrative synthesis of separately reported numbers, not a controlled single comparison."
+ },
+ {
+  "arxiv_id": "2403.06095",
+  "system": "RepoHyper",
+  "title": "RepoHyper: Search-Expand-Refine on Semantic Graphs for Repository-Level Code Completion",
+  "venue": "arXiv",
+  "repr_classes": [
+   "call_dep_graph",
+   "embedding_retrieval"
+  ],
+  "mechanism": "graph_guided_retrieval",
+  "task": "completion",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "RepoBench (R/C/P)"
+  ],
+  "budget_reported": false,
+  "key_numbers": [
+   {
+    "metric": "Context retrieval acc@3, RepoBench-R Easy/Hard (RepoHyper+UniXcoder vs UniXcoder baseline)",
+    "value": "68.91%/49.51% vs 59.69%/39.02%",
+    "where": "RepoBench-R results table"
+   },
+   {
+    "metric": "End-to-end EM/CodeBLEU, RepoBench-P XF-F (RepoHyper-L2H+GPT-3.5 vs RepoCoder)",
+    "value": "52.76%/61.49% vs 48.73%/57.62%",
+    "where": "RepoBench-P results table"
+   }
+  ],
+  "budget_tradeoff_detail": "Final context tokens dynamically selected to maximize use of the LLM's context window; no fixed/matched budget reported across baselines.",
+  "confound_note": "Representation (semantic graph + GraphSAGE re-ranking) and retrieval mechanism (graph expansion vs single-shot embedding search or RepoCoder's iterative retrieval) both vary vs. baselines, and token budget is not held constant."
+ },
+ {
+  "arxiv_id": "2406.03283",
+  "system": "CatCoder",
+  "title": "CATCODER: Repository-Level Code Generation with Relevant Code and Type Context",
+  "venue": "ACM Transactions on Software Engineering and Methodology (TOSEM) \u2014 accepted, revised/extended version",
+  "repr_classes": [
+   "call_dep_graph",
+   "embedding_retrieval"
+  ],
+  "mechanism": "slicing_static_analysis",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "CoderUJB (Java, 199 tasks)",
+   "RustEval (Rust, 90 tasks)",
+   "closure-compiler (scalability case study, 29 tasks)"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "pass@5, CatCoder vs RepoCoder (Java)",
+    "value": "57.5% vs 49.0% (+17.35%)",
+    "where": "Table 5"
+   },
+   {
+    "metric": "pass@1 drop removing Type Context (-TC)",
+    "value": "-11.57% (Java), -5.3% (Rust)",
+    "where": "Table 7"
+   }
+  ],
+  "budget_tradeoff_detail": "Retrieval corpus chunked at max 2,000 tokens/chunk (Java) and 1,000 tokens/chunk (Rust) (Sec. 3.1.3); type-context graph pruned to direct neighbors and stdlib types removed to bound prompt size (Sec. 3.2.1).",
+  "confound_note": "Headline comparison against RepoCoder varies both the representation (added type-dependency graph) and the retrieval mechanism (hybrid BM25+dense with RRF vs RepoCoder's iterative retrieval) simultaneously; component-level ablation (Table 7, removing -CR or -TC individually) is the only isolated comparison."
+ },
+ {
+  "arxiv_id": "2406.11927",
+  "system": "RepoExec",
+  "title": "On the Impacts of Contexts on Repository-Level Code Generation",
+  "venue": "NAACL 2025",
+  "repr_classes": [
+   "call_dep_graph",
+   "ast",
+   "raw_window"
+  ],
+  "mechanism": "slicing_static_analysis",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "RepoExec"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Pass@1, Full context (DeepSeek-R1)",
+    "value": "42.57% (best)",
+    "where": "Table 4"
+   },
+   {
+    "metric": "Dependency Invocation Rate, Full context (GPT-4o)",
+    "value": "81.43% (best)",
+    "where": "Table 4"
+   },
+   {
+    "metric": "Avg. prompt tokens per context level",
+    "value": "Full 362.92 / Medium 253.05 / Small 179.66",
+    "where": "Sec 4"
+   }
+  ],
+  "budget_tradeoff_detail": "Full context (362.9 avg tokens) vs Medium (253.1) vs Small (179.7) trades token budget for representational completeness (full body vs signature+docstring vs signature-only); richer/costlier context generally raises both Pass@1 and DIR (Table 4).",
+  "confound_note": "The central Full/Medium/Small ablation varies token budget AND representational completeness simultaneously by construction (removing docstrings/bodies both shrinks tokens and removes information), so budget and content richness are confounded, not isolated."
+ },
+ {
+  "arxiv_id": "2411.11532",
+  "system": "CKGFuzzer",
+  "title": "CKGFuzzer: LLM-Based Fuzz Driver Generation Enhanced By Code Knowledge Graph",
+  "venue": "arXiv",
+  "repr_classes": [
+   "call_dep_graph",
+   "hybrid"
+  ],
+  "mechanism": "graph_guided_retrieval",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "8 OSS-Fuzz projects: c-ares, cjson, curl, lcms, libpcap, libtiff, libvpx, zlib"
+  ],
+  "budget_reported": false,
+  "key_numbers": [
+   {
+    "metric": "Average code coverage improvement vs. SOTA",
+    "value": "8.73%",
+    "where": "Table I / Sec IV"
+   },
+   {
+    "metric": "Crash-review workload reduction",
+    "value": "84.4%",
+    "where": "Sec IV / Table I"
+   },
+   {
+    "metric": "New bugs found",
+    "value": "11 (9 previously unreported)",
+    "where": "Sec IV"
+   }
+  ],
+  "budget_tradeoff_detail": "none \u2014 no token/cost budget figures reported; the graph retrieval returns a fixed number of relevant chunks but count/token size is not quantified",
+  "confound_note": "Table II ablation simultaneously varies presence of the repair mechanism, LLM-only vs. KG-based repair, and text-only vs. graph retrieval \u2014 not a token-normalized, single-factor comparison"
+ },
+ {
+  "arxiv_id": "2504.10046",
+  "system": "GraphCodeAgent",
+  "title": "GraphCodeAgent: Dual Graph-Guided LLM Agent for Retrieval-Augmented Repo-Level Code Generation",
+  "venue": "arXiv",
+  "repr_classes": [
+   "hybrid",
+   "call_dep_graph"
+  ],
+  "mechanism": "agentic_exploration",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "DevEval",
+   "CoderEval"
+  ],
+  "budget_reported": false,
+  "key_numbers": [
+   {
+    "metric": "Pass@1 DevEval, GPT-4o",
+    "value": "58.14% vs 40.43% best baseline (Dense)",
+    "where": "Results table"
+   },
+   {
+    "metric": "Pass@1 CoderEval, GPT-4o",
+    "value": "58.14/53.91 vs GPT-4o baseline 40.87%",
+    "where": "Results table"
+   },
+   {
+    "metric": "benchmark scale",
+    "value": "DevEval: 1,825 examples, 117 repositories",
+    "where": "Dataset description"
+   }
+  ],
+  "budget_tradeoff_detail": "none systematically reported beyond stating retrieved snippets are truncated from the front if the prompt exceeds the LLM's context window, with generation capped at 500 tokens.",
+  "confound_note": "Compares dual-graph agentic multi-hop retrieval (Requirement Graph + Structural-Semantic Code Graph traversal via ReAct) against Dense/Sparse single-shot retrieval baselines; representation and mechanism both vary, and token budgets used by each are not reported/matched."
+ },
+ {
+  "arxiv_id": "2508.02998",
+  "system": "MRG-Bench",
+  "title": "MRG-Bench: Evaluating and Exploring the Requirements of Context for Repository-Level Code Generation",
+  "venue": "arXiv",
+  "repr_classes": [
+   "hybrid",
+   "raw_window",
+   "call_dep_graph",
+   "embedding_retrieval"
+  ],
+  "mechanism": "none_fixed_window",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "MRG-Bench (383 samples, 22 Python/Java/Go repos)"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Best baseline Pass@1 (Claude 3.5 Sonnet, avg across languages)",
+    "value": "32.5%",
+    "where": "Table 4"
+   },
+   {
+    "metric": "In-file context effect on DeepSeek-Coder-33B Pass@1",
+    "value": "6.4% (no context) -> 22.2% (in-file window)",
+    "where": "Tables 3-4"
+   },
+   {
+    "metric": "RAG (Mix-RAG) underperforms in-file baseline",
+    "value": "12.3% vs. 22.2% Pass@1",
+    "where": "Table 7"
+   }
+  ],
+  "budget_tradeoff_detail": "In-file raw context capped at 6,000 tokens outperforms RAG retrieval using 500-token retrieved blocks (22.2% vs. 12.3% Pass@1), and 100K-token long-context windows underperform targeted in-file context in several settings \u2014 more or differently-structured context does not straightforwardly improve results (Tables 4, 6, 7).",
+  "confound_note": "The cross-context-type comparison (none / in-file window / callee-signature / callee-funcbody / long-context / RAG variants) varies representation AND the associated token budget simultaneously (6K in-file vs. 100K long-context vs. 500-token RAG blocks) \u2014 not a budget-matched ablation, so representation and budget effects are conflated in the reported Pass@1 differences."
+ },
+ {
+  "arxiv_id": "2510.00446",
+  "system": "LongCodeZip",
+  "title": "LongCodeZip: Compress Long Context for Code Language Models",
+  "venue": "ASE 2025",
+  "repr_classes": [
+   "raw_window"
+  ],
+  "mechanism": "learned_pruning",
+  "task": "general_mixed",
+  "evaluation": "budget_matched_ablation",
+  "benchmarks": [
+   "Long Code Completion",
+   "Long Module Summarization",
+   "RepoQA"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Completion Edit Similarity at 5.6x compression vs. uncompressed",
+    "value": "63.11 vs 64.04",
+    "where": "Table II"
+   },
+   {
+    "metric": "RepoQA accuracy at 5.3x compression vs. no compression",
+    "value": "80.7% vs 69%",
+    "where": "Table IV"
+   },
+   {
+    "metric": "Generation latency reduction",
+    "value": "15.7s to 6.6s",
+    "where": "Table IX"
+   }
+  ],
+  "budget_tradeoff_detail": "Up to 5.6x (completion) / 5.3x (RepoQA) compression with performance within ~1pt of the uncompressed baseline; generation latency drops from 15.7s to 6.6s (Table IX).",
+  "confound_note": "Compression method is the sole varied factor: LongCodeZip, LLMLingua variants, RAG, DietCode, SlimCode, and random pruning are compared at matched compression ratios/token budgets against the same uncompressed baseline and target LLM."
+ },
+ {
+  "arxiv_id": "2601.10112",
+  "system": "RIG",
+  "title": "Repository Intelligence Graph: Deterministic Architectural Map for LLM Code Assistants",
+  "venue": "arXiv",
+  "repr_classes": [
+   "repo_map_skeleton",
+   "call_dep_graph"
+  ],
+  "mechanism": "skeletonization",
+  "task": "qa_reasoning",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "custom (8 repositories incl. MetaFFI; CMake/Maven/Meson/Cargo/npm/Go)"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "mean relative accuracy improvement with RIG",
+    "value": "+12.2%",
+    "where": "Section VI Evaluation Results"
+   },
+   {
+    "metric": "mean completion time reduction with RIG",
+    "value": "53.9%",
+    "where": "Section VI Evaluation Results"
+   },
+   {
+    "metric": "average RIG size across 8 repos",
+    "value": "~20,692 bytes (~5,173 tokens); up to ~15,000 tokens for largest repo",
+    "where": "Section VI, repo complexity table"
+   }
+  ],
+  "budget_tradeoff_detail": "RIG averages ~5.2K tokens (up to ~15K tokens for the largest/most complex repo) and yields a 12.2% mean accuracy gain plus 53.9% mean completion-time reduction, i.e. a modest fixed token overhead injected once per session for a session-wide efficiency/accuracy gain (Sec. VI).",
+  "confound_note": "Single binary arm compared (RIG injected vs. no RIG); representation, available structural information, and prompt token budget all change together between arms rather than budget being held constant across differing representations."
+ },
+ {
+  "arxiv_id": "2602.05780",
+  "system": "Finkler26",
+  "title": "Automated Customization of LLMs for Enterprise Code Repositories Using Semantic Scopes",
+  "venue": "arXiv",
+  "repr_classes": [
+   "ast",
+   "embedding_retrieval",
+   "hybrid"
+  ],
+  "mechanism": "similarity_retrieval",
+  "task": "completion",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "RepoBench",
+   "CrossCodeEval (CCEval)",
+   "two private enterprise repositories (DataB C/C++, etc.)"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Levenshtein distance (function-call completion, DataB C/C++, Granite-8B)",
+    "value": "optimal 42 vs baseline 84; full distance 45 vs 9,834",
+    "where": "Results section"
+   },
+   {
+    "metric": "model size vs accuracy",
+    "value": "uncustomized 8B models (Llama-8B, Granite-8B) competitive with uncustomized Qwen2.5-72B \u2014 a baseline-vs-baseline comparison, not customized-vs-uncustomized",
+    "where": "Results section"
+   },
+   {
+    "metric": "context budget",
+    "value": "prefix capped at 3KB; semantic-scope units 50-1,000 bytes",
+    "where": "Sec. 3, Semantic Scopes / experimental setup"
+   }
+  ],
+  "budget_tradeoff_detail": "With prefix capped at 3KB and scope granularity 50-1,000 bytes, a customized 8B model beats an uncustomized 72B baseline on completion accuracy (Results section).",
+  "confound_note": "RAG vs fine-tuning arms differ in mechanism (retrieval vs weight update) while sharing the same AST/bracket-derived 'semantic scope' chunking; the customization-approach vs baseline-model-size comparison conflates model scale and customization method rather than isolating representation alone."
+ },
+ {
+  "arxiv_id": "2605.14478",
+  "system": "Weng26",
+  "title": "When Retrieval Hurts Code Completion: A Diagnostic Study of Stale Repository Context",
+  "venue": "arXiv (submitted to Information and Software Technology)",
+  "repr_classes": [
+   "raw_window"
+  ],
+  "mechanism": "similarity_retrieval",
+  "task": "completion",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "custom (17-sample stale-context diagnostic set; click, flask, httpx, requests, rich)"
+  ],
+  "budget_reported": false,
+  "key_numbers": [
+   {
+    "metric": "stale-reference rate increase, Qwen2.5-Coder-7B-Instruct (stale-only vs current-only)",
+    "value": "+88.2 pp (15/17 samples)",
+    "where": "Results"
+   },
+   {
+    "metric": "stale-reference rate increase, gpt-4.1-mini (stale-only vs current-only)",
+    "value": "+76.5 pp (13/17 samples)",
+    "where": "Results"
+   },
+   {
+    "metric": "stale-reference rate under mixed current/stale retrieval",
+    "value": "23.5% (Qwen), 29.4% (gpt-4.1-mini)",
+    "where": "Results"
+   }
+  ],
+  "budget_tradeoff_detail": "none",
+  "confound_note": "The manipulated variable is content freshness (current-commit vs. parent-commit helper signature) not representation or mechanism; retrieval itself is oracle-controlled/hand-assigned rather than an automatic embedding or similarity system, and prompts are neutralized to hide commit timestamps and expected signatures so only staleness is isolated."
+ },
+ {
+  "arxiv_id": "2606.08135",
+  "system": "TICoder",
+  "title": "TICoder: A Repository-Level Code Generation Framework with Test-Driven Planning and Implementation-Aware Reuse",
+  "venue": "arXiv",
+  "repr_classes": [
+   "hybrid",
+   "embedding_retrieval",
+   "call_dep_graph"
+  ],
+  "mechanism": "graph_guided_retrieval",
+  "task": "generation",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "CoderEval",
+   "DevEval"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Pass@1 (DevEval, GPT-4o-mini)",
+    "value": "31.01% (+22.76% RELATIVE over AllianceCoder 25.26%, not points)",
+    "where": "Table 2"
+   },
+   {
+    "metric": "Pass@1 (CoderEval Python, DeepSeek-V3)",
+    "value": "56.09% (relative improvement over AllianceCoder ~52.17%; absolute gap ~3.9-4.1 pts)",
+    "where": "Table 2"
+   },
+   {
+    "metric": "Average improvement over SOTA baselines",
+    "value": "11.52% (avg 11.25%)",
+    "where": "Abstract"
+   }
+  ],
+  "budget_tradeoff_detail": "Ablation (Table 3) shows token counts vary substantially across configurations (e.g., w/o usage patterns: 1407 tokens vs full-method 2824 tokens), but token budget is not held constant when the full method is compared against external baselines.",
+  "confound_note": "Main comparison varies the retrieval mechanism (dual-view similarity + RCG-derived usage patterns) and the test-driven iterative planning mechanism simultaneously against baselines lacking both, with prompt token count also differing across arms \u2014 representation, retriever, and budget are all confounded."
+ },
+ {
+  "arxiv_id": "2607.09691",
+  "system": "SamBodden26",
+  "title": "What Context Does a Coding Agent Actually Need to Act?",
+  "venue": "arXiv",
+  "repr_classes": [
+   "ast",
+   "repo_map_skeleton",
+   "raw_window"
+  ],
+  "mechanism": "skeletonization",
+  "task": "editing_issue_resolution",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "SWE-bench Verified"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "behavioral probe correctness",
+    "value": "raw source 27/45 (60.0%) vs frontier NL summary 4/45 (8.9%) vs 3B-model summary 4/45 (8.9%) vs signature+docstring 6/45 (13.3%)",
+    "where": "Table 2"
+   },
+   {
+    "metric": "resolve rate, N=70 oracle-localized multi-file subset",
+    "value": "oracle_full 19/70 (27.1%) vs oracle_tier 23/70 (32.9%) vs oracle_keep_drop 25/70 (35.7%)",
+    "where": "Table 3"
+   },
+   {
+    "metric": "mean tokens per arm (resolve experiment)",
+    "value": "oracle_full ~25,426 vs oracle_tier ~8,629 vs oracle_keep_drop ~6,876",
+    "where": "Table 3 / Sec. 4"
+   }
+  ],
+  "budget_tradeoff_detail": "Skeleton and keep/drop representations resolve issues at roughly 27-38% fewer tokens than full source (6,876-8,629 vs 25,426 mean tokens) while matching or exceeding full-source resolve rate (32.9-35.7% vs 27.1%); NL summaries at ~180 tokens answer only 4/45 behavioral probes versus 27/45 for raw source at ~1,124 tokens (Table 2-3).",
+  "confound_note": "Localization is held fixed via an oracle (gold-changed files identical across all arms), isolating representation as the manipulated variable; however token budget is NOT matched across arms \u2014 it varies naturally with each representation tier's information density (full-body > skeleton > signature > summary)."
+ },
+ {
+  "arxiv_id": "2607.24882",
+  "system": "Agent Retrieval Bench",
+  "title": "Agent Retrieval Bench: Evaluating Repository Context Retrieval for Coding Agents",
+  "venue": "arXiv",
+  "repr_classes": [
+   "repo_map_skeleton",
+   "embedding_retrieval",
+   "raw_window"
+  ],
+  "mechanism": "graph_guided_retrieval",
+  "task": "general_mixed",
+  "evaluation": "budget_matched_ablation",
+  "benchmarks": [
+   "Agent Retrieval Bench"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "Budgeted Context Yield @8k: RepoMap vs Qwen3-4B vs Qwen3-8B",
+    "value": "0.3788 vs 0.3409 vs 0.3732",
+    "where": "Table 4, complete positive leaderboard"
+   },
+   {
+    "metric": "Recall@20 / MRR, Qwen3-8B vs Qwen3-4B",
+    "value": "R@20=0.7029/MRR=0.2336 vs R@20=0.6306/MRR=0.2379",
+    "where": "Table 4"
+   },
+   {
+    "metric": "benchmark scale",
+    "value": "427 samples, 25 repositories, 392,000 files / 7.9M chunks, 308 base-commit snapshots",
+    "where": "Dataset description"
+   }
+  ],
+  "budget_tradeoff_detail": "Budgeted Context Yield (BCY@B) computed at B=4k/8k/16k/32k tokens; best method reverses with budget (Qwen3-4B leads at 4k, Qwen3-8B leads at 8k on edit2ripple), and RepoMap (structural, vectorless) achieves the best single-method BCY@8k while trailing on raw Recall@20/MRR.",
+  "confound_note": "This is the study's central comparison: representation/mechanism (lexical BM25, structural RepoMap, five embedding models, logged agentic Codex-CLI context) is varied while token budget is explicitly held constant via the BCY@B metric -- the cleanest budget-matched ablation in this batch."
+ },
+ {
+  "arxiv_id": "2608.02001",
+  "system": "VulnGym",
+  "title": "VulnGym: Benchmarking Coding Agents for Repository-Level Vulnerability Detection",
+  "venue": "arXiv",
+  "repr_classes": [
+   "raw_window"
+  ],
+  "mechanism": "agentic_exploration",
+  "task": "review",
+  "evaluation": "ablated_measured",
+  "benchmarks": [
+   "VulnGym"
+  ],
+  "budget_reported": true,
+  "key_numbers": [
+   {
+    "metric": "End-to-End Advisory Recall (Hard split)",
+    "value": "22.58% (DeepSeek-V4-Flash + OpenHands, best config)",
+    "where": "Table 2"
+   },
+   {
+    "metric": "Critical-Operation Localization File Recall (Hard split)",
+    "value": "51.16% (DeepSeek-V4-Flash + MiniSWE, best config)",
+    "where": "Table 3"
+   },
+   {
+    "metric": "Failures attributable to missing/mislocalized vulnerable files or lines",
+    "value": "56.5% of all failures",
+    "where": "Sec 4.3"
+   }
+  ],
+  "budget_tradeoff_detail": "No explicit token-budget-vs-quality tradeoff curve reported; agents are given context windows of at least 256K tokens (Sec 4.1) and explore repos via unindexed shell commands, but the paper does not quantify how detection/localization quality changes as a function of budget size.",
+  "confound_note": "Central comparisons vary model (Qwen3.5 2B/4B/9B/27B, DeepSeek-V4-Flash, GLM-5.2, MiniMax-M3) AND agent scaffold (Claude Code, OpenHands, MiniSWE) simultaneously across the same benchmark tasks -- capability, scaffold, and effective exploration budget all confound together; no single-factor ablation isolates representation or mechanism alone."
+ }
+]

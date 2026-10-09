@@ -1,0 +1,2123 @@
+[
+ {
+  "arxiv_id": "2606.05868",
+  "title": "YouZhi: Towards High-Concurrency Financial LLMs via Adaptive GQA-to-MLA Transition",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "KV-cache/attention architecture conversion for financial LLMs; model-internal, no code context."
+ },
+ {
+  "arxiv_id": "2305.04228",
+  "title": "Heterogeneous Directed Hypergraph Neural Network over abstract syntax tree (AST) for Code Classification",
+  "decision": "exclude",
+  "criterion": "E3",
+  "reason": "Hypergraph neural network over ASTs for code classification; non-LLM structural representation."
+ },
+ {
+  "arxiv_id": "2507.22923",
+  "title": "How and Where to Translate? The Impact of Translation Strategies in Cross-lingual LLM Prompting",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('How and Where to Translate? The Impact of Translation Strategies in Cr'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2506.15655",
+  "title": "cAST: Enhancing Code Retrieval-Augmented Generation with Structural Chunking via Abstract Syntax Tree",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "AST-based structural chunking for code RAG, evaluated on RepoEval retrieval and SWE-bench generation."
+ },
+ {
+  "arxiv_id": "2408.13006",
+  "title": "Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explainable Metrics and Diverse Prompt Templates",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Systematic Evaluation of LLM-as-a-Judge in LLM Alignment Tasks: Explai'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2510.19850",
+  "title": "Prompt Decorators: A Declarative and Composable Syntax for Reasoning, Formatting, and Control in LLMs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Prompt Decorators: A Declarative and Composable Syntax for Reasoning, '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2608.05519",
+  "title": "EcoAgent-Bench: Evaluating Economic Decision-Making in Budget-Constrained LLM Agents",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('EcoAgent-Bench: Evaluating Economic Decision-Making in Budget-Constrai'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2606.13295",
+  "title": "Simultaneous Latent Budget Trees for Stratified Classification",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Simultaneous Latent Budget Trees for Stratified Classification'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2608.17188",
+  "title": "Token Optimization and Context Window Management in Multi-Agent AI Workflows",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: token/context patterns for enterprise multi-agent workflows over meetings/email; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2402.13753",
+  "title": "LongRoPE: Extending LLM Context Window Beyond 2 Million Tokens",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Position-encoding extension of context windows; model-internal long-context work."
+ },
+ {
+  "arxiv_id": "2409.01907",
+  "title": "Focus Agent: LLM-Powered Virtual Focus Group",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Focus Agent: LLM-Powered Virtual Focus Group'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2607.21535",
+  "title": "Windowed-MTP: Removing the Full-Context Draft-KV Tax at Million-Token Context",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Speculative-decoding KV-cache optimisation at long context; model-internal."
+ },
+ {
+  "arxiv_id": "2603.18122",
+  "title": "Don't Vibe Code, Do Skele-Code: Interactive No-Code Notebooks for Subject Matter Experts to Build Lower-Cost Agentic Workflows",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "No-code notebook interface where agents generate per-step workflow code; context engineering not specified, no repository scope."
+ },
+ {
+  "arxiv_id": "2510.13343",
+  "title": "AOAD-MAT: Transformer-based multi-agent deep reinforcement learning model considering agents' order of action decisions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AOAD-MAT: Transformer-based multi-agent deep reinforcement learning mo'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.03001",
+  "title": "Autonomy Architectures for Safe Planning in Unknown Environments Under Budget Constraints",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Autonomy Architectures for Safe Planning in Unknown Environments Under'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.13258",
+  "title": "Your Code Agent Can Grow Alongside You with Structured Memory",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "MemCoder structures commit-history experience into memory that conditions a code agent on repository-level SWE-bench issues."
+ },
+ {
+  "arxiv_id": "2311.01461",
+  "title": "The Property Law of Crypto Tokens",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The Property Law of Crypto Tokens'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2401.16216",
+  "title": "A mechanism for discovering semantic relationships among agent communication protocols",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A mechanism for discovering semantic relationships among agent communi'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2301.13794",
+  "title": "Auctions with Tokens: Monetary Policy as a Mechanism Design Choice",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Auctions with Tokens: Monetary Policy as a Mechanism Design Choice'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.10182",
+  "title": "Credit-Budgeted ICPC-Style Coding: When Agents Must Pay for Every Decision",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Credit-budgeted competitive-programming arena; budget is compute/token cost, not context construction."
+ },
+ {
+  "arxiv_id": "2505.09561",
+  "title": "Learning Long-Context Diffusion Policies via Past-Token Prediction",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Learning Long-Context Diffusion Policies via Past-Token Prediction'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.22367",
+  "title": "Reasoner-Executor-Synthesizer: Scalable Agentic Architecture with Static O(1) Context Window",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: O(1)-context agent architecture for scholarly metadata RAG; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2512.25052",
+  "title": "AdaGReS:Adaptive Greedy Context Selection via Redundancy-Aware Scoring for Token-Budgeted RAG",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: token-budgeted redundancy-aware RAG selection on open-domain QA; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2308.04657",
+  "title": "Which Tokens to Use? Investigating Token Reduction in Vision Transformers",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Which Tokens to Use? Investigating Token Reduction in Vision Transform'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2306.08568",
+  "title": "WizardCoder: Empowering Code Large Language Models with Evol-Instruct",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Instruction-tuning code LLMs (Evol-Instruct) on function-level benchmarks; training, no context mechanism."
+ },
+ {
+  "arxiv_id": "2410.12096",
+  "title": "Bridging Large Language Models and Graph Structure Learning Models for Robust Representation Learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Bridging Large Language Models and Graph Structure Learning Models for'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2412.05830",
+  "title": "Large Language Models Merging for Enhancing the Link Stealing Attack on Graph Neural Networks",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large Language Models Merging for Enhancing the Link Stealing Attack o'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2304.12244",
+  "title": "WizardLM: Empowering large pre-trained language models to follow complex instructions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('WizardLM: Empowering large pre-trained language models to follow compl'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2312.10793",
+  "title": "Demystifying Instruction Mixing for Fine-tuning Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Demystifying Instruction Mixing for Fine-tuning Large Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.11651",
+  "title": "Learning From Failure: Integrating Negative Examples when Fine-tuning Large Language Models as Agents",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Learning From Failure: Integrating Negative Examples when Fine-tuning '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2510.21131",
+  "title": "Large Language Models Meet Text-Attributed Graphs: A Survey of Integration Frameworks and Applications",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large Language Models Meet Text-Attributed Graphs: A Survey of Integra'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2408.06717",
+  "title": "Proficient Graph Neural Network Design by Accumulating Knowledge on Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Proficient Graph Neural Network Design by Accumulating Knowledge on La'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2401.06801",
+  "title": "Graph-of-Thought: Utilizing Large Language Models to Solve Complex and Dynamic Business Problems",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Graph-of-Thought: Utilizing Large Language Models to Solve Complex and'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2308.16149",
+  "title": "Jais and Jais-chat: Arabic-Centric Foundation and Instruction-Tuned Open Generative Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Jais and Jais-chat: Arabic-Centric Foundation and Instruction-Tuned Op'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2405.19266",
+  "title": "PediatricsGPT: Large Language Models as Chinese Medical Assistants for Pediatric Applications",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('PediatricsGPT: Large Language Models as Chinese Medical Assistants for'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2606.19264",
+  "title": "Structured Inference with Large Language Gibbs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Structured Inference with Large Language Gibbs'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2503.21676",
+  "title": "How do language models learn facts? Dynamics, curricula and hallucinations",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('How do language models learn facts? Dynamics, curricula and hallucinat'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2310.14025",
+  "title": "Large Language Models and Multimodal Retrieval for Visual Word Sense Disambiguation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large Language Models and Multimodal Retrieval for Visual Word Sense D'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.10409",
+  "title": "Understanding Survey Paper Taxonomy about Large Language Models via Graph Representation Learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Understanding Survey Paper Taxonomy about Large Language Models via Gr'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.14679",
+  "title": "Is Self-knowledge and Action Consistent or Not: Investigating Large Language Model's Personality",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Is Self-knowledge and Action Consistent or Not: Investigating Large La'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2306.06371",
+  "title": "A Comprehensive Review of State-of-The-Art Methods for Java Code Generation from Natural Language Text",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Review of Java NL-to-code models on CONCODE; function-level, no context-construction focus."
+ },
+ {
+  "arxiv_id": "2405.11357",
+  "title": "Large Language Models Lack Understanding of Character Composition of Words",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large Language Models Lack Understanding of Character Composition of W'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2312.05434",
+  "title": "Beneath the Surface: Unveiling Harmful Memes with Multimodal Reasoning Distilled from Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Beneath the Surface: Unveiling Harmful Memes with Multimodal Reasoning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2608.05850",
+  "title": "MameLoshnLM: Yiddish Language Model and Evaluation Benchmark",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('MameLoshnLM: Yiddish Language Model and Evaluation Benchmark'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2502.04355",
+  "title": "LLM-ProS: Analyzing Large Language Models' Performance in Competitive Problem Solving",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Evaluates LLMs on ICPC problems; standalone problems, no context mechanism."
+ },
+ {
+  "arxiv_id": "2409.04114",
+  "title": "Multi-Programming Language Ensemble for Code Generation in Large Language Model",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Multi-language ensemble for HumanEval code generation; function-level, no context mechanism."
+ },
+ {
+  "arxiv_id": "2403.09676",
+  "title": "Unmasking the Shadows of AI: Investigating Deceptive Capabilities in Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Unmasking the Shadows of AI: Investigating Deceptive Capabilities in L'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2401.10034",
+  "title": "Evolutionary Computation in the Era of Large Language Model: Survey and Roadmap",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Evolutionary Computation in the Era of Large Language Model: Survey an'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2512.08480",
+  "title": "Soft Inductive Bias Approach via Explicit Reasoning Perspectives in Inappropriate Utterance Detection Using Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Soft Inductive Bias Approach via Explicit Reasoning Perspectives in In'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2509.25716",
+  "title": "DeepCodeSeek: Real-Time API Retrieval for Context-Aware Code Generation",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Retrieves and reranks enterprise-codebase APIs as the context fed to code generation for completion and agentic use."
+ },
+ {
+  "arxiv_id": "2505.18541",
+  "title": "RoleRAG: Enhancing LLM Role-Playing via Graph Guided Retrieval",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('RoleRAG: Enhancing LLM Role-Playing via Graph Guided Retrieval'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2303.12869",
+  "title": "JaCoText: A Pretrained Model for Java Code-Text Generation",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Pretrained Java code generation model on CONCODE; training, function-level."
+ },
+ {
+  "arxiv_id": "2506.06962",
+  "title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AR-RAG: Autoregressive Retrieval Augmentation for Image Generation'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2306.05212",
+  "title": "RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('RETA-LLM: A Retrieval-Augmented Large Language Model Toolkit'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.05181",
+  "title": "Lightweight and Direct Document Relevance Optimization for Generative Information Retrieval",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Lightweight and Direct Document Relevance Optimization for Generative '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2411.18583",
+  "title": "Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Automated Literature Review Using NLP Techniques and LLM-Based Retriev'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2309.15217",
+  "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Ragas: Automated Evaluation of Retrieval Augmented Generation'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.00236",
+  "title": "Hierarchical Discrete Flow Matching for Graph Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Hierarchical Discrete Flow Matching for Graph Generation'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2606.28358",
+  "title": "How Do LLMs Cite? A Mechanistic Interpretation of Attribution in Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('How Do LLMs Cite? A Mechanistic Interpretation of Attribution in Retri'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2311.15289",
+  "title": "Counting cliques without generalized theta graphs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Counting cliques without generalized theta graphs'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2512.24268",
+  "title": "RAGPart & RAGMask: Retrieval-Stage Defenses Against Corpus Poisoning in Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('RAGPart & RAGMask: Retrieval-Stage Defenses Against Corpus Poisoning i'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2602.07525",
+  "title": "IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive Mining of In-Depth Memory",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('IGMiRAG: Intuition-Guided Retrieval-Augmented Generation with Adaptive'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.23396",
+  "title": "Lost in Decoding? Reproducing and Stress-Testing the Look-Ahead Prior in Generative Retrieval",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Lost in Decoding? Reproducing and Stress-Testing the Look-Ahead Prior '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.02888",
+  "title": "LLandMark: A Multi-Agent Framework for Landmark-Aware Multimodal Interactive Video Retrieval",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LLandMark: A Multi-Agent Framework for Landmark-Aware Multimodal Inter'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.23584",
+  "title": "Identity-Decoupled Anonymization for Visual Evidence in Multi-modal Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Identity-Decoupled Anonymization for Visual Evidence in Multi-modal Re'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2404.07220",
+  "title": "Blended RAG: Improving RAG (Retriever-Augmented Generation) Accuracy with Semantic Search and Hybrid Query-Based Retrievers",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Blended RAG: Improving RAG (Retriever-Augmented Generation) Accuracy w'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.19754",
+  "title": "Reconstructing Context: Evaluating Advanced Chunking Strategies for Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: chunking strategies for text RAG; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2502.00306",
+  "title": "Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2410.14609",
+  "title": "DiSCo: LLM Knowledge Distillation for Efficient Sparse Retrieval in Conversational Search",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('DiSCo: LLM Knowledge Distillation for Efficient Sparse Retrieval in Co'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2508.05970",
+  "title": "Impact-driven Context Filtering For Cross-file Code Completion",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "CODEFILTER learns to filter retrieved cross-file chunks for repository-level completion, shortening the prompt."
+ },
+ {
+  "arxiv_id": "2510.04349",
+  "title": "Challenge on Optimization of Context Collection for Code Completion",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "ASE 2025 challenge on mechanisms for collecting repository context for FIM code completion, scored across several code LLMs."
+ },
+ {
+  "arxiv_id": "2410.20886",
+  "title": "CODES: Benchmarking Coupled ODE Surrogates",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('CODES: Benchmarking Coupled ODE Surrogates'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2406.11898",
+  "title": "Towards Better Benchmark Datasets for Inductive Knowledge Graph Completion",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Towards Better Benchmark Datasets for Inductive Knowledge Graph Comple'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2311.01767",
+  "title": "PPTC Benchmark: Evaluating Large Language Models for PowerPoint Task Completion",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('PPTC Benchmark: Evaluating Large Language Models for PowerPoint Task C'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2601.03378",
+  "title": "RepoShapley: Shapley-Enhanced Context Filtering for Repository-Level Code Completion",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RepoShapley filters cross-file retrieved context by Shapley-style chunk utility for repository-level completion."
+ },
+ {
+  "arxiv_id": "2403.15789",
+  "title": "In-Context Matting",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('In-Context Matting'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.09230",
+  "title": "Context Composing for Full Line Code Completion",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Describes JetBrains' context-composing pipeline for the transformer behind Full Line Code Completion in the IDE."
+ },
+ {
+  "arxiv_id": "2504.21205",
+  "title": "SecRepoBench: Benchmarking Code Agents for Secure Code Completion in Real-World Repositories",
+  "decision": "uncertain",
+  "criterion": "unclear-I2",
+  "reason": "Repository-level secure-completion benchmark comparing standalone LLMs with code agents; unclear whether context use is measured."
+ },
+ {
+  "arxiv_id": "2604.13764",
+  "title": "RealVuln: Benchmarking Rule-Based, General-Purpose LLM, and Security-Specialized Scanners on Real-World Code",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Benchmark of SAST tools and LLM scanners on vulnerable repositories; no context-construction mechanism."
+ },
+ {
+  "arxiv_id": "2304.13998",
+  "title": "Mimic-IV-ICD: A new benchmark for eXtreme MultiLabel Classification",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Mimic-IV-ICD: A new benchmark for eXtreme MultiLabel Classification'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2607.05443",
+  "title": "Scientific Code Search at Scale: A Multi-Domain Dataset and Benchmark",
+  "decision": "exclude",
+  "criterion": "E4 (B1)",
+  "reason": "Scientific repository/code search benchmark for human tool discovery; no LLM context consumer."
+ },
+ {
+  "arxiv_id": "2407.11470",
+  "title": "Beyond Correctness: Benchmarking Multi-dimensional Code Generation for Large Language Models",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Multi-dimensional code-quality benchmark for function-level generation; no context concern."
+ },
+ {
+  "arxiv_id": "2604.24971",
+  "title": "PolyKV: A Shared Asymmetrically-Compressed KV Cache Pool for Multi-Agent LLM Inference",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Shared compressed KV-cache pool for multi-agent inference; model-internal, no code context."
+ },
+ {
+  "arxiv_id": "2512.21309",
+  "title": "A Plan Reuse Mechanism for LLM-Driven Agent",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Plan Reuse Mechanism for LLM-Driven Agent'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2401.04670",
+  "title": "Modified Levenberg-Marquardt Algorithm For Tensor CP Decomposition in Image Compression",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Modified Levenberg-Marquardt Algorithm For Tensor CP Decomposition in '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2401.07324",
+  "title": "Small LLMs Are Weak Tool Learners: A Multi-LLM Agent",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Small LLMs Are Weak Tool Learners: A Multi-LLM Agent'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2410.12532",
+  "title": "MedAide: Information Fusion and Anatomy of Medical Intents via LLM-based Agent Collaboration",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('MedAide: Information Fusion and Anatomy of Medical Intents via LLM-bas'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.26942",
+  "title": "The Observability Gap: Why Output-Level Human Feedback Fails for LLM Coding Agents",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Human-feedback observability study for a Blender coding agent; no context-construction mechanism."
+ },
+ {
+  "arxiv_id": "2411.17160",
+  "title": "Motion Free B-frame Coding for Neural Video Compression",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Motion Free B-frame Coding for Neural Video Compression'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.05964",
+  "title": "A Survey on Transformer Compression",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Survey on Transformer Compression'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2608.07496",
+  "title": "Human-Simulation Interaction: From Prediction to Exploration in LLM Agent Simulations for Policy",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Human-Simulation Interaction: From Prediction to Exploration in LLM Ag'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.00410",
+  "title": "Agent Capsules: Quality-Gated Granularity Control for Multi-Agent LLM Pipelines",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: granularity control for non-code multi-agent pipelines; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2605.21404",
+  "title": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Audit of disclosure practices in agent benchmark papers; no context mechanism."
+ },
+ {
+  "arxiv_id": "2412.06830",
+  "title": "A New Strategy for the Exploration of Venus",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A New Strategy for the Exploration of Venus'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2310.07896",
+  "title": "NoMaD: Goal Masked Diffusion Policies for Navigation and Exploration",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('NoMaD: Goal Masked Diffusion Policies for Navigation and Exploration'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2405.11788",
+  "title": "TinyLLaVA Factory: A Modularized Codebase for Small-scale Large Multimodal Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: multimodal model training codebase, not a code task; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2602.12351",
+  "title": "LongNav-R1: Horizon-Adaptive Multi-Turn RL for Long-Horizon VLA Navigation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LongNav-R1: Horizon-Adaptive Multi-Turn RL for Long-Horizon VLA Naviga'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.04361",
+  "title": "When Context Hurts: The Crossover Effect of Knowledge Transfer on Multi-Agent Design Exploration",
+  "decision": "uncertain",
+  "criterion": "unclear-I1",
+  "reason": "Controlled context-injection study (7 conditions, 2,700 runs) on multi-agent software design; unclear whether the task produces code."
+ },
+ {
+  "arxiv_id": "2604.03350",
+  "title": "From Model-Based Screening to Data-Driven Surrogates: A Multi-Stage Workflow for Exploring Stochastic Agent-Based Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('From Model-Based Screening to Data-Driven Surrogates: A Multi-Stage Wo'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2309.08172",
+  "title": "LASER: LLM Agent with State-Space Exploration for Web Navigation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LASER: LLM Agent with State-Space Exploration for Web Navigation'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2512.24957",
+  "title": "AMAP Agentic Planning Technical Report",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AMAP Agentic Planning Technical Report'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2404.13955",
+  "title": "GNSS Measurement-Based Context Recognition for Vehicle Navigation using Gated Recurrent Unit",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('GNSS Measurement-Based Context Recognition for Vehicle Navigation usin'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2607.01929",
+  "title": "Beyond Textual Repository Exploration: Dual-Modal Structural Reasoning for Agentic Issue Resolution",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "DUALVIEW exposes module/call/class/PDG graph views of the repository to issue-resolution agents on SWE-bench."
+ },
+ {
+  "arxiv_id": "2602.22764",
+  "title": "Evaluating and Improving Automated Repository-Level Rust Issue Resolution with LLM-based Agents",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Rust-SWE-bench plus RustForger, whose dynamic tracing feeds repository behaviour into the agent's context for issue resolution."
+ },
+ {
+  "arxiv_id": "2603.11356",
+  "title": "Resolving Java Code Repository Issues with iSWE Agent",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "iSWE gives localization and editing sub-agents rule-based Java static-analysis tools that shape the repository context they see."
+ },
+ {
+  "arxiv_id": "2603.16572",
+  "title": "Context Matters: Repository-Aware Security Analysis of the Agent Skill Ecosystem",
+  "decision": "exclude",
+  "criterion": "E4 (B1)",
+  "reason": "Security analysis of agent-skill ecosystem using repository context for scanning; context does not feed an LLM code task."
+ },
+ {
+  "arxiv_id": "2608.18933",
+  "title": "SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "SkillForge distills project-specific skills tied to repository entities and injects them for later issue resolution."
+ },
+ {
+  "arxiv_id": "2407.02573",
+  "title": "Repository for extended dark matter object constraints",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Repository for extended dark matter object constraints'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.03117",
+  "title": "ARISE: A Repository-level Graph Representation and Toolset for Agentic Program Repair and Fault Localization",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "ARISE builds a multi-granularity program graph with data-flow slicing tools for repository-level agentic repair, with ablations."
+ },
+ {
+  "arxiv_id": "2510.11838",
+  "title": "Lingxi: Repository-Level Issue Resolution Framework Enhanced by Procedural Knowledge Guided Scaling",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "Lingxi retrieves procedural knowledge from similar historical issues to guide repository-level issue-resolution agents."
+ },
+ {
+  "arxiv_id": "2511.11017",
+  "title": "AI Agent-Driven Framework for Automated Product Knowledge Graph Construction in E-Commerce",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AI Agent-Driven Framework for Automated Product Knowledge Graph Constr'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2511.06455",
+  "title": "A Multi-Agent System for Semantic Mapping of Relational Data to Knowledge Graphs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Multi-Agent System for Semantic Mapping of Relational Data to Knowle'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2406.06621",
+  "title": "LinkQ: An LLM-Assisted Visual Interface for Knowledge Graph Question-Answering",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LinkQ: An LLM-Assisted Visual Interface for Knowledge Graph Question-A'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2405.17249",
+  "title": "Assessing LLMs Suitability for Knowledge Graph Completion",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Assessing LLMs Suitability for Knowledge Graph Completion'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2306.08302",
+  "title": "Unifying Large Language Models and Knowledge Graphs: A Roadmap",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Unifying Large Language Models and Knowledge Graphs: A Roadmap'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2411.01023",
+  "title": "Capturing and Anticipating User Intents in Data Analytics via Knowledge Graphs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Capturing and Anticipating User Intents in Data Analytics via Knowledg'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2511.12071",
+  "title": "Improving Graph Embeddings in Machine Learning Using Knowledge Completion with Validation in a Case Study on COVID-19 Spread",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Improving Graph Embeddings in Machine Learning Using Knowledge Complet'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2406.19502",
+  "title": "Hierarchical Deconstruction of LLM Reasoning: A Graph-Based Framework for Analyzing Knowledge Utilization",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Hierarchical Deconstruction of LLM Reasoning: A Graph-Based Framework '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.07122",
+  "title": "RepoZero: Can LLMs Generate a Code Repository from Scratch?",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "From-scratch repository generation benchmark with test-evolution agent; no context-construction or utilization measure."
+ },
+ {
+  "arxiv_id": "2404.07677",
+  "title": "ODA: Observation-Driven Agent for integrating LLMs and Knowledge Graphs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('ODA: Observation-Driven Agent for integrating LLMs and Knowledge Graph'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2508.10467",
+  "title": "FIRESPARQL: A LLM-based Framework for SPARQL Query Generation over Scholarly Knowledge Graphs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('FIRESPARQL: A LLM-based Framework for SPARQL Query Generation over Sch'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2505.11701",
+  "title": "DMN-Guided Prompting: A Framework for Controlling LLM Behavior",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('DMN-Guided Prompting: A Framework for Controlling LLM Behavior'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.19035",
+  "title": "LLM-Viterbi: Semantic-Aware Decoding for Convolutional Codes",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LLM-Viterbi: Semantic-Aware Decoding for Convolutional Codes'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2601.12359",
+  "title": "Zero-Shot Embedding Drift Detection: A Lightweight Defense Against Prompt Injections in LLMs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Zero-Shot Embedding Drift Detection: A Lightweight Defense Against Pro'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2510.07985",
+  "title": "Fewer Weights, More Problems: A Practical Attack on LLM Pruning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Fewer Weights, More Problems: A Practical Attack on LLM Pruning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.00651",
+  "title": "Exploring 3D Dataset Pruning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Exploring 3D Dataset Pruning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2511.02213",
+  "title": "IG-Pruning: Input-Guided Block Pruning for Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('IG-Pruning: Input-Guided Block Pruning for Large Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2412.00143",
+  "title": "Is Oracle Pruning the True Oracle?",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Is Oracle Pruning the True Oracle?'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2606.14150",
+  "title": "Small LLMs: Pruning vs. Training from Scratch",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Small LLMs: Pruning vs. Training from Scratch'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.16001",
+  "title": "Mostly Text, Smart Visuals: Asymmetric Text-Visual Pruning for Large Vision-Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Mostly Text, Smart Visuals: Asymmetric Text-Visual Pruning for Large V'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.09345",
+  "title": "Selection Plateau and a Sparsity-Dependent Hierarchy of Pruning Features",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Selection Plateau and a Sparsity-Dependent Hierarchy of Pruning Featur'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2406.12315",
+  "title": "A Comprehensive Study of Structural Pruning for Vision Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Comprehensive Study of Structural Pruning for Vision Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.25325",
+  "title": "How Pruning Reshapes Features: Sparse Autoencoder Analysis of Weight-Pruned Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('How Pruning Reshapes Features: Sparse Autoencoder Analysis of Weight-P'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2407.19487",
+  "title": "RLCoder: Reinforcement Learning for Repository-Level Code Completion",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RLCoder trains the retriever by RL to select useful cross-file context for repository-level completion."
+ },
+ {
+  "arxiv_id": "2409.13122",
+  "title": "RepoGenReflex: Enhancing Repository-Level Code Completion with Verbal Reinforcement and Retrieval-Augmented Generation",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RepoGenReflex iterates RAG with verbal reinforcement to choose retrieved context for repository-level completion."
+ },
+ {
+  "arxiv_id": "2607.08691",
+  "title": "ProjAgent: Procedural Similarity Retrieval for Repository-Level Code Generation",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "ProjAgent adds procedural-similarity retrieval of repository functions to build context for repository-level generation."
+ },
+ {
+  "arxiv_id": "2509.25257",
+  "title": "RANGER -- Repository-Level Agent for Graph-Enhanced Retrieval",
+  "decision": "include",
+  "criterion": "I-all",
+  "reason": "RANGER builds a repository knowledge graph and graph-guided retrieval used as context for completion and code QA."
+ },
+ {
+  "arxiv_id": "2503.17876",
+  "title": "Satisfactory Medical Consultation based on Terminology-Enhanced Information Retrieval and Emotional In-Context Learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Satisfactory Medical Consultation based on Terminology-Enhanced Inform'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2312.03703",
+  "title": "Skeleton-in-Context: Unified Skeleton Sequence Modeling with In-Context Learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Skeleton-in-Context: Unified Skeleton Sequence Modeling with In-Contex'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.03329",
+  "title": "AutoHarness: improving LLM agents by automatically synthesizing a code harness",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "LLM synthesises game-playing code harnesses; no repository scope or context mechanism."
+ },
+ {
+  "arxiv_id": "2606.04455",
+  "title": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Benchmark of code agents developing agent systems; no context-construction mechanism."
+ },
+ {
+  "arxiv_id": "2604.14228",
+  "title": "Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems",
+  "decision": "uncertain",
+  "criterion": "unclear-I2",
+  "reason": "Source-level architecture analysis of Claude Code including a five-layer context-compaction pipeline; unclear whether context is the object or one subsystem among many (B4-like)."
+ },
+ {
+  "arxiv_id": "2403.07865",
+  "title": "CodeAttack: Revealing Safety Generalization Challenges of Large Language Models via Code Completion",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Safety jailbreak via code-formatted inputs; no context-construction mechanism."
+ },
+ {
+  "arxiv_id": "2402.10171",
+  "title": "Data Engineering for Scaling Language Models to 128K Context",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Continual-pretraining data recipe for 128K context; model-internal long-context training."
+ },
+ {
+  "arxiv_id": "2603.21389",
+  "title": "Task-Specific Efficiency Analysis: When Small Language Models Outperform Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Task-Specific Efficiency Analysis: When Small Language Models Outperfo'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2403.17811",
+  "title": "Are Compressed Language Models Less Subgroup Robust?",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Are Compressed Language Models Less Subgroup Robust?'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2409.02228",
+  "title": "Unforgettable Generalization in Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Unforgettable Generalization in Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.27043",
+  "title": "Introducing MELI: the Mandarin-English Language Interview Corpus",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Introducing MELI: the Mandarin-English Language Interview Corpus'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2307.14850",
+  "title": "Turkish Native Language Identification V2",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Turkish Native Language Identification V2'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2403.13369",
+  "title": "Clinical information extraction for Low-resource languages with Few-shot learning using Pre-trained language models and Prompting",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Clinical information extraction for Low-resource languages with Few-sh'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.13684",
+  "title": "Intelligent Interaction Strategies for Context-Aware Cognitive Augmentation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Intelligent Interaction Strategies for Context-Aware Cognitive Augment'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.17204",
+  "title": "Factually: Exploring Wearable Fact-Checking for Augmented Truth Discernment",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Factually: Exploring Wearable Fact-Checking for Augmented Truth Discer'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2504.14689",
+  "title": "Designing AI Systems that Augment Human Performed vs. Demonstrated Critical Thinking",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Designing AI Systems that Augment Human Performed vs. Demonstrated Cri'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.12335",
+  "title": "EHR-RAGp: Retrieval-Augmented Prototype-Guided Foundation Model for Electronic Health Records",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('EHR-RAGp: Retrieval-Augmented Prototype-Guided Foundation Model for El'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2507.23334",
+  "title": "MUST-RAG: MUSical Text Question Answering with Retrieval Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('MUST-RAG: MUSical Text Question Answering with Retrieval Augmented Gen'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2601.05264",
+  "title": "Engineering the RAG Stack: A Comprehensive Review of the Architecture and Trust Frameworks for Retrieval-Augmented Generation Systems",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: review of RAG architectures; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2510.22344",
+  "title": "FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('FAIR-RAG: Faithful Adaptive Iterative Refinement for Retrieval-Augment'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2605.00318",
+  "title": "Structure-Aware Chunking for Tabular Data in Retrieval-Augmented Generation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: structure-aware chunking for tabular RAG; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2405.17706",
+  "title": "Video Enriched Retrieval Augmented Generation Using Aligned Video Captions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Video Enriched Retrieval Augmented Generation Using Aligned Video Capt'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.14541",
+  "title": "Expert Mind: A Retrieval-Augmented Architecture for Expert Knowledge Preservation in the Energy Sector",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Expert Mind: A Retrieval-Augmented Architecture for Expert Knowledge P'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2503.16581",
+  "title": "Investigating Retrieval-Augmented Generation in Quranic Studies: A Study of 13 Open-Source Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Investigating Retrieval-Augmented Generation in Quranic Studies: A Stu'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.01417",
+  "title": "ReFeed: Retrieval Feedback-Guided Dataset Construction for Style-Aware Query Rewriting",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('ReFeed: Retrieval Feedback-Guided Dataset Construction for Style-Aware'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2603.22633",
+  "title": "Graph-Aware Late Chunking for Retrieval-Augmented Generation in Biomedical Literature",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: graph-aware chunking for biomedical RAG; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2412.05838",
+  "title": "A Collaborative Multi-Agent Approach to Retrieval-Augmented Generation Across Diverse Data",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: multi-agent RAG over databases; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2505.18332",
+  "title": "An Attack to Break Permutation-Based Private Third-Party Inference Schemes for LLMs",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('An Attack to Break Permutation-Based Private Third-Party Inference Sch'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.19457",
+  "title": "Four-Axis Decision Alignment for Long-Horizon Enterprise AI Agents",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Four-Axis Decision Alignment for Long-Horizon Enterprise AI Agents'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2604.14140",
+  "title": "LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2608.06503",
+  "title": "Toward Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execution Instability",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: context compression for long-horizon agents on AppWorld; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2502.17129",
+  "title": "Thus Spake Long-Context Large Language Model",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Survey of long-context LLM architecture, infrastructure and training; no context-construction mechanism for code."
+ },
+ {
+  "arxiv_id": "2306.07353",
+  "title": "HDDL 2.1: Towards Defining a Formalism and a Semantics for Temporal HTN Planning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('HDDL 2.1: Towards Defining a Formalism and a Semantics for Temporal HT'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2607.26977",
+  "title": "TREK: A Travel Reasoning and Evaluation Kit for LLM Agents in Complex Trip Planning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('TREK: A Travel Reasoning and Evaluation Kit for LLM Agents in Complex '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2512.07737",
+  "title": "A scalable and real-time neural decoder for topological quantum codes",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A scalable and real-time neural decoder for topological quantum codes'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.15300",
+  "title": "Seeing is Believing: Mitigating Hallucination in Large Vision-Language Models via CLIP-Guided Decoding",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Seeing is Believing: Mitigating Hallucination in Large Vision-Language'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2302.07142",
+  "title": "Semantic Importance-Aware Communications Using Pre-trained Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Semantic Importance-Aware Communications Using Pre-trained Language Mo'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2412.17744",
+  "title": "RepoTransBench: A Real-World Multilingual Benchmark for Repository-Level Code Translation",
+  "decision": "uncertain",
+  "criterion": "unclear-I2",
+  "reason": "Repository-level translation benchmark with an agent baseline; abstract does not show context construction or a context-utilization measurement."
+ },
+ {
+  "arxiv_id": "2301.13767",
+  "title": "Multicalibration as Boosting for Regression",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Multicalibration as Boosting for Regression'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Exploiting Generative AI to Scale up Intelligent Tutoring Systems",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: OpenAlex metadata mismatch (title on tutoring, abstract on Mizar ATP premise selection); neither is an LLM code-context study; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "MadGraph 5 : Going Beyond",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('MadGraph 5 : Going Beyond'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Common Method Bias: It's Bad, It's Complex, It's Widespread, and It's Not Easy to Fix",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Common Method Bias: It's Bad, It's Complex, It's Widespread, and It's '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Recent Advances in Natural Language Processing via Large Pre-trained Language Models: A Survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Recent Advances in Natural Language Processing via Large Pre-trained L'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "JASPAR 2024: 20th anniversary of the open-access database of transcription factor binding profiles",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('JASPAR 2024: 20th anniversary of the open-access database of transcrip'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Understanding O-RAN: Architecture, Interfaces, Algorithms, Security, and Research Challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Understanding O-RAN: Architecture, Interfaces, Algorithms, Security, a'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Multimodal Learning With Transformers: A Survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Multimodal Learning With Transformers: A Survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "PyMC: a modern, and comprehensive probabilistic programming framework in Python",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: probabilistic programming library, not LLM; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Explainability for Large Language Models: A Survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Explainability for Large Language Models: A Survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyo'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Algorithm for optimized mRNA design improves stability and immunogenicity",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Algorithm for optimized mRNA design improves stability and immunogenic'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "JCVI: A versatile toolkit for comparative genomics analysis",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('JCVI: A versatile toolkit for comparative genomics analysis'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Mathematical discoveries from program search with large language models",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "FunSearch evolutionary program search with LLMs; function-level, no context mechanism."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Generative artificial intelligence: a systematic review and applications",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Generative artificial intelligence: a systematic review and applicatio'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2303.04226",
+  "title": "A Comprehensive Survey of AI-Generated Content (AIGC): A History of Generative AI from GAN to ChatGPT",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Comprehensive Survey of AI-Generated Content (AIGC): A History of Ge'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Programming Is Hard - Or at Least It Used to Be",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Position paper on AI code generators in programming education; no context mechanism."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: proceedings volume, not a study; no abstract; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Multimodal Sentiment Analysis: A Survey of Methods, Trends, and Challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Multimodal Sentiment Analysis: A Survey of Methods, Trends, and Challe'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2302.07427",
+  "title": "Studying the effect of AI Code Generators on Supporting Novice Learners in Introductory Programming",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "User study of Codex with novice programmers; no context mechanism."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A review on sentiment analysis from social media platforms",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A review on sentiment analysis from social media platforms'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Artificial Intelligence and Machine Learning Technology Driven Modern Drug Discovery and Development",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Artificial Intelligence and Machine Learning Technology Driven Modern '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "When large language models meet personalization: perspectives of challenges and opportunities",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('When large language models meet personalization: perspectives of chall'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Dissociating language and thought in large language models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Dissociating language and thought in large language models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The language network as a natural kind within the broader landscape of the human brain",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The language network as a natural kind within the broader landscape of'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2303.11366",
+  "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Reflexion verbal-feedback memory for agents incl. function-level coding; no repository or structural context."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Survey on Measuring Cognitive Workload in Human-Computer Interaction",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Survey on Measuring Cognitive Workload in Human-Computer Interaction'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The Crowdless Future? Generative AI and Creative Problem-Solving",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The Crowdless Future? Generative AI and Creative Problem-Solving'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Impact of word embedding models on text analytics in deep learning environment: a review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Impact of word embedding models on text analytics in deep learning env'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2309.07864",
+  "title": "The Rise and Potential of Large Language Model Based Agents: A Survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The Rise and Potential of Large Language Model Based Agents: A Survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Comparative Analysis of Intrusion Detection Systems and Machine Learning-Based Model Analysis Through Decision Tree",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Comparative Analysis of Intrusion Detection Systems and Machine Learni'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "What Do We Mean by GenAI? A Systematic Mapping of The Evolution, Trends, and Techniques Involved in Generative AI.",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('What Do We Mean by GenAI? A Systematic Mapping of The Evolution, Trend'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Digital Twins in the Construction Industry: A Comprehensive Review of Current Implementations, Enabling Technologies, and Future Directions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Digital Twins in the Construction Industry: A Comprehensive Review of '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A review of large language models and autonomous agents in chemistry",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A review of large language models and autonomous agents in chemistry'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2306.11722",
+  "title": "Automated Grading and Feedback Tools for Programming Education: A Systematic Review",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Systematic review of automated grading tools (2017-2021); not LLM context construction."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Large language models in radiology: fundamentals, applications, ethical considerations, risks, and future directions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large language models in radiology: fundamentals, applications, ethica'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Large-scale Multi-modal Pre-trained Models: A Comprehensive Survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large-scale Multi-modal Pre-trained Models: A Comprehensive Survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2302.13971",
+  "title": "LLaMA: Open and Efficient Foundation Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: general foundation model; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2303.18223",
+  "title": "A Survey of Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Survey of Large Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2309.07930",
+  "title": "Generative AI",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Generative AI'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Review on Large Language Models: Architectures, Applications, Taxono'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Detecting hallucinations in large language models using semantic entropy",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Detecting hallucinations in large language models using semantic entro'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Survey on RAG Meeting LLMs: Towards Retrieval-Augmented Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: survey of retrieval-augmented LLMs; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "2304.08485",
+  "title": "Visual Instruction Tuning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Visual Instruction Tuning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The Power of Generative AI: A Review of Requirements, Models, Input–Output Formats, Evaluation Metrics, and Challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The Power of Generative AI: A Review of Requirements, Models, Input–Ou'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Survey on In-context Learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Survey on In-context Learning'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Balancing Privacy and Progress: A Review of Privacy Challenges, Systemic Oversight, and Patient Perceptions in AI-Driven Healthcare",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Balancing Privacy and Progress: A Review of Privacy Challenges, System'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Explainable Artificial Intelligence (XAI) 2.0: A manifesto of open challenges and interdisciplinary research directions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Explainable Artificial Intelligence (XAI) 2.0: A manifesto of open cha'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2407.21783",
+  "title": "Enriching Location Representation with Detailed Semantic Information",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Enriching Location Representation with Detailed Semantic Information'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Attention is all you need: utilizing attention in AI-enabled drug discovery",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Attention is all you need: utilizing attention in AI-enabled drug disc'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2307.06435",
+  "title": "A Comprehensive Overview of Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Comprehensive Overview of Large Language Models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Benchmarking Large Language Models for News Summarization",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Benchmarking Large Language Models for News Summarization'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Multimodal Large Language Models in Health Care: Applications, Challenges, and Future Outlook",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Multimodal Large Language Models in Health Care: Applications, Challen'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Revolutionizing Cyber Threat Detection With Large Language Models: A Privacy-Preserving BERT-Based Lightweight Model for IoT/IIoT Devices",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Revolutionizing Cyber Threat Detection With Large Language Models: A P'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2412.19437",
+  "title": "DeepSeek-V3 Technical Report",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "General/off-topic: general foundation model technical report; no code or repository context instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Large language models for generative information extraction: a survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large language models for generative information extraction: a survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Large language models empowered agent-based modeling and simulation: a survey and perspectives",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large language models empowered agent-based modeling and simulation: a'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A comprehensive survey of ChatGPT: Advancements, applications, prospects, and challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A comprehensive survey of ChatGPT: Advancements, applications, prospec'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2309.01219",
+  "title": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Siren's Song in the AI Ocean: A Survey on Hallucination in Large Langu'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A comprehensive review of model compression techniques in machine learning",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A comprehensive review of model compression techniques in machine lear'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Review of Current Trends, Techniques, and Challenges in Large Language Models (LLMs)",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Review of Current Trends, Techniques, and Challenges in Large Langua'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2402.10373",
+  "title": "BioMistral: A Collection of Open-Source Pretrained Large Language Models for Medical Domains",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('BioMistral: A Collection of Open-Source Pretrained Large Language Mode'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A comprehensive survey of deep learning for time series forecasting: architectural diversity and open challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A comprehensive survey of deep learning for time series forecasting: a'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Autonomous Vehicles: Evolution of Artificial Intelligence and the Current Industry Landscape",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Autonomous Vehicles: Evolution of Artificial Intelligence and the Curr'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Machine Learning-Guided Protein Engineering",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Machine Learning-Guided Protein Engineering'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Foundation metrics for evaluating effectiveness of healthcare conversations powered by generative AI",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Foundation metrics for evaluating effectiveness of healthcare conversa'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Generic Diagramming Platform (GDP): a comprehensive database of high-quality biomedical graphics",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Generic Diagramming Platform (GDP): a comprehensive database of high-q'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Personalized RNA neoantigen vaccines stimulate T cells in pancreatic cancer",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Personalized RNA neoantigen vaccines stimulate T cells in pancreatic c'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Autonomous chemical research with large language models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Autonomous chemical research with large language models'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and applications",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A survey on deep learning tools dealing with data scarcity: definition'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A meta systematic review of artificial intelligence in higher education: a call for increased ethics, collaboration, and rigour",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A meta systematic review of artificial intelligence in higher educatio'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Re-Thinking Data Strategy and Integration for Artificial Intelligence: Concepts, Opportunities, and Challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Re-Thinking Data Strategy and Integration for Artificial Intelligence:'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "GPT (Generative Pre-Trained Transformer)— A Comprehensive Review on Enabling Technologies, Potential Applications, Emerging Challenges, and Future Directions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('GPT (Generative Pre-Trained Transformer)— A Comprehensive Review on En'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Autoencoders and their applications in machine learning: a survey",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Autoencoders and their applications in machine learning: a survey'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2501.12948",
+  "title": "Can Open Large Language Models Catch Vulnerabilities?",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "Evaluates LLM vulnerability detection/CWE classification on function snippets; no context mechanism."
+ },
+ {
+  "arxiv_id": "2303.13375",
+  "title": "Capabilities of GPT-4 on Medical Challenge Problems",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Capabilities of GPT-4 on Medical Challenge Problems'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Generative AI and the future of higher education: a threat to academic integrity or reformation? Evidence from multicultural perspectives",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Generative AI and the future of higher education: a threat to academic'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Glioblastoma remodelling of human neural circuits decreases survival",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Glioblastoma remodelling of human neural circuits decreases survival'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Design and validation of the AI literacy questionnaire: The affective, behavioural, cognitive and ethical approach",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Design and validation of the AI literacy questionnaire: The affective,'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Perivascular cells induce microglial phagocytic states and synaptic engulfment via SPP1 in mouse models of Alzheimer’s disease",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Perivascular cells induce microglial phagocytic states and synaptic en'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "AI hallucination: towards a comprehensive classification of distorted information in artificial intelligence-generated content",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AI hallucination: towards a comprehensive classification of distorted '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2403.05530",
+  "title": "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Gemini 1.5 model report on million-token native context; model capability, not context construction."
+ },
+ {
+  "arxiv_id": "2305.18290",
+  "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Direct Preference Optimization: Your Language Model is Secretly a Rewa'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Cyber Threat Intelligence Mining for Proactive Cybersecurity Defense: A Survey and New Perspectives",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Cyber Threat Intelligence Mining for Proactive Cybersecurity Defense: '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Current applications and challenges in large language models for patient care: a systematic review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Current applications and challenges in large language models for patie'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Dealing with information overload: a comprehensive review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Dealing with information overload: a comprehensive review'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Leveraging Generative AI and Large Language Models: A Comprehensive Roadmap for Healthcare Integration",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Leveraging Generative AI and Large Language Models: A Comprehensive Ro'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Insights into Internet of Medical Things (IoMT): Data fusion, security issues and potential solutions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Insights into Internet of Medical Things (IoMT): Data fusion, security'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Synthetic data generation methods in healthcare: A review on open-source tools and methods",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Synthetic data generation methods in healthcare: A review on open-sour'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "State of the science and recommendations for using wearable technology in sleep and circadian research",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('State of the science and recommendations for using wearable technology'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Digitally-induced change in the public sector: a systematic review and research agenda",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Digitally-induced change in the public sector: a systematic review and'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Human-centred learning analytics and AI in education: A systematic literature review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Human-centred learning analytics and AI in education: A systematic lit'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "GPT-4 passes the bar exam",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('GPT-4 passes the bar exam'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Retrieval augmented generation for large language models in healthcare: A systematic review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Retrieval augmented generation for large language models in healthcare'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "When LLMs meet cybersecurity: a systematic literature review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('When LLMs meet cybersecurity: a systematic literature review'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Effects of Generative Chatbots in Higher Education",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Effects of Generative Chatbots in Higher Education'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The EarthCARE mission – science and system overview",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The EarthCARE mission – science and system overview'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Listen, Denoise, Action! Audio-Driven Motion Synthesis with Diffusion Models",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Listen, Denoise, Action! Audio-Driven Motion Synthesis with Diffusion '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2505.10468",
+  "title": "AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and chal'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Dictionary learning for integrative, multimodal and scalable single-cell analysis",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Dictionary learning for integrative, multimodal and scalable single-ce'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspe'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Large language models encode clinical knowledge",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Large language models encode clinical knowledge'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('TRIPOD+AI statement: updated guidance for reporting clinical predictio'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Segment anything in medical images",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Segment anything in medical images'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "UniProt: the Universal Protein Knowledgebase in 2025",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('UniProt: the Universal Protein Knowledgebase in 2025'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "ChatGPT: Bullshit spewer or the end of traditional assessments in higher education?",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('ChatGPT: Bullshit spewer or the end of traditional assessments in high'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Accurate medium-range global weather forecasting with 3D neural networks",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Accurate medium-range global weather forecasting with 3D neural networ'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A survey on large language model based autonomous agents",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A survey on large language model based autonomous agents'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2304.07193",
+  "title": "DINOv2: Learning Robust Visual Features without Supervision",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('DINOv2: Learning Robust Visual Features without Supervision'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "phytools 2.0: an updated R ecosystem for phylogenetic comparative methods (and other things)",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('phytools 2.0: an updated R ecosystem for phylogenetic comparative meth'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "InterPro: the protein sequence classification resource in 2025",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('InterPro: the protein sequence classification resource in 2025'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Ethical and regulatory challenges of AI technologies in healthcare: A narrative review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Ethical and regulatory challenges of AI technologies in healthcare: A '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A foundation model for generalizable disease detection from retinal images",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A foundation model for generalizable disease detection from retinal im'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Generative AI at Work",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Generative AI at Work'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The CCP 4 suite: integrative software for macromolecular crystallography",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The CCP 4 suite: integrative software for macromolecular crystallograp'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Adaptive Learning Using Artificial Intelligence in e-Learning: A Literature Review",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Adaptive Learning Using Artificial Intelligence in e-Learning: A Liter'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Papers and patents are becoming less disruptive over time",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Papers and patents are becoming less disruptive over time'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Accurate predictions on small data with a tabular foundation model",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Accurate predictions on small data with a tabular foundation model'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Ultra-processed food exposure and adverse health outcomes: umbrella re'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A whole-slide foundation model for digital pathology from real-world data",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A whole-slide foundation model for digital pathology from real-world d'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Pragmatic solutions to reduce the global burden of stroke: a World Stroke Organization–Lancet Neurology Commission",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Pragmatic solutions to reduce the global burden of stroke: a World Str'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Connecting the dots in trustworthy Artificial Intelligence: From AI principles, ethics, and key requirements to responsible AI systems and regulation",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Connecting the dots in trustworthy Artificial Intelligence: From AI pr'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "Adapted large language models can outperform medical experts in clinical text summarization",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('Adapted large language models can outperform medical experts in clinic'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "The molecular basis for cellular function of intrinsically disordered protein regions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('The molecular basis for cellular function of intrinsically disordered '); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "",
+  "title": "A Survey of Graph Neural Networks for Recommender Systems: Challenges, Methods, and Directions",
+  "decision": "exclude",
+  "criterion": "E2",
+  "reason": "Off-topic for code-LLM context construction ('A Survey of Graph Neural Networks for Recommender Systems: Challenges,'); no code or repository instantiation."
+ },
+ {
+  "arxiv_id": "2407.08983",
+  "title": "Towards More Trustworthy and Interpretable LLMs for Code through Syntax-Grounded Explanations",
+  "decision": "exclude",
+  "criterion": "E4",
+  "reason": "AST-grounded interpretability of code LLM confidence; explains outputs, does not construct context."
+ },
+ {
+  "arxiv_id": "2308.12950",
+  "title": "Code Llama: Open Foundation Models for Code",
+  "decision": "exclude",
+  "criterion": "E1",
+  "reason": "Code Llama foundation models with long-context training; model-internal, no context-construction mechanism."
+ }
+]

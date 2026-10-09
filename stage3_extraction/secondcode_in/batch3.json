@@ -1,0 +1,50 @@
+[
+{
+"arxiv_id": "2306.10998",
+"title": "RepoFusion: Training Code Models to Understand Your Repository"
+},
+{
+"arxiv_id": "2402.12317",
+"title": "EVOR: Evolving Retrieval for Code Generation"
+},
+{
+"arxiv_id": "2406.03283",
+"title": "CATCODER: Repository-Level Code Generation with Relevant Code and Type Context"
+},
+{
+"arxiv_id": "2407.19619",
+"title": "Enhancing Code Translation in Language Models with Few-Shot Learning via Retrieval-Augmented Generation"
+},
+{
+"arxiv_id": "2504.08862",
+"title": "RTLRepoCoder: Repository-Level RTL Code Completion through the Combination of Fine-Tuning and Retrieval Augmentation"
+},
+{
+"arxiv_id": "2508.08322",
+"title": "Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code"
+},
+{
+"arxiv_id": "2510.08610",
+"title": "Relative Positioning Based Code Chunking Method For Rich Context Retrieval In Repository Level Code Completion Task With Code Language Model"
+},
+{
+"arxiv_id": "2601.16746",
+"title": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents"
+},
+{
+"arxiv_id": "2603.28119",
+"title": "Compressing Code Context for LLM-based Issue Resolution"
+},
+{
+"arxiv_id": "2606.08135",
+"title": "TICoder: A Repository-Level Code Generation Framework with Test-Driven Planning and Implementation-Aware Reuse"
+},
+{
+"arxiv_id": "2607.11111",
+"title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution"
+},
+{
+"arxiv_id": "2608.01927",
+"title": "Effective and Efficient Context Retrieval via Partial Dependency Graph for Repository-Level Code Generation"
+}
+]

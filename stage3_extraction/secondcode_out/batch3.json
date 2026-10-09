@@ -1,0 +1,98 @@
+[
+{
+  "arxiv_id": "2306.10998",
+  "title": "RepoFusion: Training Code Models to Understand Your Repository",
+  "repr_primary": "embedding_retrieval",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Raw chunks retrieved via heuristic proposals/BM25/CodeBERT-embeddings, fused via Fusion-in-Decoder; main comparison uses ~24k tokens (N=32,l=768) vs baselines' 2-8k, not budget-matched."
+},
+{
+  "arxiv_id": "2402.12317",
+  "title": "EVOR: Evolving Retrieval for Code Generation",
+  "repr_primary": "hybrid",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "budget_matched_ablation",
+  "note": "Full-text (HTML). Dense (INSTRUCTOR-xl) retrieval over docs+code+execution-feedback with iteratively evolving queries; Fig.3 compares vs DocPrompting across matched 4k-24k token levels (headline result itself uses far more tokens than baseline)."
+},
+{
+  "arxiv_id": "2406.03283",
+  "title": "CATCODER: Repository-Level Code Generation with Relevant Code and Type Context",
+  "repr_primary": "hybrid",
+  "mechanism": "graph_guided_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Static-analyzer type-context restricted to direct neighbors in type-dependency graph + sparse/dense-retrieved code (RRF-fused); ablation (Table 7) varies components without controlling total context length."
+},
+{
+  "arxiv_id": "2407.19619",
+  "title": "Enhancing Code Translation in Language Models with Few-Shot Learning via Retrieval-Augmented Generation",
+  "repr_primary": "embedding_retrieval",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Few-shot translation examples retrieved via embedding models (Nomic/Starencoder/CodeBERT); compared against zero-shot without matching prompt length."
+},
+{
+  "arxiv_id": "2504.08862",
+  "title": "RTLRepoCoder: Repository-Level RTL Code Completion through the Combination of Fine-Tuning and Retrieval Augmentation",
+  "repr_primary": "embedding_retrieval",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Raw code chunks retrieved by cosine similarity, invoked only above a 10k-token threshold; chunk-size/embedding-model ablations do not standardize total input length."
+},
+{
+  "arxiv_id": "2508.08322",
+  "title": "Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code",
+  "repr_primary": "hybrid",
+  "mechanism": "agentic_exploration",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Claude Code sub-agents combine AST-chunked (tree-sitter) embedding retrieval, grep/file tools, and NotebookLM summarization; single-codebase case study, 5 tasks, 80% vs 40% baseline success - very weak N, near-anecdotal."
+},
+{
+  "arxiv_id": "2510.08610",
+  "title": "Relative Positioning Based Code Chunking Method For Rich Context Retrieval In Repository Level Code Completion Task With Code Language Model",
+  "repr_primary": "embedding_retrieval",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "demonstrated",
+  "note": "Full-text (HTML). Fixed-size overlapping line chunks retrieved via BM25+FAISS hybrid (RRF), extended with 'next/prev' neighbor chunks by relative position; workshop paper reports only absolute scores and explicitly states no ablation was performed."
+},
+{
+  "arxiv_id": "2601.16746",
+  "title": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents",
+  "repr_primary": "raw_window",
+  "mechanism": "learned_pruning",
+  "evaluation": "budget_matched_ablation",
+  "note": "Full-text (HTML). 0.6B neural skimmer scores/selects lines from raw agent-retrieved text given a task goal; compared against baselines configured to match the same 4x/8x compression constraints (held-constant budget)."
+},
+{
+  "arxiv_id": "2603.28119",
+  "title": "Compressing Code Context for LLM-based Issue Resolution",
+  "repr_primary": "ast",
+  "mechanism": "learned_compression",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). AST-decomposed hierarchical units (file/function/block) with omitted units replaced by placeholders; SWEzze (learned compressor) + OCD (genetic search/delta debugging); baselines set at their own 'recommended/best-aligned' operating points, not a matched budget."
+},
+{
+  "arxiv_id": "2606.08135",
+  "title": "TICoder: A Repository-Level Code Generation Framework with Test-Driven Planning and Implementation-Aware Reuse",
+  "repr_primary": "embedding_retrieval",
+  "mechanism": "similarity_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Raw callee-function implementations retrieved via dual-view (functional+implementation) cosine similarity plus clustering/perplexity filtering; ablation (Table 3) shows unmatched token counts (1407 vs 2824) across variants."
+},
+{
+  "arxiv_id": "2607.11111",
+  "title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution",
+  "repr_primary": "hybrid",
+  "mechanism": "agentic_exploration",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). Answerer agent autonomously explores the repo via shell tools (Mini-SWE-Agent-style), producing QA pairs grounded in file/function artifacts, serialized as text prepended for the Resolver; baseline comparisons (Tables I/II) unmatched for token/cost budget."
+},
+{
+  "arxiv_id": "2608.01927",
+  "title": "Effective and Efficient Context Retrieval via Partial Dependency Graph for Repository-Level Code Generation",
+  "repr_primary": "call_dep_graph",
+  "mechanism": "graph_guided_retrieval",
+  "evaluation": "ablated_measured",
+  "note": "Full-text (HTML). LLM-guided multi-hop traversal builds an on-demand partial function-level call/dependency graph, feeding full code+imports of selected nodes; DyCoder uses 13.09k vs RepoScope's 5.11k tokens - not budget-matched."
+}
+]

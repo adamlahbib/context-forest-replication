@@ -1,0 +1,374 @@
+[
+{
+  "arxiv_id": "2306.03091",
+  "numbers": [
+    {
+      "metric": "RepoBench-C Python (All) Exact Match, StarCoder 15.5B",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 3: 31.67% exactly."
+    },
+    {
+      "metric": "RepoBench-P Python (All) Exact Match, Codex + UniXcoder-L2H retrieval",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 37.11% exactly."
+    },
+    {
+      "metric": "RepoBench-R Python XF-F Easy acc@1, UniXcoder",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: 25.94% exactly."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly against Tables 2-4. Cross-file context is inserted as commented raw code snippets parsed from import statements (tree-sitter); retrieval uses both lexical (Jaccard/Edit similarity) and embedding (CodeBERT/UniXcoder cosine) similarity, with UniXcoder embeddings performing best -- consistent with embedding_retrieval/similarity_retrieval labels."
+},
+{
+  "arxiv_id": "2401.07339",
+  "numbers": [
+    {
+      "metric": "CodeAgentBench Pass@1, GPT-4-turbo baseline vs Rule-based strategy",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 3: 21.8% -> 37.6% exactly."
+    },
+    {
+      "metric": "HumanEval Pass@1, GPT-3.5-turbo baseline vs Rule-based",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 72.6% -> 82.3% exactly."
+    },
+    {
+      "metric": "Per-tool ablation drop for Code Symbol Navigation (GPT-3.5-ReAct)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 5: 30.7% -> 22.8%, a -7.9pp drop, exactly."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Stop_detail's specific tool implementations (DuckDuckGo search, BM25 doc retrieval, tree-sitter code symbol navigation, Black formatter) are all verified verbatim in Section 4.1, and the four agent strategies (ReAct, Tool-Planning, OpenAIFunc, rule-based) are confirmed."
+},
+{
+  "arxiv_id": "2406.01359",
+  "numbers": [
+    {
+      "metric": "R2C2-Bench EM, StarCoder-7B + R2C2-Enhance (no fine-tune)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2, Average EM column: 24.8% exactly."
+    },
+    {
+      "metric": "CrossCodeEval+ EM/ES, DeepSeekCoder-6.7B + R2C2-Enhanced Tuning",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4, Average EM/ES columns: 53.6% EM / 79.3% ES exactly."
+    },
+    {
+      "metric": "Ablation EM: without snippet context vs both contexts",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 5: 'w.o. Snippet Context' at P=1,S=1 gives Average EM 31.2%, and full 'R2C2-Enhanced Tuning' at P=5,S=5 gives 42.1%. Both values are literally in the table, though they come from different P/S retrieval-window settings rather than a single matched-P/S pair -- worth noting as a slightly loose comparison."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All 3 numbers confirmed exactly. Minor citation error: stop_detail cites 'Sec. 2.2' for the R2C2-Enhance methodology (Tree-sitter AST abstract context, Jaccard retrieval, N=4096 token limit), but this is actually Section 3.1 (subsections 3.1.1/3.1.2)."
+},
+{
+  "arxiv_id": "2406.11927",
+  "numbers": [
+    {
+      "metric": "Pass@1, Full context (DeepSeek-R1)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 42.57%, and verified against the full table this is indeed the single highest Pass@1 across all models/prompt types, confirming the '(best)' annotation."
+    },
+    {
+      "metric": "Dependency Invocation Rate, Full context (GPT-4o)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 81.43%, and verified against the full table this is indeed the single highest DIR across all models/prompt types, confirming the '(best)' annotation."
+    },
+    {
+      "metric": "Avg. prompt tokens per context level",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Full 362.92 / Medium 253.05 / Small 179.66, exactly. Precise location is Table 1 within Section 4.1, which is consistent with the cited 'Sec 4'."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed, including independently verifying both 'best' claims against the complete Table 4 (BasePrompt + InstructPrompt, all models). Stop_detail cites '(Sec 3)' for the pydepcall tool and the three context-granularity levels, but these are actually described in Sec 4.1 and Sec 5.1 respectively (Sec 3 is 'Evaluation Paradigm')."
+},
+{
+  "arxiv_id": "2503.15301",
+  "numbers": [
+    {
+      "metric": "EM improvement, Python code spans (aiXcoder-7B-v2 vs base)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table I: +19.7% (48.6 -> 58.2 EM)."
+    },
+    {
+      "metric": "EM improvement, C++ code spans (DeepSeek-Coder-6.7B + COLA)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table IV: +35.3% (46.8 -> 63.3 EM)."
+    },
+    {
+      "metric": "Unseen-language generalization EM (C#, TypeScript)",
+      "verdict": "WRONG",
+      "correct_value_if_wrong": "Swap the pairing: TypeScript is +19.2% (46.96->55.96 EM) and C# is +20.6% (46.32->55.88 EM). The record lists '(C#, TypeScript)' = '+19.2%, +20.6%', which has the two languages reversed relative to Table III.",
+      "note": "Table III confirms both magnitudes (+19.2% and +20.6%) exist, but they are attributed to the wrong language in the record."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Metric 3 has swapped labels (see numbers[2]); the other two numbers and the full methodology (SCIP-derived dependency graph alternated with top-10 Jaccard-similarity retrieval until context window fills, then SFT+DPO training) are confirmed verbatim in Sections III-A2, III-B, and V-C."
+},
+{
+  "arxiv_id": "2507.23348",
+  "numbers": [
+    {
+      "metric": "Pass@1 issue resolution (SWE-bench-Verified)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: 41.4% (207/500)."
+    },
+    {
+      "metric": "Ablation: without multi-chain generation",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: 31.4%, a -10.0pp drop from 41.4%, exactly."
+    },
+    {
+      "metric": "File-level localization Acc@1",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 3: 81.67% exactly."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Methodology fully verified: static dependency graph (calls/inheritance/imports/variable refs), BFS+DFS from K seed entities forming K×W chains, a three-round multi-agent debate ('three-round debate among specialized agents...along the fault propagation trace' quoted verbatim), then MCTS-based patch generation."
+},
+{
+  "arxiv_id": "2510.00446",
+  "numbers": [
+    {
+      "metric": "Completion Edit Similarity at 5.6x compression vs. uncompressed",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table II: 63.11 vs 64.04 exactly."
+    },
+    {
+      "metric": "RepoQA accuracy at 5.3x compression vs. no compression",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table IV: 80.7% vs 69.0% exactly."
+    },
+    {
+      "metric": "Generation latency reduction",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table IX: 15.70s -> 6.59s, consistent with '15.7s to 6.6s' under rounding."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed. Minor citation issue: stop_detail cites 'Section III-B' for both stages, but coarse-grained (perplexity-ranked function selection) is actually III-C and fine-grained (block boundaries + 0/1 knapsack) is III-D; III-B is just the method overview."
+},
+{
+  "arxiv_id": "2601.10112",
+  "numbers": [
+    {
+      "metric": "mean relative accuracy improvement with RIG",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Section VI: '+12.2%' relative accuracy improvement, exactly."
+    },
+    {
+      "metric": "mean completion time reduction with RIG",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Section VI: 53.9% reduction, exactly."
+    },
+    {
+      "metric": "average RIG size across 8 repos",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "~20,692 bytes / ~5,173 tokens average and ~15,019 tokens (60,076 bytes) for the largest repo, both matching. However, this data is actually in Section V-B (Tables II-III), not 'Section VI' as cited by the record."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": false,
+  "mechanism_suggested": "skeletonization",
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Mechanism mismatch: SPADE deterministically builds a whole-repo architectural map from CMake File API + CTest build/test metadata upfront -- this is better described as skeletonization (building an abstracted structural map) than slicing_static_analysis (which implies code slicing/dependency tracing from a query point, not performed here). Metric 3's table location is Section V-B, not Section VI as the record states."
+},
+{
+  "arxiv_id": "2603.01327",
+  "numbers": [
+    {
+      "metric": "SWE-Bench Lite resolve rate vs. SWE-agent (Claude-4.5)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: 71.3% vs 66.0% (+5.3pp), exactly."
+    },
+    {
+      "metric": "SWE-Bench Pro resolve rate vs. SWE-agent (Claude-4.5)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: 45.0% vs 39.5% (+5.5pp), exactly."
+    },
+    {
+      "metric": "Token usage vs. RepoGraph (GPT-5.2, Lite)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: SWE-Adept 197k tokens (70.8% Func Acc@5) vs RepoGraph 150k tokens (60.6% Func Acc@5) -- SWE-Adept uses more tokens but has higher accuracy, exactly as stated."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers and methodology confirmed verbatim, including exact section citation (Sec 3.1 code-structure tree with contains/invokes edges, Sec 3.2 dependency-aware DFS via find_child_unit with two-stage post-search filtering). Paper also contains genuine internal component ablations (Tables 4-6) supporting the ablated_measured label."
+},
+{
+  "arxiv_id": "2606.04397",
+  "numbers": [
+    {
+      "metric": "Input tokens, tutorial validation case study",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4 ('Efficiency for Case Study 2', the tutorial case study): 112.3K -> 76.8K, -31.6% (~-32%), exactly."
+    },
+    {
+      "metric": "Wall-clock time, tutorial validation case study",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Values correct (17.2 -> 11.4 min, -34%) but wrong table cited: this is in Table 4 ('Efficiency for Case Study 2'), not Table 3 (which covers Case Study 1 / API-reference, with unrelated values 4.1->3.2 min, -22%)."
+    },
+    {
+      "metric": "Issues surfaced",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Values correct (13 total with CAIS vs 5 baseline) but location is Table 1 within Section 6 ('Results and Discussion'), not 'Sec 4' (Section 4 is 'Case-Study Protocol')."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Two of three numbers have location-citation errors though the values themselves are correct (see numbers[1] and numbers[2] notes) -- both actually come from Table 4 and Table 1/Section 6. Methodology (BM25 + DRAMA dense embeddings fused via reciprocal rank fusion, agent-issued tool-call queries, Sec 3.2-3.3) confirmed verbatim."
+},
+{
+  "arxiv_id": "2607.09691",
+  "numbers": [
+    {
+      "metric": "behavioral probe correctness",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: raw source 27/45 (60.0%), frontier NL summary 4/45 (8.9%), 3B-model summary 4/45 (8.9%), signature+docstring 6/45 (13.3%) -- all exact."
+    },
+    {
+      "metric": "resolve rate, N=70 oracle-localized multi-file subset",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 3: oracle_full 19/70 (27.1%), oracle_tier 23/70 (32.9%), oracle_keep_drop 25/70 (35.7%) -- all exact."
+    },
+    {
+      "metric": "mean tokens per arm (resolve experiment)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "oracle_full ~25,426, oracle_tier ~8,629, oracle_keep_drop ~6,876 -- all exact, Section 3.2 (resolve@cost rig)."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Methodology quoted almost verbatim: deterministic AST extraction (Subsystem->Component->File->Class->Function, Sec 3.1), six representation rungs (full-body/method-only/UML-class-skeleton/signature+doc/name/exclude, all deterministic, no LLM), and gold-edited units kept verbatim via keep/drop."
+},
+{
+  "arxiv_id": "2607.25431",
+  "numbers": [
+    {
+      "metric": "incremental index update speedup",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Abstract/Sec 9.5: graph updates 8.7x faster, vector updates 25.4x faster than rebuild at median, exactly."
+    },
+    {
+      "metric": "static vs live-server navigation latency",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Abstract/Sec 9.4: 4.7x median per-request latency ratio on the 63% of 1,000 requests with matching normalized locations, exactly."
+    },
+    {
+      "metric": "trajectory token reduction",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "50-87% fewer tokens than grep/read baseline within a 5% (epsilon=0.05) AnswerRecall@5 margin, across 5 agent models -- exact, but the actual results appear in Section 9.7 ('Q5: Agent Context Delivery'); Section 7.4 (cited by the record) is where the Compact policy mechanism is defined, not where these results are reported."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "Evaluation type mismatch: the Q5 token-reduction experiment holds quality constant (filters to policies where AnswerRecall@5 stays within an epsilon=0.05 margin of grep/read) and reports token usage as the measured outcome -- this is the inverse of budget_matched_ablation's required structure (held-constant token/line budget, measured quality), so ablated_measured fits better. All 3 numeric values confirmed; metric 3's citation conflates the mechanism-definition section (7.4) with the results section (9.7)."
+}
+]

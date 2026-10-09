@@ -1,0 +1,289 @@
+[
+{
+"arxiv_id": "2310.11248",
+"title": "CrossCodeEval: A Diverse and Multilingual Benchmark for Cross-File Code Completion",
+"system": "CrossCodeEval",
+"key_numbers": [
+{
+"metric": "Exact Match, StarCoder-15.5B Python, no-context vs retrieved-context",
+"value": "8.82% -> 15.72%",
+"where": "Table 4 results"
+},
+{
+"metric": "Exact Match with oracle retrieval",
+"value": "21.01%",
+"where": "Table 4 results"
+},
+{
+"metric": "benchmark scale",
+"value": "10,000 examples across ~1,000 repos, 4 languages (Python/Java/TypeScript/C#)",
+"where": "Table 1"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Cross-file context assembled by retrieving top-5 similar code chunks via BM25 or embedding similarity and prepending them as comments to the in-file prompt, capped at 512 tokens (Section 3.3, experimental setup)."
+},
+{
+"arxiv_id": "2403.06095",
+"title": "RepoHyper: Search-Expand-Refine on Semantic Graphs for Repository-Level Code Completion",
+"system": "RepoHyper",
+"key_numbers": [
+{
+"metric": "Context retrieval acc@3, RepoBench-R Easy/Hard (RepoHyper+UniXcoder vs UniXcoder baseline)",
+"value": "68.91%/49.51% vs 59.69%/39.02%",
+"where": "RepoBench-R results table"
+},
+{
+"metric": "End-to-end EM/CodeBLEU, RepoBench-P XF-F (RepoHyper-L2H+GPT-3.5 vs RepoCoder)",
+"value": "52.76%/61.49% vs 48.73%/57.62%",
+"where": "RepoBench-P results table"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A Repo-level Semantic Graph (function/class/script nodes with import/invoke/ownership/hierarchy edges) is searched via kNN-seeded BFS graph expansion, then re-ranked by a GraphSAGE link-prediction model before insertion into the prompt (Section 4.3)."
+},
+{
+"arxiv_id": "2406.07003",
+"title": "GraphCoder: Enhancing Repository-Level Code Completion via Code Context Graph-based Retrieval and Language Model",
+"system": "GraphCoder",
+"key_numbers": [
+{
+"metric": "Code EM gain vs RepoCoder (API-level, avg)",
+"value": "+6.06%",
+"where": "Abstract / results"
+},
+{
+"metric": "Identifier EM gain vs RepoCoder (avg)",
+"value": "+6.23%",
+"where": "Abstract / results"
+},
+{
+"metric": "benchmark scale",
+"value": "RepoEval-Updated: 8,000 tasks, 20 repos (10 Python/10 Java)",
+"where": "Section 4 dataset description"
+}
+],
+"repr_primary": "cpg_dataflow",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Query and candidate statements are converted into a Code Context Graph (control-flow, data-dependence, control-dependence edges from AST-based static analysis); candidates are Jaccard-filtered then re-ranked by decay-weighted subgraph edit distance to the query graph (Section 4.3)."
+},
+{
+"arxiv_id": "2410.21157",
+"title": "M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation",
+"system": "M2RC-Eval",
+"key_numbers": [
+{
+"metric": "DeepSeekCoder-6.7B EM/ES after +Retrieval&Tuning (avg, 18 langs)",
+"value": "46.8% EM / 74.1% ES",
+"where": "Table 2 results"
+},
+{
+"metric": "Baseline (in-file only) EM",
+"value": "22.6%",
+"where": "Table 2 results"
+},
+{
+"metric": "benchmark scale",
+"value": "18 languages, 100 val / 500 test samples per language, 5,993 test repos",
+"where": "Section 3 dataset stats"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Cross-file context is built by extracting L-line segments from same-repo files, ranking by Jaccard similarity to the in-file context, and concatenating top matches until a 4096-token cap (retrieval setting description)."
+},
+{
+"arxiv_id": "2505.14394",
+"title": "Knowledge Graph Based Repository-Level Code Generation",
+"system": "Athale25",
+"key_numbers": [
+{
+"metric": "Pass@1 on EvoCodeBench",
+"value": "36.36% (proposed KG method, Claude 3.5 Sonnet) vs 20.73% (EvoCodeBench baseline, GPT-4) vs 7.27% (GPT-4 no-context)",
+"where": "Results table"
+},
+{
+"metric": "Pass@1 comparison to prior structural-retrieval work",
+"value": "36.02% (CodeXGraph, GPT-4o) vs 33.45% (proposed, GPT-4o)",
+"where": "Results table"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Repository parsed via AST into a graph of File/Class/Method/Function/Attribute nodes plus LLM-generated descriptions; at query time, full-text index + vector embeddings (all-MiniLM) identify seed nodes, graph n-hop expansion pulls related structure, and semantic ranking filters the sub-graph, which is inserted into the prompt (Sec. Pipeline/Methodology)."
+},
+{
+"arxiv_id": "2508.21433",
+"title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management",
+"system": "Lindenbauer25",
+"key_numbers": [
+{
+"metric": "solve rate / cost reduction, Qwen3-Coder 480B",
+"value": "masking 54.8% solve / -52.7% cost vs LLM-summary 53.8% solve / -50.4% cost",
+"where": "Sec. 4 results table"
+},
+{
+"metric": "hybrid approach improvement",
+"value": "7-11% additional cost reduction vs masking/summary alone, +2.6pp solve rate (SWE-bench Verified-50, Qwen3-Coder 480B)",
+"where": "Sec. 5"
+}
+],
+"repr_primary": "exec_traces",
+"mechanism": "none_fixed_window",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 3.1: masking replaces environment observations older than a fixed window of M turns with a placeholder, while LLM-Summary replaces older turns beyond N+M turns with a periodically regenerated LLM-produced running summary plus a few recent turns in full (Eq. 3-6)."
+},
+{
+"arxiv_id": "2510.12948",
+"title": "SpareCodeSearch: Searching for Code Context When You Have No Spare GPU",
+"system": "SpareCodeSearch",
+"key_numbers": [
+{
+"metric": "chRF score, Kotlin track",
+"value": "0.748",
+"where": "Abstract"
+},
+{
+"metric": "chRF score, Python track",
+"value": "0.725",
+"where": "Abstract"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Uses keyword/lexical search (not dense embeddings) over the codebase to select code context fed to a completion model, avoiding GPU-hosted embedding models (Abstract; full method section unavailable \u2014 HTML/ar5iv rendering returned 404)"
+},
+{
+"arxiv_id": "2601.19929",
+"title": "Stingy Context: 18:1 Hierarchical Code Compression for LLM Auto-Coding",
+"system": "Stingy Context",
+"key_numbers": [
+{
+"metric": "Context compression ratio",
+"value": "18:1 (239k -> 11k tokens)",
+"where": "Abstract"
+},
+{
+"metric": "Success rate across 12 frontier models",
+"value": "94-97%",
+"where": "Abstract"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"stop_detail": "Hierarchical tree-based 'TREEFRAG' decomposition compresses a full repository into a compact structured summary retained in the prompt, per Abstract (full-text method section unavailable \u2014 404 on both arxiv.org/html and ar5iv)"
+},
+{
+"arxiv_id": "2605.14478",
+"title": "When Retrieval Hurts Code Completion: A Diagnostic Study of Stale Repository Context",
+"system": "Weng26",
+"key_numbers": [
+{
+"metric": "stale-reference rate increase, Qwen2.5-Coder-7B-Instruct (stale-only vs current-only)",
+"value": "+88.2 pp (15/17 samples)",
+"where": "Results"
+},
+{
+"metric": "stale-reference rate increase, gpt-4.1-mini (stale-only vs current-only)",
+"value": "+76.5 pp (13/17 samples)",
+"where": "Results"
+},
+{
+"metric": "stale-reference rate under mixed current/stale retrieval",
+"value": "23.5% (Qwen), 29.4% (gpt-4.1-mini)",
+"where": "Results"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A diagnostic harness manually substitutes current- vs. stale- (parent-commit) repository helper-function signatures as 'retrieved' context under five conditions (current-only, stale-only, no-retrieval, two mixed orders) to isolate whether stale retrieved context actively induces incompatible completions rather than acting as harmless noise (Methods)."
+},
+{
+"arxiv_id": "2607.01138",
+"title": "Antaeus: Hunting Repository-Level Logic Vulnerabilities via Context-Grounded LLM Reasoning",
+"system": "Antaeus",
+"key_numbers": [
+{
+"metric": "True positives detected, AntaeusO4.7 vs. best baselines",
+"value": "15/28 vs. 3-5/28 (function-level/agentic baselines)",
+"where": "Tables II-III"
+},
+{
+"metric": "Cost per confirmed vulnerability, Antaeus vs. agentic baseline",
+"value": "~$30 (AntaeusO4.7) vs. ~$77 (Opus 4.7 agentic)",
+"where": "Tables VI/VIII"
+},
+{
+"metric": "Functions retained after prioritization stage",
+"value": "4,859 analyzed functions (from full repositories, ~30x reduction)",
+"where": "Sec. III-A results"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A lightweight prioritization stage reduces the repository to a ranked set of security-relevant functions (keyword heuristics plus agentic LLM ranking of compressed signature+callee summaries), then each retained function is grounded with depth-one callee bodies and a repository-wide security summary (system purpose, trust topology) before structured sink/safety-condition LLM reasoning and comparative validation (Sec. III-A, III-B)."
+},
+{
+"arxiv_id": "2607.18213",
+"title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
+"system": "SWE-Pruner Pro",
+"key_numbers": [
+{
+"metric": "SWE-Bench Verified resolve rate, MiMo-V2-Flash",
+"value": "345/500 (SWE-Pruner Pro) vs. 326/500 baseline (+3.8%)",
+"where": "Table 2, Sec. 5.1"
+},
+{
+"metric": "Token savings, Qwen3-Coder-Next on SWE-QA-Pro",
+"value": "368K vs. 607K baseline tokens (39.4% reduction)",
+"where": "Table 1"
+},
+{
+"metric": "Latency overhead from pruning calls",
+"value": "+15.0% aggregate wall time",
+"where": "Sec. 5.3"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"stop_detail": "Reuses the agent's own frozen-backbone token representations produced during normal prefill of a tool response, feeding them through a lightweight length-aware classification head (LayerNorm + Linear-GELU-Dropout blocks) to assign each line a keep/prune label via majority vote of token-level decisions, pruning it before the next turn's context (Sec. 3.1-3.2)."
+},
+{
+"arxiv_id": "2608.24188",
+"title": "Paritok-4B: Intent-Conditioned Context Compression for Coding Agents",
+"system": "Paritok-4B",
+"key_numbers": [
+{
+"metric": "compression ratio vs quality retained (Paritok-4B, line-numbered input)",
+"value": "27.8% compression, 89.3% single-shot solve quality retained",
+"where": "Results table, SWE-bench Lite 300 instances"
+},
+{
+"metric": "identifier/path/number extractiveness",
+"value": "96.0% (96.2% held-out) of emitted tokens present in input",
+"where": "Table 2, extractiveness audit"
+},
+{
+"metric": "intent-conditioning effect on retained-line relevance",
+"value": "+0.067, 95% CI [0.056, 0.078]",
+"where": "Section 4.2"
+}
+],
+"repr_primary": "exec_traces",
+"mechanism": "learned_compression",
+"evaluation": "ablated_measured",
+"stop_detail": "A 4B LoRA adapter over Qwen3-4B, conditioned on the agent's current task intent, extractively selects spans (replacing dropped content with closed-vocabulary structural markers like '[body: N lines]') from each trajectory segment (file reads, bash output, edits) before it re-enters the coding agent's context (Sections 3-4, per-segment distillation pipeline)."
+}
+]

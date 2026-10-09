@@ -1,0 +1,206 @@
+[
+{
+"id": "2212.10007",
+"title": "CoCoMIC: Code Completion By Jointly Modeling In-file and Cross-file Context",
+"year": 2022,
+"abstract": "While pre-trained language models (LM) for code have achieved great success in code completion, they generate code conditioned only on the contents within the file, i.e., in-file context, but ignore the rich semantics in other files within the same project, i.e., cross-file context, a critical source of information that is especially useful in modern modular software development. Such overlooking constrains code language models' capacity in code completion, leading to unexpected behaviors such as generating hallucinated class member functions or function calls with unexpected arguments. In this work, we develop a cross-file context finder tool, CCFINDER, that effectively locates and retrieve"
+},
+{
+"id": "2304.04704",
+"title": "Prompt Pre-Training with Twenty-Thousand Classes for Open-Vocabulary Visual Recognition",
+"year": 2023,
+"abstract": "This work proposes POMP, a prompt pre-training method for vision-language models. Being memory and computation efficient, POMP enables the learned prompt to condense semantic information for a rich set of visual concepts with over twenty-thousand classes. Once pre-trained, the prompt with a strong transferable ability can be directly plugged into a variety of visual recognition tasks including image classification, semantic segmentation, and object detection, to boost recognition performances in a zero-shot manner. Empirical evaluation shows that POMP achieves state-of-the-art performances on 21 datasets, e.g., 67.0% average accuracy on 10 classification datasets (+3.1% compared to CoOp) and"
+},
+{
+"id": "2306.14893",
+"title": "LongCoder: A Long-Range Pre-trained Language Model for Code Completion",
+"year": 2023,
+"abstract": "In this paper, we introduce a new task for code completion that focuses on handling long code input and propose a sparse Transformer model, called LongCoder, to address this task. LongCoder employs a sliding window mechanism for self-attention and introduces two types of globally accessible tokens - bridge tokens and memory tokens - to improve performance and efficiency. Bridge tokens are inserted throughout the input sequence to aggregate local information and facilitate global interaction, while memory tokens are included to highlight important statements that may be invoked later and need to be memorized, such as package imports and definitions of classes, functions, or structures. We con"
+},
+{
+"id": "2312.05772",
+"title": "A^3-CodGen: A Repository-Level Code Generation Framework for Code Reuse with Local-Aware, Global-Aware, and Third-Party-Library-Aware",
+"year": 2023,
+"abstract": "LLM-based code generation tools are essential to help developers in the software development process. Existing tools often disconnect with the working context, i.e., the code repository, causing the generated code to be not similar to human developers. In this paper, we propose a novel code generation framework, dubbed A^3-CodGen, to harness information within the code repository to generate code with fewer potential logical errors, code redundancy, and library-induced compatibility issues. We identify three types of representative information for the code repository: local-aware information from the current code file, global-aware information from other code files, and third-party-library i"
+},
+{
+"id": "2402.02834",
+"title": "Shortened LLaMA: Depth Pruning for Large Language Models with Comparison of Retraining Methods",
+"year": 2024,
+"abstract": "Structured pruning of modern large language models (LLMs) has emerged as a way of decreasing their high computational needs. Width pruning reduces the size of projection weight matrices (e.g., by removing attention heads) while maintaining the number of layers. Depth pruning, in contrast, removes entire layers or blocks, while keeping the size of the remaining weights unchanged. Most current research focuses on either width-only or a blend of width and depth pruning, with little comparative analysis between the two units (width vs. depth) concerning their impact on LLM inference efficiency. In this work, we show that simple depth pruning can effectively compress LLMs while achieving comparab"
+},
+{
+"id": "2403.03788",
+"title": "PPTC-R benchmark: Towards Evaluating the Robustness of Large Language Models for PowerPoint Task Completion",
+"year": 2024,
+"abstract": "The growing dependence on Large Language Models (LLMs) for finishing user instructions necessitates a comprehensive understanding of their robustness to complex task completion in real-world situations. To address this critical need, we propose the PowerPoint Task Completion Robustness benchmark (PPTC-R) to measure LLMs' robustness to the user PPT task instruction and software version. Specifically, we construct adversarial user instructions by attacking user instructions at sentence, semantic, and multi-language levels. To assess the robustness of Language Models to software versions, we vary the number of provided APIs to simulate both the newest version and earlier version settings. Subse"
+},
+{
+"id": "2404.09937",
+"title": "Compression Represents Intelligence Linearly",
+"year": 2024,
+"abstract": "There is a belief that learning to compress well will lead to intelligence. Recently, language modeling has been shown to be equivalent to compression, which offers a compelling rationale for the success of large language models (LLMs): the development of more advanced language models is essentially enhancing compression which facilitates intelligence. Despite such appealing discussions, little empirical evidence is present for the interplay between compression and intelligence. In this work, we examine their relationship in the context of LLMs, treating LLMs as data compressors. Given the abstract concept of \"intelligence\", we adopt the average downstream benchmark scores as a surrogate, sp"
+},
+{
+"id": "2405.18628",
+"title": "Hardware-Aware Parallel Prompt Decoding for Memory-Efficient Acceleration of LLM Inference",
+"year": 2024,
+"abstract": "The auto-regressive decoding of Large Language Models (LLMs) results in significant overheads in their hardware performance. While recent research has investigated various speculative decoding techniques for multi-token generation, these efforts have primarily focused on improving processing speed such as throughput. Crucially, they often neglect other metrics essential for real-life deployments, such as memory consumption and training cost. To overcome these limitations, we propose a novel parallel prompt decoding that requires only $0.0002$% trainable parameters, enabling efficient training on a single A100-40GB GPU in just 16 hours. Inspired by the human natural language generation proces"
+},
+{
+"id": "2406.04464",
+"title": "On The Importance of Reasoning for Context Retrieval in Repository-Level Code Editing",
+"year": 2024,
+"abstract": "Recent advancements in code-fluent Large Language Models (LLMs) enabled the research on repository-level code editing. In such tasks, the model navigates and modifies the entire codebase of a project according to request. Hence, such tasks require efficient context retrieval, i.e., navigating vast codebases to gather relevant context. Despite the recognized importance of context retrieval, existing studies tend to approach repository-level coding tasks in an end-to-end manner, rendering the impact of individual components within these complicated systems unclear. In this work, we decouple the task of context retrieval from the other components of the repository-level code editing pipelines. "
+},
+{
+"id": "2406.16778",
+"title": "Finding Transformer Circuits with Edge Pruning",
+"year": 2024,
+"abstract": "The path to interpreting a language model often proceeds via analysis of circuits -- sparse computational subgraphs of the model that capture specific aspects of its behavior. Recent work has automated the task of discovering circuits. Yet, these methods have practical limitations, as they rely either on inefficient search algorithms or inaccurate approximations. In this paper, we frame automated circuit discovery as an optimization problem and propose *Edge Pruning* as an effective and scalable solution. Edge Pruning leverages gradient-based pruning techniques, but instead of removing neurons or components, it prunes the \\emph{edges} between components. Our method finds circuits in GPT-2 th"
+},
+{
+"id": "2409.15204",
+"title": "RAMBO: Enhancing RAG-based Repository-Level Method Body Completion",
+"year": 2024,
+"abstract": "Code completion is essential in software development, helping developers by predicting code snippets based on context. Among completion tasks, Method Body Completion (MBC) is particularly challenging as it involves generating complete method bodies based on their signatures and context. This task becomes significantly harder in large repositories, where method bodies must integrate repositoryspecific elements such as custom APIs, inter-module dependencies, and project-specific conventions. In this paper, we introduce RAMBO, a novel RAG-based approach for repository-level MBC. Instead of retrieving similar method bodies, RAMBO identifies essential repository-specific elements, such as classes"
+},
+{
+"id": "2411.00744",
+"title": "CARROT: A Learned Cost-Constrained Retrieval Optimization System for RAG",
+"year": 2024,
+"abstract": "Large Language Models (LLMs) have demonstrated impressive ability in generation and reasoning tasks but struggle with handling up-to-date knowledge, leading to inaccuracies or hallucinations. Retrieval-Augmented Generation (RAG) mitigates this by retrieving and incorporating external knowledge into input prompts. In particular, due to LLMs' context window limitations and long-context hallucinations, only the most relevant \"chunks\" are retrieved. However, current RAG systems face three key challenges: (1) chunks are often retrieved independently without considering their relationships, such as redundancy and ordering; (2) the utility of chunks is non-monotonic, as adding more chunks can degra"
+},
+{
+"id": "2502.07067",
+"title": "Repository-level Code Search with Neural Retrieval Methods",
+"year": 2025,
+"abstract": "This paper presents a multi-stage reranking system for repository-level code search, which leverages the vastly available commit histories of large open-source repositories to aid in bug fixing. We define the task of repository-level code search as retrieving the set of files from the current state of a code repository that are most relevant to addressing a user's question or bug. The proposed approach combines BM25-based retrieval over commit messages with neural reranking using CodeBERT to identify the most pertinent files. By learning patterns from diverse repositories and their commit histories, the system can surface relevant files for the task at hand. The system leverages both commit "
+},
+{
+"id": "2504.10046",
+"title": "GraphCodeAgent: Dual Graph-Guided LLM Agent for Retrieval-Augmented Repo-Level Code Generation",
+"year": 2025,
+"abstract": "Writing code requires significant time and effort in software development. To automate this process, researchers have made substantial progress for code generation. Recently, large language models (LLMs) have demonstrated remarkable proficiency in function-level code generation, yet their performance significantly degrades in the real-world software development process, where coding tasks are deeply embedded within specific repository contexts. Existing studies attempt to use retrieval-augmented code generation (RACG) approaches to mitigate this demand. However, there is a gap between natural language (NL) requirements and programming implementations. This results in the failure to retrieve "
+},
+{
+"id": "2507.19942",
+"title": "Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving",
+"year": 2025,
+"abstract": "Large Language Models (LLMs) have shown remarkable capabilities in automating software engineering tasks, spurring the emergence of coding agents that scaffold LLMs with external tools to resolve repository-level problems. However, existing agents still struggle to navigate large-scale codebases, as the Needle-in-a-Haystack problem persists even with million-token context windows, where relevant evidence is often overwhelmed by large volumes of irrelevant code and documentation. Prior codebase navigation approaches, including embedding-based retrieval, file-system exploration, and graph-based retrieval, address parts of this challenge but fail to capture the temporal continuity of agent reas"
+},
+{
+"id": "2508.08322",
+"title": "Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code",
+"year": 2025,
+"abstract": "Large Language Models (LLMs) have shown promise in automating code generation and software engineering tasks, yet they often struggle with complex, multi-file projects due to context limitations and knowledge gaps. We propose a novel context engineering workflow that combines multiple AI components: an Intent Translator (GPT-5) for clarifying user requirements, an Elicit-powered semantic literature retrieval for injecting domain knowledge, NotebookLM-based document synthesis for contextual understanding, and a Claude Code multi-agent system for code generation and validation. Our integrated approach leverages intent clarification, retrieval-augmented generation, and specialized sub-agents or"
+},
+{
+"id": "2509.19212",
+"title": "Steering Multimodal Large Language Models Decoding for Context-Aware Safety",
+"year": 2025,
+"abstract": "Multimodal Large Language Models (MLLMs) are increasingly deployed in real-world applications, yet their ability to make context-aware safety decisions remains limited. Existing methods often fail to balance oversensitivity (unjustified refusals of benign queries) and undersensitivity (missed detection of visually grounded risks), leaving a persistent gap in safety alignment. To address this issue, we introduce Safety-aware Contrastive Decoding (SafeCoDe), a lightweight and model-agnostic decoding framework that dynamically adjusts token generation based on multimodal context. SafeCoDe operates in two stages: (1) a contrastive decoding mechanism that highlights tokens sensitive to visual con"
+},
+{
+"id": "2510.08610",
+"title": "Relative Positioning Based Code Chunking Method For Rich Context Retrieval In Repository Level Code Completion Task With Code Language Model",
+"year": 2025,
+"abstract": "Code completion can help developers improve efficiency and ease the development lifecycle. Although code completion is available in modern integrated development environments (IDEs), research lacks in determining what makes a good context for code completion based on the information available to the IDEs for the large language models (LLMs) to perform better. In this paper, we describe an effective context collection strategy to assist the LLMs in performing better at code completion tasks. The key idea of our strategy is to preprocess the repository into smaller code chunks and later use syntactic and semantic similarity-based code chunk retrieval with relative positioning. We found that co"
+},
+{
+"id": "2512.02423",
+"title": "GUI Exploration Lab: Enhancing Screen Navigation in Agents via Multi-Turn Reinforcement Learning",
+"year": 2025,
+"abstract": "With the rapid development of Large Vision Language Models, the focus of Graphical User Interface (GUI) agent tasks shifts from single-screen tasks to complex screen navigation challenges. However, real-world GUI environments, such as PC software and mobile Apps, are often complex and proprietary, making it difficult to obtain the comprehensive environment information needed for agent training and evaluation. This limitation hinders systematic investigation and benchmarking of agent navigation capabilities. To address this limitation, we introduce GUI Exploration Lab, a simulation environment engine for GUI agent navigation research that enables flexible definition and composition of screens"
+},
+{
+"id": "2601.00376",
+"title": "In Line with Context: Repository-Level Code Generation via Context Inlining",
+"year": 2026,
+"abstract": "Repository-level code generation has attracted growing attention in recent years. Unlike function-level code generation, it requires the model to understand the entire repository, reasoning over complex dependencies across functions, classes, and modules. However, existing approaches such as retrieval-augmented generation (RAG) or context-based function selection often fall short: they primarily rely on surface-level similarity and struggle to capture the rich dependencies that govern repository-level semantics. In this paper, we introduce InlineCoder, a novel framework for repository-level code generation. InlineCoder enhances the understanding of repository context by inlining the unfinish"
+},
+{
+"id": "2601.11863",
+"title": "Utilizing Metadata for Better Retrieval-Augmented Generation",
+"year": 2026,
+"abstract": "Retrieval-Augmented Generation systems depend on retrieving semantically relevant document chunks to support accurate, grounded outputs from large language models. In structured and repetitive corpora such as regulatory filings, chunk similarity alone often fails to distinguish between documents with overlapping language. Practitioners often flatten metadata into input text as a heuristic, but the impact and trade-offs of this practice remain poorly understood. We present a systematic study of metadata-aware retrieval strategies, comparing plain-text baselines with approaches that embed metadata directly. Our evaluation spans metadata-as-text (prefix and suffix), a dual-encoder unified embed"
+},
+{
+"id": "2601.22025",
+"title": "When Generic Prompt Improvements Hurt: Evaluation-Driven Iteration for LLM Applications",
+"year": 2026,
+"abstract": "Evaluating Large Language Model (LLM) applications differs from conventional software testing because outputs are probabilistic, semantically variable, and sensitive to prompt and model changes. This technical report proposes the Minimum Viable Evaluation Suite (MVES), an audit-oriented structure for application-level LLM evaluation. MVES links application categories to failure modes, metrics, required artifacts, and validation evidence across general LLM applications, retrieval-augmented systems, and agentic workflows. We pair the framework with a reproducible local evaluation harness covering structured extraction, RAG citation/content-compliance, and instruction-following checks. Using Ol"
+},
+{
+"id": "2602.17664",
+"title": "Sink-Aware Pruning for Diffusion Language Models",
+"year": 2026,
+"abstract": "Diffusion Language Models (DLMs) incur high inference cost due to iterative denoising, motivating efficient pruning. Existing pruning heuristics largely inherited from autoregressive (AR) LLMs, typically preserve attention sink tokens because AR sinks serve as stable global anchors. We show that this assumption does not hold for DLMs: the attention-sink position exhibits substantially higher variance over the full generation trajectory (measured by how the dominant sink locations shift across timesteps), indicating that sinks are often transient and less structurally essential than in AR models. Based on this observation, we propose ${\\bf \\texttt{Sink-Aware Pruning}}$, which automatically id"
+},
+{
+"id": "2603.25770",
+"title": "ReCUBE: Evaluating Repository-Level Context Utilization in Code Generation",
+"year": 2026,
+"abstract": "Large Language Models (LLMs) have recently emerged as capable coding assistants that operate over large codebases through either agentic exploration or full-context generation. Existing benchmarks capture a broad range of coding capabilities, such as resolving GitHub issues, but none of them directly isolate and measure how effectively LLMs leverage repository-level context during code generation. To address this, we introduce ReCUBE, a benchmark in which LLMs reconstruct a masked file within a real-world repository, using all remaining source files, dependency specifications, and documentation as their only source of context. ReCUBE evaluates reconstructed code with usage-aware test cases t"
+},
+{
+"id": "2604.24678",
+"title": "Leveraging LLMs for Multi-File DSL Code Generation: An Industrial Case Study",
+"year": 2026,
+"abstract": "Large language models (LLMs) perform strongly on general-purpose code generation, yet their applicability to enterprise domain-specific languages (DSLs) remains underexplored, especially for repository-scale change generation spanning multiple files and folder structures from a single natural-language (NL) instruction. We report an industrial case study at BMW that adapts code-oriented LLMs to generate and modify project-root DSL artifacts for an Xtext-based DSL that drives downstream Java/TypeScript code generation. We develop an end-to-end pipeline for dataset construction, multi-file task representation, model adaptation, and evaluation. We encode DSL folder hierarchies as structured, pat"
+},
+{
+"id": "2605.15315",
+"title": "Context Pruning for Coding Agents via Multi-Rubric Latent Reasoning",
+"year": 2026,
+"abstract": "LLM-powered coding agents spend the majority of their token budget reading repository files, yet much of the retrieved code is irrelevant to the task at hand. Existing learned pruners compress this context with a single-objective sequence labeler, collapsing all facets of code relevance into one score and one transition matrix. We show that this formulation creates a modeling bottleneck: a single CRF transition prior must serve heterogeneous retention patterns, including contiguous semantic spans and sparse structural support lines. We propose LaMR (Latent Multi-Rubric), a structured pruning framework that decomposes code relevance into two interpretable quality dimensions, semantic evidence"
+},
+{
+"id": "2606.03618",
+"title": "Cross-Lingual Token Arbitrage: Optimizing Code Agent Context Windows via Local LLM Preprocessing",
+"year": 2026,
+"abstract": "AI-assisted coding agents are bottlenecked by input-token cost. Two pathologies of raw human input drive much of this overhead: tokenization inefficiency for non-English text and structural entropy in conversational prompts. Existing approaches act reactively by compressing already-bloated contexts or intervening after failures occur. We introduce a pre-flight, edge-side prompt-rewriting middleware that operates between the developer and the cloud agent. A local Llama 3.2 (3B) model performs cross-lingual translation into English, structural rewriting into a compact task-oriented format, and regex-validated rewrite-with-fallback safeguards to ensure the optimized prompt is never larger than "
+},
+{
+"id": "2606.17058",
+"title": "Evaluating LLM Coding Agents on SZ-Family Lossy Compression Across Architectures",
+"year": 2026,
+"abstract": "Large language model (LLM) coding agents are increasingly applied to code translation and optimization, yet their effectiveness in performance-critical high-performance computing (HPC) settings remains poorly characterized. This paper evaluates LLM-based coding workflows on SZ-family error-bounded lossy compression kernels, which combine numerical constraints with memory-intensive and control-flow-heavy implementations. We study two representative CUDA workloads (SZp and SZx) and target two heterogeneous execution platforms: NVIDIA GPUs and Cerebras wafer-scale accelerators. Focusing on single-agent iterative generation, we analyze not only final throughput but also agent runtime behavior, i"
+},
+{
+"id": "2607.01867",
+"title": "An Exploratory Study on LLM-Generated Code and Comments in Code Repositories",
+"year": 2026,
+"abstract": "The use of LLMs in software development has become increasingly widespread on tasks such as code generation and summarization. Reports from large technology companies showed that around 20% to 30% of their code are generated by LLMs. However, there remains skepticism about the practical usage of LLM-generated code and comments, such as concerns on more time for debugging the generated code and the unnaturalness of the generated comments. In this paper, we study the code and comments detected as likely to be generated by LLMs and their characteristics, the differences between company- and community-maintained repositories, and how likely bugs are associated with LLM-generated code. We conduct"
+},
+{
+"id": "2607.15205",
+"title": "MM-IssueLoc: A Controlled Benchmark for Evaluating Visual Evidence in Multimodal Repository-Level Issue Localization",
+"year": 2026,
+"abstract": "Real repository issues routinely include visual evidence such as screenshots, error dialogs, rendered UI states, and logs, yet repository-level issue localization is evaluated mostly as a text-only task. Existing multimodal SE benchmarks evaluate end-to-end repair, entangling localization with patch synthesis and obscuring whether visual input helped, hurt, or was ignored. We introduce \\textbf{MM-IssueLoc}, a controlled benchmark and evaluation protocol for repository-level localization with visual evidence. MM-IssueLoc contains 652 issue-PR instances across 23 languages, with annotations for 7 image categories and 4 relevance levels. It provides file-level and function-level gold labels, pa"
+},
+{
+"id": "2607.24884",
+"title": "Beyond \"What to Retrieve\": Uncertainty in Retrieval-Augmented Code Generation",
+"year": 2026,
+"abstract": "Repository-level code generation relies on heterogeneous evidence whose relevance, compatibility, and completeness are inherently uncertain. Similar-code examples, repository context, and project-specific APIs may provide complementary information, but can also introduce noisy, redundant, or conflicting signals. Existing retrieval-augmented approaches primarily optimize retrieval relevance without explicitly modeling how uncertainty in retrieved evidence affects downstream generation. We introduce OpenCoder, an uncertainty-aware framework that estimates source-specific uncertainty, uses it to filter and rank heterogeneous evidence, and guides generation, verification, and repair. A factorial"
+},
+{
+"id": "2608.11775",
+"title": "The Sleeping Agent: What Gist-Based Context Compression Loses and Why",
+"year": 2026,
+"abstract": "Gist-based context compression---summarising older conversation history into compact representations---is a common approach in long-horizon language model agents, yet its effect on different types of memory retrieval is poorly understood. We use Salience-Weighted Consolidation (SWC), a biologically-inspired compression framework motivated by sleep-based memory consolidation, as a diagnostic probe to study when gist compression helps and when it hurts. SWC scores conversation history by salience, partitions it into priority tiers, and applies structured gist abstraction to mid-priority content. Evaluating four conditions on all ten LoCoMo conversations---1,935 matched text-only questions in t"
+},
+{
+"id": "chat2vis generating data visualizations ",
+"title": "Chat2VIS: Generating Data Visualizations via Natural Language Using ChatGPT, Codex and GPT-3 Large Language Models",
+"year": 2023,
+"abstract": "The field of data visualisation has long aimed to devise solutions for generating visualisations directly from natural language text. Research in Natural Language Interfaces (NLIs) has contributed towards the development of such techniques. However, the implementation of workable NLIs has always been challenging due to the inherent ambiguity of natural language, as well as in consequence of unclear and poorly written user queries which pose problems for existing language models in discerning user intent. Instead of pursuing the usual path of developing new iterations of language models, this study uniquely proposes leveraging the advancements in pre-trained large language models (LLMs) such "
+},
+{
+"id": "using an llm to help with code understan",
+"title": "Using an LLM to Help With Code Understanding",
+"year": 2024,
+"abstract": "Understanding code is challenging, especially when working in new and complex development environments. Code comments and documentation can help, but are typically scarce or hard to navigate. Large language models (LLMs) are revolutionizing the process of writing code. Can they do the same for helping understand it? In this study, we provide a first investigation of an LLM-based conversational UI built directly in the IDE that is geared towards code understanding. Our IDE plugin queries OpenAI's GPT-3.5-turbo model with four high-level requests without the user having to write explicit prompts: to explain a highlighted section of code, provide details of API calls used in the code, explain k"
+}
+]

@@ -1,0 +1,18 @@
+{
+ "n": 83,
+ "repr_primary": {
+  "kappa": 0.41,
+  "agree": 43,
+  "n": 83
+ },
+ "mechanism": {
+  "kappa": 0.67,
+  "agree": 61,
+  "n": 83
+ },
+ "evaluation": {
+  "kappa": 0.56,
+  "agree": 71,
+  "n": 83
+ }
+}

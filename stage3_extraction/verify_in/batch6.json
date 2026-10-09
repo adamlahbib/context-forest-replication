@@ -1,0 +1,288 @@
+[
+{
+"arxiv_id": "2312.05772",
+"title": "A^3-CodGen: A Repository-Level Code Generation Framework for Code Reuse with Local-Aware, Global-Aware, and Third-Party-Library-Aware",
+"system": "A3-CodGen",
+"key_numbers": [
+{
+"metric": "Full A3-CodGen global-reuse F1 (GPT-3.5-Turbo-16k)",
+"value": "0.606",
+"where": "Table IV"
+},
+{
+"metric": "Third-party library coverage",
+"value": "0.940",
+"where": "Table III/IV"
+},
+{
+"metric": "Local-aware reuse F1 (best config)",
+"value": "0.649",
+"where": "Table I"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Local-aware context via AST parsing of the current file, global-aware context via dual textual+semantic embedding retrieval over other repo files, third-party context via AST-extracted imports, all fused into the generation prompt (Sec. III-B)"
+},
+{
+"arxiv_id": "2403.10059",
+"title": "Repoformer: Selective Retrieval for Repository-Level Code Completion",
+"system": "Repoformer",
+"key_numbers": [
+{
+"metric": "Repoformer-16B Line Edit Similarity (RepoEval)",
+"value": "80.34",
+"where": "Table 2"
+},
+{
+"metric": "Inference speedup vs always-retrieve",
+"value": "up to 70%",
+"where": "Abstract / Sec 5.3"
+},
+{
+"metric": "Repoformer-1B Function unit-test pass rate",
+"value": "28.79",
+"where": "Table 2"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"stop_detail": "Model emits a special <cc> token to trigger Jaccard-similarity top-k chunk retrieval from the repo, or emits nothing to skip retrieval and complete from local context alone, via a self-supervised learned gate (Sec 3.2-3.3)"
+},
+{
+"arxiv_id": "2406.10018",
+"title": "STALL+: Boosting LLM-based Repository-level Code Completion with Static Analysis",
+"system": "STALL+",
+"key_numbers": [
+{
+"metric": "Best combined (RAG + static analysis) Java Line EM",
+"value": "52.05",
+"where": "Figure 4"
+},
+{
+"metric": "File-level prompting-phase Python Line EM",
+"value": "27.80 (+18.78 vs. baseline)",
+"where": "Table 2"
+},
+{
+"metric": "File-level prompting-phase Java Line EM",
+"value": "44.24 (+17.54 vs. baseline)",
+"where": "Table 3"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "Static analysis extracts a hierarchical file-level skeleton (module\u2192class\u2192signature/members) and token-level valid-identifier lists, injected either into the prompt (prompting phase, Sec 3.1), via logit masking at decoding (Sec 3.2), or via candidate filtering post-generation (Sec 3.3)"
+},
+{
+"arxiv_id": "2411.11532",
+"title": "CKGFuzzer: LLM-Based Fuzz Driver Generation Enhanced By Code Knowledge Graph",
+"system": "CKGFuzzer",
+"key_numbers": [
+{
+"metric": "Average code coverage improvement vs. SOTA",
+"value": "8.73%",
+"where": "Table I / Sec IV"
+},
+{
+"metric": "Crash-review workload reduction",
+"value": "84.4%",
+"where": "Sec IV / Table I"
+},
+{
+"metric": "New bugs found",
+"value": "11 (9 previously unreported)",
+"where": "Sec IV"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Code Knowledge Graph (function/file nodes; CONTAINS/CALLS/LIBRARY_CALLS edges) built via Tree-sitter + CodeQL interprocedural analysis; a retrieval-augmented agent queries the graph for relevant chunks during API-combination generation and coverage-guided mutation (Sec III-B/III-C, Algorithm 1)"
+},
+{
+"arxiv_id": "2507.14791",
+"title": "RepoScope: Leveraging Call Chain-Aware Multi-View Context for Repository-Level Code Generation",
+"system": "RepoScope",
+"key_numbers": [
+{
+"metric": "Pass@1 on DevEval with Claude-3.5-Haiku (RepoScope vs best baseline)",
+"value": "41.56% (36.35% relative improvement)",
+"where": "Table 2"
+},
+{
+"metric": "Pass@1 on CoderEval with DeepSeek-V3 (RepoScope vs DRACO)",
+"value": "59.42% (17.15% improvement)",
+"where": "Table 2"
+},
+{
+"metric": "Average prompt token usage (RepoScope)",
+"value": "~3679 tokens",
+"where": "Table 2, token-usage column"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Builds a Repository Structural Semantic Graph (RSSG) over classes/functions/attributes via Pytype+Tree-sitter static analysis, retrieves four context views (caller functions, DFS-predicted callee call chains, embedding-similar functions, similar code fragments), then serializes them into a structure-preserving prompt under a two-stage per-view token budget capped at 4096 tokens (RSSG Construction / Call Chain Prediction / Prompt Construction sections); explicitly a static one-shot pipeline with no agentic tool use or multi-turn LLM queries."
+},
+{
+"arxiv_id": "2509.14635",
+"title": "SWE-QA: Can Language Models Answer Repository-level Code Questions?",
+"system": "SWE-QA",
+"key_numbers": [
+{
+"metric": "Best overall QA score",
+"value": "GPT-5.1 + OpenHands = 70.79",
+"where": "Table 3"
+},
+{
+"metric": "Context-strategy progression (Kimi K2)",
+"value": "Direct 51.47 -> Sliding-Window RAG 62.44 -> SWE-agent 67.72",
+"where": "Table 3"
+},
+{
+"metric": "Token cost of agentic frameworks vs direct prompting",
+"value": "~100x more tokens",
+"where": "Table 8 / Appendix C.2"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Compares four context strategies for repository QA-fixed raw sliding-window chunks (500 lines/100 overlap), embedding-based function-chunk retrieval (voyage-code-3, K=10), a tree-sitter-derived typed AST graph, and agentic exploration (OpenHands/SWE-agent tool-use loops, max 10 iterations) (Sec 3.1-3.2)."
+},
+{
+"arxiv_id": "2601.00376",
+"title": "In Line with Context: Repository-Level Code Generation via Context Inlining",
+"system": "InlineCoder",
+"key_numbers": [
+{
+"metric": "RepoExec Exact Match, relative gain over strongest baseline",
+"value": "+29.73% avg",
+"where": "Sec 5.1"
+},
+{
+"metric": "RepoExec BLEU, relative gain",
+"value": "+49.34% avg",
+"where": "Sec 5.1"
+},
+{
+"metric": "DevEval Exact Match, relative improvement",
+"value": "+5.13% avg",
+"where": "Sec 5.1"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Generates a draft anchor for the target function, then inlines it into its caller (upstream: parameter substitution, return normalization, inline expansion) and retrieves callee implementations via AST parsing plus substring matching (downstream), producing one linearized function-scope context (Sec 3.3)."
+},
+{
+"arxiv_id": "2602.05780",
+"title": "Automated Customization of LLMs for Enterprise Code Repositories Using Semantic Scopes",
+"system": "Finkler26",
+"key_numbers": [
+{
+"metric": "Levenshtein distance (function-call completion, DataB C/C++, Granite-8B)",
+"value": "optimal 42 vs baseline 84; full distance 45 vs 9,834",
+"where": "Results section"
+},
+{
+"metric": "model size vs accuracy",
+"value": "uncustomized 8B models (Llama-8B, Granite-8B) competitive with uncustomized Qwen2.5-72B \u2014 a baseline-vs-baseline comparison, not customized-vs-uncustomized",
+"where": "Results section"
+},
+{
+"metric": "context budget",
+"value": "prefix capped at 3KB; semantic-scope units 50-1,000 bytes",
+"where": "Sec. 3, Semantic Scopes / experimental setup"
+}
+],
+"repr_primary": "ast",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 3: repository code is segmented into language-independent 'semantic scopes' derived from AST/bracket-matching (function bodies, loop bodies, conditionals; 50-1,000 bytes), which become either the retrieval unit for an embedding-based RAG index (all-MiniLM-L6-v2, top-3/5 nearest neighbors) or the label half of (prefix, scope) fine-tuning pairs."
+},
+{
+"arxiv_id": "2605.15315",
+"title": "Context Pruning for Coding Agents via Multi-Rubric Latent Reasoning",
+"system": "LaMR",
+"key_numbers": [
+{
+"metric": "extra token savings over SWE-Pruner baseline on multi-turn tasks (matched compression)",
+"value": "7-14% more tokens saved; 30.5% total reduction vs 23.1% for SWE-Pruner with Sonnet 4.5",
+"where": "Sec 4.2, Table 1"
+},
+{
+"metric": "head-to-head win rate on multi-turn comparisons",
+"value": "12 of 16 comparisons",
+"where": "Sec 4.2"
+},
+{
+"metric": "Exact Match / Edit Similarity gain on LCC at 8x compression",
+"value": "+3.5 EM, +1.63 ES",
+"where": "Table 3"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "learned_pruning",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "In-loop middleware intercepts file reads and prunes raw code-text lines via two dedicated CRFs (semantic evidence, dependency support) fused by a mixture-of-experts gate, then an AST-aware post-processing pass restores scope/control-flow headers and referenced imports (Sec 3.4)."
+},
+{
+"arxiv_id": "2607.01425",
+"title": "Agent4cs: A Multi-agent System for Code Summarization in Large Hierarchical Codebases",
+"system": "Agent4cs",
+"key_numbers": [
+{
+"metric": "semantic consistency improvement across folder levels (avg)",
+"value": "+8%",
+"where": "Abstract / Results"
+},
+{
+"metric": "normalized keyword coverage rate gain (GPT-5)",
+"value": "up to +38%",
+"where": "Results section"
+},
+{
+"metric": "benchmark scale",
+"value": "turicreate: 237 files / 1,725 functions (293 files belongs to the pants repository in the same table)",
+"where": "Section 4 dataset description"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "summarization",
+"evaluation": "ablated_measured",
+"stop_detail": "Starting from the deepest folder layer, a keyword-extraction agent distills each child-folder summary into keywords, which are combined with the parent's own summary and passed to a summarization agent, then iteratively refined by a QA agent, repeating layer-by-layer to the repo root (Section 4.1-4.2)."
+},
+{
+"arxiv_id": "2607.24882",
+"title": "Agent Retrieval Bench: Evaluating Repository Context Retrieval for Coding Agents",
+"system": "Agent Retrieval Bench",
+"key_numbers": [
+{
+"metric": "Budgeted Context Yield @8k: RepoMap vs Qwen3-4B vs Qwen3-8B",
+"value": "0.3788 vs 0.3409 vs 0.3732",
+"where": "Table 4, complete positive leaderboard"
+},
+{
+"metric": "Recall@20 / MRR, Qwen3-8B vs Qwen3-4B",
+"value": "R@20=0.7029/MRR=0.2336 vs R@20=0.6306/MRR=0.2379",
+"where": "Table 4"
+},
+{
+"metric": "benchmark scale",
+"value": "427 samples, 25 repositories, 392,000 files / 7.9M chunks, 308 base-commit snapshots",
+"where": "Dataset description"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Retrieval methods are scored by Budgeted Context Yield: the fraction of relevant content achievable within a fixed token budget B (via a regex code tokenizer), compared across BM25, RepoMap (path/symbol/reference/repo-graph signals, vectorless), five embedding models, and logged coding-agent (Codex CLI) context (Budgeted Context Yield metric section)."
+}
+]

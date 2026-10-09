@@ -1,0 +1,50 @@
+[
+{
+"arxiv_id": "2306.03091",
+"title": "RepoBench: Benchmarking Repository-Level Code Auto-Completion Systems"
+},
+{
+"arxiv_id": "2401.07339",
+"title": "CodeAgent: Enhancing Code Generation with Tool-Integrated Agent Systems for Real-World Repo-level Coding Challenges"
+},
+{
+"arxiv_id": "2406.01359",
+"title": "R2C2-Coder: Enhancing and Benchmarking Real-world Repository-level Code Completion Abilities of Code Large Language Models"
+},
+{
+"arxiv_id": "2406.11927",
+"title": "On the Impacts of Contexts on Repository-Level Code Generation"
+},
+{
+"arxiv_id": "2503.15301",
+"title": "aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context in Repository-level Code Completion"
+},
+{
+"arxiv_id": "2507.23348",
+"title": "SWE-Debate: Competitive Multi-Agent Debate for Software Issue Resolution"
+},
+{
+"arxiv_id": "2510.00446",
+"title": "LongCodeZip: Compress Long Context for Code Language Models"
+},
+{
+"arxiv_id": "2601.10112",
+"title": "Repository Intelligence Graph: Deterministic Architectural Map for LLM Code Assistants"
+},
+{
+"arxiv_id": "2603.01327",
+"title": "SWE-Adept: An LLM-Based Agentic Framework for Deep Codebase Analysis and Structured Issue Resolution"
+},
+{
+"arxiv_id": "2606.04397",
+"title": "Context-as-AI-Service: Surfacing Cross-File Dependency Chains for LLM-Generated Developer Documentation"
+},
+{
+"arxiv_id": "2607.09691",
+"title": "What Context Does a Coding Agent Actually Need to Act?"
+},
+{
+"arxiv_id": "2607.25431",
+"title": "CodeNib: A Multi-View Data System for Serving Repository Context to Coding Agents"
+}
+]

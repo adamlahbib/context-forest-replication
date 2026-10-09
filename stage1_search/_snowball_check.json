@@ -1,0 +1,279 @@
+{
+ "papers": [
+  {
+   "arxiv_id": "2303.12570",
+   "n_refs": 46,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2306.10763",
+   "n_refs": 66,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2309.12499",
+   "n_refs": 99,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2310.11248",
+   "n_refs": 44,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2402.14323",
+   "n_refs": 26,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2403.06095",
+   "n_refs": 55,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2405.19782",
+   "n_refs": 67,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.01359",
+   "n_refs": 49,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.01422",
+   "n_refs": 52,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.03283",
+   "n_refs": 70,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.04464",
+   "n_refs": 15,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.07003",
+   "n_refs": 63,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.11927",
+   "n_refs": 73,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2406.18294",
+   "n_refs": 48,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2411.11532",
+   "n_refs": 0,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2505.14394",
+   "n_refs": 27,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2507.14791",
+   "n_refs": 46,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2507.23348",
+   "n_refs": 88,
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
+     "year": 2024,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2508.08322",
+   "n_refs": 7,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2509.16112",
+   "n_refs": 29,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2510.00446",
+   "n_refs": 80,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2601.00376",
+   "n_refs": 71,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2601.03708",
+   "n_refs": 39,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2602.05780",
+   "n_refs": 16,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2603.01327",
+   "n_refs": 31,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2603.25770",
+   "n_refs": 55,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2603.28119",
+   "n_refs": 43,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2605.15315",
+   "n_refs": 36,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2606.07297",
+   "n_refs": 33,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2606.14061",
+   "n_refs": 51,
+   "in_scope_by_title": 1,
+   "unknown": [
+    {
+     "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2607.01138",
+   "n_refs": 37,
+   "in_scope_by_title": 4,
+   "unknown": [
+    {
+     "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
+     "year": 2024,
+     "known": false
+    },
+    {
+     "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+     "year": 2024,
+     "known": false
+    },
+    {
+     "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
+     "year": 2024,
+     "known": false
+    },
+    {
+     "title": "LLMxCPG: Context-Aware Vulnerability Detection Through Code Property Graph-Guided Large Language Models",
+     "year": 2025,
+     "known": false
+    }
+   ]
+  },
+  {
+   "arxiv_id": "2607.09691",
+   "n_refs": 12,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2607.24882",
+   "n_refs": 22,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2607.24884",
+   "n_refs": 30,
+   "in_scope_by_title": 0,
+   "unknown": []
+  },
+  {
+   "arxiv_id": "2608.01927",
+   "n_refs": 57,
+   "in_scope_by_title": 0,
+   "unknown": []
+  }
+ ],
+ "unique_unknown": [
+  {
+   "title": "When Large Language Models Confront Repository-Level Automatic Program Repair: How Well They Done?",
+   "year": 2024,
+   "known": false
+  },
+  {
+   "title": "ExpeRepair: Dual-Memory Enhanced LLM-Based Repository-Level Program Repair",
+   "year": 2025,
+   "known": false
+  },
+  {
+   "title": "vul-rag: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG",
+   "year": 2024,
+   "known": false
+  },
+  {
+   "title": "LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+   "year": 2024,
+   "known": false
+  },
+  {
+   "title": "Enhancing Static Analysis for Practical Bug Detection: An LLM-Integrated Approach",
+   "year": 2024,
+   "known": false
+  },
+  {
+   "title": "LLMxCPG: Context-Aware Vulnerability Detection Through Code Property Graph-Guided Large Language Models",
+   "year": 2025,
+   "known": false
+  }
+ ]
+}

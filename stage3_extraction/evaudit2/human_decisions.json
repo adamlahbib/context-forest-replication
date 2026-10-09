@@ -1,0 +1,42 @@
+{
+ "2601.13933": {
+  "verdict": "budget-matched",
+  "reason": "Same model and pipeline; report injected in localisation only vs localisation and patching; measured cost $0.0718 vs $0.0723 (structured arm no more expensive). Dollar cost accepted as budget, as for Prometheus and ReCUBE.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2406.01359": {
+  "verdict": "budget-matched",
+  "reason": "Cleanest comparison: inference-only, same model, same filled 4,096-token prompt, with vs without tree-sitter declaration context. The Table 5 ablation is separately fine-tuned.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2507.23348": {
+  "verdict": "multi-change",
+  "reason": "Each ablation removes a pipeline stage involving several LLM calls or agents.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2608.01927": {
+  "verdict": "multi-change",
+  "reason": "Graph reasoning adds up to 10 LLM calls and 1.95-2.43x tokens.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2312.10101": {
+  "verdict": "no-comparator",
+  "reason": "Narrative review; numbers copied from RepoCoder and RLPG, no own comparison.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2607.24884": {
+  "verdict": "multi-change",
+  "reason": "Matched control lacks three components at once; token use not reported.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2508.21433": {
+  "verdict": "budget-matched",
+  "reason": "Cleanest comparison: observation masking vs raw agent, same model and scaffold, masking 52% cheaper and no worse. Not a structure-vs-flat test.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ },
+ "2510.12948": {
+  "verdict": "no-comparator",
+  "reason": "Only retrieval hit rate compared; no completion-quality comparison.",
+  "process": "author reviewed both checkers' comparisons, a supporting quote and an assistant-proposed verdict; accepted the proposal"
+ }
+}

@@ -1,0 +1,200 @@
+[
+{
+"id": "2303.11315",
+"title": "Context-faithful Prompting for Large Language Models",
+"year": 2023,
+"abstract": "Large language models (LLMs) encode parametric knowledge about world facts and have shown remarkable performance in knowledge-driven NLP tasks. However, their reliance on parametric knowledge may cause them to overlook contextual cues, leading to incorrect predictions in context-sensitive NLP tasks (e.g., knowledge acquisition tasks). In this paper, we seek to assess and enhance LLMs' contextual faithfulness in two aspects: knowledge conflict and prediction with abstention. We demonstrate that LLMs' faithfulness can be significantly improved using carefully designed prompting strategies. In particular, we identify opinion-based prompts and counterfactual demonstrations as the most effective "
+},
+{
+"id": "2306.03203",
+"title": "A Static Evaluation of Code Completion by Large Language Models",
+"year": 2023,
+"abstract": "Large language models trained on code have shown great potential to increase productivity of software developers. Several execution-based benchmarks have been proposed to evaluate functional correctness of model-generated code on simple programming problems. Nevertheless, it is expensive to perform the same evaluation on complex real-world projects considering the execution cost. On the contrary, static analysis tools such as linters, which can detect errors without running the program, haven't been well explored for evaluating code generation models. In this work, we propose a static evaluation framework to quantify static errors in Python code completions, by leveraging Abstract Syntax Tre"
+},
+{
+"id": "2310.00034",
+"title": "PB-LLM: Partially Binarized Large Language Models",
+"year": 2023,
+"abstract": "This paper explores network binarization, a radical form of quantization, compressing model weights to a single bit, specifically for Large Language Models (LLMs) compression. Due to previous binarization methods collapsing LLMs, we propose a novel approach, Partially-Binarized LLM (PB-LLM), which can achieve extreme low-bit quantization while maintaining the linguistic reasoning capacity of quantized LLMs. Specifically, our exploration first uncovers the ineffectiveness of naive applications of existing binarization algorithms and highlights the imperative role of salient weights in achieving low-bit quantization. Thus, PB-LLM filters a small ratio of salient weights during binarization, al"
+},
+{
+"id": "2401.06391",
+"title": "Teaching Code LLMs to Use Autocompletion Tools in Repository-Level Code Generation",
+"year": 2024,
+"abstract": "Code large language models (LLMs) face limitations in repository-level code generation due to their lack of awareness of repository-level dependencies (e.g., user-defined attributes), resulting in dependency errors such as undefined-variable and no-member errors. In this work, we introduce ToolGen, an approach that integrates autocompletion tools into the code LLM generation process to address these dependencies. ToolGen comprises two main phases: Trigger Insertion and Model Fine-tuning (Offline), and Tool-integrated Code Generation (Online). During the offline phase, ToolGen augments functions within a given code corpus with a special mark token, indicating positions to trigger autocompleti"
+},
+{
+"id": "2402.11163",
+"title": "KG-Agent: An Efficient Autonomous Agent Framework for Complex Reasoning over Knowledge Graph",
+"year": 2024,
+"abstract": "In this paper, we aim to improve the reasoning ability of large language models (LLMs) over knowledge graphs (KGs) to answer complex questions. Inspired by existing methods that design the interaction strategy between LLMs and KG, we propose an autonomous LLM-based agent framework, called KG-Agent, which enables a small LLM to actively make decisions until finishing the reasoning process over KGs. In KG-Agent, we integrate the LLM, multifunctional toolbox, KG-based executor, and knowledge memory, and develop an iteration mechanism that autonomously selects the tool then updates the memory for reasoning over KG. To guarantee the effectiveness, we leverage program language to formulate the mul"
+},
+{
+"id": "2403.10059",
+"title": "Repoformer: Selective Retrieval for Repository-Level Code Completion",
+"year": 2024,
+"abstract": "Recent advances in retrieval-augmented generation (RAG) have initiated a new era in repository-level code completion. However, the invariable use of retrieval in existing methods exposes issues in both efficiency and robustness, with a large proportion of the retrieved contexts proving unhelpful or harmful to code language models (code LMs). In this paper, we propose a selective RAG framework to avoid retrieval when unnecessary. To power this framework, we design a self-supervised learning approach to enable a code LM to accurately self-evaluate whether retrieval can improve its output quality and robustly leverage the potentially noisy retrieved contexts. Using this LM as both the selective"
+},
+{
+"id": "2405.02580",
+"title": "PropertyGPT: LLM-driven Formal Verification of Smart Contracts through Retrieval-Augmented Property Generation",
+"year": 2024,
+"abstract": "With recent advances in large language models (LLMs), this paper explores the potential of leveraging state-of-the-art LLMs,such as GPT-4, to transfer existing human-written properties (e.g.,those from Certora auditing reports) and automatically generate customized properties for unknown code. To this end, we embed existing properties into a vector database and retrieve a reference property for LLM-based in-context learning to generate a new property for a given code. While this basic process is relatively straightforward, ensuring that the generated properties are (i) compilable, (ii) appropriate, and (iii) verifiable presents challenges. To address (i), we use the compilation and static an"
+},
+{
+"id": "2406.01359",
+"title": "R2C2-Coder: Enhancing and Benchmarking Real-world Repository-level Code Completion Abilities of Code Large Language Models",
+"year": 2024,
+"abstract": "Code completion models have made significant progress in recent years. Recently, repository-level code completion has drawn more attention in modern software development, and several baseline methods and benchmarks have been proposed. However, existing repository-level code completion methods often fall short of fully using the extensive context of a project repository, such as the intricacies of relevant files and class hierarchies. Besides, the existing benchmarks usually focus on limited code completion scenarios, which cannot reflect the repository-level code completion abilities well of existing methods. To address these limitations, we propose the R2C2-Coder to enhance and benchmark th"
+},
+{
+"id": "2406.11612",
+"title": "Long Code Arena: a Set of Benchmarks for Long-Context Code Models",
+"year": 2024,
+"abstract": "Nowadays, the fields of code and natural language processing are evolving rapidly. In particular, models become better at processing long context windows - supported context sizes have increased by orders of magnitude over the last few years. However, there is a shortage of benchmarks for code processing that go beyond a single file of context, while the most popular ones are limited to a single method. With this work, we aim to close this gap by introducing Long Code Arena, a suite of six benchmarks for code processing tasks that require project-wide context. These tasks cover different aspects of code processing: library-based code generation, CI builds repair, project-level code completio"
+},
+{
+"id": "2407.12036",
+"title": "Exploring Advanced Large Language Models with LLMsuite",
+"year": 2024,
+"abstract": "This tutorial explores the advancements and challenges in the development of Large Language Models (LLMs) such as ChatGPT and Gemini. It addresses inherent limitations like temporal knowledge cutoffs, mathematical inaccuracies, and the generation of incorrect information, proposing solutions like Retrieval Augmented Generation (RAG), Program-Aided Language Models (PAL), and frameworks such as ReAct and LangChain. The integration of these techniques enhances LLM performance and reliability, especially in multi-step reasoning and complex task execution. The paper also covers fine-tuning strategies, including instruction fine-tuning, parameter-efficient methods like LoRA, and Reinforcement Lear"
+},
+{
+"id": "2410.13187",
+"title": "aiXcoder-7B: A Lightweight and Effective Large Language Model for Code Processing",
+"year": 2024,
+"abstract": "Large Language Models (LLMs) have been widely used in code completion, and researchers are focusing on scaling up LLMs to improve their accuracy. However, larger LLMs have lower inference efficiency, affecting developers' experience and productivity. In this paper, we propose a lightweight and effective LLM for code completion named aiXcoder-7B. Compared to existing LLMs, aiXcoder-7B achieves higher code completion accuracy while having smaller scales (i.e., 7 billion parameters). We attribute the superiority of aiXcoder-7B to three key factors: (1) Multi-objective training. We employ three training objectives, one of which is our proposed Structured Fill-In-the-Middle (SFIM). SFIM considers"
+},
+{
+"id": "2412.08063",
+"title": "ContextModule: Improving Code Completion via Repository-level Contextual Information",
+"year": 2024,
+"abstract": "Large Language Models (LLMs) have demonstrated impressive capabilities in code completion tasks, where they assist developers by predicting and generating new code in real-time. However, existing LLM-based code completion systems primarily rely on the immediate context of the file being edited, often missing valuable repository-level information, user behaviour and edit history that could improve suggestion accuracy. Additionally, challenges such as efficiently retrieving relevant code snippets from large repositories, incorporating user behavior, and balancing accuracy with low-latency requirements in production environments remain unresolved. In this paper, we propose ContextModule, a fram"
+},
+{
+"id": "2503.15301",
+"title": "aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context in Repository-level Code Completion",
+"year": 2025,
+"abstract": "Large Language Models (LLMs) have shown promising results in repository-level code completion, which completes code based on the in-file and cross-file context of a repository. The cross-file context typically contains different types of information (e.g., relevant APIs and similar code) and is lengthy. In this paper, we found that LLMs struggle to fully utilize the information in the cross-file context. We hypothesize that one of the root causes of the limitation is the misalignment between pre-training (i.e., relying on nearby context) and repo-level code completion (i.e., frequently attending to long-range cross-file context). To address the above misalignment, we propose Code Long-contex"
+},
+{
+"id": "2506.09340",
+"title": "RePO: Replay-Enhanced Policy Optimization",
+"year": 2025,
+"abstract": "Reinforcement learning (RL) is vital for optimizing large language models (LLMs). Recent Group Relative Policy Optimization (GRPO) estimates advantages using multiple on-policy outputs per prompt, leading to high computational costs and low data efficiency. To address this, we introduce Replay-Enhanced Policy Optimization (RePO), which leverages diverse replay strategies to retrieve off-policy samples from a replay buffer, allowing policy optimization based on a broader and more diverse set of samples for each prompt. Experiments on five LLMs across seven mathematical reasoning benchmarks demonstrate that RePO achieves absolute average performance gains of $18.4$ and $4.1$ points for Qwen2.5"
+},
+{
+"id": "2508.02998",
+"title": "MRG-Bench: Evaluating and Exploring the Requirements of Context for Repository-Level Code Generation",
+"year": 2025,
+"abstract": "Large Language Models (LLMs) have demonstrated impressive capabilities in code generation. However, current evaluation datasets suffer from issues such as the lack of runnable test cases, deviation from the distribution of real-world code, and the ability to evaluate only the Python language. These limitations undermine the credibility of the evaluation results. To address these limitations, we introduce \\textbf{MRG-Bench} (Multi-language Repository-level Code Generation Benchmark), a novel dataset that provides a more accurate evaluation of LLMs in practical repository-level code generation tasks. MRG-Bench has three main features: (1) practical data sourced from real-world code repositorie"
+},
+{
+"id": "2509.14635",
+"title": "SWE-QA: Can Language Models Answer Repository-level Code Questions?",
+"year": 2025,
+"abstract": "Understanding and reasoning about entire software repositories is an essential capability for intelligent software engineering tools. While existing benchmarks such as CoSQA and CodeQA have advanced the field, they predominantly focus on small, self-contained code snippets. These setups fail to capture the complexity of real-world repositories, where effective understanding and reasoning often require navigating multiple files, understanding software architecture, and grounding answers in long-range code dependencies. In this paper, we present SWE-QA, a repository-level code question answering (QA) benchmark designed to facilitate research on automated QA systems in realistic code environmen"
+},
+{
+"id": "2510.00615",
+"title": "ACON: Optimizing Context Compression for Long-horizon LLM Agents",
+"year": 2025,
+"abstract": "Large language models (LLMs) are increasingly deployed as agents in dynamic real-world environments, where success depends on maintaining precise records of actions and observations. However, the resulting unbounded context growth in long-horizon agentic tasks makes two critical bottlenecks: prohibitive inference memory costs and reasoning degradation due to irrelevant information. Existing compression methods fail to fully address this, often relying on brittle heuristics or requiring parameter updates impractical for proprietary or large-scale LLMs. We introduce Agent Context Optimization (ACON), a unified framework that optimally compresses both observations and history into concise, info"
+},
+{
+"id": "2510.27675",
+"title": "On the Difficulty of Selecting Few-Shot Examples for Effective LLM-based Vulnerability Detection",
+"year": 2025,
+"abstract": "Large language models (LLMs) have demonstrated impressive capabilities across a wide range of coding tasks, including summarization, translation, completion, and code generation. Despite these advances, detecting code vulnerabilities remains a challenging problem for LLMs. In-context learning (ICL) has emerged as an effective mechanism for improving model performance by providing a small number of labeled examples within the prompt. Prior work has shown, however, that the effectiveness of ICL depends critically on how these few-shot examples are selected. In this paper, we study two intuitive criteria for selecting few-shot examples for ICL in the context of code vulnerability detection. The"
+},
+{
+"id": "2512.21799",
+"title": "KG20C & KG20C-QA: Scholarly Knowledge Graph Benchmarks for Link Prediction and Question Answering",
+"year": 2025,
+"abstract": "In this paper, we present KG20C and KG20C-QA, two curated datasets for advancing question answering (QA) research on scholarly data. KG20C is a high-quality scholarly knowledge graph constructed from the Microsoft Academic Graph through targeted selection of venues, quality-based filtering, and schema definition. Although KG20C has been available online in non-peer-reviewed sources such as GitHub repository, this paper provides the first formal, peer-reviewed description of the dataset, including clear documentation of its construction and specifications. KG20C-QA is built upon KG20C to support QA tasks on scholarly data. We define a set of QA templates that convert graph triples into natura"
+},
+{
+"id": "2601.07667",
+"title": "Adaptive Layer Selection for Layer-Wise Token Pruning in LLM Inference",
+"year": 2026,
+"abstract": "Due to the prevalence of large language models (LLMs), key-value (KV) cache reduction for LLM inference has received remarkable attention. Among numerous works that have been proposed in recent years, layer-wise token pruning approaches, which select a subset of tokens at particular layers to retain in KV cache and prune others, are one of the most popular schemes. They primarily adopt a set of pre-defined layers, at which tokens are selected. Such design is inflexible in the sense that the accuracy significantly varies across tasks and deteriorates in harder tasks such as KV retrieval. In this paper, we propose ASL, a training-free method that adaptively chooses the selection layer for KV c"
+},
+{
+"id": "2601.19697",
+"title": "AlignCoder: Aligning Retrieval with Target Intent for Repository-Level Code Completion",
+"year": 2026,
+"abstract": "Repository-level code completion remains a challenging task for existing code large language models (code LLMs) due to their limited understanding of repository-specific context and domain knowledge. While retrieval-augmented generation (RAG) approaches have shown promise by retrieving relevant code snippets as cross-file context, they suffer from two fundamental problems: misalignment between the query and the target code in the retrieval process, and the inability of existing retrieval methods to effectively utilize the inference information. To address these challenges, we propose AlignCoder, a repository-level code completion framework that introduces a query enhancement mechanism and a "
+},
+{
+"id": "2602.05892",
+"title": "ContextBench: A Benchmark for Context Retrieval in Coding Agents",
+"year": 2026,
+"abstract": "LLM-based coding agents have shown strong performance on automated issue resolution benchmarks, yet existing evaluations largely focus on final task success, providing limited insight into how agents retrieve and use code context during problem solving. We introduce ContextBench, a process-oriented evaluation of context retrieval in coding agents. ContextBench consists of 1,136 issue-resolution tasks from 66 repositories across eight programming languages, each augmented with human-annotated gold contexts. We further implement an automated evaluation framework that tracks agent trajectories and measures context recall, precision, and efficiency throughout issue resolution. Using ContextBench"
+},
+{
+"id": "2603.01327",
+"title": "SWE-Adept: An LLM-Based Agentic Framework for Deep Codebase Analysis and Structured Issue Resolution",
+"year": 2026,
+"abstract": "Large language models (LLMs) exhibit strong performance on self-contained programming tasks. However, they still struggle with repository-level software engineering (SWE), which demands (1) deep codebase navigation with effective context management for accurate localization, and (2) systematic approaches for iterative, test-driven code modification to resolve issues. To address these challenges, we propose SWE-Adept, an LLM-based two-agent framework where a localization agent identifies issue-relevant code locations and a resolution agent implements the corresponding fixes. For issue localization, we introduce agent-directed depth-first search that selectively traverses code dependencies. Th"
+},
+{
+"id": "2604.07863",
+"title": "Task-Adaptive Retrieval over Agentic Multi-Modal Web Histories via Learned Graph Memory",
+"year": 2026,
+"abstract": "Retrieving relevant observations from long multi-modal web interaction histories is challenging because relevance depends on the evolving task state, modality (screenshots, HTML text, structured signals), and temporal distance. Prior approaches typically rely on static similarity thresholds or fixed-capacity buffers, which fail to adapt relevance to the current task context. We propose \\textbf{ACGM}, a learned graph-memory retriever that constructs \\emph{task-adaptive} relevance graphs over agent histories using policy-gradient optimization from downstream task success. ACGM captures heterogeneous temporal dynamics with modality-specific decay (visual decays $4.3\\times$ faster than text: $\u03bb_"
+},
+{
+"id": "2605.06098",
+"title": "Exploring the Effectiveness of Abstract Syntax Tree Patterns for Algorithm Recognition",
+"year": 2026,
+"abstract": "The automated recognition of algorithm implementations can support many software maintenance and re-engineering activities by providing knowledge about the concerns present in the code base. Moreover, recognizing inefficient algorithms like Bubble Sort and suggesting superior alternatives from a library can help in assessing and improving the quality of a system. Approaches from related work suffer from usability as well as scalability issues and their accuracy is not evaluated. In this paper, we investigate how well our approach based on the abstract syntax tree of a program performs for automatic algorithm recognition. To this end, we have implemented a prototype consisting of: A domain-sp"
+},
+{
+"id": "2605.24366",
+"title": "Structure-Aware RAG: Structured Retrieval Augmented Generation from Noisy Data for Conversational Agents",
+"year": 2026,
+"abstract": "Large Language Models (LLMs) have been widely adopted in conversational applications. However, their reliance on parametric knowledge limits reliability in real-world scenarios that require dynamic or domain-specific information. Retrieval-Augmented Generation (RAG) addresses this limitation by incorporating external knowledge during generation, but existing text-based and graph-based RAG methods often struggle with noisy or irrelevant contexts. In this work, we propose Structure-aware Retrieval Augmented Generation (SA-RAG), which uses tables as an intermediate structured representation to provide a compact and controllable interface that reduces noise while preserving essential information"
+},
+{
+"id": "2606.08135",
+"title": "TICoder: A Repository-Level Code Generation Framework with Test-Driven Planning and Implementation-Aware Reuse",
+"year": 2026,
+"abstract": "Repository-level code generation with Large Language Models (LLMs) remains challenging, primarily due to complex dependencies and limited context windows. Recent approaches adopt retrieval-augmented generation (RAG) and the planning mechanism to reuse potential callee functions in the repository. However, these approaches often suffer from two limitations: lack of test-driven behavioral guidance during planning and overlooking the implementation logic embedded in repository code during reuse. As a result, generated plans may not align with expected behaviors, and retrieved functions may not be effectively reused. In this paper, we propose TICoder, a novel repository-level code generation fra"
+},
+{
+"id": "2606.29932",
+"title": "SAGA: Scene-Aware, Goal-Evolving Agents for Long-Horizon Strategy Game Planning",
+"year": 2026,
+"abstract": "Grand-strategy games such as Civilization pose a distinctive long-horizon planning problem: an agent must divide one shared resource pool among six competing domains -- technology, government, diplomacy, city development, expansion, and military -- under partial observability, with no feedback except a delayed final score. Current LLM agents fall short in three ways: 1) they cannot infer spatial relations from raw coordinates; 2) they allocate resources poorly, because feeding the entire growing state into one prompt and planning all domains in a single output diffuses attention and biases decisions toward urgent events; and 3) they cannot improve, as the delayed score gives no signal within"
+},
+{
+"id": "2607.09691",
+"title": "What Context Does a Coding Agent Actually Need to Act?",
+"year": 2026,
+"abstract": "A modern coding agent can hold an entire repository in its context window. Most of its reading is wasted -- and the interesting question is not how much context an agent can use, but what it actually \\emph{needs}. We study that question at the moment it matters most: when the agent must \\emph{edit} code. Separating \\emph{finding} the work site from \\emph{acting} on it, we hold localization fixed with an oracle, vary only how the code is represented, and score context against real issue resolution on SWE-bench Verified. The answer is starkly minimal. The signal lives in the code being edited itself: natural-language summaries of it answer almost none of the behavioral questions that the sourc"
+},
+{
+"id": "2607.16721",
+"title": "Half the Experts, All the Code: One-Shot Domain Pruning of Mixture-of-Experts LLMs for Coding",
+"year": 2026,
+"abstract": "The strongest open-weight coding models are mixture-of-experts (MoE) networks: most of their size comes from large pools of \"expert\" subnetworks, of which only a few act on any token. That pool is why these models do not fit on the machines most developers own, yet for a user who only wants coding help, most experts encode abilities that will never be invoked. We ask how many experts can be removed, and which, by pruning two recent open-weight MoE models from different families (Qwen3.6-35B-A3B and Gemma-4-26B-A4B) under five selection strategies, judged the way a user would: by whether the model still writes correct code. Half the experts can be removed from either model with no statistical"
+},
+{
+"id": "2607.27250",
+"title": "Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories",
+"year": 2026,
+"abstract": "Persistent context files (AGENTS.md, CLAUDE.md) are standard practice for guiding AI coding agents, yet evidence for their effectiveness is contradictory. We present a controlled ablation of context-injection strategy across two frontier agents (Claude Code and Codex), 17 real tasks from 3 repositories (15 shared + 2 Codex-only), and 288 evaluated runs with gold-test evaluation. Context strategy does not measurably move correctness on either agent (bounded to <=10-15pp via equivalence testing). A failure-mode triage reveals why: agents fail on implementation skill---feature design, pattern selection, exact wiring---not missing repository knowledge that a context file could supply; a manipula"
+},
+{
+"id": "2608.24188",
+"title": "Paritok-4B: Intent-Conditioned Context Compression for Coding Agents",
+"year": 2026,
+"abstract": "Coding agents re-send large file reads and tool outputs to a frontier LLM every turn, and this context dominates their token bill. General-purpose prompt compressors are trained on prose and suit code poorly: they paraphrase identifiers and drop the exact spans an agent needs to edit. We present Paritok-4B, a 4B LoRA compressor for coding-agent trajectories built on two commitments. It is extractive: it selects spans rather than rewriting them, and 96.0% of the identifiers, paths, and numbers it emits already appear in its input, holding at 96.2% on held-out SWE-bench Lite output. It is intent-conditioned: told the agent's current task, it acts chiefly inside a retained segment, selecting wh"
+},
+{
+"id": "large language models llms survey techni",
+"title": "Large language models (LLMs): survey, technical frameworks, and future challenges",
+"year": 2024,
+"abstract": "Artificial intelligence (AI) has significantly impacted various fields. Large language models (LLMs) like GPT-4, BARD, PaLM, Megatron-Turing NLG, Jurassic-1 Jumbo etc., have contributed to our understanding and application of AI in these domains, along with natural language processing (NLP) techniques. This work provides a comprehensive overview of LLMs in the context of language modeling, word embeddings, and deep learning. It examines the application of LLMs in diverse fields including text generation, vision-language models, personalized learning, biomedicine, and code generation. The paper offers a detailed introduction and background on LLMs, facilitating a clear understanding of their "
+}
+]

@@ -1,0 +1,13 @@
+[
+ {
+  "arxiv_id": "2601.13933",
+  "system": "VulnResolver",
+  "tier": "structured-smaller",
+  "structure_vs_flat": false,
+  "structured_arm": null,
+  "flat_arm": null,
+  "outcome": null,
+  "evidence": "Realized average cost: $0.0718 full versus $0.0723 enhanceVulnLoc (Table V, stage-wise)",
+  "note": "Budget in dollars; authors' decision (checkers disagreed)."
+ }
+]

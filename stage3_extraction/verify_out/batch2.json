@@ -1,0 +1,374 @@
+[
+{
+  "arxiv_id": "2306.10763",
+  "numbers": [
+    {
+      "metric": "Compilation Rate, SantaCoder-1.1B-MGD vs text-davinci-003",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1 (score@6): SC-1.1B-MGD 73.03% vs text-davinci-003 62.66%."
+    },
+    {
+      "metric": "Next Identifier Match, SantaCoder-MGD vs text-davinci-003",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: 88.42% vs 86.18%."
+    },
+    {
+      "metric": "Improvement on high-complexity identifiers (36.97% of methods)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Appendix F reports relative improvement in the range 21%-28% for multi-subtoken identifiers on the 36.97%-of-methods subset, consistent with 21.79%-27.91%."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "All three key numbers confirmed exactly. Evaluation is a set of configuration comparisons across models/prompting/decoding strategies, not a budget-matched ablation (no held-constant token/line budget is being controlled) — 'ablated_measured' fits better than 'budget_matched_ablation'."
+},
+{
+  "arxiv_id": "2402.03630",
+  "numbers": [
+    {
+      "metric": "Exact Match, IDECoder vs RAG baseline",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: 10.46% vs 9.77%."
+    },
+    {
+      "metric": "CodeBLEU, IDECoder vs RAG baseline",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: 34.16% vs 31.65%."
+    },
+    {
+      "metric": "Syntax Match, IDECoder vs RAG baseline",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: 50.73% vs 48.92%."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "demonstrated",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. No ablation study is present — the paper only compares IDECoder against baselines (in-file, all-import, RAG) with no isolation of its own components (e.g., linting refinement) or budget control, so 'demonstrated' fits better than 'ablated_measured'."
+},
+{
+  "arxiv_id": "2406.01422",
+  "numbers": [
+    {
+      "metric": "SWE-bench Lite resolved rate vs SWE-agent",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: LingmaAgent 21.33% vs SWE-agent 18.00% (18.5% relative improvement)."
+    },
+    {
+      "metric": "Function-level fault localization accuracy vs SWE-agent",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 5: 49.3% vs 45.3%."
+    },
+    {
+      "metric": "Alibaba Cloud in-house issue resolution",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Tables 7-8: 16.9% fully automated, 43.3% with human intervention."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Paper's Table 4 provides genuine ablations (removing call graph, summary module, MCTS), consistent with 'ablated_measured'. Structure-tree + call-graph representation and MCTS agentic exploration both check out."
+},
+{
+  "arxiv_id": "2406.18294",
+  "numbers": [
+    {
+      "metric": "input token reduction",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Section 1: 'reduced the input from over 50,000 tokens to approximately 8,000 tokens'."
+    },
+    {
+      "metric": "EM improvement, Starcoder2-7B",
+      "verdict": "WRONG",
+      "correct_value_if_wrong": "31.45% -> 35.76% is the correct Table 4 (top-k=5) EM. 35.22% is real but is the EM at Table 5's top-p=0.3 config (top-k fixed at 5), not Table 4's top-k=5 config as cited.",
+      "note": "Location/value mismatch: cited as 'Table 4 (HCP, top-k=5)' but Table 4 top-k=5 actually gives EM=35.76%, not 35.22%. The 35.22% figure belongs to a different table/config (Table 5, top-p=0.3)."
+    },
+    {
+      "metric": "Edit Similarity improvement",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "69.09 (Table 1/4 baseline) -> 70.64 (Table 5, top-p=0.3) confirmed."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "EM number WRONG: Table 4 top-k=5 gives 35.76% not 35.22% (35.22% is actually from Table 5, top-p=0.3 — a mislabeled location). Evaluation varies top-k/top-p, which changes the resulting token budget as a byproduct rather than holding it constant, so 'ablated_measured' fits better than 'budget_matched_ablation'."
+},
+{
+  "arxiv_id": "2503.18305",
+  "numbers": [
+    {
+      "metric": "Pass@1 (Claude-3.5-Sonnet, full K-Trans vs prompt-engineering baseline)",
+      "verdict": "WRONG",
+      "correct_value_if_wrong": "67.7% vs 49.1% is correct; the paper's own text calls this an 18.6-point/percent surpass ('substantially surpassing the best baseline PE by 17.8% and 18.6%'). 135.9% is the maximum relative improvement across ALL studied LLMs (specifically Qwen-2.5-Coder-14B) vs a Basic RAG baseline (per abstract), not Claude-3.5-Sonnet vs PE baseline.",
+      "note": "135.9% relative improvement figure is misattributed — it belongs to a different model/baseline pair, not Claude-3.5-Sonnet vs PE."
+    },
+    {
+      "metric": "CodeBLEU (Claude-3.5-Sonnet)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: 0.733 (K3Trans) vs 0.604 (PE baseline)."
+    },
+    {
+      "metric": "Target-language knowledge base size",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Sec 2.2.2: 113,882,369 code examples from 671,240 GitHub projects."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Pass@1 relative-improvement figure (135.9%) is WRONG for this pairing — it's the max gain across all studied LLMs (Qwen-2.5-Coder-14B) vs a Basic RAG baseline, per the abstract; the paper's own text gives 18.6% for Claude-3.5-Sonnet vs the PE baseline. Raw 67.7%/49.1% values, CodeBLEU, and KB size all confirmed; other facets check out (Table 4 progressive K1/K2/K3Trans ablation)."
+},
+{
+  "arxiv_id": "2508.02998",
+  "numbers": [
+    {
+      "metric": "Best baseline Pass@1 (Claude 3.5 Sonnet, avg across languages)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 32.5%."
+    },
+    {
+      "metric": "In-file context effect on DeepSeek-Coder-33B Pass@1",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "6.4% (no context) -> 22.2% (in-file window)."
+    },
+    {
+      "metric": "RAG (Mix-RAG) underperforms in-file baseline",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 7: 12.3% vs 22.2% Pass@1."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": false,
+  "note": "All three numbers confirmed exactly. stop_detail is NOT a fair paraphrase: failure attribution uses LLM-based annotation/voting among five SOTA models (GPT-4o, Claude-3.5-Sonnet, Gemini-2.5-Pro, DeepSeek-V3, Qwen2.5-72B), not human 'manual annotation'."
+},
+{
+  "arxiv_id": "2510.04905",
+  "numbers": [
+    {
+      "metric": "Papers synthesized",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "152 papers confirmed, but located in Section 3.3 ('Quality Assessment and Final Corpus'), not Section 3.5 ('Manuscript Organization') as cited."
+    },
+    {
+      "metric": "Agentless score cited from surveyed work",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Sec 5.2.1: 'reaching competitive performance (e.g., 32% on SWE-bench Lite)'."
+    },
+    {
+      "metric": "CrossCodeEval benchmark scale",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: 9,928 tasks across Python, Java, TypeScript, C#."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed, though the 152-papers figure sits in Section 3.3, not Section 3.5 as cited (minor citation slip, value itself correct). Facets and stop_detail otherwise check out for this literature-synthesis survey (not_evaluated, no new experiments)."
+},
+{
+  "arxiv_id": "2601.13933",
+  "numbers": [
+    {
+      "metric": "Resolution rate, full system vs base (SEC-bench Lite)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table V: 75.0% vs 48.8%."
+    },
+    {
+      "metric": "Cost per issue, base vs full",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Sec IV-A: $0.0296 vs $0.0718."
+    },
+    {
+      "metric": "Token share of context/report-generation stage (full config)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Sec IV-B2: agent-based report generation = 70.45% of total tokens."
+    }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "hybrid",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "repr_primary disagreement: CPCAgent's collected context is output as a natural-language Context Analysis Report with embedded code snippets/citations (no explicit graph structure built), and the system separately uses an Agentless-style skeleton representation (ellipsis-replaced bodies) elsewhere — 'hybrid' fits better than 'call_dep_graph'. All three key numbers confirmed exactly, including clangd-backed symbol analysis and the ablation-style component study."
+},
+{
+  "arxiv_id": "2603.25770",
+  "numbers": [
+    {
+      "metric": "GPT-5 full-context strict pass rate (SPR)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 5: 37.57%."
+    },
+    {
+      "metric": "CCE improvement over vanilla agent (overall)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "'improvements of up to 7.56% [pp] in strict pass rate' over vanilla agent."
+    },
+    {
+      "metric": "Agent+CCE cost per instance (GPT-5 Mini)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 7: $0.1241 (Agent+CCE) vs $0.1226 (agent-only)."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Heterogeneous directed graph (dir/file/class/function nodes; contain/import/invoke/inherit edges) with caller-pattern/graph-query/validation tools matches stop_detail closely."
+},
+{
+  "arxiv_id": "2606.07297",
+  "numbers": [
+    {
+      "metric": "Pearson correlation, Context Efficiency vs downstream repair success",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "r=0.950 for Context Efficiency (Table 4; also discussed in Sec 4.3)."
+    },
+    {
+      "metric": "HitFile (file-level hit rate), Oracle vs sparse retrievers (BM25/TF-IDF)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Oracle 0.923 vs BM25 0.079 / TF-IDF 0.140."
+    },
+    {
+      "metric": "Downstream Resolve Rate, Oracle vs CoSIL vs Claude Code",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 3: 59.7% vs 59.3% vs 48.0%."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Fixed 500-line budget across all explorers with precision/recall/F1, nDCG@500, HitFile/HitRegion, and Context Efficiency metrics matches a genuine budget_matched_ablation."
+},
+{
+  "arxiv_id": "2607.10621",
+  "numbers": [
+    {
+      "metric": "Pass@2, average gain over baseline agents",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 1: Gemini 2.5 Pro 49.40% vs 42.40%; average +9.55pp across nine models."
+    },
+    {
+      "metric": "Ablation: design-knowledge removal",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2: Pass@1 drops from 34.90% to 23.50% (-11.40pp), the largest single-component drop."
+    },
+    {
+      "metric": "vs Claude Code, RQ4",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 4: WebDesignIter 33.53% Pass@1 @533K tokens vs Claude Code 21.27% @13,949K tokens."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. WebAppArchKG (Tree-sitter AST blocks + import deps + design annotations) with graph-node retrieval, diff-based patches, and sandbox validation matches stop_detail and facets."
+},
+{
+  "arxiv_id": "2607.26805",
+  "numbers": [
+    {
+      "metric": "Pass@1, CoderEval K=10 (DeepSeek-Coder)",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "36.5% (MRCoder) vs 23.9% (RAG); (36.5-23.9)/23.9 = 52.7% relative, matches claim."
+    },
+    {
+      "metric": "Token consumption reduction vs RAG",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Table 2 shows reductions of ~29.4%-52.2%, consistent with the claimed 30-50% range."
+    },
+    {
+      "metric": "Inference time reduction",
+      "verdict": "CONFIRMED",
+      "correct_value_if_wrong": "",
+      "note": "Up to 52.1% vs RAG; 47.6% vs RepoFormer (Sec 5.2)."
+    }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": false,
+  "mechanism_suggested": "similarity_retrieval",
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "mechanism disagreement: Structure-Aware Draft-Guided Selection uses fixed rule-based signals (exact API-call overlap + BM25 similarity to an LLM-generated draft) with no trained/learned scorer or classifier — paper explicitly avoids the term 'pruning' for its own method (used only to describe a baseline, SlimCode) — so 'similarity_retrieval' fits better than 'learned_pruning'. All three key numbers confirmed exactly."
+}
+]

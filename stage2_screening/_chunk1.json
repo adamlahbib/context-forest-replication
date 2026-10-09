@@ -1,0 +1,206 @@
+[
+{
+"id": "2302.07080",
+"title": "The Programmer\u2019s Assistant: Conversational Interaction with a Large Language Model for Software Development",
+"year": 2023,
+"abstract": "Large language models (LLMs) have recently been applied in software engineering to perform tasks such as translating code between programming languages, generating code from natural language, and autocompleting code as it is being written. When used within development tools, these systems typically treat each model invocation independently from all previous invocations, and only a specific limited functionality is exposed within the user interface. This approach to user interaction misses an opportunity for users to more deeply engage with the model by having the context of their previous interactions, as well as the context of their code, inform the model\u2019s responses. We developed a prototy"
+},
+{
+"id": "2304.09048",
+"title": "CodeKGC: Code Language Model for Generative Knowledge Graph Construction",
+"year": 2023,
+"abstract": "Current generative knowledge graph construction approaches usually fail to capture structural knowledge by simply flattening natural language into serialized texts or a specification language. However, large generative language model trained on structured data such as code has demonstrated impressive capability in understanding natural language for structural prediction and reasoning tasks. Intuitively, we address the task of generative knowledge graph construction with code language model: given a code-format natural language input, the target is to generate triples which can be represented as code completion tasks. Specifically, we develop schema-aware prompts that effectively utilize the "
+},
+{
+"id": "2307.06945",
+"title": "In-context Autoencoder for Context Compression in a Large Language Model",
+"year": 2023,
+"abstract": "We propose the In-context Autoencoder (ICAE), leveraging the power of a large language model (LLM) to compress a long context into short compact memory slots that can be directly conditioned on by the LLM for various purposes. ICAE is first pretrained using both autoencoding and language modeling objectives on massive text data, enabling it to generate memory slots that accurately and comprehensively represent the original context. Then, it is fine-tuned on instruction data for producing desirable responses to various prompts. Experiments demonstrate that our lightweight ICAE, introducing about 1% additional parameters, effectively achieves $4\\times$ context compression based on Llama, offer"
+},
+{
+"id": "2312.10101",
+"title": "A Review of Repository Level Prompting for LLMs",
+"year": 2023,
+"abstract": "As coding challenges become more complex, recent advancements in Large Language Models (LLMs) have led to notable successes, such as achieving a 94.6\\% solve rate on the HumanEval benchmark. Concurrently, there is an increasing commercial push for repository-level inline code completion tools, such as GitHub Copilot and Tab Nine, aimed at enhancing developer productivity. This paper delves into the transition from individual coding problems to repository-scale solutions, presenting a thorough review of the current literature on effective LLM prompting for code generation at the repository level. We examine approaches that will work with black-box LLMs such that they will be useful and applic"
+},
+{
+"id": "2402.03630",
+"title": "Enhancing LLM-Based Coding Tools through Native Integration of IDE-Derived Static Context",
+"year": 2024,
+"abstract": "Large Language Models (LLMs) have achieved remarkable success in code completion, as evidenced by their essential roles in developing code assistant services such as Copilot. Being trained on in-file contexts, current LLMs are quite effective in completing code for single source files. However, it is challenging for them to conduct repository-level code completion for large software projects that require cross-file information. Existing research on LLM-based repository-level code completion identifies and integrates cross-file contexts, but it suffers from low accuracy and limited context length of LLMs. In this paper, we argue that Integrated Development Environments (IDEs) can provide dire"
+},
+{
+"id": "2403.06095",
+"title": "RepoHyper: Search-Expand-Refine on Semantic Graphs for Repository-Level Code Completion",
+"year": 2024,
+"abstract": "Code Large Language Models (CodeLLMs) have demonstrated impressive proficiency in code completion tasks. However, they often fall short of fully understanding the extensive context of a project repository, such as the intricacies of relevant files and class hierarchies, which can result in less precise completions. To overcome these limitations, we present \\tool, a multifaceted framework designed to address the complex challenges associated with repository-level code completion. Central to RepoHYPER is the {\\em Repo-level Semantic Graph} (RSG), a novel semantic graph structure that encapsulates the vast context of code repositories. Furthermore, RepoHyper leverages Expand and Refine retrieva"
+},
+{
+"id": "2404.14464",
+"title": "Tree of Reviews: A Tree-based Dynamic Iterative Retrieval Framework for Multi-hop Question Answering",
+"year": 2024,
+"abstract": "Multi-hop question answering is a knowledge-intensive complex problem. Large Language Models (LLMs) use their Chain of Thoughts (CoT) capability to reason complex problems step by step, and retrieval-augmentation can effectively alleviate factual errors caused by outdated and unknown knowledge in LLMs. Recent works have introduced retrieval-augmentation in the CoT reasoning to solve multi-hop question answering. However, these chain methods have the following problems: 1) Retrieved irrelevant paragraphs may mislead the reasoning; 2) An error in the chain structure may lead to a cascade of errors. In this paper, we propose a dynamic retrieval framework called Tree of Reviews (ToR), where the "
+},
+{
+"id": "2405.19782",
+"title": "Dataflow-Guided Retrieval Augmentation for Repository-Level Code Completion",
+"year": 2024,
+"abstract": "Recent years have witnessed the deployment of code language models (LMs) in various code intelligence tasks such as code completion. Yet, it is challenging for pre-trained LMs to generate correct completions in private repositories. Previous studies retrieve cross-file context based on import relations or text similarity, which is insufficiently relevant to completion targets. In this paper, we propose a dataflow-guided retrieval augmentation approach, called DraCo, for repository-level code completion. DraCo parses a private repository into code entities and establishes their relations through an extended dataflow analysis, forming a repo-specific context graph. Whenever triggering code com"
+},
+{
+"id": "2406.07003",
+"title": "GraphCoder: Enhancing Repository-Level Code Completion via Code Context Graph-based Retrieval and Language Model",
+"year": 2024,
+"abstract": "The performance of repository-level code completion depends upon the effective leverage of both general and repository-specific knowledge. Despite the impressive capability of code LLMs in general code completion tasks, they often exhibit less satisfactory performance on repository-level completion due to the lack of repository-specific knowledge in these LLMs. To address this problem, we propose GraphCoder, a retrieval-augmented code completion framework that leverages LLMs' general code knowledge and the repository-specific knowledge via a graph-based retrieval-generation process. In particular, GraphCoder captures the context of completion target more accurately through code context graph"
+},
+{
+"id": "2406.18294",
+"title": "Hierarchical Context Pruning: Optimizing Real-World Code Completion with Repository-Level Pretrained Code LLMs",
+"year": 2024,
+"abstract": "Some recently developed code large language models (Code LLMs) have been pre-trained on repository-level code data (Repo-Code LLMs), enabling these models to recognize repository structures and utilize cross-file information for code completion. However, in real-world development scenarios, simply concatenating the entire code repository often exceeds the context window limits of these Repo-Code LLMs, leading to significant performance degradation. In this study, we conducted extensive preliminary experiments and analyses on six Repo-Code LLMs. The results indicate that maintaining the topological dependencies of files and increasing the code file content in the completion prompts can improv"
+},
+{
+"id": "2410.05451",
+"title": "SecAlign: Defending Against Prompt Injection with Preference Optimization",
+"year": 2024,
+"abstract": "Large language models (LLMs) are becoming increasingly prevalent in modern software systems, interfacing between the user and the Internet to assist with tasks that require advanced language understanding. To accomplish these tasks, the LLM often uses external data sources such as user documents, web retrieval, results from API calls, etc. This opens up new avenues for attackers to manipulate the LLM via prompt injection. Adversarial prompts can be injected into external data sources to override the system's intended instruction and instead execute a malicious instruction. To mitigate this vulnerability, we propose a new defense called SecAlign based on the technique of preference optimizati"
+},
+{
+"id": "2411.11532",
+"title": "CKGFuzzer: LLM-Based Fuzz Driver Generation Enhanced By Code Knowledge Graph",
+"year": 2024,
+"abstract": "In recent years, the programming capabilities of large language models (LLMs) have garnered significant attention. Fuzz testing, a highly effective technique, plays a key role in enhancing software reliability and detecting vulnerabilities. However, traditional fuzz testing tools rely on manually crafted fuzz drivers, which can limit both testing efficiency and effectiveness. To address this challenge, we propose an automated fuzz testing method driven by a code knowledge graph and powered by an LLM-based intelligent agent system, referred to as CKGFuzzer. We approach fuzz driver creation as a code generation task, leveraging the knowledge graph of the code repository to automate the generat"
+},
+{
+"id": "2502.15243",
+"title": "Comparative Analysis of Large Language Models for Context-Aware Code Completion using SAFIM Framework",
+"year": 2025,
+"abstract": "The advent of Large Language Models (LLMs) has revolutionized code completion, transforming it into a more intelligent and context-aware feature in modern integrated development environments. These advancements have significantly enhanced developers' ability to write efficient and error-free code. This study evaluates the performance of several chat-based LLMs, including Gemini 1.5 Flash, Gemini 1.5 Pro, GPT-4o, GPT-4o-mini, and GPT-4 Turbo, using the Syntax-Aware Fill-in-the-Middle (SAFIM) dataset. This benchmark is specifically designed to assess models' capabilities in syntax-sensitive code generation. Performance metrics, such as cosine similarity with ground-truth completions and latenc"
+},
+{
+"id": "2505.13479",
+"title": "RTL++: Graph-enhanced LLM for RTL Code Generation",
+"year": 2025,
+"abstract": "As hardware design complexity escalates, there is an urgent need for advanced automation in electronic design automation (EDA). Traditional register transfer level (RTL) design methods are manual, time-consuming, and prone to errors. While commercial (instruction-tuned) large language models (LLMs) shows promising performance for automation, they pose security and privacy concerns. Open-source models offer alternatives; however, they frequently fall short in quality/correctness, largely due to limited, high-quality RTL code data essential for effective training and generalization. This paper proposes RTL++, a first-of-its-kind LLM-assisted method for RTL code generation that utilizes graph r"
+},
+{
+"id": "2507.22171",
+"title": "Enhancing Jailbreak Attacks on LLMs via Persona Prompts",
+"year": 2025,
+"abstract": "Jailbreak attacks aim to exploit large language models (LLMs) by inducing them to generate harmful content, thereby revealing their vulnerabilities. Understanding and addressing these attacks is crucial for advancing the field of LLM safety. Previous jailbreak approaches have mainly focused on direct manipulations of harmful intent, with limited attention to the impact of persona prompts. In this study, we systematically explore the efficacy of persona prompts in compromising LLM defenses. We propose a genetic algorithm-based method that automatically crafts persona prompts to bypass LLM's safety mechanisms. Our experiments reveal that: (1) our evolved persona prompts reduce refusal rates by"
+},
+{
+"id": "2508.17720",
+"title": "RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation",
+"year": 2025,
+"abstract": "Repository-aware code translation is critical for modernizing legacy systems, enhancing maintainability, and enabling interoperability across diverse programming languages. While recent advances in large language models (LLMs) have improved code translation quality, existing approaches face significant challenges in practical scenarios: insufficient contextual understanding, inflexible prompt designs, and inadequate error correction mechanisms. These limitations severely hinder accurate and efficient translation of complex, real-world code repositories. To address these challenges, we propose RepoTransAgent, a novel multi-agent LLM framework for repository-aware code translation. RepoTransAg"
+},
+{
+"id": "2509.21710",
+"title": "Think-on-Graph 3.0: Efficient and Adaptive LLM Reasoning on Heterogeneous Graphs via Multi-Agent Dual-Evolving Context Retrieval",
+"year": 2025,
+"abstract": "Graph-based Retrieval-Augmented Generation (GraphRAG) has become the important paradigm for enhancing Large Language Models (LLMs) with external knowledge. However, existing approaches are constrained by their reliance on high-quality knowledge graphs: manually built ones are not scalable, while automatically extracted ones are limited by the performance of LLM extractors, especially when using smaller, local-deployed models. To address this, we introduce Think-on-Graph 3.0 (ToG-3), a novel framework featuring a Multi-Agent Context Evolution and Retrieval (MACER) mechanism. Its core contribution is the dynamic construction and iterative refinement of a Chunk-Triplets-Community heterogeneous "
+},
+{
+"id": "2510.08850",
+"title": "Repository-Aware File Path Retrieval via Fine-Tuned LLMs",
+"year": 2025,
+"abstract": "Modern codebases make it hard for developers and AI coding assistants to find the right source files when answering questions like \"How does this feature work?\" or \"Where was the bug introduced?\" Traditional code search (keyword or IR based) often misses semantic context and cross file links, while large language models (LLMs) understand natural language but lack repository specific detail. We present a method for file path retrieval that fine tunes a strong LLM (Qwen3-8B) with QLoRA and Unsloth optimizations to predict relevant file paths directly from a natural language query. To build training data, we introduce six code aware strategies that use abstract syntax tree (AST) structure and r"
+},
+{
+"id": "2512.09543",
+"title": "SWEnergy: An Empirical Study on Energy Efficiency in Agentic Issue Resolution Frameworks with SLMs",
+"year": 2025,
+"abstract": "Context. LLM-based autonomous agents in software engineering rely on large, proprietary models, limiting local deployment. This has spurred interest in Small Language Models (SLMs), but their practical effectiveness and efficiency within complex agentic frameworks for automated issue resolution remain poorly understood. Goal. We investigate the performance, energy efficiency, and resource consumption of four leading agentic issue resolution frameworks when deliberately constrained to using SLMs. We aim to assess the viability of these systems for this task in resource-limited settings and characterize the resulting trade-offs. Method. We conduct a controlled evaluation of four leading agenti"
+},
+{
+"id": "2601.03708",
+"title": "MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark",
+"year": 2026,
+"abstract": "Large language models (LLMs) have achieved strong performance on code completion tasks in general-purpose programming languages. However, existing repository-level code completion benchmarks focus almost exclusively on software code and largely overlook hardware description languages. In this work, we present \\textbf{MHRC-Bench}, consisting of \\textbf{MHRC-Bench-Train} and \\textbf{MHRC-Bench-Eval}, the first benchmark designed for multilingual hardware code completion at the repository level. Our benchmark targets completion tasks and covers three major hardware design coding styles. Each completion target is annotated with code-structure-level and hardware-oriented semantic labels derived f"
+},
+{
+"id": "2601.13933",
+"title": "VulnResolver: A Hybrid Agent Framework for LLM-Based Automated Vulnerability Issue Resolution",
+"year": 2026,
+"abstract": "As software systems grow in complexity, security vulnerabilities have become increasingly prevalent, posing serious risks and economic costs. Although automated detection tools such as fuzzers have advanced considerably, effective resolution still often depends on human expertise. Existing automated vulnerability repair (AVR) methods rely heavily on manually provided annotations (e.g., fault locations or CWE labels), which are often difficult and time-consuming to obtain, while overlooking the rich, naturally embedded semantic context found in issue reports from developers. In this paper, we present VulnResolver, the first LLM-based hybrid agent framework for automated vulnerability issue re"
+},
+{
+"id": "2602.02159",
+"title": "Focus-dLLM: Accelerating Long-Context Diffusion LLM Inference via Confidence-Guided Context Focusing",
+"year": 2026,
+"abstract": "Diffusion Large Language Models (dLLMs) deliver strong long-context processing capability in a non-autoregressive decoding paradigm. However, the considerable computational cost of bidirectional full attention limits the inference efficiency. Although sparse attention is promising, existing methods remain ineffective. This stems from the need to estimate attention importance for tokens yet to be decoded, while the unmasked token positions are unknown during diffusion. In this paper, we present Focus-dLLM, a novel training-free attention sparsification framework tailored for accurate and efficient long-context dLLM inference. Based on the finding that token confidence strongly correlates acro"
+},
+{
+"id": "2602.17849",
+"title": "Quad Length Codes for Lossless Compression of e4m3",
+"year": 2026,
+"abstract": "Training and serving Large Language Models (LLMs) relies heavily on parallelization and collective operations, which are frequently bottlenecked by network bandwidth. Lossless compression using e.g., Huffman codes can alleviate the issue, however, Huffman codes suffer from slow, bit-sequential decoding and high hardware complexity due to deep tree traversals. Universal codes e.g., Exponential-Golomb codes are faster to decode but do not exploit the symbol frequency distributions. To address these limitations, this paper introduces Quad Length Codes, a hybrid approach designed to balance compression efficiency with decoding speed. The coding scheme uses 3 prefix bits to divide the 256 symbols"
+},
+{
+"id": "2603.28119",
+"title": "Compressing Code Context for LLM-based Issue Resolution",
+"year": 2026,
+"abstract": "Large Language Models (LLMs) are now capable of resolving real-world GitHub issues. However, current approaches overapproximate the code context and suffer from two compounding problems: the prohibitive cost of processing massive inputs, and low effectiveness as noise floods the context window and distracts the model from the bug-fixing signal. Existing compression techniques fail to resolve this tension: generic compressors compromise the semantic integrity of code, while code-specific tools lack awareness of code structure and task context to preserve essential patch ingredients. To address this, we propose a novel framework consisting of two components. First, Oracle-guided Code Distillat"
+},
+{
+"id": "2605.03179",
+"title": "A Validated Prompt Bank for Malicious Code Generation: Separating Executable Weapons from Security Knowledge in 1,554 Consensus-Labeled Prompts",
+"year": 2026,
+"abstract": "Existing benchmarks of language-model refusal on malicious-coding tasks routinely conflate requests for executable malicious software with requests for harmful security knowledge. This conflation matters because the two request types plausibly trigger distinct refusal pathways in safety-aligned language models, and a single refusal-rate statistic computed over a mixture cannot isolate either. This paper introduces a weapons-versus-knowledge classification axis, operationalized through a five-model consensus protocol, and applies it to 3,133 prompts drawn from four public benchmarks, yielding a 1,554-prompt consensus-CODE bank (the primary released artifact) and a 388-prompt consensus-KNOWLED"
+},
+{
+"id": "2605.18747",
+"title": "Code as Agent Harness",
+"year": 2026,
+"abstract": "Recent large language models (LLMs) have demonstrated strong capabilities in understanding and generating code, from competitive programming to repository-level software engineering. In emerging agentic systems, code is no longer only a target output. It increasingly serves as an operational substrate for agent reasoning, acting, environment modeling, and execution-based verification. We frame this shift through the lens of agent harnesses and introduce code as agent harness: a unified view that centers code as the basis for agent infrastructure. To systematically study this perspective, we organize the survey around three connected layers. First, we study the harness interface, where code c"
+},
+{
+"id": "2606.04397",
+"title": "Context-as-AI-Service: Surfacing Cross-File Dependency Chains for LLM-Generated Developer Documentation",
+"year": 2026,
+"abstract": "LLM agents increasingly write and maintain developer documentation, but usefulness and accuracy often rely on dependency chains that are not obvious to follow. Even with more files in context, the agent must still decide which cross-file dependencies to trace. We present Context-as-AI-Service (CAIS), a retrieval layer that LLM agents query to find evidence across the codebase as they review or generate documentation. CAIS indexes source code, API references, and upstream documentation, then enables agents to query the index through tool calls that combine keyword and semantic search. We evaluate CAIS in two case studies using Claude Sonnet 4.6 on a production SDK: improving API reference com"
+},
+{
+"id": "2606.17099",
+"title": "Software Delegation Contracts: Measuring Reviewability in AI Coding-Agent Work",
+"year": 2026,
+"abstract": "AI coding agents increasingly accept assigned software tasks, modify repositories under bounded authority, and return work packages for review. Prior work proposed the software delegation contract, covering the task, authority, returned work package, and acceptance context, as the unit of analysis for delegated coding work, but did not measure its effects. This paper reports a controlled pilot study of explicit delegation contracts for coding agents. We built a dependency-free TypeScript API task environment with seeded defects and documentation gaps, authored ten tasks across five families, and ran 64 agent executions across two model tiers under three conditions: a realistic issue-style pr"
+},
+{
+"id": "2607.06065",
+"title": "SWE-Review: Closing the Loop on Issue Resolution with Agentic Code Review",
+"year": 2026,
+"abstract": "Coding agents increasingly generate pull requests (PRs) for real-world software issues, yet one-shot PR generation remains open-loop: the PR is proposed without systematic review, diagnosis, or revision. We introduce \\textbf{SWE-Review}, a framework for closing this loop with agentic code review. Given an issue and an AI-generated PR, a reviewer agent explores the repository, decides whether the PR should be accepted, and provides structured feedback for revision. We evaluate this setting with our proposed \\textbf{SWE-Review-Bench} to measure both review correctness and downstream revision usefulness. We further curate \\textbf{SWE-Review-Traj} dataset to study broader applications of agentic"
+},
+{
+"id": "2607.15937",
+"title": "The Language of Security: How Prompt Syntax Shapes Secure Code Generation in Open LLMs",
+"year": 2026,
+"abstract": "Large Language Models (LLMs) are increasingly used for source code generation despite their outputs often exhibiting security vulnerabilities. Prior work shows that prompt engineering can mitigate such risks, yet (1) they focused on high-level prompting strategies, neglecting recent evidence that fine-grained syntactic variations can substantially alter model behavior; and (2) predominantly evaluate proprietary LLMs, limiting the applicability of their findings in industrial settings where self-hosted, open models are preferred for privacy, compliance, and deployment control. In this paper, we study how fine-grained syntactic constituents of prompts influence the security of open LLM-generat"
+},
+{
+"id": "2607.25431",
+"title": "CodeNib: A Multi-View Data System for Serving Repository Context to Coding Agents",
+"year": 2026,
+"abstract": "Coding agents repeatedly search, navigate, and retain context from evolving repositories, but disconnected indexes, language servers, and task-local histories force repeated discovery and obscure lifecycle costs. CodeNib builds reusable lexical, dense, and structural views per repository commit, maps outputs to repository-relative source ranges, maintains selected views across edits, and serves ranked search, symbol navigation, and bounded context through one runtime. Across 100 snapshots, we map quality-cost frontiers across the repository-context lifecycle. When outputs match an independent rebuild, graph and vector updates are $8.7\\times$ and $25.4\\times$ faster at the median. On the stat"
+},
+{
+"id": "2608.18280",
+"title": "What Makes Software Issue Resolution Tasks Difficult for Agents?",
+"year": 2026,
+"abstract": "Background. Advances in agentic systems are simultaneously, and rapidly, saturating benchmarks. Despite this often discussed phenomena, benchmark scores remain difficult to interpret due to the lack of control and characterization of task difficulty. More specifically, we currently have little understanding of what makes one task harder than another, and to what extent task difficulty is predictable from static task properties. Aims. We propose a measurement framework to investigate and systematically quantify what structural properties of software tasks correspond to agent success rates for issue resolution tasks. Method. We conducted a large scale empirical study on CoderForge-Preview, the"
+},
+{
+"id": "chatgpt utility in healthcare education ",
+"title": "ChatGPT Utility in Healthcare Education, Research, and Practice: Systematic Review on the Promising Perspectives and Valid Concerns",
+"year": 2023,
+"abstract": "ChatGPT is an artificial intelligence (AI)-based conversational large language model (LLM). The potential applications of LLMs in health care education, research, and practice could be promising if the associated valid concerns are proactively examined and addressed. The current systematic review aimed to investigate the utility of ChatGPT in health care education, research, and practice and to highlight its potential limitations. Using the PRIMSA guidelines, a systematic search was conducted to retrieve English records in PubMed/MEDLINE and Google Scholar (published research or preprints) that examined ChatGPT in the context of health care education, research, or practice. A total of 60 rec"
+},
+{
+"id": "why johnny cant prompt how nonai experts",
+"title": "Why Johnny Can\u2019t Prompt: How Non-AI Experts Try (and Fail) to Design LLM Prompts",
+"year": 2023,
+"abstract": "Pre-trained large language models (\u201cLLMs\u201d) like GPT-3 can engage in fluent, multi-turn instruction-taking out-of-the-box, making them attractive materials for designing natural language interactions. Using natural language to steer LLM outputs (\u201cprompting\u201d) has emerged as an important design technique potentially accessible to non-AI-experts. Crafting effective prompts can be challenging, however, and prompt-based interactions are brittle. Here, we explore whether non-AI-experts can successfully engage in \u201cend-user prompt engineering\u201d using a design probe\u2014a prototype LLM-based chatbot design tool supporting development and systematic evaluation of prompting strategies. Ultimately, our probe "
+}
+]

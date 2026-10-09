@@ -1,0 +1,98 @@
+[
+{
+"arxiv_id": "2303.12570",
+"title": "RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation",
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Abstract only; similarity-based retriever + iterative retrieval-generation, compared vs in-file/vanilla-RAG baselines, no budget-matched ablation stated."
+},
+{
+"arxiv_id": "2312.10101",
+"title": "A Review of Repository Level Prompting for LLMs",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "not_evaluated",
+"note": "Full text; pure literature review contrasting RepoCoder (sliding-window/BM25/embedding retrieval) vs RLPG (signature/identifier-classifier prompt selection), no original experiments."
+},
+{
+"arxiv_id": "2405.19782",
+"title": "Dataflow-Guided Retrieval Augmentation for Repository-Level Code Completion",
+"repr_primary": "cpg_dataflow",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Abstract only; repo-specific dataflow/entity context graph retrieved for prompts, quantified gains vs SOTA, not stated as budget-matched."
+},
+{
+"arxiv_id": "2406.11612",
+"title": "Long Code Arena: a Set of Benchmarks for Long-Context Code Models",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; multi-task benchmark spanning raw-window, BM25/embedding retrieval (bug localization, API gen) and file-tree proximity heuristics (completion), quantified but not uniformly budget-matched."
+},
+{
+"arxiv_id": "2412.08063",
+"title": "ContextModule: Improving Code Completion via Repository-level Contextual Information",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; three co-primary context types (behavior-based raw code, similarity-retrieved snippets, static-analysis symbol defs) reported separately, no controlled ablation, differing token limits (4k/8k)."
+},
+{
+"arxiv_id": "2507.19942",
+"title": "Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving",
+"repr_primary": "call_dep_graph",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; unified dependency knowledge graph traversed by LLM-directed agent with working memory; component-removal ablations (e.g. memory: 74.4%→56%) quantified, not budget-matched."
+},
+{
+"arxiv_id": "2509.16112",
+"title": "CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion",
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text; AST-derived code chunks retrieved via combined sparse+dense+dataflow-guided multi-path retrieval and reranking; ablation adds paths progressively, conflating volume and method, not budget-matched."
+},
+{
+"arxiv_id": "2601.03708",
+"title": "MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"note": "Full text; benchmark compares no-RAG raw-window baseline vs RepoCoder/RLCoder (similarity retrieval) vs GraphCoder (graph retrieval) all under a fixed 2,048-token input budget."
+},
+{
+"arxiv_id": "2602.05892",
+"title": "ContextBench: A Benchmark for Context Retrieval in Coding Agents",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; benchmark of coding agents using file-system navigation, embedding retrieval (Agentless), and graph retrieval (Prometheus), scored via recall/precision/F1, budgets/rounds vary naturally across agents."
+},
+{
+"arxiv_id": "2605.26177",
+"title": "RepoMirage: Probing Repository Context Reasoning in Code Agents with Perturbations",
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; agents explore via shell/grep/cat commands over raw files, performance measured across semantics-preserving perturbations (66.8%→25.3%), step budget fixed but not context/token budget."
+},
+{
+"arxiv_id": "2607.06065",
+"title": "SWE-Review: Closing the Loop on Issue Resolution with Agentic Code Review",
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text; reviewer agent browses files/diffs/dependencies via shell tools in a generate-review-revise loop, quantified vs single-turn fixed-context baseline, explicitly no token-budget parity."
+},
+{
+"arxiv_id": "2607.24884",
+"title": "Beyond \"What to Retrieve\": Uncertainty in Retrieval-Augmented Code Generation",
+"repr_primary": "embedding_retrieval",
+"mechanism": "learned_pruning",
+"evaluation": "budget_matched_ablation",
+"note": "Full text; UniXcoder-embedded evidence (similar-code, repo context, APIs) filtered/ranked by learned uncertainty scores, 2^3 factorial source ablation under a common fixed prompt budget (max 10 items)."
+}
+]

@@ -1,0 +1,314 @@
+[
+{
+"arxiv_id": "2306.10763",
+"title": "Guiding Language Models of Code with Global Context using Monitors",
+"system": "MGD",
+"key_numbers": [
+{
+"metric": "Compilation Rate, SantaCoder-1.1B-MGD vs text-davinci-003",
+"value": "73.03% vs 62.66%",
+"where": "Table 1, \u00a74.1"
+},
+{
+"metric": "Next Identifier Match, SantaCoder-MGD vs text-davinci-003",
+"value": "88.42% vs 86.18%",
+"where": "Table 1, \u00a74.1"
+},
+{
+"metric": "Improvement on high-complexity identifiers (36.97% of methods)",
+"value": "21.79%-27.91% gain",
+"where": "Appendix F, Figure 6"
+}
+],
+"repr_primary": "ast",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "A monitor queries static analysis via the Language Server Protocol at trigger points (e.g., object dereferences) during decoding and reshapes next-token logits with type-consistent identifier masks (\u00a72)."
+},
+{
+"arxiv_id": "2402.03630",
+"title": "Enhancing LLM-Based Coding Tools through Native Integration of IDE-Derived Static Context",
+"system": "IDECoder",
+"key_numbers": [
+{
+"metric": "Exact Match, IDECoder vs RAG baseline",
+"value": "10.46% vs 9.77%",
+"where": "Table 1"
+},
+{
+"metric": "CodeBLEU, IDECoder vs RAG baseline",
+"value": "34.16% vs 31.65%",
+"where": "Table 1"
+},
+{
+"metric": "Syntax Match, IDECoder vs RAG baseline",
+"value": "50.73% vs 48.92%",
+"where": "Table 1"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "IDE-native static analysis (AST construction, symbol tables, reference indexing) surfaces docstrings and typed signatures for cross-file symbols, injected via chain-of-thought prompting with post-hoc linting-based refinement (\u00a73.1-3.3)."
+},
+{
+"arxiv_id": "2406.01422",
+"title": "Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration",
+"system": "LingmaAgent",
+"key_numbers": [
+{
+"metric": "SWE-bench Lite resolved rate vs SWE-agent",
+"value": "21.33% (18.5% relative improvement over SWE-agent's 18%)",
+"where": "Table 1"
+},
+{
+"metric": "Function-level fault localization accuracy vs SWE-agent",
+"value": "49.3% vs 45.3%",
+"where": "Table 5"
+},
+{
+"metric": "Alibaba Cloud in-house issue resolution",
+"value": "16.9% fully automated, 43.3% with human intervention",
+"where": "Table 7-8"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Repository is top-down organized into a hierarchical AST-based structure tree extended with a function-call reference graph, then dynamically explored via Monte Carlo Tree Search with LLM-scored rewards to acquire context (\u00a73.2-3.3)."
+},
+{
+"arxiv_id": "2406.18294",
+"title": "Hierarchical Context Pruning: Optimizing Real-World Code Completion with Repository-Level Pretrained Code LLMs",
+"system": "HCP",
+"key_numbers": [
+{
+"metric": "input token reduction",
+"value": "~50,000+ tokens -> ~8,000 tokens",
+"where": "Results/Figure 4 discussion"
+},
+{
+"metric": "EM improvement, Starcoder2-7B",
+"value": "31.45% -> 35.76%",
+"where": "Table 4 (top-k=5)"
+},
+{
+"metric": "Edit Similarity improvement",
+"value": "69.09 -> 70.64",
+"where": "Tables 4-5"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Builds a function/class/file dependency graph via Tree-Sitter import parsing with BFS dependency levels D0..Dinf, then uses embedding-based top-k/top-p similarity ranking to select and prune function bodies (full content for current file, headers-only for low-relevance functions elsewhere), assembled hierarchically at prompt-construction time (Sec. 3, 'Hierarchical Context Pruning')."
+},
+{
+"arxiv_id": "2503.18305",
+"title": "Evolving Triple Knowledge-Augmented LLMs for Code Translation in Repository Context",
+"system": "K-Trans",
+"key_numbers": [
+{
+"metric": "Pass@1 (Claude-3.5-Sonnet, full K-Trans vs prompt-engineering baseline)",
+"value": "67.7% vs 49.1% (paper: 'surpassing the best baseline PE by 18.6%'); the 135.9% max-relative gain belongs to Qwen-2.5-Coder-14B vs Basic RAG",
+"where": "Table 2, Sec 4.1"
+},
+{
+"metric": "CodeBLEU (Claude-3.5-Sonnet)",
+"value": "0.733 vs 0.604 baseline",
+"where": "Table 2"
+},
+{
+"metric": "Target-language knowledge base size",
+"value": "113,882,369 code examples from 671,240 GitHub projects",
+"where": "Sec 2.2.2"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "For each focal function, retrieves target-language code samples and translation pairs via BM25 (Elasticsearch) then re-ranks with UniXcoder embedding similarity, plus tree-sitter-extracted dependency usage examples, assembling a chain-of-thought translation prompt with self-debugging (Sec 2.2-2.3)."
+},
+{
+"arxiv_id": "2508.02998",
+"title": "MRG-Bench: Evaluating and Exploring the Requirements of Context for Repository-Level Code Generation",
+"system": "MRG-Bench",
+"key_numbers": [
+{
+"metric": "Best baseline Pass@1 (Claude 3.5 Sonnet, avg across languages)",
+"value": "32.5%",
+"where": "Table 4"
+},
+{
+"metric": "In-file context effect on DeepSeek-Coder-33B Pass@1",
+"value": "6.4% (no context) -> 22.2% (in-file window)",
+"where": "Tables 3-4"
+},
+{
+"metric": "RAG (Mix-RAG) underperforms in-file baseline",
+"value": "12.3% vs. 22.2% Pass@1",
+"where": "Table 7"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "none_fixed_window",
+"evaluation": "ablated_measured",
+"stop_detail": "Benchmarks LLMs and reasoning models across five context conditions (none, in-file window, callee-signature, callee-full-body via a custom callgraph extraction, and RAG/long-context) on repo-sourced, test-verified generation tasks, then attributes failures via manual annotation (Sec. 3-5). [Adjudication: failure attribution is by LLM voting, not human manual annotation.]"
+},
+{
+"arxiv_id": "2510.04905",
+"title": "Retrieval-Augmented Code Generation: A Survey with Focus on Repository-Level Approaches",
+"system": "Tao25",
+"key_numbers": [
+{
+"metric": "Papers synthesized",
+"value": "152 papers",
+"where": "Sec 3.5"
+},
+{
+"metric": "Agentless score cited from surveyed work",
+"value": "32% on SWE-bench Lite",
+"where": "Sec 5.2.1"
+},
+{
+"metric": "CrossCodeEval benchmark scale",
+"value": "9,928 tasks, multi-language",
+"where": "Table 4, Sec 6.2"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "not_evaluated",
+"stop_detail": "Organizes repository-level RACG into context construction, retrieval optimization, generation, and environment-interaction stages, taxonomizing graph-based (edge/node types, Table 3) vs embedding/AST-based retrieval substrates (Sec 4)."
+},
+{
+"arxiv_id": "2601.13933",
+"title": "VulnResolver: A Hybrid Agent Framework for LLM-Based Automated Vulnerability Issue Resolution",
+"system": "VulnResolver",
+"key_numbers": [
+{
+"metric": "Resolution rate, full system vs base (SEC-bench Lite)",
+"value": "75.0% vs 48.8%",
+"where": "Table V, Sec IV-B1"
+},
+{
+"metric": "Cost per issue, base vs full",
+"value": "$0.0296 vs $0.0718",
+"where": "Sec IV-A"
+},
+{
+"metric": "Token share of context/report-generation stage (full config)",
+"value": "70.45%",
+"where": "Sec IV"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "CPCAgent incrementally collects code context via a code-search toolkit and clangd-backed symbol analysis (find-definition/find-references) until convergence, producing a Context Analysis Report that enriches the issue report before localization and patch generation (Sec III/IV-B1)."
+},
+{
+"arxiv_id": "2603.25770",
+"title": "ReCUBE: Evaluating Repository-Level Context Utilization in Code Generation",
+"system": "ReCUBE",
+"key_numbers": [
+{
+"metric": "GPT-5 full-context strict pass rate (SPR)",
+"value": "37.57%",
+"where": "Table 5"
+},
+{
+"metric": "CCE improvement over vanilla agent (overall)",
+"value": "up to +7.56 pp",
+"where": "Sec 5 / Abstract"
+},
+{
+"metric": "Agent+CCE cost per instance (GPT-5 Mini)",
+"value": "$0.1241 vs. $0.1226 (agent-only)",
+"where": "Table 7"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Caller-Centric Exploration (CCE) toolkit exposes a heterogeneous directed graph (dir/file/class/function nodes; contain/import/invoke/inherit edges) via caller-pattern, graph-query, and validation tools that steer agentic exploration before/during masked-file reconstruction (Sec 4.2.2/4.3)"
+},
+{
+"arxiv_id": "2606.07297",
+"title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories",
+"system": "SWE-Explore",
+"key_numbers": [
+{
+"metric": "Pearson correlation, Context Efficiency vs downstream repair success",
+"value": "r=0.950",
+"where": "Section 4.3 discussion"
+},
+{
+"metric": "HitFile (file-level hit rate), Oracle vs sparse retrievers (BM25/TF-IDF)",
+"value": "0.923 vs 0.079-0.140",
+"where": "Tables 5-6, Section 4.3"
+},
+{
+"metric": "Downstream Resolve Rate, Oracle vs CoSIL vs Claude Code",
+"value": "59.7% vs 59.3% vs 48.0%",
+"where": "Table 3"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Explorers return a ranked list of file:line-range code regions under a fixed line budget, scored by line-level precision/recall/F1, nDCG@B, HitFile/HitRegion, and Context Efficiency against ground truth distilled from successful agent repair trajectories (Section 3 Task Formulation, Section 4 Metrics)."
+},
+{
+"arxiv_id": "2607.10621",
+"title": "WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation",
+"system": "WebDesignIter",
+"key_numbers": [
+{
+"metric": "Pass@2, average gain over baseline agents",
+"value": "+9.55pp (e.g. Gemini 2.5 Pro 49.40% vs 42.40%)",
+"where": "Table 1 / Abstract"
+},
+{
+"metric": "Ablation: design-knowledge removal",
+"value": "Pass@1 drops 11.40pp",
+"where": "Table 2"
+},
+{
+"metric": "vs Claude Code, RQ4",
+"value": "WebDesignIter 33.53% Pass@1 @533K tokens vs Claude Code 21.27% @13,949K tokens",
+"where": "Table 4"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Maintains a persistent 'WebAppArchKG' knowledge graph-built from Tree-sitter ASTs, file-level import dependencies, and design/architecture annotations-kept in sync across development cycles; planning and generation stages retrieve nodes connected via relevant edges and apply diff-based patches validated in a sandbox (Sec I: A-C)."
+},
+{
+"arxiv_id": "2607.26805",
+"title": "MRCoder: An Efficient Context Selecting Approach for Repository-Level Code Generation",
+"system": "MRCoder",
+"key_numbers": [
+{
+"metric": "Pass@1, CoderEval K=10 (DeepSeek-Coder)",
+"value": "36.5% (MRCoder) vs 23.9% (RAG), +52.7% relative",
+"where": "Sec 5.1"
+},
+{
+"metric": "Token consumption reduction vs RAG",
+"value": "30-50%",
+"where": "Table 2"
+},
+{
+"metric": "Inference time reduction",
+"value": "up to 52.1% vs RAG; 47.6% vs RepoFormer",
+"where": "Sec 5.2, Figure 3"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Map phase partitions retrieved candidates into fixed-size groups, has a lightweight LLM draft code per group, then Structure-Aware Draft-Guided Selection keeps contexts whose APIs match the draft's calls (API-Call Perspective) or whose BM25 similarity to the draft is high (Logic Similarity Perspective); Reduce phase feeds the filtered union to a larger target LLM with parallel/speculative verification decoding (Sec 3.2-3.4)."
+}
+]

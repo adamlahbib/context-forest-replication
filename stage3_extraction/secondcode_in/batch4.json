@@ -1,0 +1,50 @@
+[
+{
+"arxiv_id": "2309.12499",
+"title": "CodePlan: Repository-level Coding using LLMs and Planning"
+},
+{
+"arxiv_id": "2402.14323",
+"title": "REPOFUSE: Repository-Level Code Completion with Fused Dual Context"
+},
+{
+"arxiv_id": "2406.04464",
+"title": "On The Importance of Reasoning for Context Retrieval in Repository-Level Code Editing"
+},
+{
+"arxiv_id": "2409.15204",
+"title": "RAMBO: Enhancing RAG-based Repository-Level Method Body Completion"
+},
+{
+"arxiv_id": "2504.10046",
+"title": "GraphCodeAgent: Dual Graph-Guided LLM Agent for Retrieval-Augmented Repo-Level Code Generation"
+},
+{
+"arxiv_id": "2508.17720",
+"title": "RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation"
+},
+{
+"arxiv_id": "2510.08850",
+"title": "Repository-Aware File Path Retrieval via Fine-Tuned LLMs"
+},
+{
+"arxiv_id": "2601.19697",
+"title": "AlignCoder: Aligning Retrieval with Target Intent for Repository-Level Code Completion"
+},
+{
+"arxiv_id": "2604.24678",
+"title": "Leveraging LLMs for Multi-File DSL Code Generation: An Industrial Case Study"
+},
+{
+"arxiv_id": "2606.14061",
+"title": "LLM Agents Can See Code Repositories"
+},
+{
+"arxiv_id": "2607.15205",
+"title": "MM-IssueLoc: A Controlled Benchmark for Evaluating Visual Evidence in Multimodal Repository-Level Issue Localization"
+},
+{
+"arxiv_id": "2608.02001",
+"title": "VulnGym: Benchmarking Coding Agents for Repository-Level Vulnerability Detection"
+}
+]

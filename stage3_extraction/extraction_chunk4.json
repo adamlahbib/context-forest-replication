@@ -1,0 +1,499 @@
+[
+  {
+    "arxiv_id": "2309.12499",
+    "system": "CodePlan",
+    "year": 2023,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "repo_map_skeleton",
+      "ast"
+    ],
+    "mechanism": "slicing_static_analysis",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "C# package-migration repositories (custom)",
+      "Python temporal-edit repositories (custom)"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Repositories passing validity checks (build without errors, correct edits)",
+        "value": "CodePlan 5/6 vs. baselines 0/6",
+        "where": "Section 1, Contributions"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Baselines are given the same contextual information as CodePlan but derive edit specifications from build-system/type-checker oracles rather than LLM-driven planning — the mechanism (oracle vs. planning-driven dependency analysis) is the varied factor; no token/cost budget is reported or controlled.",
+    "stop_detail": "An adaptive planning algorithm synthesizes a multi-step edit chain guided by incremental dependency analysis and a change may-impact analysis (caller-callee, method-override relations) that identifies affected code blocks after each edit, sketching enclosing-class declarations as extra context per edit step (Sec. 3-4).",
+    "threats_to_datum": "Only 6 repositories per task type were evaluated with no token/cost figures reported, limiting generalizability and precluding any budget-matched comparison."
+  },
+  {
+    "arxiv_id": "2402.14323",
+    "system": "REPOFUSE",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid",
+      "call_dep_graph",
+      "embedding_retrieval"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "prompt_assembly",
+    "task": "completion",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "CrossCodeEval (Python subset)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Code EM relative gain, dual vs. analogy-only context",
+        "value": "40.90%-59.75%",
+        "where": "Abstract; Sec. 4.4.1"
+      },
+      {
+        "metric": "DeepSeek-7B Code EM at 4096-token budget",
+        "value": "dual 27.92 vs. analogy 19.70 vs. rationale 21.13",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Inference speedup, dual@512 vs. analogy@4096",
+        "value": "26.8% faster, ~75.4% of context length",
+        "where": "Abstract"
+      }
+    ],
+    "budget_tradeoff_detail": "Dual context truncated to only 512 tokens still beats analogy/rationale-only context truncated to 4096 tokens, at 26.8% faster inference (Fig. 3, Abstract).",
+    "confound_note": "Table 1's core comparison (analogy-only vs. rationale-only vs. dual context) holds the 4096-token truncation budget fixed and varies only which context type(s) the RTG algorithm ranks/merges; Figure 3 separately varies the budget itself (512-4096 tokens) to show dual context's efficiency, which is a distinct, budget-varying analysis.",
+    "stop_detail": "Rank Truncated Generation (RTG) ranks a code-knowledge-graph-derived 'rationale' context and a BM25-retrieved 'analogy' context by relevance to the completion point and truncates the merged set to a fixed token length before prompting (Sec. 3.3, Eq. 2-3).",
+    "threats_to_datum": "Evaluated only on the Python subset of CrossCodeEval; the claimed enterprise deployment is not accompanied by independently quantified field data."
+  },
+  {
+    "arxiv_id": "2406.04464",
+    "system": "Kovrigin24",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "raw_window"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-bench Lite",
+      "LCA Code Editing"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "empirical_study",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-bench Lite entity-level F1, BM25 baseline vs. custom ACR",
+        "value": "7.2 vs. 28.9",
+        "where": "Table 2"
+      },
+      {
+        "metric": "LCA entity-level F1, BM25 baseline vs. custom ACR",
+        "value": "9.4 vs. 20.2",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Correlation: precision-vs-reasoning-complexity vs. recall-vs-context-length",
+        "value": "precision-reasoning r>0.7; recall-length r~0.5; recall-reasoning r~0.1",
+        "where": "Discussion/Findings"
+      }
+    ],
+    "budget_tradeoff_detail": "Different reasoning strategies yield very different context lengths without being matched to a common budget (e.g., ReAct+Context-Length ~950 tokens vs. ReAct+Self-Reflection ~246 tokens on SWE-bench Lite), so length itself is a confound (Table 1).",
+    "confound_note": "The central experiment varies both the retrieval tool (plain BM25 vs. AutoCodeRover's structure-aware tools) and the reasoning strategy (baseline/Context-Length/Tool-Call/Self-Reflection/ACR) simultaneously at different resulting context lengths — representation, mechanism, and budget are jointly confounded, which the authors acknowledge.",
+    "stop_detail": "Decouples repository-level context retrieval from downstream editing and compares five ReAct-style reasoning strategies (from a single fixed BM25 query up to full AutoCodeRover tool+reasoning) for iteratively deciding when retrieved context is sufficient (Sec. 3-4).",
+    "threats_to_datum": "Context-retrieval quality (P/R/F1) is measured in isolation and not linked to downstream edit-resolution success; the tool and reasoning-strategy axes are confounded in the reported comparisons."
+  },
+  {
+    "arxiv_id": "2409.15204",
+    "system": "RAMBO",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval",
+      "raw_window"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "completion",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "RAMBO benchmark (470 MBC problems, 26 Java repos)",
+      "Defects4J (204 problems, 14 projects)",
+      "RepoEval (Python)"
+    ],
+    "budget_reported": false,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "CodeBLEU / EM on RAMBO benchmark (DeepSeek Coder 6.7B) vs. RepoCoder",
+        "value": "CodeBLEU 53.20 vs. 50.31; EM 18.94% vs. 15.53%",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Defects4J EM vs. RepoCoder Oracle",
+        "value": "20.59% vs. 19.61% (~5% relative gain)",
+        "where": "Table 3"
+      },
+      {
+        "metric": "Retrieval-similarity ablation, lexical vs. semantic CodeBLEU",
+        "value": "53.20 vs. 52.61",
+        "where": "Table 4"
+      }
+    ],
+    "budget_tradeoff_detail": "none reported precisely; Figure 4 varies the number of included relevant methods (0-20) without quantifying token cost.",
+    "confound_note": "The central comparison (RAMBO vs. RepoCoder, Tables 2-3) varies both representation (essential-element + usage retrieval vs. similar-method-body retrieval) and retrieval mechanism together, with no explicit token-budget matching; Tables 4-5 separately isolate the retrieval-similarity metric and the EEI/RUE component contributions.",
+    "stop_detail": "Generates a rough 'sketch' method body via RAG, extracts essential repository-declared elements (classes/methods/fields) referenced in the sketch after filtering hallucinated names against actual declarations, then retrieves and ranks methods that use those elements by similarity to include as context (Sec. 3, Eq. 1-3).",
+    "threats_to_datum": "No explicit token-budget matching against baselines is reported, so gains could partly reflect RAMBO using a different context volume rather than purely better selection."
+  },
+  {
+    "arxiv_id": "2504.08862",
+    "system": "RTLRepoCoder",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval",
+      "raw_window"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "completion",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "RTL-Repo (4,098 samples, 1,361 Verilog repos)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Edit Similarity / Exact Match, RTLRepoCoder-DeepSeek vs. GPT-4",
+        "value": "ES 84.3% vs. 71.9%; EM 55.8% vs. 48.5%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Fine-tuning impact vs. base model",
+        "value": "+34.7% ES, +37.1% EM",
+        "where": "Table 2"
+      },
+      {
+        "metric": "RAG impact on >10k-token samples",
+        "value": "+2.3% ES, +4.7% EM",
+        "where": "Table 4"
+      }
+    ],
+    "budget_tradeoff_detail": "Inference context window fixed at 10,240 tokens for fine-tuned models; RAG replaces full repository context with retrieved snippets to fit this budget, yielding +2.3% ES/+4.7% EM on >10k-token examples at the same context-window budget (Table 4, Sec. 4.3).",
+    "confound_note": "Table 4's RAG ablation (retrieval on vs. off) is run at the same fixed 10,240-token context window on the same >10k-token subset — the retrieval mechanism is the sole varied factor at matched budget; a separate ablation (Tables 2-3) varies fine-tuning context-window size (4,096 vs. 10,240) as its own factor.",
+    "stop_detail": "A RAG pipeline embeds repository code with jina-embeddings-v2 (8k context), splits files into line-broken chunks (best of three splitting strategies tested), and retrieves the most relevant chunks to replace full repository context when it exceeds the model's token budget (Sec. 3.3, Tables 5-6).",
+    "threats_to_datum": "The GPT-4 baseline is evaluated on only 200 sampled instances (cost constraint) rather than the full test set, limiting direct comparability."
+  },
+  {
+    "arxiv_id": "2508.02998",
+    "system": "MRG-Bench",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid",
+      "raw_window",
+      "call_dep_graph",
+      "embedding_retrieval"
+    ],
+    "mechanism": "none_fixed_window",
+    "pipeline_position": "prompt_assembly",
+    "task": "generation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "MRG-Bench (383 samples, 22 Python/Java/Go repos)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "benchmark_eval",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Best baseline Pass@1 (Claude 3.5 Sonnet, avg across languages)",
+        "value": "32.5%",
+        "where": "Table 4"
+      },
+      {
+        "metric": "In-file context effect on DeepSeek-Coder-33B Pass@1",
+        "value": "6.4% (no context) -> 22.2% (in-file window)",
+        "where": "Tables 3-4"
+      },
+      {
+        "metric": "RAG (Mix-RAG) underperforms in-file baseline",
+        "value": "12.3% vs. 22.2% Pass@1",
+        "where": "Table 7"
+      }
+    ],
+    "budget_tradeoff_detail": "In-file raw context capped at 6,000 tokens outperforms RAG retrieval using 500-token retrieved blocks (22.2% vs. 12.3% Pass@1), and 100K-token long-context windows underperform targeted in-file context in several settings — more or differently-structured context does not straightforwardly improve results (Tables 4, 6, 7).",
+    "confound_note": "The cross-context-type comparison (none / in-file window / callee-signature / callee-funcbody / long-context / RAG variants) varies representation AND the associated token budget simultaneously (6K in-file vs. 100K long-context vs. 500-token RAG blocks) — not a budget-matched ablation, so representation and budget effects are conflated in the reported Pass@1 differences.",
+    "stop_detail": "Benchmarks LLMs and reasoning models across five context conditions (none, in-file window, callee-signature, callee-full-body via a custom callgraph extraction, and RAG/long-context) on repo-sourced, test-verified generation tasks, then attributes failures via manual annotation (Sec. 3-5).",
+    "threats_to_datum": "Context types are compared at different, non-matched token budgets, so representation and budget effects cannot be cleanly separated from the reported Pass@1 differences."
+  },
+  {
+    "arxiv_id": "2510.08610",
+    "system": "Rahman25",
+    "year": 2025,
+    "venue": "Context Collection Workshop @ ASE 2025",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval",
+      "raw_window"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "completion",
+    "evaluation": "demonstrated",
+    "benchmarks": [
+      "Context Collection Competition (Kotlin and Python tracks, ASE 2025)"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Competition chrF score",
+        "value": "Kotlin 0.660 (3rd place); Python 0.636 (4th place)",
+        "where": "Results section"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "No controlled internal ablation is reported; the paper narrates a progression of context-construction strategies (structured JSON extraction, prompt-injection sufficiency checks, final BM25+FAISS ensemble retrieval with relative positioning) without isolating representation from retrieval-mechanism or budget effects — the authors explicitly note an ablation study is left for future work.",
+    "stop_detail": "Splits files into overlapping line-chunks, retrieves top-k chunks similar to the completion prefix/suffix via a BM25+FAISS ensemble (weights 0.2/0.8), then attaches each retrieved chunk's adjacent (next/prev) chunk for 'relative positioning' context alongside the current file and recently opened files (Sec. 3).",
+    "threats_to_datum": "Only two competition leaderboard placements are reported with no internal ablation, statistical testing, or token-cost figures, so the specific contribution of relative positioning (vs. retrieval alone) is not isolated."
+  },
+  {
+    "arxiv_id": "2601.16746",
+    "system": "SWE-Pruner",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window"
+    ],
+    "mechanism": "learned_pruning",
+    "pipeline_position": "in_loop",
+    "task": "general_mixed",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "SWE-Bench Verified",
+      "SWE-QA",
+      "Long Code Completion",
+      "Long Code QA"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-Bench Verified token reduction & resolve rate, Claude Sonnet 4.5",
+        "value": "23.1% token reduction (0.911M->0.701M); resolve rate 70.6%->72.0%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "SWE-Bench Verified, GLM 4.6",
+        "value": "38.3% token reduction; resolve rate 55.4%->56.6%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Long Code QA compression vs. accuracy",
+        "value": "14.84x compression, 58.71% accuracy maintained",
+        "where": "Table 4"
+      }
+    ],
+    "budget_tradeoff_detail": "At matched 4x/8x compression ratios, SWE-Pruner preserves or slightly improves task success (e.g., +1.4pp resolve rate on SWE-Bench Verified with Claude Sonnet 4.5) while cutting tokens 23-54% depending on model/benchmark (Table 1, Sec. 4.2).",
+    "confound_note": "Table 1 compares pruning methods at fixed compression-ratio targets (4x/8x) — the pruning method is the sole varied factor at matched output budget across compared baselines and SWE-Pruner.",
+    "stop_detail": "A 0.6B-parameter neural 'skimmer' (Qwen3-Reranker backbone, CRF-NLL trained) scores tool-output tokens for relevance to an agent-specified focus question, aggregates scores to line-level keep/prune decisions, and prunes tool responses in-loop before they persist in agent context (Sec. 3.2-3.4).",
+    "threats_to_datum": "Relies on the agent voluntarily supplying a context_focus_question; behavior when this hint is absent or misleading is not stress-tested in the reported results."
+  },
+  {
+    "arxiv_id": "2603.01327",
+    "system": "SWE-Adept",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "repo_map_skeleton"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-Bench Lite",
+      "SWE-Bench Pro"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-Bench Lite resolve rate vs. SWE-agent (Claude-4.5)",
+        "value": "71.3% vs. 66.0% (+5.3pp)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "SWE-Bench Pro resolve rate vs. SWE-agent (Claude-4.5)",
+        "value": "45.0% vs. 39.5% (+5.5pp)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Token usage vs. RepoGraph (GPT-5.2, Lite)",
+        "value": "197k tokens (SWE-Adept) vs. 150k tokens (RepoGraph), with higher accuracy",
+        "where": "Table 1"
+      }
+    ],
+    "budget_tradeoff_detail": "SWE-Adept uses more tokens than RepoGraph (197k vs. 150k on GPT-5.2/Lite) but achieves higher accuracy, and fewer tokens than several other baselines while resolving more issues overall (Table 1).",
+    "confound_note": "Table 2's headline comparison (SWE-Adept vs. SWE-agent/RepoGraph/LocAgent/OrcaLoca) varies both representation (dependency tree with lazy skeleton loading) and exploration mechanism (agent-directed DFS vs. free-form or embedding-based baselines) jointly, at unmatched token budgets; later ablations (Tables 4-6) isolate individual components.",
+    "stop_detail": "Builds a lightweight code-structure tree (tree-sitter-parsed functions/classes/chunks linked by contains/invokes edges) and has the localization agent perform dependency-aware depth-first search, prioritizing one child unit at a time via find_child_unit and deferring full code loading until a two-stage post-search filtering phase (Sec. 3.2).",
+    "threats_to_datum": "The main comparison is not token-budget-matched against baselines, so part of the resolve-rate gain could reflect a different (not necessarily smaller) context budget rather than better selection alone."
+  },
+  {
+    "arxiv_id": "2605.18747",
+    "system": "Ning26",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "Full text confirms this is a broad survey positioning 'code' as a general operational substrate for agent harnesses across many domains (embodied agents, GUI/OS automation, scientific discovery, enterprise workflows), organized around harness-interface/mechanisms/scaling-and-multi-agent layers; it is a conceptual taxonomy synthesizing many methods rather than presenting a unified code instantiation, gives no emphasis to structural code representations (AST/call-graphs/dependency-graphs/repo-maps), and explicitly contains no discussion of token/context-window budgets or structural compression for multi-file repository contexts — it lacks the cross-file structural context-budget concern this review targets."
+  },
+  {
+    "arxiv_id": "2607.01138",
+    "system": "Antaeus",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "raw_window"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "review",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "ReposVul (28 confirmed CVEs, CWE-284/CWE-200)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "True positives detected, AntaeusO4.7 vs. best baselines",
+        "value": "15/28 vs. 3-5/28 (function-level/agentic baselines)",
+        "where": "Tables II-III"
+      },
+      {
+        "metric": "Cost per confirmed vulnerability, Antaeus vs. agentic baseline",
+        "value": "~$30 (AntaeusO4.7) vs. ~$77 (Opus 4.7 agentic)",
+        "where": "Tables VI/VIII"
+      },
+      {
+        "metric": "Functions retained after prioritization stage",
+        "value": "4,859 analyzed functions (from full repositories, ~30x reduction)",
+        "where": "Sec. III-A results"
+      }
+    ],
+    "budget_tradeoff_detail": "Antaeus operates in the same cost regime as the agentic baseline (a few hundred dollars total) while detecting 3-5x more true positives (15/28 vs. 3-5/28) at roughly $30 vs. $77 per detected vulnerability (Tables VI/VIII).",
+    "confound_note": "Table III's central comparison (Antaeus vs. function-level-only and agentic baselines) varies representation (repo-grounded local+global context vs. isolated function or free agentic exploration) and adds a structured reasoning+validation mechanism simultaneously, at roughly comparable but not strictly matched token/cost budgets.",
+    "stop_detail": "A lightweight prioritization stage reduces the repository to a ranked set of security-relevant functions (keyword heuristics plus agentic LLM ranking of compressed signature+callee summaries), then each retained function is grounded with depth-one callee bodies and a repository-wide security summary (system purpose, trust topology) before structured sink/safety-condition LLM reasoning and comparative validation (Sec. III-A, III-B).",
+    "threats_to_datum": "Evaluated on only 28 confirmed CVEs from ReposVul with high false-positive counts (1,345-2,918), so precision and generalization to unconfirmed or novel logic vulnerabilities remain uncertain."
+  },
+  {
+    "arxiv_id": "2607.18213",
+    "system": "SWE-Pruner Pro",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window"
+    ],
+    "mechanism": "learned_pruning",
+    "pipeline_position": "in_loop",
+    "task": "general_mixed",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-Bench Verified",
+      "SWE-QA",
+      "SWE-QA-Pro",
+      "Oolong"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-Bench Verified resolve rate, MiMo-V2-Flash",
+        "value": "345/500 (SWE-Pruner Pro) vs. 326/500 baseline (+3.8%)",
+        "where": "Table 2, Sec. 5.1"
+      },
+      {
+        "metric": "Token savings, Qwen3-Coder-Next on SWE-QA-Pro",
+        "value": "368K vs. 607K baseline tokens (39.4% reduction)",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Latency overhead from pruning calls",
+        "value": "+15.0% aggregate wall time",
+        "where": "Sec. 5.3"
+      }
+    ],
+    "budget_tradeoff_detail": "Saves up to 39% of prompt+completion tokens (heaviest cell: Qwen3-Coder-Next/SWE-QA-Pro) while improving SWE-Bench Verified resolve rate by 3.8pp on MiMo-V2-Flash, at roughly half the token overhead of the next-best pruning baseline and a 15% wall-time cost from added pruning inference (Tables 1-2, Sec. 5.1/5.3).",
+    "confound_note": "Table 1 compares multiple pruning methods (LLMLingua2, Selective Context, RAG, Self-Prune, LongCodeZip, SWE-Pruner, SWE-Pruner Pro) under identical agent/backbone configuration but without a matched output-token constraint — each method's own quality-vs-token-savings trade-off point is reported rather than budget being equalized across methods.",
+    "stop_detail": "Reuses the agent's own frozen-backbone token representations produced during normal prefill of a tool response, feeding them through a lightweight length-aware classification head (LayerNorm + Linear-GELU-Dropout blocks) to assign each line a keep/prune label via majority vote of token-level decisions, pruning it before the next turn's context (Sec. 3.1-3.2).",
+    "threats_to_datum": "Adds a 15% aggregate wall-time overhead from the pruning head's inference calls, and gains are reported per benchmark/backbone cell without a single held-out test spanning all combinations simultaneously."
+  },
+  {
+    "arxiv_id": "2608.23552",
+    "system": "Prime Agent",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "Full text shows Prime Agent is a domain-agnostic long-horizon agent harness (Recursive Language Model abstraction via a persistent IPython REPL and Continual Harness) applied uniformly to ARC-AGI-3 puzzles, GPU-kernel generation, emulator construction, Factorio, and nanoGPT speedruns; coding (EmulatorBench, PMPP-Hard) is only one of several generic long-context domains it targets, and the paper proposes no code-specific structural representation (no AST/dependency-graph/repo-map) and no repository-specific cross-file structural context-budget mechanism — context handling is generic recursive/paging logic, not a structure-aware repository-context concern."
+  }
+]

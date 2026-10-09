@@ -1,0 +1,10 @@
+You are an independent second checker for a systematic mapping study on structure-aware context engineering for repository-level code LLMs and agents. Read ONLY the full text in the file `paper.txt` in the current directory (use the shell to search it, e.g. grep -n -i "ablation\|budget\|token" paper.txt; read the relevant sections fully). Record: arXiv __ID__, system __SYS__. The study's prior extraction noted: __GAIN__
+
+Classify the paper's cleanest comparison (the one most favourable to "budget-matched"). Verdict, exactly one of:
+- "budget-matched": same model and configuration, same dataset/metric, only the representation or context-selection mechanism differs, and the REALIZED context budget is held equal (or the structured arm is not larger). A nominal equal target that arms exceed differently does not count.
+- "unmatched-single": only the representation/mechanism differs (same model, same scaffold), but the context amount differs or is not controlled/reported.
+- "multi-change": the arms also differ in model, agent scaffold/loop, number of model calls, training, or several pipeline components at once (e.g., a full system vs a baseline system).
+- "no-comparator": no quantitative comparison against an alternative exists.
+Unreported budget => not budget-matched.
+
+Reply with ONLY one JSON object, no prose, keys: {"arxiv_id","comparison","model_config","budget_control","arm_a","arm_b","other_changes","verdict","quote"} where quote is a verbatim sentence (<=40 words) from paper.txt that decides the verdict.

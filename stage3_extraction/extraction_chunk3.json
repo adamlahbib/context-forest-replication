@@ -1,0 +1,467 @@
+[
+  {
+    "arxiv_id": "2306.10998",
+    "system": "RepoFusion",
+    "year": 2023,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window",
+      "embedding_retrieval"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "prompt_assembly",
+    "task": "completion",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "Stack-Repo"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Success rate (exact match), best config",
+        "value": "77.32%",
+        "where": "Table 2"
+      },
+      {
+        "metric": "RepoFusion (220M) vs StarCoderBase (70x larger)",
+        "value": "78.33% vs 79.79%",
+        "where": "Table 3"
+      }
+    ],
+    "budget_tradeoff_detail": "Ablates number of contexts N and per-context length l (Fig. 4); best reported config N=32, l=768 tokens/context, success rate 77.32% (Table 2).",
+    "confound_note": "Context-type ablation (Fig. 3) compares Prompt-Proposals/rule-based, BM25 lexical, and RandomNN embedding retrieval as the source of repo context while context length/number are held fixed, isolating the retrieval-mechanism effect from budget.",
+    "stop_detail": "Fusion-in-Decoder architecture independently encodes each of N retrieved repo contexts (each appended to 2-line surrounding hole context via special tokens) then jointly attends over concatenated encodings during decoding (Sec. 3).",
+    "threats_to_datum": "Best-performing variant (Prompt-Proposals) is a heuristic rule-based extractor rather than a learned retriever, so gains attributed to 'retrieval mechanism' may partly reflect heuristic quality rather than the FiD architecture itself."
+  },
+  {
+    "arxiv_id": "2402.12317",
+    "system": "EVOR",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval",
+      "exec_traces"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "in_loop",
+    "task": "generation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "EvoR-Bench (Scipy-M, Tensorflow-M, Ring, Pony)",
+      "SWE-bench-Lite"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "Execution accuracy (ChatGPT backbone), EVOR vs DocPrompting",
+        "value": "35.3% vs 19.2%",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Token consumption, EVOR vs DocPrompting",
+        "value": "~16k vs ~3.7k tokens",
+        "where": "Table 7"
+      }
+    ],
+    "budget_tradeoff_detail": "Sec. 4.4 reports pass rate as a function of token consumption swept 4k-24k, showing diminishing returns; EVOR's iterative loop consumes ~4x the tokens of DocPrompting for its accuracy gain (Table 7).",
+    "confound_note": "Primary comparison (EVOR vs Reflexion/DocPrompting, Table 2) varies both knowledge source diversity (docs+web+exec-feedback+code vs single static source) and the iterative query-evolution mechanism jointly, at unmatched token budgets; the repo-level SWE-bench-Lite result is a secondary, less-instrumented experiment.",
+    "stop_detail": "Iterative loop (Algorithm 1) evolves the retrieval query each round using prior generated code and execution errors, retrieves via INSTRUCTOR-xl dense embeddings (or BM25) over a knowledge base that itself grows with execution feedback, capped near 4,096 tokens (Sec. 3).",
+    "threats_to_datum": "The paper's primary knowledge base is external documentation/web/execution-feedback rather than repository files; the only genuine cross-file repository-context instantiation is a secondary SWE-bench-Lite experiment treating 'repository content as documentation' with no structural (non-flat) treatment, weakening its relevance as a structure-aware repo-context datum."
+  },
+  {
+    "arxiv_id": "2406.03283",
+    "system": "CatCoder",
+    "year": 2024,
+    "venue": "ACM Transactions on Software Engineering and Methodology (TOSEM) — accepted, revised/extended version",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "embedding_retrieval"
+    ],
+    "mechanism": "slicing_static_analysis",
+    "pipeline_position": "retrieval_time",
+    "task": "generation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "CoderUJB (Java, 199 tasks)",
+      "RustEval (Rust, 90 tasks)",
+      "closure-compiler (scalability case study, 29 tasks)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "pass@5, CatCoder vs RepoCoder (Java)",
+        "value": "57.5% vs 49.0% (+17.35%)",
+        "where": "Table 5"
+      },
+      {
+        "metric": "pass@1 drop removing Type Context (-TC)",
+        "value": "-11.57% (Java), -5.3% (Rust)",
+        "where": "Table 7"
+      }
+    ],
+    "budget_tradeoff_detail": "Retrieval corpus chunked at max 2,000 tokens/chunk (Java) and 1,000 tokens/chunk (Rust) (Sec. 3.1.3); type-context graph pruned to direct neighbors and stdlib types removed to bound prompt size (Sec. 3.2.1).",
+    "confound_note": "Headline comparison against RepoCoder varies both the representation (added type-dependency graph) and the retrieval mechanism (hybrid BM25+dense with RRF vs RepoCoder's iterative retrieval) simultaneously; component-level ablation (Table 7, removing -CR or -TC individually) is the only isolated comparison.",
+    "stop_detail": "A static analyzer (Eclipse JDT / rust-analyzer) builds a directed type-dependency graph of field/signature context pruned to direct neighbors, concatenated with hybrid BM25+dense-retrieved (RRF-fused) code snippets into the generation prompt (Sec. 3.1.3, 3.2.1, Fig. 4).",
+    "threats_to_datum": "Because RepoCoder differs in both representation and retrieval mechanism from CatCoder, the reported +17.35% pass@5 gain cannot be attributed cleanly to the type-dependency-graph representation alone without relying on the separate component ablation."
+  },
+  {
+    "arxiv_id": "2408.08927",
+    "system": "VerilogCoder",
+    "year": 2024,
+    "venue": "AAAI 2025",
+    "peer_reviewed": true,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "Full text confirms every problem is a single, isolated Verilog module with a provided testbench (VerilogEval-Human v2); the Task-and-Circuit-Relation-Graph and AST-based waveform-tracing tool are single-module internal representations built per-problem, with no multi-file/multi-module repository structure, cross-file dependencies, or repository-scale context budget ever addressed."
+  },
+  {
+    "arxiv_id": "2503.18305",
+    "system": "K-Trans",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "translation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "RustRepoTrans"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Pass@1 (Claude-3.5-Sonnet, full K-Trans vs prompt-engineering baseline)",
+        "value": "67.7% vs 49.1% (135.9% relative improvement)",
+        "where": "Table 2, Sec 4.1"
+      },
+      {
+        "metric": "CodeBLEU (Claude-3.5-Sonnet)",
+        "value": "0.733 vs 0.604 baseline",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Target-language knowledge base size",
+        "value": "113,882,369 code examples from 671,240 GitHub projects",
+        "where": "Sec 2.2.2"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Ablation removes knowledge types (dependency usage examples, code samples, translation pairs) progressively and varies knowledge-base maturity (0/50/100%, Table 6) without holding total prompt token budget constant across arms; multiple LLM backbones also compared.",
+    "stop_detail": "For each focal function, retrieves target-language code samples and translation pairs via BM25 (Elasticsearch) then re-ranks with UniXcoder embedding similarity, plus tree-sitter-extracted dependency usage examples, assembling a chain-of-thought translation prompt with self-debugging (Sec 2.2-2.3).",
+    "threats_to_datum": "Single benchmark (RustRepoTrans, 375 tasks, self-constructed) and no independent replication; knowledge base built partly from the paper's own translation history."
+  },
+  {
+    "arxiv_id": "2507.23348",
+    "system": "SWE-Debate",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-bench-Verified",
+      "SWE-bench-Lite",
+      "SWE-bench-Verified-S"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Pass@1 issue resolution (SWE-bench-Verified)",
+        "value": "41.4%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Ablation: without multi-chain generation",
+        "value": "31.4% (-10.0pp)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "File-level localization Acc@1",
+        "value": "81.67%",
+        "where": "Table 3"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Component ablations (multi-chain generation, multi-agent debate, edit plan) tested one-at-a-time on the same DeepSeek-V3-0324 backbone with fixed graph-traversal breadth/depth (K=5,W=4,L=5); prompt/token budget across arms not reported or controlled.",
+    "stop_detail": "Builds a static code dependency graph (calls, inheritance, imports, variable references) via static analysis, traverses it with BFS+DFS from K seed entities to form K×W fault-propagation localization chains, then runs a 3-round multi-agent debate per chain before MCTS-based patch generation (Sec 3).",
+    "threats_to_datum": "Evaluated only on SWE-bench family (Python repositories); graph-construction accuracy depends on the static analysis tool and is not independently validated."
+  },
+  {
+    "arxiv_id": "2510.04905",
+    "system": "Tao25",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "generation",
+    "evaluation": "not_evaluated",
+    "benchmarks": [
+      "RepoEval",
+      "RepoBench",
+      "SWE-bench",
+      "CrossCodeEval"
+    ],
+    "budget_reported": false,
+    "wieringa": "philosophical",
+    "record_type": "survey",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Papers synthesized",
+        "value": "152 papers",
+        "where": "Sec 3.5"
+      },
+      {
+        "metric": "Agentless score cited from surveyed work",
+        "value": "32% on SWE-bench Lite",
+        "where": "Sec 5.2.1"
+      },
+      {
+        "metric": "CrossCodeEval benchmark scale",
+        "value": "9,928 tasks, multi-language",
+        "where": "Table 4, Sec 6.2"
+      }
+    ],
+    "budget_tradeoff_detail": "Notes budget as a general concern (\"large repositories exceed context limits, making selection critical\", Sec 4.1.2) but performs no cross-method token/cost comparison itself.",
+    "confound_note": "N/A - literature synthesis, not a controlled comparison; taxonomizes graph-based vs non-graph retrieval substrates (Table 3, Sec 4.2) descriptively rather than benchmarking them against each other.",
+    "stop_detail": "Organizes repository-level RACG into context construction, retrieval optimization, generation, and environment-interaction stages, taxonomizing graph-based (edge/node types, Table 3) vs embedding/AST-based retrieval substrates (Sec 4).",
+    "threats_to_datum": "Coverage depends on search/selection strategy (v1 Oct 2025, revised through May 2026); no independent verification of numbers cited from surveyed papers; does not aggregate cross-method comparisons on shared benchmarks."
+  },
+  {
+    "arxiv_id": "2601.13933",
+    "system": "VulnResolver",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "raw_window"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SEC-bench Lite",
+      "SEC-bench Full"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Resolution rate, full system vs base (SEC-bench Lite)",
+        "value": "75.0% vs 48.8%",
+        "where": "Table V, Sec IV-B1"
+      },
+      {
+        "metric": "Cost per issue, base vs full",
+        "value": "$0.0296 vs $0.0718",
+        "where": "Sec IV-A"
+      },
+      {
+        "metric": "Token share of context/report-generation stage (full config)",
+        "value": "70.45%",
+        "where": "Sec IV"
+      }
+    ],
+    "budget_tradeoff_detail": "Full pipeline (CPCAgent+SPAAgent) raises per-issue cost from $0.0296 to $0.0718 while raising resolution rate from 48.8% to 75.0% on SEC-bench Lite; context/report-generation alone consumes 70.45% of tokens in the full configuration (Sec IV-A).",
+    "confound_note": "CPCAgent and SPAAgent are added incrementally on top of a base workflow; both context representation and total token/cost budget vary together across the ablation arms, so gains are not isolated to representation choice alone.",
+    "stop_detail": "CPCAgent incrementally collects code context via a code-search toolkit and clangd-backed symbol analysis (find-definition/find-references) until convergence, producing a Context Analysis Report that enriches the issue report before localization and patch generation (Sec III/IV-B1).",
+    "threats_to_datum": "Evaluated only on C/C++ projects (SEC-bench, 13-29 projects); clangd-dependent tooling may not generalize to other languages; $ cost figures are tied to specific LLM API pricing at time of study."
+  },
+  {
+    "arxiv_id": "2602.20478",
+    "system": "Codified Context",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "The paper is an experience report on a three-tier agent-memory infrastructure (constitution, 19 domain-expert agent manifests, and a keyword-searched knowledge base of 34 spec documents) for a single 108K-line C# project. It indexes conventions, orchestration protocols, and design-intent documentation, not source-code structure, and states no token-budget mechanism for repository code context beyond keeping the constitution 'concise enough to fit every session' (Sec 3.1). There is no cross-file structural representation of code (no AST/call-graph/skeleton) and no budget-vs-quality tradeoff for code context, so it has no cross-file-structural-budget concern."
+  },
+  {
+    "arxiv_id": "2605.15315",
+    "system": "LaMR",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window",
+      "ast"
+    ],
+    "mechanism": "learned_pruning",
+    "pipeline_position": "in_loop",
+    "task": "general_mixed",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "SWE-Bench Verified",
+      "SWE-QA",
+      "LCC",
+      "LongCodeQA"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "extra token savings over SWE-Pruner baseline on multi-turn tasks (matched compression)",
+        "value": "7-14% more tokens saved; 30.5% total reduction vs 23.1% for SWE-Pruner with Sonnet 4.5",
+        "where": "Sec 4.2, Table 1"
+      },
+      {
+        "metric": "head-to-head win rate on multi-turn comparisons",
+        "value": "12 of 16 comparisons",
+        "where": "Sec 4.2"
+      },
+      {
+        "metric": "Exact Match / Edit Similarity gain on LCC at 8x compression",
+        "value": "+3.5 EM, +1.63 ES",
+        "where": "Table 3"
+      }
+    ],
+    "budget_tradeoff_detail": "At matched 4x/8x compression targets, LaMR saves an additional 7-14% tokens over the SWE-Pruner baseline on multi-turn agent tasks while improving Exact Match by up to +3.5 on single-turn tasks (Sec 4.2, Table 3).",
+    "confound_note": "Compression ratio (budget) is held constant between LaMR and the reproduced SWE-Pruner baseline (Sec 4.1: 'all methods are evaluated under matched compression constraints'); only the pruning representation/mechanism (single CRF vs. dual-rubric CRF + MoE gating) varies.",
+    "stop_detail": "In-loop middleware intercepts file reads and prunes raw code-text lines via two dedicated CRFs (semantic evidence, dependency support) fused by a mixture-of-experts gate, then an AST-aware post-processing pass restores scope/control-flow headers and referenced imports (Sec 3.4).",
+    "threats_to_datum": "The SWE-Pruner comparator is a reproduced baseline rather than the original paper's reported numbers, and headline token-saving percentages aggregate across benchmarks rather than being benchmark-specific."
+  },
+  {
+    "arxiv_id": "2606.14061",
+    "system": "SeeRepo",
+    "year": 2026,
+    "venue": "ASE 2026",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "hybrid"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-bench Verified",
+      "SWE-Rebench Leaderboard 2026.03",
+      "SWE-QA"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "empirical_study",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "input token change with multimodal graph integration (GPT-5-mini)",
+        "value": "-25% input tokens, -26% cost, accuracy 55.4% (+0.4)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "token reduction range across four MLLMs with multimodal integration",
+        "value": "4.8%-46%",
+        "where": "Results (RQ2)"
+      },
+      {
+        "metric": "vision-only degradation",
+        "value": "accuracy drops 13.6-34.1 points; cost rises up to 268%",
+        "where": "Results (RQ1)"
+      }
+    ],
+    "budget_tradeoff_detail": "Text+graph multimodal integration cuts input tokens 4.8-46% and cost up to 26% across four MLLMs while maintaining or improving issue-resolution accuracy; a vision-only setup instead raises cost up to 268% and drops accuracy 13.6-34.1 points (Table 2; RQ1/RQ2).",
+    "confound_note": "The central comparison (text-only vs. vision-only vs. multimodal SeeRepo) varies both representation and modality, and token/cost are the measured outcomes rather than held constant, so this is an ablated/measured comparison, not a budget-matched one.",
+    "stop_detail": "During agent exploration, an external tool returns a Graphviz-rendered PNG of a distance-aware dependency subgraph (contains/imports/invokes/inherits edges) centered on the query target, with the agent autonomously controlling traversal depth, alongside standard text-based repo navigation.",
+    "threats_to_datum": "Results are per-model averages over three runs on a 500-instance and a 110-instance benchmark using Graphviz-rendered images specifically; generalization to other renderers or MLLMs beyond the four evaluated is untested."
+  },
+  {
+    "arxiv_id": "2607.16372",
+    "system": "AoA",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "Full text (arxiv.org/html/2607.16372) confirms AoA operates entirely over the AST of a single proof/theorem within one interactive theorem-proving session; its token/cost/tool-call savings come from replacing serialized source-text proof states with a fused JSON AST + tree-edit representation for that one proof, not from managing cross-file structural budgets across a repository. The only repository-scale mentions (seL4 kernel ~70k proof goals, ~140k historical goals; Why3-derived NTP4VC-Pearl) are motivational framing for why per-proof token cost matters at scale, not something the method addresses -- no multi-file/codebase/project-level context selection or budgeting is performed. Out of scope for structure-aware repository-level context engineering."
+  },
+  {
+    "arxiv_id": "2608.02001",
+    "system": "VulnGym",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "review",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "VulnGym"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "benchmark_eval",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "End-to-End Advisory Recall (Hard split)",
+        "value": "22.58% (DeepSeek-V4-Flash + OpenHands, best config)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Critical-Operation Localization File Recall (Hard split)",
+        "value": "51.16% (DeepSeek-V4-Flash + MiniSWE, best config)",
+        "where": "Table 3"
+      },
+      {
+        "metric": "Failures attributable to missing/mislocalized vulnerable files or lines",
+        "value": "56.5% of all failures",
+        "where": "Sec 4.3"
+      }
+    ],
+    "budget_tradeoff_detail": "No explicit token-budget-vs-quality tradeoff curve reported; agents are given context windows of at least 256K tokens (Sec 4.1) and explore repos via unindexed shell commands, but the paper does not quantify how detection/localization quality changes as a function of budget size.",
+    "confound_note": "Central comparisons vary model (Qwen3.5 2B/4B/9B/27B, DeepSeek-V4-Flash, GLM-5.2, MiniMax-M3) AND agent scaffold (Claude Code, OpenHands, MiniSWE) simultaneously across the same benchmark tasks -- capability, scaffold, and effective exploration budget all confound together; no single-factor ablation isolates representation or mechanism alone.",
+    "stop_detail": "Agents receive no pre-built structural index; they explore repositories turn-by-turn with read-only shell commands (find/ls/grep/rg/cat/head/tail/sed) to locate vulnerability-relevant code, with performance decomposed into end-to-end detection plus three oracle-based subtasks (critical-operation localization, entry-point identification, trace construction) (Sec 4.1-4.3).",
+    "threats_to_datum": "Key numbers are best per-cell results pulled from multi-row Tables 2-3 (many model x scaffold combinations), not a single headline system result; extracted via WebFetch text summarization of the HTML rather than direct inspection of rendered tables, so exact adjacent-row values are unverified."
+  }
+]

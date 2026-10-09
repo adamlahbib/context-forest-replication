@@ -1,0 +1,314 @@
+[
+{
+"arxiv_id": "2306.03091",
+"title": "RepoBench: Benchmarking Repository-Level Code Auto-Completion Systems",
+"system": "RepoBench",
+"key_numbers": [
+{
+"metric": "RepoBench-C Python (All) Exact Match, StarCoder 15.5B",
+"value": "31.67%",
+"where": "Table 3"
+},
+{
+"metric": "RepoBench-P Python (All) Exact Match, Codex + UniXcoder-L2H retrieval",
+"value": "37.11%",
+"where": "Table 4"
+},
+{
+"metric": "RepoBench-R Python XF-F Easy acc@1, UniXcoder",
+"value": "25.94%",
+"where": "Table 2"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Cross-file snippets are selected by lexical or embedding similarity (RepoBench-R, Sec 4.1) and inserted as commented raw code (path + snippet) alongside import statements and cropped preceding in-file lines, concatenated into a token-bounded prompt (Sec 3.2)."
+},
+{
+"arxiv_id": "2401.07339",
+"title": "CodeAgent: Enhancing Code Generation with Tool-Integrated Agent Systems for Real-World Repo-level Coding Challenges",
+"system": "CodeAgent",
+"key_numbers": [
+{
+"metric": "CodeAgentBench Pass@1, GPT-4-turbo baseline vs Rule-based strategy",
+"value": "21.8% -> 37.6%",
+"where": "Table 3"
+},
+{
+"metric": "HumanEval Pass@1, GPT-3.5-turbo baseline vs Rule-based",
+"value": "72.6% -> 82.3%",
+"where": "Table 4"
+},
+{
+"metric": "Per-tool ablation drop for Code Symbol Navigation (GPT-3.5-ReAct)",
+"value": "-7.9 points when removed",
+"where": "Table 5"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "CodeAgent equips the LLM with five tools (DuckDuckGo web search, BM25-based repo-documentation retrieval, tree-sitter-based code symbol navigation, a Black-based format checker, and a code interpreter for execution feedback) invoked via one of four agent strategies (ReAct, Tool-Planning, OpenAIFunc, rule-based fixed ordering) to iteratively gather cross-file context and runtime feedback inside the agent loop (Sec. 3)."
+},
+{
+"arxiv_id": "2406.01359",
+"title": "R2C2-Coder: Enhancing and Benchmarking Real-world Repository-level Code Completion Abilities of Code Large Language Models",
+"system": "R2C2-Coder",
+"key_numbers": [
+{
+"metric": "R2C2-Bench EM, StarCoder-7B + R2C2-Enhance (no fine-tune)",
+"value": "24.8%",
+"where": "Table 2"
+},
+{
+"metric": "CrossCodeEval+ EM/ES, DeepSeekCoder-6.7B + R2C2-Enhanced Tuning",
+"value": "53.6% EM / 79.3% ES",
+"where": "Table 4"
+},
+{
+"metric": "Ablation EM: without snippet context vs both contexts",
+"value": "31.2% vs 42.1%",
+"where": "Table 5"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "R2C2-Enhance builds two indices per repo \u2014 Tree-sitter-derived AST abstract context (declarations) and overlapping M=10-line raw snippet context \u2014 then at inference retrieves top-K abstract and snippet matches to a prefix/suffix query via Jaccard similarity, filling the prompt up to N=4,096 tokens (Sec. 2.2)."
+},
+{
+"arxiv_id": "2406.11927",
+"title": "On the Impacts of Contexts on Repository-Level Code Generation",
+"system": "RepoExec",
+"key_numbers": [
+{
+"metric": "Pass@1, Full context (DeepSeek-R1)",
+"value": "42.57% (best)",
+"where": "Table 4"
+},
+{
+"metric": "Dependency Invocation Rate, Full context (GPT-4o)",
+"value": "81.43% (best)",
+"where": "Table 4"
+},
+{
+"metric": "Avg. prompt tokens per context level",
+"value": "Full 362.92 / Medium 253.05 / Small 179.66",
+"where": "Sec 4"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "A custom static-analysis tool (`pydepcall`) uses tree-sitter ASTs and a call graph to identify cross-file dependencies, which are rendered at one of three fixed granularities (full implementation / signature+docstring / signature-only) and concatenated into the generation prompt (Sec 3)."
+},
+{
+"arxiv_id": "2503.15301",
+"title": "aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context in Repository-level Code Completion",
+"system": "aiXcoder-7B-v2",
+"key_numbers": [
+{
+"metric": "EM improvement, Python code spans (aiXcoder-7B-v2 vs base)",
+"value": "+19.7%",
+"where": "Table I"
+},
+{
+"metric": "EM improvement, C++ code spans (DeepSeek-Coder-6.7B + COLA)",
+"value": "+35.3%",
+"where": "Table IV"
+},
+{
+"metric": "Unseen-language generalization EM (C#, TypeScript)",
+"value": "TypeScript +19.2% (46.96->55.96 EM); C# +20.6% (46.32->55.88 EM)",
+"where": "Table III"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "COLA builds cross-file context by alternating dependency-based snippets (SCIP-derived cross-file imports) and retrieval-based snippets (top-10 Jaccard-similarity chunks) until the model's context window is filled, then trains the LLM via SFT+DPO to attend to it (Section III)."
+},
+{
+"arxiv_id": "2507.23348",
+"title": "SWE-Debate: Competitive Multi-Agent Debate for Software Issue Resolution",
+"system": "SWE-Debate",
+"key_numbers": [
+{
+"metric": "Pass@1 issue resolution (SWE-bench-Verified)",
+"value": "41.4%",
+"where": "Table 1"
+},
+{
+"metric": "Ablation: without multi-chain generation",
+"value": "31.4% (-10.0pp)",
+"where": "Table 2"
+},
+{
+"metric": "File-level localization Acc@1",
+"value": "81.67%",
+"where": "Table 3"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Builds a static code dependency graph (calls, inheritance, imports, variable references) via static analysis, traverses it with BFS+DFS from K seed entities to form K\u00d7W fault-propagation localization chains, then runs a 3-round multi-agent debate per chain before MCTS-based patch generation (Sec 3)."
+},
+{
+"arxiv_id": "2510.00446",
+"title": "LongCodeZip: Compress Long Context for Code Language Models",
+"system": "LongCodeZip",
+"key_numbers": [
+{
+"metric": "Completion Edit Similarity at 5.6x compression vs. uncompressed",
+"value": "63.11 vs 64.04",
+"where": "Table II"
+},
+{
+"metric": "RepoQA accuracy at 5.3x compression vs. no compression",
+"value": "80.7% vs 69%",
+"where": "Table IV"
+},
+{
+"metric": "Generation latency reduction",
+"value": "15.7s to 6.6s",
+"where": "Table IX"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "learned_pruning",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Coarse-grained stage ranks/retains function-level chunks by conditional perplexity w.r.t. the instruction; fine-grained stage detects perplexity-based semantic-block boundaries and solves a 0/1 knapsack to select blocks maximizing relevance under the token budget (Section III-B)."
+},
+{
+"arxiv_id": "2601.10112",
+"title": "Repository Intelligence Graph: Deterministic Architectural Map for LLM Code Assistants",
+"system": "RIG",
+"key_numbers": [
+{
+"metric": "mean relative accuracy improvement with RIG",
+"value": "+12.2%",
+"where": "Section VI Evaluation Results"
+},
+{
+"metric": "mean completion time reduction with RIG",
+"value": "53.9%",
+"where": "Section VI Evaluation Results"
+},
+{
+"metric": "average RIG size across 8 repos",
+"value": "~20,692 bytes (~5,173 tokens); up to ~15,000 tokens for largest repo",
+"where": "Section VI, repo complexity table"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"stop_detail": "SPADE deterministically extracts a build/test dependency graph (components, aggregators, runners, tests, packages) from CMake File API + CTest metadata (or manual construction for other build systems) and injects the full RIG as JSON into the agent's context at the start of the session as the 'authoritative' description of repo structure (Secs. III-IV)."
+},
+{
+"arxiv_id": "2603.01327",
+"title": "SWE-Adept: An LLM-Based Agentic Framework for Deep Codebase Analysis and Structured Issue Resolution",
+"system": "SWE-Adept",
+"key_numbers": [
+{
+"metric": "SWE-Bench Lite resolve rate vs. SWE-agent (Claude-4.5)",
+"value": "71.3% vs. 66.0% (+5.3pp)",
+"where": "Table 2"
+},
+{
+"metric": "SWE-Bench Pro resolve rate vs. SWE-agent (Claude-4.5)",
+"value": "45.0% vs. 39.5% (+5.5pp)",
+"where": "Table 2"
+},
+{
+"metric": "Token usage vs. RepoGraph (GPT-5.2, Lite)",
+"value": "197k tokens (SWE-Adept) vs. 150k tokens (RepoGraph), with higher accuracy",
+"where": "Table 1"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Builds a lightweight code-structure tree (tree-sitter-parsed functions/classes/chunks linked by contains/invokes edges) and has the localization agent perform dependency-aware depth-first search, prioritizing one child unit at a time via find_child_unit and deferring full code loading until a two-stage post-search filtering phase (Sec. 3.2)."
+},
+{
+"arxiv_id": "2606.04397",
+"title": "Context-as-AI-Service: Surfacing Cross-File Dependency Chains for LLM-Generated Developer Documentation",
+"system": "CAIS",
+"key_numbers": [
+{
+"metric": "Input tokens, tutorial validation case study",
+"value": "76.8K (with CAIS) vs 112.3K (baseline), -32%",
+"where": "Table 4"
+},
+{
+"metric": "Wall-clock time, tutorial validation case study",
+"value": "11.4 min (with CAIS) vs 17.2 min (baseline), -34%",
+"where": "Table 3"
+},
+{
+"metric": "Issues surfaced",
+"value": "13 total (CAIS) vs 5 (baseline)",
+"where": "Sec 4 (case study results)"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Indexes source code, API references, and docs with combined BM25 lexical search plus DRAMA dense embeddings, fused via reciprocal rank fusion; the documentation agent issues tool-call queries against this index within its task loop to trace cross-file evidence chains (Sec 3.2-3.3)."
+},
+{
+"arxiv_id": "2607.09691",
+"title": "What Context Does a Coding Agent Actually Need to Act?",
+"system": "SamBodden26",
+"key_numbers": [
+{
+"metric": "behavioral probe correctness",
+"value": "raw source 27/45 (60.0%) vs frontier NL summary 4/45 (8.9%) vs 3B-model summary 4/45 (8.9%) vs signature+docstring 6/45 (13.3%)",
+"where": "Table 2"
+},
+{
+"metric": "resolve rate, N=70 oracle-localized multi-file subset",
+"value": "oracle_full 19/70 (27.1%) vs oracle_tier 23/70 (32.9%) vs oracle_keep_drop 25/70 (35.7%)",
+"where": "Table 3"
+},
+{
+"metric": "mean tokens per arm (resolve experiment)",
+"value": "oracle_full ~25,426 vs oracle_tier ~8,629 vs oracle_keep_drop ~6,876",
+"where": "Table 3 / Sec. 4"
+}
+],
+"repr_primary": "ast",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 3: deterministic AST extraction builds a Subsystem->Component->File->Class->Function tree; representation 'rungs' (full-body, method-only, UML-class-skeleton, signature+doc, name, exclude) deterministically reduce non-edited code while gold-edited units are kept verbatim ('keep/drop'); no LLM is used to build representations."
+},
+{
+"arxiv_id": "2607.25431",
+"title": "CodeNib: A Multi-View Data System for Serving Repository Context to Coding Agents",
+"system": "CodeNib",
+"key_numbers": [
+{
+"metric": "incremental index update speedup",
+"value": "graph updates 8.7x faster, vector updates 25.4x faster than rebuild at median",
+"where": "Sec. Q4/maintenance results"
+},
+{
+"metric": "static vs live-server navigation latency",
+"value": "4.7x median per-request latency ratio on 63% of 1,000 matched requests",
+"where": "Sec. Q3/navigation results"
+},
+{
+"metric": "trajectory token reduction",
+"value": "50-87% fewer tokens than grep/read baseline within a 5% localization-quality margin (AnswerRecall@5), across 5 agent models",
+"where": "Sec. 7.4/Q5 agent results"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 7.4: 'Compact' applies a one-time deterministic history rewrite at first successful read, H_j -> H-hat_j = [s, q || d_j], replacing frozen top-10 dense-retrieved L2 code blocks plus discarded exploration turns with a deduplicated-path-plus-latest-result seed, enabling KV-cache reuse without LLM summarization."
+}
+]

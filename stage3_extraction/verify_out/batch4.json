@@ -1,0 +1,192 @@
+[
+{
+"arxiv_id": "2309.12499",
+"numbers": [
+{"metric": "Repositories passing validity checks (build without errors, correct edits)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Abstract verbatim: \"CodePlan is able to get 5/6 repositories to pass the validity checks ... whereas the baselines ... cannot get any of the repositories to pass them.\""}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All confirmed. Sec 2.2.2 confirms may-impact analysis via caller/callee (Rel(D,M,CalledBy)) and method-override relations; Sec 2.1 confirms enclosing-class sketching. Baseline comparison (no planning, same context) is a fair ablation, matching evaluation=ablated_measured."
+},
+{
+"arxiv_id": "2402.14323",
+"numbers": [
+{"metric": "Code EM relative gain, dual vs. analogy-only context", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Abstract: \"40.90% to 59.75% increase in exact match (EM) accuracy\"; Sec 4.4.1 attributes this to dual vs analogy comparison."},
+{"metric": "DeepSeek-7B Code EM at 4096-token budget", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 1: AC 19.70, RC 21.13, DC 27.92 at 4096 tokens."},
+{"metric": "Inference speedup, dual vs. analogy-only context", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Sec 4.4.2: \"RepoFuse surpasses existing methods by utilizing merely 75.4% of the context length typically required, while simultaneously enhancing inference speed by 26.8%\"; DC_512 vs AC/RC_4096 confirmed."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All three numbers and the RTG mechanism description (Eq. 2-3, rank + truncation constraints) confirmed verbatim in Sec 3.3/4.4."
+},
+{
+"arxiv_id": "2406.04464",
+"numbers": [
+{"metric": "SWE-bench Lite entity-level F1, BM25 baseline vs. custom ACR", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 2: 7.2 vs 28.9."},
+{"metric": "LCA entity-level F1, BM25 baseline vs. custom ACR", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 2: 9.4 vs 20.2."},
+{"metric": "Correlation: precision-vs-reasoning-complexity vs. recall-vs-context-length", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Text: precision-reasoning corr >0.7, recall-length corr 0.5 avg, recall-reasoning corr 0.1 avg — all three sub-values match."}
+],
+"repr_primary_agree": false,
+"repr_primary_suggested": "ast",
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "Paper never mentions call/dependency graphs; it explicitly borrows AutoCodeRover's 'code structure-aware tools' (well-documented elsewhere as AST-based search_class/search_method/search_code APIs, not graph traversal), so call_dep_graph is unsupported by this text — ast is the better-evidenced tag. Five-strategy ReAct/ACR comparison and correlation stats all confirmed."
+},
+{
+"arxiv_id": "2409.15204",
+"numbers": [
+{"metric": "CodeBLEU / EM on RAMBO benchmark (DeepSeek Coder 6.7B) vs. RepoCoder", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 2: CodeBLEU 53.20 vs 50.31; EM 18.94% vs 15.53%."},
+{"metric": "Defects4J EM vs. RepoCoder Oracle", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 3, CodeLlama-7B row: Rambo 20.59 vs RepoCoder Oracle 19.61 (~5% relative gain). Note other model rows (DeepSeek 23.04/21.57) differ — confirm this is the CodeLlama row specifically."},
+{"metric": "Retrieval-similarity ablation, lexical vs. semantic CodeBLEU", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 4: lexical 53.20 vs semantic 52.61."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "Sec 3 confirms sketch generation -> element extraction/filtering vs actual declarations (Eq 1-3) -> usage retrieval/ranking by similarity, exactly as described. All numbers confirmed once matched to the correct model row."
+},
+{
+"arxiv_id": "2504.10046",
+"numbers": [
+{"metric": "Pass@1 DevEval, GPT-4o", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 4: GraphCodeAgent 58.14% vs Dense RACG 40.43% (GPT-4o column)."},
+{"metric": "Pass@1 CoderEval, GPT-4o", "verdict": "WRONG", "correct_value_if_wrong": "58.14/53.91 vs 40.87% (not 42.17%)", "note": "Table 4 row 'Sparse RACG | Text-based | 40.87 | 42.17' — the two numbers are GPT-4o and Gemini-1.5-Pro columns respectively. 40.87 is the GPT-4o value (and matches the stated 31.91% relative improvement: (53.91-40.87)/40.87=31.9%); 42.17 is Gemini-1.5-Pro's value, wrongly attributed to GPT-4o."},
+{"metric": "benchmark scale", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Paper states DevEval contains 1,825 test examples from 117 repositories."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "One wrong number: CoderEval GPT-4o baseline (Sparse RACG) is 40.87%, not 42.17% (42.17 is the Gemini-1.5-Pro value from the same table row, mismatched column). RGRetrieval/DualGraphMapping/SSCGTraverse ReAct pipeline confirmed."
+},
+{
+"arxiv_id": "2508.17720",
+"numbers": [
+{"metric": "Compile rate C#->Java", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table II: 55.34%."},
+{"metric": "Pass rate C#->Java", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table II: 45.84%."},
+{"metric": "No-Context-Agent ablation pass rate", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table IV: 32.20% (No Context Agent) vs 45.84% full system."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All numbers confirmed. Sec III-B/III-C confirms Context Agent iteratively calling JSON tools (get_source_class_info, find_target_method_body, etc.) informed by hybrid dense+BM25 retrieval with RRF."
+},
+{
+"arxiv_id": "2510.08850",
+"numbers": [
+{"metric": "Exact match / Recall on small-medium repos (held-out queries)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Abstract: \"exact match up to 91% and recall 93% on held-out queries.\""},
+{"metric": "Recall on PyTorch (~4k Python files)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Abstract: \"59% recall\" on PyTorch; Table 1 confirms PyTorch is the ~19k-file repo of which ~3.9k are Python, matching \"~4k Python files\"."},
+{"metric": "training scale", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Text: \"train on tens of thousands of synthetic QA pairs\"; Fig. 1 confirms six strategies S1-S6 matching the stated order (per-file, repo overview, mid-level structures, fine AST details, repo overview+file summary, repo-batching)."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": false,
+"mechanism_suggested": "learned_compression",
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "Mechanism mismatch: nothing is pruned from a given context — the paper explicitly frames this as compiling retrieval into model weights (\"compact, parametric index of the repository\"), i.e. learned_compression of the retrieval function, not learned_pruning of an existing context. All three numbers and the S1-S6 pipeline description confirmed exactly."
+},
+{
+"arxiv_id": "2601.19697",
+"numbers": [
+{"metric": "EM on CrossCodeEval Python (DeepSeekCoder-1B): AlignCoder vs RLCoder vs RepoCoder", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table I: 28.37 vs 24.02 vs 20.23."},
+{"metric": "EM improvement over RLCoder on CrossCodeEval", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table I / abstract: \"28.37 ↑18.1%\", matches abstract's 18.1% figure."},
+{"metric": "EM on RepoEval line-level (DeepSeekCoder-7B): AlignCoder vs RLCoder", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table I: 49.56 vs 48.81."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All confirmed. Sec III confirms UniXcoder retriever RL-trained on perplexity-based reward (PPL(t|q,cmp)<=PPL(t|q,ci)), retrieving Split-Aggregate base + tree-sitter dependency snippets, query enhanced with sampled candidate completions."
+},
+{
+"arxiv_id": "2604.24678",
+"numbers": [
+{"metric": "Exact Match (Qwen2.5-Coder-7B)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 1: fine-tuned 0.629 vs raw zero-shot 0.076."},
+{"metric": "Exact Match (DeepSeek-Coder-7B)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 1: fine-tuned 0.657 vs raw zero-shot 0.371."},
+{"metric": "Structural Fidelity (DeepSeek-Coder-7B, fine-tuned)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 1: 1.000."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": false,
+"evaluation_suggested": "ablated_measured",
+"stop_detail_fair": true,
+"note": "Evaluation mismatch: the representation (single nested-JSON full-project encoding) is held constant across ALL conditions — what's varied is the adaptation strategy (zero-shot / one-shot / QLoRA fine-tune), not representation/mechanism at a fixed budget. This is a plain adaptation-method ablation, not a budget_matched_ablation. All three numbers and the linearized-JSON, single-response method confirmed exactly."
+},
+{
+"arxiv_id": "2606.14061",
+"numbers": [
+{"metric": "input token change with multimodal graph integration (GPT-5-mini)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 2: -25% input tokens, -26% cost, accuracy 55.4% (+0.4 vs 55.0% baseline)."},
+{"metric": "token reduction range across four MLLMs with multimodal integration", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "GPT-5-mini 25%, GPT-5.1 46%, Doubao-Seed-2.0-Lite 4.8%, matching stated 4.8%-46% range (Kimi K2.5 is a +5% outlier increase, excluded from the reduction range)."},
+{"metric": "vision-only degradation", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "GPT-5-mini -13.6 pts, Doubao-Seed-2.0-Lite -34.1 pts; cost up to 268% higher for Doubao."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All confirmed. Tool description matches: Graphviz PNG of a distance-aware heterogeneous graph (contains/imports/invokes/inherits) built via AST analysis, agent-controlled depth."
+},
+{
+"arxiv_id": "2607.15205",
+"numbers": [
+{"metric": "File Acc@5 (best agent system)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "\"OpenHands with GPT-5.2...reaches 38.96 File@5\", best among agents."},
+{"metric": "Function Acc@10 (best retriever)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "\"MM-IssueLoc-VL-Emb-8B achieves the best Func@10 score of 33.86\"."},
+{"metric": "Image-input gain on File Acc@5", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 3: MM-IssueLoc-VL-Emb-2B 32.06 (with images) vs 27.15 (without) = +4.91 points."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All confirmed. Agent (tool-use exploration) vs retriever (InfoNCE contrastive dense embedding, hard negatives, optional VCE structured-text from screenshots) description matches paper."
+},
+{
+"arxiv_id": "2608.02001",
+"numbers": [
+{"metric": "End-to-End Advisory Recall (Hard split)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 2: DeepSeek-V4-Flash + OpenHands, 22.58% AR (best config)."},
+{"metric": "Critical-Operation Localization File Recall (Hard split)", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Table 3: DeepSeek-V4-Flash + MiniSWE, 51.16% File Recall."},
+{"metric": "Failures attributable to missing/mislocalized vulnerable files or lines", "verdict": "CONFIRMED", "correct_value_if_wrong": null, "note": "Sec 4.3: No-Endpoint-File (26.8%) + Endpoint-File-Only (29.7%) = 56.5% of all failures."}
+],
+"repr_primary_agree": true,
+"repr_primary_suggested": null,
+"mechanism_agree": true,
+"mechanism_suggested": null,
+"evaluation_agree": true,
+"evaluation_suggested": null,
+"stop_detail_fair": true,
+"note": "All confirmed. Agents restricted to read-only shell commands (cat/find/grep/ls/rg/sed/tail plus nl/pwd/wc not listed in stop_detail but immaterial); T1 end-to-end plus T2-T4 oracle subtasks matches the three named subtasks."
+}
+]

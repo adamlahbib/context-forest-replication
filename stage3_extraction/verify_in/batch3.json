@@ -1,0 +1,284 @@
+[
+{
+"arxiv_id": "2306.10998",
+"title": "RepoFusion: Training Code Models to Understand Your Repository",
+"system": "RepoFusion",
+"key_numbers": [
+{
+"metric": "Success rate (exact match), best config",
+"value": "77.32%",
+"where": "Table 2"
+},
+{
+"metric": "RepoFusion (220M) vs StarCoderBase (70x larger)",
+"value": "78.33% vs 79.79%",
+"where": "Table 3"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Fusion-in-Decoder architecture independently encodes each of N retrieved repo contexts (each appended to 2-line surrounding hole context via special tokens) then jointly attends over concatenated encodings during decoding (Sec. 3)."
+},
+{
+"arxiv_id": "2402.12317",
+"title": "EVOR: Evolving Retrieval for Code Generation",
+"system": "EVOR",
+"key_numbers": [
+{
+"metric": "Execution accuracy (ChatGPT backbone), EVOR vs DocPrompting",
+"value": "35.3% vs 19.2%",
+"where": "Table 2"
+},
+{
+"metric": "Token consumption, EVOR vs DocPrompting",
+"value": "~16k vs ~3.7k tokens",
+"where": "Table 7"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Iterative loop (Algorithm 1) evolves the retrieval query each round using prior generated code and execution errors, retrieves via INSTRUCTOR-xl dense embeddings (or BM25) over a knowledge base that itself grows with execution feedback, capped near 4,096 tokens (Sec. 3)."
+},
+{
+"arxiv_id": "2406.03283",
+"title": "CATCODER: Repository-Level Code Generation with Relevant Code and Type Context",
+"system": "CatCoder",
+"key_numbers": [
+{
+"metric": "pass@5, CatCoder vs RepoCoder (Java)",
+"value": "57.5% vs 49.0% (+17.35%)",
+"where": "Table 5"
+},
+{
+"metric": "pass@1 drop removing Type Context (-TC)",
+"value": "-11.57% (Java), -5.3% (Rust)",
+"where": "Table 7"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "A static analyzer (Eclipse JDT / rust-analyzer) builds a directed type-dependency graph of field/signature context pruned to direct neighbors, concatenated with hybrid BM25+dense-retrieved (RRF-fused) code snippets into the generation prompt (Sec. 3.1.3, 3.2.1, Fig. 4)."
+},
+{
+"arxiv_id": "2407.19619",
+"title": "Enhancing Code Translation in Language Models with Few-Shot Learning via Retrieval-Augmented Generation",
+"system": "Bhattarai24",
+"key_numbers": [
+{
+"metric": "CodeBLEU, Granite-34B zero-shot vs one-shot (HPC dataset)",
+"value": "0.237 to 0.600",
+"where": "Results, HPC Fortran2CPP table"
+},
+{
+"metric": "CodeBLEU, GPT-4o zero-shot",
+"value": "0.371",
+"where": "Results table"
+},
+{
+"metric": "Pairwise similarity, Codestral/Llama3 zero-shot (Stack-V2)",
+"value": "0.522",
+"where": "Stack-V2 results"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Existing code-translation pairs are embedded and indexed in a vector store (ChromaDB); at query time the top-k most similar pairs by cosine/Euclidean distance are retrieved to construct few-shot in-context prompts for translation (Section III, Few-Shot Learning)."
+},
+{
+"arxiv_id": "2504.08862",
+"title": "RTLRepoCoder: Repository-Level RTL Code Completion through the Combination of Fine-Tuning and Retrieval Augmentation",
+"system": "RTLRepoCoder",
+"key_numbers": [
+{
+"metric": "Edit Similarity / Exact Match, RTLRepoCoder-DeepSeek vs. GPT-4",
+"value": "ES 84.3% vs. 71.9%; EM 55.8% vs. 48.5%",
+"where": "Table 1"
+},
+{
+"metric": "Fine-tuning impact vs. base model",
+"value": "+34.7% ES, +37.1% EM",
+"where": "Table 2"
+},
+{
+"metric": "RAG impact on >10k-token samples",
+"value": "+2.3% ES, +4.7% EM",
+"where": "Table 4"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A RAG pipeline embeds repository code with jina-embeddings-v2 (8k context), splits files into line-broken chunks (best of three splitting strategies tested), and retrieves the most relevant chunks to replace full repository context when it exceeds the model's token budget (Sec. 3.3, Tables 5-6). [Adjudication: retrieved chunks are CONCATENATED with in-file context (Sec 3.3), not a replacement for it.]"
+},
+{
+"arxiv_id": "2508.08322",
+"title": "Context Engineering for Multi-Agent LLM Code Assistants Using Elicit, NotebookLM, ChatGPT, and Claude Code",
+"system": "Haseeb25",
+"key_numbers": [
+{
+"metric": "task success without correction, multi-agent vs baseline",
+"value": "4/5 (80%) vs 2/5 (40%)",
+"where": "Case-study evaluation results"
+},
+{
+"metric": "total tokens per task, multi-agent vs baseline",
+"value": "~100k tokens (30-40 messages) vs ~10-20k tokens",
+"where": "Cost/budget discussion"
+}
+],
+"repr_primary": "ast",
+"mechanism": "agentic_exploration",
+"evaluation": "demonstrated",
+"stop_detail": "Code files are AST-chunked by function/class (tree-sitter) and embedded with a code-specialized embedding model for vector search (ChromaDB/Zilliz), combined with grep, then assembled turn-by-turn by orchestrated Claude Code sub-agents (Methodology section)."
+},
+{
+"arxiv_id": "2510.08610",
+"title": "Relative Positioning Based Code Chunking Method For Rich Context Retrieval In Repository Level Code Completion Task With Code Language Model",
+"system": "Rahman25",
+"key_numbers": [
+{
+"metric": "Competition chrF score",
+"value": "Kotlin 0.660 (3rd place); Python 0.636 (4th place)",
+"where": "Results section"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "demonstrated",
+"stop_detail": "Splits files into overlapping line-chunks, retrieves top-k chunks similar to the completion prefix/suffix via a BM25+FAISS ensemble (weights 0.2/0.8), then attaches each retrieved chunk's adjacent (next/prev) chunk for 'relative positioning' context alongside the current file and recently opened files (Sec. 3)."
+},
+{
+"arxiv_id": "2601.16746",
+"title": "SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents",
+"system": "SWE-Pruner",
+"key_numbers": [
+{
+"metric": "SWE-Bench Verified token reduction & resolve rate, Claude Sonnet 4.5",
+"value": "23.1% token reduction (0.911M->0.701M); resolve rate 70.6%->72.0%",
+"where": "Table 1"
+},
+{
+"metric": "SWE-Bench Verified, GLM 4.6",
+"value": "38.3% token reduction; resolve rate 55.4%->56.6%",
+"where": "Table 1"
+},
+{
+"metric": "Long Code QA compression vs. accuracy",
+"value": "14.84x compression, 58.71% accuracy maintained",
+"where": "Table 4"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"stop_detail": "A 0.6B-parameter neural 'skimmer' (Qwen3-Reranker backbone, CRF-NLL trained) scores tool-output tokens for relevance to an agent-specified focus question, aggregates scores to line-level keep/prune decisions, and prunes tool responses in-loop before they persist in agent context (Sec. 3.2-3.4)."
+},
+{
+"arxiv_id": "2603.28119",
+"title": "Compressing Code Context for LLM-based Issue Resolution",
+"system": "SWEzze",
+"key_numbers": [
+{
+"metric": "issue resolution rate vs no compression",
+"value": "GPT-5.2: 0.578 vs 0.532 (+4.6pp, +8.6% relative); DeepSeek-V3.2 is the +9.2%-relative case",
+"where": "Table 2"
+},
+{
+"metric": "compression ratio",
+"value": "5.95x-6.55x across models (min Qwen3-Coder-Next 5.95x, max GPT-5.2 6.55x)",
+"where": "Table 2"
+},
+{
+"metric": "token reduction vs uncompressed",
+"value": "51.8%-71.3%",
+"where": "Table 3"
+}
+],
+"repr_primary": "ast",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"stop_detail": "Offline: Oracle-guided Code Distillation decomposes each file into a tree of file/function/block units and searches (genetic algorithm then hierarchical delta-debugging to 1-minimality) for a minimal sufficient context validated by an LLM-patch-plus-test oracle; online: SWEzze, a LoRA-tuned Qwen3-Reranker-0.6B, scores segments and performs budget-aware greedy selection at inference (Sec. on OCD/SWEzze)."
+},
+{
+"arxiv_id": "2606.08135",
+"title": "TICoder: A Repository-Level Code Generation Framework with Test-Driven Planning and Implementation-Aware Reuse",
+"system": "TICoder",
+"key_numbers": [
+{
+"metric": "Pass@1 (DevEval, GPT-4o-mini)",
+"value": "31.01% (+22.76% RELATIVE over AllianceCoder 25.26%, not points)",
+"where": "Table 2"
+},
+{
+"metric": "Pass@1 (CoderEval Python, DeepSeek-V3)",
+"value": "56.09% (relative improvement over AllianceCoder ~52.17%; absolute gap ~3.9-4.1 pts)",
+"where": "Table 2"
+},
+{
+"metric": "Average improvement over SOTA baselines",
+"value": "11.52% (avg 11.25%)",
+"where": "Abstract"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A repository call graph (built via LSP) drives structure-based clustering of caller usage patterns, filtered by perplexity, while dual-view (functional + implementation) embedding similarity retrieves reusable functions; both are concatenated into the prompt alongside requirements and test cases for test-driven iterative generation (Sec. 3)."
+},
+{
+"arxiv_id": "2607.11111",
+"title": "Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution",
+"system": "ACQUIRE",
+"key_numbers": [
+{
+"metric": "Pass@1, ACQUIRE vs Mini-SWE-Agent baseline (DeepSeek-V3.2)",
+"value": "70.8% (+4.4pp) vs 66.4%",
+"where": "Table I"
+},
+{
+"metric": "Average cost per instance, ACQUIRE vs baseline (DeepSeek-V3.2)",
+"value": "$0.073 vs $0.055",
+"where": "Table I"
+},
+{
+"metric": "QA factual reliability (human audit)",
+"value": "99.1% supported (230/232 pairs)",
+"where": "Section V-B1"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "A Questioner/Answerer pair explores the repository via a read-only scaffolded shell interaction environment (shared with Mini-SWE-Agent) across four question categories, producing structured QA pairs serialized into a text block and statically prepended to the Resolver repair prompt (Sec. III, static pre-injection)."
+},
+{
+"arxiv_id": "2608.01927",
+"title": "Effective and Efficient Context Retrieval via Partial Dependency Graph for Repository-Level Code Generation",
+"system": "DyCoder (DyRetriever)",
+"key_numbers": [
+{
+"metric": "Relative Pass@1 improvement (DevEval)",
+"value": "59.73%",
+"where": "Abstract"
+},
+{
+"metric": "Relative Pass@1 improvement (CoderEval)",
+"value": "25.63%",
+"where": "Abstract"
+},
+{
+"metric": "Construction speedup vs. static graph baseline (RepoScope)",
+"value": "7.4x faster; 13.09k tokens / $0.0039 per function vs. RepoScope 5.11k tokens / $0.0020",
+"where": "Table 2, Sec. 5.2"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "An LLM selects entry-point functions, then performs multi-hop select/visit/expand traversal to build a temporary partial dependency graph (call and lazy-import edges) validated against the repository and discarded after use; combined with embedding similarity retrieval in DyCoder (Sec. 3.1.2, Algorithm 1)."
+}
+]

@@ -1,0 +1,98 @@
+[
+{
+"arxiv_id": "2309.12499",
+"title": "CodePlan: Repository-level Coding using LLMs and Planning",
+"repr_primary": "hybrid",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): prompt fuses dependency-graph spatial context, AST-folded class skeletons, and temporal before/after edit history; static-analysis slicing (dependency-graph traversal, escape analysis, AST declaration folding) selects context. Compared vs. baselines using same contextualization type, no token/line budget matching."
+},
+{
+"arxiv_id": "2402.14323",
+"title": "REPOFUSE: Repository-Level Code Completion with Fused Dual Context",
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"note": "Full text (HTML): fuses BM25-retrieved 'analogy' chunks with code-property-graph-derived signature 'rationale' context; Rank-Truncated-Generation ranks/truncates candidates by a relevance-scoring function under a token budget. Table 1/Fig 3 compare analogy/rationale/dual context at matched truncation sizes (256-4096 tokens)."
+},
+{
+"arxiv_id": "2406.04464",
+"title": "On The Importance of Reasoning for Context Retrieval in Repository-Level Code Editing",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): ReAct-style agent gathers context via either a BM25 retrieval tool or AutoCodeRover's structure-aware search tools, stopping via context-length/tool-call/self-reflection criteria. Precision/recall reported alongside (not held at fixed) context length; no budget-matched comparison."
+},
+{
+"arxiv_id": "2409.15204",
+"title": "RAMBO: Enhancing RAG-based Repository-Level Method Body Completion",
+"repr_primary": "hybrid",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): JDT/Joern static analysis extracts essential elements (called methods/fields/types) from a generated sketch, then name-similarity matching plus usage-relevance ranking retrieves raw usage snippets embedded as code comments. Component ablations (Sec 5.2) and a retrieved-count sweep exist but no budget-matched comparison vs. RepoCoder."
+},
+{
+"arxiv_id": "2504.10046",
+"title": "GraphCodeAgent: Dual Graph-Guided LLM Agent for Retrieval-Augmented Repo-Level Code Generation",
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): dual Requirement Graph + Structural-Semantic Code Graph, traversed via an SSCGTraverse tool that retrieves/discards nodes (name/path/signature/source code) at each step. Baselines matched only on retrieved-element count ('fair comparison'), not token budget; outperforms SOTA on DevEval/CoderEval."
+},
+{
+"arxiv_id": "2508.17720",
+"title": "RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): a Context Agent autonomously invokes tools returning JSON signatures/imports/method bodies, while a RAG Agent retrieves similar translation pairs via dense+BM25+RRF fusion, with the agent deciding whether RAG is even needed. Table IV ablates whole agents; no token/line budget control."
+},
+{
+"arxiv_id": "2510.08850",
+"title": "Repository-Aware File Path Retrieval via Fine-Tuned LLMs",
+"repr_primary": "repo_map_skeleton",
+"mechanism": "skeletonization",
+"evaluation": "ablated_measured",
+"note": "Full text (PDF): six AST-derived hierarchical repo summaries (per-file, folder/file overview, mid/fine AST class-function-docstring detail) generate synthetic QA training data; Qwen3-8B is fine-tuned (QLoRA) to output relevant file paths directly from a query, baking repo knowledge into weights (no context passed at inference). Multi-strategy training beats naive single-strategy (up to 91% EM/93% recall on small repos, 59% recall on PyTorch ~4k files); not budget-matched."
+},
+{
+"arxiv_id": "2601.19697",
+"title": "AlignCoder: Aligning Retrieval with Target Intent for Repository-Level Code Completion",
+"repr_primary": "hybrid",
+"mechanism": "learned_pruning",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): base snippets (split-aggregate chunking) plus tree-sitter-extracted dependency snippets (class hierarchy/API interactions); BM25 first pass then an RL-trained AlignRetriever (perplexity-based reward) selects the fine-grained chunk. Table III ablates DC/query-enhancement/RL components without budget matching; reports 18.1% EM gain over baselines."
+},
+{
+"arxiv_id": "2604.24678",
+"title": "Leveraging LLMs for Multi-File DSL Code Generation: An Industrial Case Study",
+"repr_primary": "raw_window",
+"mechanism": "none_fixed_window",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): entire DSL folder hierarchy linearized as path-preserving JSON with full file contents (no dynamic selection); a manually curated 'minimal-context' dataset variant exists but is static, not an inference-time mechanism. Compares baseline prompting/one-shot ICL/QLoRA on EM and structural fidelity; not budget-matched (full vs. minimal-context differ in size, ~239 vs ~133 LOC)."
+},
+{
+"arxiv_id": "2606.14061",
+"title": "LLM Agents Can See Code Repositories",
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): text (code/docs/execution feedback) plus an AST-derived Graphviz visual graph (contains/imports/invokes/inherits relations) rendered per queried node; agent chooses traversal depth itself. Text-only vs. vision-only vs. multimodal compared, but token count varies as an OUTCOME across conditions (e.g. 193k vs 270k vs 144k input tokens for GPT-5-mini) rather than being held constant, so not budget-matched despite reporting token deltas."
+},
+{
+"arxiv_id": "2607.15205",
+"title": "MM-IssueLoc: A Controlled Benchmark for Evaluating Visual Evidence in Multimodal Repository-Level Issue Localization",
+"repr_primary": "hybrid",
+"mechanism": "summarization",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): benchmark pairs agentic (OpenHands/AgentLess) and retrieval (BM25/SWERank/VL-Embedding) issue-localization systems across text-only/with-image/VCE/VCE+image modes; VCE is a non-trainable image-to-text adapter extracting OCR/error/UI evidence into a compact text block appended to the issue. Four modes compared via Acc@k, but no token-budget control across modes."
+},
+{
+"arxiv_id": "2608.02001",
+"title": "VulnGym: Benchmarking Coding Agents for Repository-Level Vulnerability Detection",
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"note": "Full text (HTML): agents access the raw repository directly via a restricted read-only shell toolset (cat, find, grep, head, ls, nl, pwd, rg, sed, tail, wc), self-directing which files to examine and dependencies to trace, with no pre-built graph/embedding representation. Compared across 3 scaffolds x 3 frontier LLMs plus Qwen-family scaling and oracle-conditioned subtasks; no representation-vs-representation budget-matched ablation."
+}
+]

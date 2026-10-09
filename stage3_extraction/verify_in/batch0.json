@@ -1,0 +1,309 @@
+[
+{
+"arxiv_id": "2303.12570",
+"title": "RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation",
+"system": "RepoCoder",
+"key_numbers": [
+{
+"metric": "Exact Match, line completion (GPT-3.5-Turbo)",
+"value": "56.81% (RepoCoder Iter-2) vs 40.56% (In-File)",
+"where": "Table 2a"
+},
+{
+"metric": "Pass Rate, function body (GPT-3.5-Turbo, all repos)",
+"value": "42.63% (RepoCoder Iter-2) vs 23.32% (In-File)",
+"where": "Table 3"
+},
+{
+"metric": "Retrieval budget",
+"value": "K=10 max snippets; window Sw=20/50, Ss=10",
+"where": "Sec 4.2-4.3"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Iteratively retrieves up to K=10 sliding-window code snippets via sparse Jaccard similarity, using the model's own draft prediction to refine the next round's retrieval query, then concatenates retrieved snippets with local context into the prompt (Sec 2.1-2.3)."
+},
+{
+"arxiv_id": "2312.10101",
+"title": "A Review of Repository Level Prompting for LLMs",
+"system": "Schonholtz23",
+"key_numbers": [
+{
+"metric": "line completion exact match",
+"value": "57% (RepoCoder, GPT-3.5-Turbo) vs 40.56% no-retrieval baseline",
+"where": "Sec. Comparing Oracle Retrieval Systems"
+},
+{
+"metric": "completion success rate",
+"value": "68.51% (RLPG-H) vs 58.73% Codex baseline; oracle upper bound 79.63%",
+"where": "Sec. Comparing Oracle Retrieval Systems"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 2 'Repository Level Retrieval Techniques': RLPG selects among rule-based context proposers (parent/child/sibling/import/similar-name files) via a learned classifier (RLPG-H/R), while RepoCoder iteratively retrieves BM25-similar snippets using the model's own prior generation as the next query."
+},
+{
+"arxiv_id": "2405.19782",
+"title": "Dataflow-Guided Retrieval Augmentation for Repository-Level Code Completion",
+"system": "DraCo",
+"key_numbers": [
+{
+"metric": "Exact Match, CrossCodeEval (StarCoder-15.5B)",
+"value": "DraCo 34.67% vs RepoCoder 29.12%",
+"where": "Table 3"
+},
+{
+"metric": "Identifier F1, ReccEval (CodeGen25-7B)",
+"value": "DraCo 60.40% vs RepoCoder 54.73%",
+"where": "Table 4"
+},
+{
+"metric": "Prompt generation time (CodeGen-350M)",
+"value": "DraCo ~40ms vs RepoCoder ~4,062ms",
+"where": "Table 5"
+}
+],
+"repr_primary": "cpg_dataflow",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Parses the repository into a typed dataflow graph (entities linked by assigns/refers/typeof/inherits relations), then given unfinished code, extracts its imports and retrieves connected entities via depth-first search, restoring them to source text concatenated into the prompt (Sec 3.2-3.4)."
+},
+{
+"arxiv_id": "2406.11612",
+"title": "Long Code Arena: a Set of Benchmarks for Long-Context Code Models",
+"system": "LongCodeArena",
+"key_numbers": [
+{
+"metric": "project-level completion accuracy delta",
+"value": "CodeLlama-7B: +16% infile lines, +53% inproject lines vs no-context",
+"where": "Project-Level Completion results"
+},
+{
+"metric": "bug localization MAP",
+"value": "0.39 (GPT-4)",
+"where": "Bug Localization results"
+},
+{
+"metric": "CI build repair success",
+"value": "17% successful fixes (GPT-3.5)",
+"where": "CI Builds Repair results"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Sec. 3-4: each of six tasks defines its own project-wide context mechanism, e.g. BM25-retrieved top-20 relevant class/method names for library-based generation, files closest in the file tree to the target for project completion, and TF-IDF/CodeBERT/GTE/Mistral embedding retrieval plus BM25 for bug localization."
+},
+{
+"arxiv_id": "2412.08063",
+"title": "ContextModule: Improving Code Completion via Repository-level Contextual Information",
+"system": "ContextModule",
+"key_numbers": [
+{
+"metric": "Soft Exact Match, similar code (Python, 8k)",
+"value": "59.1% vs 49.77% baseline",
+"where": "Table III"
+},
+{
+"metric": "Soft Exact Match, CKG symbol definition (struct init)",
+"value": "17.41% vs 6.17% baseline",
+"where": "Table IV"
+},
+{
+"metric": "Production relative accept-rate improvement",
+"value": "7.1% / 6.3% / 4.9% across the three context sources",
+"where": "Sec V (production A/B)"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Combines three retrieval channels at completion time-recently-browsed-file snippets ranked by cursor-click interaction, Jaccard-similarity code snippets from an inverted index, and symbol/struct definitions from a proprietary Code Knowledge Graph built via incremental static analysis-concatenated into an up-to-8k-token prompt (Sec III-A/B/C)."
+},
+{
+"arxiv_id": "2507.19942",
+"title": "Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving",
+"system": "Prometheus",
+"key_numbers": [
+{
+"metric": "SWE-bench Verified resolution rate",
+"value": "74.4%",
+"where": "Table 2 / RQ1"
+},
+{
+"metric": "Cost reduction / resolution gain from working memory",
+"value": "-45.4% cost, +25.0pp resolution (70% vs 56%)",
+"where": "Section 4.3.1 / Figure 7"
+},
+{
+"metric": "Bug-reproduction-agent ablation impact",
+"value": "64.0% (-14.0pp vs full system)",
+"where": "Table 5"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "The Context Retrieval Engine synthesizes structured sub-queries, then performs multi-vector weighted retrieval against a persistent working memory of prior context units (falling back to knowledge-graph traversal on a memory miss), reusing exploration across reasoning steps (Sections 2.2, Abstract)."
+},
+{
+"arxiv_id": "2509.16112",
+"title": "CodeRAG: Finding Relevant and Necessary Knowledge for Retrieval-Augmented Repository-Level Code Completion",
+"system": "CodeRAG",
+"key_numbers": [
+{
+"metric": "ReccEval EM, Qwen2.5-Coder-7B (100% data): CodeRAG vs DraCo",
+"value": "47.48% vs 39.99%",
+"where": "Table 1"
+},
+{
+"metric": "Ablation EM, StarCoder2-3B: full (df+s+d+lr) vs sparse-only",
+"value": "42.69% vs 33.83%",
+"where": "Table 3"
+},
+{
+"metric": "Avg per-query latency: CodeRAG vs RepoCoder vs DraCo",
+"value": "0.23s vs 0.21s vs 0.04s",
+"where": "Table 6"
+}
+],
+"repr_primary": "ast",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Repo files are parsed into an AST-derived knowledge base of functions/variables/class-functions (Sec 2.1); a log-probability-guided algorithm forms a query, then sparse (TF-IDF), dense (CodeT5p embeddings), and dataflow-dependency retrieval each contribute candidates, pruned by an LLM-based BestFit reranker (sliding-window heap sort) to top-u before concatenation into the completion prompt (Sec 2.2-2.4)."
+},
+{
+"arxiv_id": "2601.03708",
+"title": "MHRC-Bench: A Multilingual Hardware Repository-Level Code Completion benchmark",
+"system": "MHRC-Bench",
+"key_numbers": [
+{
+"metric": "Qwen2.5-Coder-14B EM (V/SV), fine-tuned+retrieval",
+"value": "43.8%",
+"where": "Table 5"
+},
+{
+"metric": "Fixed input context window across all evaluated models/methods",
+"value": "2,048 tokens",
+"where": "Section on evaluation setup"
+},
+{
+"metric": "Pre-trained baseline EM before fine-tuning",
+"value": "0.0-0.2%",
+"where": "Table 5"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "similarity_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Cross-file repository context is built by concatenating whole files under '--- FILE: path (BEGIN) ---' delimiters up to a fixed 2,048-token window with head/tail truncation when over budget, optionally replaced by retrieval-augmented snippets from RepoCoder/GraphCoder/RLCoder baselines evaluated on the benchmark."
+},
+{
+"arxiv_id": "2602.05892",
+"title": "ContextBench: A Benchmark for Context Retrieval in Coding Agents",
+"system": "ContextBench",
+"key_numbers": [
+{
+"metric": "File-level F1 (\"Bitter Lesson\" finding)",
+"value": "SWE-agent 0.544 vs mini-SWE-Agent 0.634 (File-level F1; 0.625 is SWE-agent's Block-level Recall)",
+"where": "Table 2"
+},
+{
+"metric": "Block-level recall/precision/F1",
+"value": "GPT-5 0.369/0.375/0.606; Claude Sonnet 4.5 0.449/0.420/0.588",
+"where": "Table 3"
+},
+{
+"metric": "Context \"usage drop\"",
+"value": "Gemini 2.5 Pro 0.431; Devstral 2 0.435",
+"where": "Table 5"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "demonstrated",
+"stop_detail": "Instruments agent trajectories during issue resolution to record every accessed file/line/block, then scores retrieved context against human-annotated gold contexts at file/block/line granularity for recall, precision, F1, redundancy, and usage-drop (Sec 2.5, 3.4)."
+},
+{
+"arxiv_id": "2605.26177",
+"title": "RepoMirage: Probing Repository Context Reasoning in Code Agents with Perturbations",
+"system": "RepoMirage",
+"key_numbers": [
+{
+"metric": "Baseline SWE-Bench Verified success rate",
+"value": "66.80%",
+"where": "Table 1/2"
+},
+{
+"metric": "RepoMirage-Extend average success rate",
+"value": "25.25%",
+"where": "Table 2"
+},
+{
+"metric": "RepoAnchor gain on GPT-5 (Extend)",
+"value": "27.60% -> 62.60%",
+"where": "Table 3"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Three semantics-preserving perturbations (dependency-path indirection, runtime-target masking, local-value externalization) obscure direct repo cues, forcing broader agent exploration; RepoAnchor separates structure exploration from code construction via an intermediate INSTRUCTIONS.md artifact (Sec 3.1, 5.3)"
+},
+{
+"arxiv_id": "2607.06065",
+"title": "SWE-Review: Closing the Loop on Issue Resolution with Agentic Code Review",
+"system": "SWE-Review",
+"key_numbers": [
+{
+"metric": "Opus 4.6 decision accuracy",
+"value": "81.8%",
+"where": "Table 5 / Sec 4"
+},
+{
+"metric": "Resolve-rate-after-revision (RRR), Qwen3-30B after SFT",
+"value": "27.5% -> 35.8% (+8.3pp)",
+"where": "Table 2"
+},
+{
+"metric": "Test-time scaling resolve rate",
+"value": "22.9% -> 38.4% at 5-sample budget",
+"where": "Figure 5"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Reviewer agent (OpenHands-SDK scaffold) agentically browses files, greps code, inspects dependencies, and executes reproducer commands in the repo to decide accept/request-changes and produce structured revision feedback in a generate-review-revise loop (Sec 3.1, Table 5)"
+},
+{
+"arxiv_id": "2607.24884",
+"title": "Beyond \"What to Retrieve\": Uncertainty in Retrieval-Augmented Code Generation",
+"system": "OpenCoder (Sah et al. 2026)",
+"key_numbers": [
+{
+"metric": "GPT + OpenCoder selected-output correctness",
+"value": "78.13%",
+"where": "RQ3 table"
+},
+{
+"metric": "GPT baseline RAG selected-output correctness",
+"value": "56.25%",
+"where": "RQ3 table"
+},
+{
+"metric": "Gain (McNemar)",
+"value": "+21.88 pp, 95% CI [6.25, 40.63], p=.039",
+"where": "RQ3 table"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "learned_pruning",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Uncertainty-aware framework retrieves API-knowledge, repository-context, and similar-code evidence via UniXcoder embeddings (up to 8 candidates each), scores it by combining token entropy, self-consistency, and semantic variance (weights 0.4/0.4/0.2) to filter/rank evidence before conditioning generation, verification, and repair (Problem Formulation, Eq. 1-9) [Adjudication: evidence filtering/ranking uses Eq. 6, distinct from the generation-uncertainty formula.]"
+}
+]

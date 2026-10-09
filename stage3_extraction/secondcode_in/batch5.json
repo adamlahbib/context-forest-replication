@@ -1,0 +1,50 @@
+[
+{
+"arxiv_id": "2310.11248",
+"title": "CrossCodeEval: A Diverse and Multilingual Benchmark for Cross-File Code Completion"
+},
+{
+"arxiv_id": "2403.06095",
+"title": "RepoHyper: Search-Expand-Refine on Semantic Graphs for Repository-Level Code Completion"
+},
+{
+"arxiv_id": "2406.07003",
+"title": "GraphCoder: Enhancing Repository-Level Code Completion via Code Context Graph-based Retrieval and Language Model"
+},
+{
+"arxiv_id": "2410.21157",
+"title": "M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation"
+},
+{
+"arxiv_id": "2505.14394",
+"title": "Knowledge Graph Based Repository-Level Code Generation"
+},
+{
+"arxiv_id": "2508.21433",
+"title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management"
+},
+{
+"arxiv_id": "2510.12948",
+"title": "SpareCodeSearch: Searching for Code Context When You Have No Spare GPU"
+},
+{
+"arxiv_id": "2601.19929",
+"title": "Stingy Context: 18:1 Hierarchical Code Compression for LLM Auto-Coding"
+},
+{
+"arxiv_id": "2605.14478",
+"title": "When Retrieval Hurts Code Completion: A Diagnostic Study of Stale Repository Context"
+},
+{
+"arxiv_id": "2607.01138",
+"title": "Antaeus: Hunting Repository-Level Logic Vulnerabilities via Context-Grounded LLM Reasoning"
+},
+{
+"arxiv_id": "2607.18213",
+"title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune"
+},
+{
+"arxiv_id": "2608.24188",
+"title": "Paritok-4B: Intent-Conditioned Context Compression for Coding Agents"
+}
+]

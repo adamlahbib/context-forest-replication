@@ -1,0 +1,292 @@
+[
+ {
+  "arxiv_id": "2303.12570",
+  "system": "RepoCoder",
+  "comparison": "Sparse (Jaccard bag-of-words) vs dense (UniXcoder) retriever, same RepoCoder pipeline: Table 2(a) vs Appendix B Table 6(a), RepoEval line completion, iteration 1 (single-pass RAG). Other comparisons in the paper (In-File vs RAG; Iter-1 vs Iter-2; Oracle) add context from zero or add extra model calls.",
+  "budget_control": "Explicit cap applied the same way to both arms: 'The length of retrieved code snippets is set to half the prompt length' (prompt+output max 4,096 tokens for GPT-3.5, 2,048 for CodeGen), K=10 snippets max, window Sw=20/Ss=10. Realized token counts per arm not reported.",
+  "arm_a": "Top-K (<=10) 20-line sliding-window snippets ranked by Jaccard similarity, prepended to in-file context",
+  "arm_b": "Top-K (<=10) 20-line sliding-window snippets ranked by UniXcoder cosine similarity, prepended to in-file context",
+  "delta": "GPT-3.5-Turbo line EM at iteration 1: 55.31 (sparse) vs 54.56 (dense), -0.75 pp. At iteration 2: 56.81 vs 56.25.",
+  "graph_class_check": "n/a (primary repr is not call_dep_graph/ast/cpg_dataflow)"
+ },
+ {
+  "arxiv_id": "2310.11248",
+  "system": "CrossCodeEval",
+  "comparison": "Retriever comparison, Table 4: BM25 vs UniXCoder vs OpenAI ada embeddings for cross-file context (Sec 3.5 / retrieval benchmark paragraph).",
+  "budget_control": "Equal cap across arms: top-5 retrieved 10-line chunks, 'We consider a maximum of 512 BPE tokens for such context, and the rest of the tokens will be truncated.' Realized per-arm token counts not reported.",
+  "arm_a": "Top-5 cross-file chunks retrieved by BM25 (lexical)",
+  "arm_b": "Top-5 cross-file chunks retrieved by UniXCoder or OpenAI text-embedding-ada-002 cosine similarity",
+  "delta": "StarCoder-15.5B Python EM: 15.72 (BM25) vs 15.87 (UniXCoder) vs 16.47 (ada). The cited 8.82 -> 15.72 change is no-context vs retrieval, which also changes the budget from 0 to 512 tokens.",
+  "graph_class_check": "n/a (primary repr is not call_dep_graph/ast/cpg_dataflow)"
+ },
+ {
+  "arxiv_id": "2406.01359",
+  "system": "R2C2-Coder",
+  "comparison": "'+ R2C2-Enhance' vs '+ R2C2-Enhance w.o. Abs.' at inference without fine-tuning, Table 2 (R2C2-Bench); same contrast in Tables 3/4. The Table 5 ablation removes abstract context 'at the fine-tuning and the inference stages simultaneously', so its arms are differently trained models.",
+  "budget_control": "Explicit equal token cap: candidates are concatenated 'until the cumulative length, including the in-file context, reaches the maximum token limit of N=4096' for both arms. Abstract contexts (K=3) take part of the same budget. Realized lengths not reported separately.",
+  "arm_a": "In-file context + top-3 abstract contexts (tree-sitter-extracted declarations/signatures) + snippet contexts up to N=4,096",
+  "arm_b": "In-file context + snippet contexts only (abstracts removed from the candidate pool), up to N=4,096",
+  "delta": "StarCoder-7B average EM 24.8 vs 24.3 (+0.5 pp); DeepSeekCoder-6.7B 30.1 vs 29.5; Code Llama-7B 19.9 vs 19.7 (Table 2). The record's 31.2 vs 42.1 is Table 5, which compares a no-snippet model against the full model, both fine-tuned.",
+  "graph_class_check": "n/a (primary repr is hybrid). AST-derived abstract context is compared under the shared N=4,096 cap (Table 2); realized per-arm lengths are not reported."
+ },
+ {
+  "arxiv_id": "2507.19942",
+  "system": "Prometheus",
+  "comparison": "Working-memory ablation, Sec 4.3.1 / Figure 7: full Prometheus vs Prometheus without working memory, on 50 random SWE-bench Verified instances.",
+  "budget_control": "Not equalized, but realized cost is reported and the mechanism arm is smaller: $200.79 with memory vs $367.73 without memory across 50 issues. Costs are in dollars, not context tokens; per-call context size and number of calls are not reported.",
+  "arm_a": "Knowledge-graph context engine with working memory: retrieved context units are cached and reused by sub-query (memory-first protocol)",
+  "arm_b": "Same knowledge-graph context engine without working memory: context is re-retrieved on each query",
+  "delta": "Resolution 70.00% vs 56.00% (+14 pp absolute; reported as '+25.0%' relative). Cost $200.79 vs $367.73 (-45.4%).",
+  "graph_class_check": "n/a (primary repr is hybrid). The knowledge-graph/AST representation itself is never ablated. RQ1/RQ2 compare against other agents (multi-change)."
+ },
+ {
+  "arxiv_id": "2509.14635",
+  "system": "SWE-QA",
+  "comparison": "Function Chunking RAG (code parsed into function-level chunks) vs Sliding Window RAG (500-line windows), Table 3 with token usage from Table 8. The v2 paper has no separate 'AST-based retrieval' arm; function chunking is the structure-aware arm.",
+  "budget_control": "Realized input tokens reported (Table 8): Function Chunking 3,042 vs Sliding Window 6,302 input tokens per question. The structured arm is smaller (identical figures listed for every model).",
+  "arm_a": "Top-10 function-level chunks (semantic-boundary parsing)",
+  "arm_b": "Top-10 sliding-window chunks (500 lines, 100 overlap)",
+  "delta": "Kimi K2: 60.08 (function chunking) vs 62.44 (sliding window); GPT-5.1: 66.57 vs 66.79; Qwen3-Coder-30B: 63.40 vs 64.86. Input tokens 3,042 vs 6,302.",
+  "graph_class_check": "n/a (primary repr is not call_dep_graph/ast/cpg_dataflow)"
+ },
+ {
+  "arxiv_id": "2603.28119",
+  "system": "SWEzze",
+  "comparison": "SWEzze (AST-segment learned compressor) vs LLMLingua-2 (token-level compressor), and vs No_compression, inside the same Agentless pipeline: Table 2 (resolution) with Table 3 (realized prompt tokens).",
+  "budget_control": "Realized prompt tokens reported (Table 3). SWEzze is smaller than LLMLingua-2 on all three models (8,658 vs 11,480; 2,922 vs 4,408; 4,492 vs 7,237) and smaller than No_compression (21,808 / 9,457 / 16,893). The nominal targets differ (5x for SWEzze, defaults for baselines). LongCodeZip uses fewer tokens than SWEzze on Qwen and GPT-5.2.",
+  "arm_a": "Agentless context pruned at AST-derived segment granularity by a cross-encoder trained on oracle-distilled minimal contexts",
+  "arm_b": "Same Agentless context compressed token-by-token by LLMLingua-2 (or left uncompressed)",
+  "delta": "Resolution rate SWEzze vs LLMLingua-2: 0.522 vs 0.490 (DeepSeek-V3.2), 0.420 vs 0.386 (Qwen3-Coder-Next), 0.578 vs 0.544 (GPT-5.2). Vs No_compression: +4.4 / +2.0 / +4.6 pp.",
+  "graph_class_check": "Primary repr is ast. Yes, budget-matched comparisons exist: the AST-segment compressor uses fewer realized prompt tokens than LLMLingua-2 and No_compression (Table 3) and scores higher (Table 2). Note that AST is the pruning unit; the model sees pruned source code, not an AST serialization."
+ },
+ {
+  "arxiv_id": "2306.03091",
+  "system": "RepoBench",
+  "comparison": "RepoBench-P retrieval strategies, Table 4 (cleanest pair: UniXcoder-L2H / -H2L retrieval vs Random cross-file snippets, both filled to the 6,400-token cap). RepoBench-R (Table 2) compares retrievers on retrieval accuracy only, with no generating model.",
+  "budget_control": "Explicit equal cap that both arms fill: 'Any unused tokens from this allocation are then filled by the cross-file context, up to a total prompt size of 6,400 tokens'. Random snippets are added 'until the token limit is reached'. Each sample has at least 12,000 (Python) / 24,000 (Java) tokens of candidates, so both arms reach the cap. Realized per-arm token counts are not tabulated.",
+  "arm_a": "UniXcoder-L2H: cross-file snippets ranked by UniXcoder embedding similarity to the last 3 in-file lines (low-to-high order), filled up to 6,400 tokens",
+  "arm_b": "Random: randomly selected cross-file snippets, filled up to 6,400 tokens",
+  "delta": "Python All EM 37.11 vs 34.15 (+2.96), ES 74.32 vs 72.72. Java All EM 41.83 vs 40.77.",
+  "graph_class_check": "n/a (no graph/AST/CPG representation; only embedding and lexical retrieval)"
+ },
+ {
+  "arxiv_id": "2402.14323",
+  "system": "REPOFUSE",
+  "comparison": "Analogy-only (AC) vs rationale-only (RC) vs dual context (DC) at a fixed small truncation size: Appendix A table, DeepSeek-Coder-7B at 256 (and 512) tokens. Table 1 makes the same comparison at 4096 tokens.",
+  "budget_control": "Hard truncation bound L on total cross-file context, equal across arms ('The total length of all the items in \u0393_td is bounded by the length bound L'). At 4096 it is effectively not binding: 'the majority of samples remain untruncated, allowing us to approximate it as Unlimited'. At 256/512 the cap binds, but realized tokens per arm are not reported; only number of contexts is (256/UniXcoder: AC 1.05; DC 0.78 AC + 0.36 RC).",
+  "arm_a": "DC: analogy chunks plus rationale context (import/dependency-derived modules, classes and functions: call_dep_graph-like), ranked by RTG and truncated to L",
+  "arm_b": "AC: similarity-retrieved analogy chunks only, truncated to L (or RC: rationale context only)",
+  "delta": "DeepSeek-Coder-7B, L=256, UniXcoder ranking, Code EM: DC 17.15 vs AC 15.87 vs RC 14.45. At L=4096 (Table 1) DC 27.92 vs AC 19.70 vs RC 21.13, but there the arms are not size-matched.",
+  "graph_class_check": "call_dep_graph is listed but is not primary (hybrid). Yes: a cap-matched comparison of the dependency-derived rationale context exists (RC alone vs AC at L=256/512; DC vs AC). At L=256, RC alone scores below AC (14.45 vs 15.87 EM)."
+ },
+ {
+  "arxiv_id": "2406.11612",
+  "system": "LongCodeArena",
+  "comparison": "Project-level code completion, Appendix Table 10: context composers (Naive, Path distance, Half memory, File length, Imports first, Only declarations+PD) at fixed repository-context sizes of 256 / 1,753 / 12,000 tokens",
+  "budget_control": "Equal explicit cap per column: 'A number in the column name means the maximum number of tokens in the context from the repository snapshot'. Medium-set repositories (48K-192K chars) exceed these caps, so concatenative composers fill them. Realized per-composer tokens are not reported.",
+  "arm_a": "Path distance composer: files ordered by file-tree proximity to the completion file, truncated to the cap (also Imports first: import-related files first)",
+  "arm_b": "Naive composer: all repository files concatenated in no specific order, truncated to the same cap",
+  "delta": "All files @12,000: perplexity PD 1.607 vs Naive 1.761 vs Imports first 1.732 vs Only declarations+PD 1.710 (file-level only: 1.849)",
+  "graph_class_check": "n/a as primary (hybrid). An import-relation composer ('Imports first') and a declarations-only skeleton composer are compared at the same cap; both are worse than Path distance."
+ },
+ {
+  "arxiv_id": "2504.08862",
+  "system": "RTLRepoCoder",
+  "comparison": "Table 5: embedding model for RAG (bge-large-en-v1.5 vs jina-embeddings-v2-base-en) at the same chunk size, on samples >10k tokens. Table 4, RAG on/off on the same subset, is a close second.",
+  "budget_control": "Explicit equal fill rule: 'The retrieved chunks are then added to C_retr in descending order of relevance until the input length reaches the predefined length L' (10,240). All evaluated samples exceed L, so both arms fill the window. Realized tokens per arm are not reported.",
+  "arm_a": "RAG with jina-embeddings-v2-base-en (8k-context embedder), 4,096-token chunks, filled to L",
+  "arm_b": "RAG with bge-large-en-v1.5 (512-token embedder), 4,096-token chunks, filled to L",
+  "delta": "Chunk 4096: ES 82.8 vs 80.9, EM 53.1 vs 51.0. (Table 4: RAG vs no RAG, ES 83.5 vs 81.2, EM 55.0 vs 50.3.)",
+  "graph_class_check": "n/a (embedding retrieval / raw window only)"
+ },
+ {
+  "arxiv_id": "2601.03708",
+  "system": "MHRC-Bench",
+  "comparison": "Table 4: No RAG vs GraphCoder (code-context-graph retrieval) vs RLCoder vs RepoCoder, same model, fixed 2,048-token window. Cleanest single-call pair: GraphCoder vs No RAG (or RLCoder vs No RAG).",
+  "budget_control": "Explicit equal window: 'All models use a fixed 2,048-token input window ... within the same window budget'. No-RAG trims context to the limit ('If the context length exceed the token limit, the head of the left context and the tail of the right context are trimmed'). GraphCoder can 'flood the context window'. Realized per-arm tokens are not reported.",
+  "arm_a": "GraphCoder: snippets retrieved via code context graph (control-flow and data-dependence slices), modified for FIM and HDL, within 2,048 tokens",
+  "arm_b": "No RAG: in-file preceding (or preceding+succeeding) context trimmed to 2,048 tokens",
+  "delta": "GPT-5, preceding context, Chisel EM 11.1 (GraphCoder) vs 15.2 (No RAG), ES 17.3 vs 51.6. RLCoder 17.9 / 55.3.",
+  "graph_class_check": "call_dep_graph is listed but is not primary (hybrid). Yes: a fixed-window comparison of a graph-structured retriever (GraphCoder) against No RAG and RLCoder exists, and the graph arm performs worst on HDL."
+ },
+ {
+  "arxiv_id": "2601.19929",
+  "system": "Stingy Context",
+  "comparison": "Experiment 2B (Tables 8-9): TREEFRAG LOD-1 tree vs Function Summary vs File Summary vs Naive raw code base. Cleanest: TREEFRAG vs Function Summary (same 12 models; Naive excludes Claude models).",
+  "budget_control": "Not controlled; realized sizes reported, and the structured arm is the smallest: TREEFRAG '8k and 12k' tokens vs File Summary '20k to 23k', Function Summary '53k to 61k', Naive '194k to 239k'",
+  "arm_a": "TREEFRAG: hierarchical tree of node names only (LOD 1) built by LLM-assisted decomposition, plus the Ask",
+  "arm_b": "Function Summary: per-function LLM summaries of the code base, plus the Ask",
+  "delta": "Mean score 91.95 vs 92.05 (-0.10); mean rank 20.69 vs 21.34; first place 22/40 vs 11/40",
+  "graph_class_check": "n/a (repo_map_skeleton/hybrid; no call graph, AST or CPG)"
+ },
+ {
+  "arxiv_id": "2607.18213",
+  "system": "SWE-Pruner Pro",
+  "comparison": "Table 1: SWE-Pruner Pro vs No Pruning and vs six prior pruners (LLMLingua2, Selective Context, RAG, Self-Prune, LongCodeZip, SWE-Pruner) with matched agent configuration. Cleanest: SWE-Pruner Pro vs SWE-Pruner / No Pruning.",
+  "budget_control": "Not capped; realized total tokens are reported per arm, and the proposed arm uses the fewest tokens in every cell (e.g., Qwen3-Coder-Next SWE-QA-Pro: 368K vs 433K SWE-Pruner vs 607K No Pruning)",
+  "arm_a": "SWE-Pruner Pro: tool outputs pruned line-by-line by a trained head on the frozen backbone's hidden states",
+  "arm_b": "SWE-Pruner (separate scoring model with a goal-hint query), or No Pruning (raw tool outputs)",
+  "delta": "Qwen3-Coder-Next SWE-QA-Pro: 7.84 vs 7.36 (SWE-Pruner) vs 7.60 (No Pruning), at 368K vs 433K vs 607K tokens (-39.4% vs no pruning)",
+  "graph_class_check": "n/a (raw_window)"
+ },
+ {
+  "arxiv_id": "2306.10763",
+  "system": "MGD",
+  "comparison": "SC (SantaCoder-1.1B, Standard prompt) vs SC-MGD (same model, same Standard prompt, plus monitor-guided decoding); Table 1, Sec. 4.1. Same pairing is repeated for CG-350M/2B/6B, TD-3, and classExprTypes/RLPG/FIM prompts. The record's headline SC-MGD vs text-davinci-003 is a cross-model comparison and was not used.",
+  "budget_control": "Explicit realized prompt cap, equal across arms: \"We fix a prompt budget of (2048-512)=1536 tokens, and generation budget of 512 tokens\" (App. D), with left truncation. MGD adds no prompt tokens: \"we neither augment the prompt nor use extra embeddings\" (Sec. 5). Static-analysis information reaches the model through logit masks outside the token budget.",
+  "arm_a": "Standard prompt: local file content up to the dereference point, left-truncated to 1536 tokens; unconstrained decoding",
+  "arm_b": "The same prompt, plus a monitor that queries type-based static analysis (language server, AST/type resolution) at '.' trigger points and masks logits to type-consistent identifiers",
+  "delta": "CR 59.97 -> 73.03 (+21.77% relative); NIM 82.40 -> 88.42 (+7.31%); ISM 38.14 -> 40.69 (+6.68%); PM 32.10 -> 34.25 (+6.72%) (Table 1)",
+  "graph_class_check": "Primary repr ast: YES, budget-matched comparisons exist (base vs -MGD with an identical 1536-token prompt, for every model and prompt in Table 1). The structure is injected through logit masking, not as in-prompt context, so this is not a matched comparison of in-prompt graph/AST context against text context."
+ },
+ {
+  "arxiv_id": "2510.00446",
+  "system": "LongCodeZip",
+  "comparison": "Table II, Long Code Completion, DeepSeek-Coder-6.7B: LongCodeZip (5.3x) vs RAG (Sliding Window, 4.2x), LongLLMLingua (4.8x), RAG (Function Chunking, 5.7x); also Fig. 3 (ES vs % remaining context)",
+  "budget_control": "Realized compression ratio reported per arm (tokens compressed/original). LongCodeZip target B=2k tokens; arms are not forced to an identical cap, but LongCodeZip's realized context (5.3x) is smaller than RAG-SW (4.2x) and LongLLMLingua (4.8x), and slightly larger than RAG-FC (5.7x). Fig. 3 sweeps the remaining-context percentage.",
+  "arm_a": "RAG (Sliding Window): UniXcoder-ranked fixed-size overlapping chunks (4.2x)",
+  "arm_b": "LongCodeZip: function-level chunks ranked by conditional perplexity, then perplexity-based block segmentation with knapsack selection under the token budget (5.3x)",
+  "delta": "ES 60.58 vs 58.48 and EM 35.40 vs 31.60 (LongCodeZip at 5.3x vs RAG-SW at 4.2x); vs LongLLMLingua ES 54.09 at 4.8x (Table II)",
+  "graph_class_check": "Not applicable (primary repr raw_window)."
+ },
+ {
+  "arxiv_id": "2606.08135",
+  "system": "TICoder",
+  "comparison": "Cleanest: Table 3 ablation, TICoder vs 'w/o clustering' (removes the call-graph structure-based clustering of usage patterns). Also 'w/o selection' and 'w/ Sim_F'. The headline Table 2 vs AllianceCoder is multi-change.",
+  "budget_control": "Realized average token counts reported per arm (not a cap): TICoder 2824 vs w/o clustering 2848 (+0.85%); w/o selection 3523; w/ Sim_F 2863. The structured (full) arm is not larger. Both arms keep the top-n_p usage-pattern limit.",
+  "arm_a": "w/o clustering: caller functions from the repository call graph (RCG) filtered by perplexity alone",
+  "arm_b": "Full: RCG callers clustered by identical invoked-function sets (\"we extract its set of invoked functions from the RCG\"), with one PPL-chosen centre per cluster, then global PPL ranking",
+  "delta": "Pass@1 31.01 vs 30.58 (1.39% relative drop without clustering) at 2824 vs 2848 tokens; w/o selection 30.90 at 3523 tokens (Table 3). Single run; no significance test reported.",
+  "graph_class_check": "Primary repr includes call_dep_graph: YES, one budget-matched comparison exists, but it concerns call-graph-based selection within RCG-derived context (clustering on/off, 2824 vs 2848 tokens). Graph-derived usage patterns vs none is NOT matched (w/o patterns 1407 vs 2824 tokens)."
+ },
+ {
+  "arxiv_id": "2607.24882",
+  "system": "Agent Retrieval Bench",
+  "comparison": "Table 4 BCY@8k: RepoMap (vectorless repository-structure ranker) vs BM25 / lexical / Qwen3-4B / Qwen3-8B embedding retrievers; BCY curves at 4k-32k (Fig. 2)",
+  "budget_control": "Explicit realized-token cap equal across arms: files are \"greedily pack[ed] ... by rank, and prefix-truncate[d] only at the budget boundary\", with path headers counted against the 8k budget (regex_code_tokenizer_v1). 16k/32k points can be lower bounds from stored top-20 lists.",
+  "arm_a": "BM25 (or Qwen3-8B embeddings) file ranking packed into 8k tokens",
+  "arm_b": "RepoMap: ranking from path, symbol, reference and repository-graph signals, packed into the same 8k tokens",
+  "delta": "BCY@8k RepoMap 0.3788 vs Qwen3-8B 0.3732 vs Qwen3-4B 0.3409 vs BM25 0.2051 (Table 4, weighted)",
+  "graph_class_check": "Not applicable (primary repr repo_map_skeleton). RepoMap uses repository reference-graph signals, and this is a budget-matched retrieval-level comparison only."
+ },
+ {
+  "arxiv_id": "2403.10059",
+  "system": "Repoformer",
+  "comparison": "Table 3: Repoformer-1B/3B self-selective RAG (SelectiveT/SelectiveG) vs Always Retrieving with the same Repoformer model (cleanest). Table 2 (Repoformer vs StarCoderBase) and Table 5 (training ablations) rejected as multi-change.",
+  "budget_control": "Explicit cap: cross-file context right-truncated to 512 tokens, left context 1024, right 512 in all arms (App. A). Selective arm adds CC only on a subset (%RAG 61-78% for SelectiveT), so its realized context is not larger than Always Retrieving.",
+  "arm_a": "Always Retrieving: in-file left/right context + top-10 Jaccard-retrieved cross-file chunks (<=512 tokens) for every instance.",
+  "arm_b": "SelectiveT: same model decides via <cc> probability > T whether to add the same cross-file context (61% of API instances for 1B).",
+  "delta": "1B API ES 72.02 -> 72.72 (61% RAG, 28% speedup); 1B line ES 75.91 -> 76.00 (62% RAG, 27% speedup); SelectiveG 71.04 (18% RAG, 69% speedup).",
+  "graph_class_check": "N/A (primary repr raw_window)."
+ },
+ {
+  "arxiv_id": "2406.18294",
+  "system": "HCP",
+  "comparison": "Table 4/5 + Fig. 4: Random-All (all repository files concatenated, left-truncated to window) vs Hierarchical Context Pruning (top-k=5) with the same Code LLM (cleanest). Also Table 3 P-Level 0 vs P-Level 1 (pruning global context) under same truncation.",
+  "budget_control": "Explicit cap: all prompts left-truncated to model_max_length (16,352 DS/StarCoder2; 8,160 CodeGemma). Random-All fills the window (raw >50,000 tokens); HCP realized ~8,000 tokens (Fig. 4 right), so the structured arm is not larger.",
+  "arm_a": "Random-All: all repo files randomly concatenated in pretraining format, truncated to the window.",
+  "arm_b": "HCP: current file in full + import-dependency (D1) files without global context + other files as function-level skeletons/embedding-sampled functions (top-k=5).",
+  "delta": "StarCoder2-7B EM 31.45 -> 35.76, ES 69.09 -> 71.41 (top-k=5); DScoder-6.7B EM 33.94 -> 39.74.",
+  "graph_class_check": "Yes: HCP (import-dependency-graph-based hierarchical prompt) vs Random-All at a realized budget no larger than the baseline (~8k vs window-filling 16k/8k) is budget-matched. Table 2 D-level comparisons share the truncation cap but realized lengths differ (D1 much shorter) and are not reported per arm."
+ },
+ {
+  "arxiv_id": "2603.01327",
+  "system": "SWE-Adept",
+  "comparison": "Table 5: localization agent with search returning full code content vs code preview + two-stage filtering (cleanest). Tables 1-2 (vs RepoGraph/LocAgent/SWE-agent) and Table 4 (module swaps) rejected as multi-change.",
+  "budget_control": "Not capped but realized total input+output tokens reported; proposed arm smaller: GPT-5.2 Lite 197k vs 218k, Pro 252k vs 316k; Claude Lite 348k vs 393k, Pro 427k vs 502k.",
+  "arm_a": "Search tools return complete source code; agent selects locations from full-code context.",
+  "arm_b": "Search tools return file skeleton/function previews; preview-level shortlist, then full code only for shortlisted locations in re-ranking.",
+  "delta": "GPT-5.2 Lite Func Acc@5 69.3% -> 70.8% (218k -> 197k tokens); Pro 45.0% -> 46.0%; Claude Lite 87.2% -> 87.8%.",
+  "graph_class_check": "The budget-matched comparison (Table 5) holds the code-structure tree constant in both arms and isolates skeleton previews vs full code; no budget-matched comparison of the dependency-tree/graph navigation itself exists (graph-vs-non-graph comparisons are cross-framework, e.g. 197k vs RepoGraph 150k tokens)."
+ },
+ {
+  "arxiv_id": "2605.15315",
+  "system": "LaMR",
+  "comparison": "Table 3 / Table 8: LongCodeQA 4x constraint, LaMR vs reproduced SWE-Pruner (cleanest, LaMR compresses harder); also Table 8 LaMR vs Semantic+Dependency w/o AST repair at 8x.",
+  "budget_control": "Same target compression (4x/8x) plus realized ratio reported; LongCodeQA 4x: LaMR 16.48x vs SWE-Pruner 13.95x (LaMR keeps fewer tokens); 8x: 18.51x vs 14.84x. On LCC 8x LaMR keeps more (9.17x vs 10.92x).",
+  "arm_a": "Code context pruned by SWE-Pruner (single-CRF line labeler).",
+  "arm_b": "Code context pruned by LaMR (semantic + dependency rubric CRFs with MoE gating + AST-aware structural repair).",
+  "delta": "LongCodeQA 4x accuracy 59.46 -> 61.26; 8x 58.71 -> 60.00. AST repair ablation 8x: 55.56 (w/o AST, 18.00x) -> 60.00 (LaMR, 18.51x).",
+  "graph_class_check": "Yes for AST: Table 8 compares LaMR with vs without AST-aware repair at a realized compression no lower for the AST arm (18.51x vs 18.00x at 8x; 16.48x vs 12.99x at 4x), i.e. budget-matched (AST arm not larger)."
+ },
+ {
+  "arxiv_id": "2606.14061",
+  "system": "SeeRepo",
+  "comparison": "Table 2: Text-only Mini-SWE-Agent vs Multimodal (text + rendered dependency-graph images) per model (cleanest: GPT-5-mini). Table 1 vision-only also judged.",
+  "budget_control": "Not capped below the shared $3/250-step limits, but realized tokens reported: GPT-5-mini input 193,157 (text) vs 144,403 (multimodal); GPT-5.1 206,256 vs 161,130; Doubao 185,311 vs 176,463; Kimi 691,141 vs 723,874 (+5%).",
+  "arm_a": "Standard bash text interface only.",
+  "arm_b": "Same bash interface plus a graph tool returning Graphviz renderings of the AST-derived contains/imports/invokes/inherits graph around a query node.",
+  "delta": "GPT-5-mini Pass@1 55.0% -> 55.4% with -25% input tokens, -26% cost; GPT-5.1 51.0% -> 48.8%; Kimi 68.8% -> 70.6% (+5% tokens).",
+  "graph_class_check": "Yes: text vs text+dependency-graph arms with the graph arm using fewer realized input tokens (GPT-5-mini, GPT-5.1, Doubao) is a budget-matched comparison of a call/dependency-graph representation; budget is an outcome, not a fixed cap. Vision-only (Table 1) is not matched (tokens rise)."
+ },
+ {
+  "arxiv_id": "2608.24188",
+  "system": "Paritok-4B",
+  "comparison": "Table 9: Paritok-4B (raw source) vs gpt-4.1-mini prompt-based compressor feeding the same downstream solver (cleanest); also vs uncompressed baseline.",
+  "budget_control": "Not capped; realized compression reported and the proposed arm is smaller: 25.7% of input tokens (Paritok-4B) vs 50.2% (gpt-4.1-mini) vs 61.9% (gpt-5); 27.8% line-numbered.",
+  "arm_a": "Oracle context compressed by gpt-4.1-mini used as prompt-based compressor.",
+  "arm_b": "Oracle context compressed segment-by-segment by Paritok-4B (intent-conditioned extractive compressor) at level L1.",
+  "delta": "Quality retained 85.6% (gpt-4.1-mini, 50.2%) vs 86.5% (Paritok-4B, 25.7%); vs uncompressed 40.7% -> 36.3% resolved (McNemar p=0.079).",
+  "graph_class_check": "N/A (primary repr exec_traces/raw_window)."
+ },
+ {
+  "arxiv_id": "2406.07003",
+  "system": "GraphCoder",
+  "comparison": "Table 2 effectiveness + Table 5 token usage: GraphCoder vs Vanilla RAG (single-pass sliding-window retrieval) with StarCoder-15B and CodeGen2-16B",
+  "budget_control": "Nominal cap equal (half window, <=10 snippets); realized mean input tokens reported (Table 5): StarCoder-15B GraphCoder 3715.51 vs Vanilla RAG 3882.12; CodeGen2-16B 2201.08 vs 2239.95 (structured arm smaller). For GPT-3.5 GraphCoder is larger (2666.13 vs 2557.12).",
+  "arm_a": "GraphCoder: snippets retrieved by coarse-to-fine matching over code context graph (CFG + control/data dependence) slices, statement-level database",
+  "arm_b": "Vanilla RAG: 20-line sliding windows retrieved by Jaccard similarity of the preceding context",
+  "delta": "CodeGen2-16B API-level Python code EM 48.75 vs 35.80 (+12.95 pp); line-level Python 46.65 vs 39.00. StarCoder-15B API-level Python EM 38.90 vs 35.90; line-level Python 34.50 vs 32.80.",
+  "graph_class_check": "Primary repr cpg_dataflow. YES: a budget-matched comparison exists. GraphCoder (CCG with control/data dependence) vs Vanilla RAG at equal nominal allocation, with realized input tokens reported and the structured arm not larger for StarCoder-15B and CodeGen2-16B (Table 5). The Table 3 CCG-component ablation reports no tokens."
+ },
+ {
+  "arxiv_id": "2507.14791",
+  "system": "RepoScope",
+  "comparison": "Table 3 ablation (CoderEval): RepoScope vs 'w/o SS' (structure-preserving serialization replaced by sequential export of call-chain entities). Other candidates: w/o DFS/WES/CCE (structured arm marginally larger); Table 2 RepoScope vs DRACO/SimpleRAG (full systems).",
+  "budget_control": "Nominal cap 4096 tokens via two-stage allocation; realized mean prompt tokens reported: RepoScope 3679 vs w/o SS 3728 (structured arm 1.3% smaller). (Table 2: RepoScope 3679 vs DRACO 3837, SimpleRAG 3824 on CoderEval.)",
+  "arm_a": "RepoScope four-view context (callers, predicted call chains, similar functions, similar fragments) serialized preserving repository hierarchy",
+  "arm_b": "Same four-view context with call-chain entities exported 'sequentially without preserving structural relationships'",
+  "delta": "Pass@1 DeepSeek-V3 59.42 vs 56.04 (-5.69% relative for w/o SS); Claude-3.5-Haiku 55.07 vs 54.11 (-1.74%)",
+  "graph_class_check": "Primary repr call_dep_graph. YES: budget-matched comparisons exist. w/o SS (structured serialization, structured arm 3679 vs 3728 tokens) is one. Table 2 RepoScope vs DRACO/SimpleRAG/RLCoder is budget-tuned ('adjusted parameters in baselines ... approximately at the same level') with RepoScope at 3679 vs 3837/3824/3576. Those are full-system comparisons, though, and RLCoder uses fewer tokens. Removing the call-chain view (w/o CC) cuts tokens 11.8%, so that ablation is not matched."
+ },
+ {
+  "arxiv_id": "2508.21433",
+  "system": "Lindenbauer25",
+  "comparison": "Table 1: Observation Masking vs Raw Agent (and vs LLM-Summary), SWE-agent, Qwen3-Coder 480B",
+  "budget_control": "Not held as a control; realized per-instance cost reported (outcome). Masking arm is cheaper than Raw: $0.61 vs $1.29 (-52.7%); LLM-Summary $0.64. Cost in USD, not raw token counts.",
+  "arm_a": "Observation Masking: observations older than M=10 turns replaced by placeholders; reasoning/actions kept",
+  "arm_b": "Raw Agent: full unmanaged trajectory history",
+  "delta": "Qwen3-Coder 480B solve rate 54.8% vs 53.4% (Raw, +2.6% rel.) at -52.7% cost; LLM-Summary 53.8%. Across models masking ranges -11.8% to +8.5% rel. vs Raw.",
+  "graph_class_check": "Not applicable (primary repr exec_traces)."
+ },
+ {
+  "arxiv_id": "2601.16746",
+  "system": "SWE-Pruner",
+  "comparison": "Table 4: SWE-Pruner vs LLMLingua2 / Selective-Context / RAG / LongCodeZip under 4x and 8x compression constraints (single-turn). Alternative: Table 1 Mini-SWE-Agent with vs without SWE-Pruner (agent prompted for goal hints).",
+  "budget_control": "Explicit equal target ('All baseline methods are configured to match identical compression constraints (4x and 8x)'); realized compression ratio reported per arm, with SWE-Pruner compressing more (smaller context) than every baseline",
+  "arm_a": "SWE-Pruner: query-conditioned line-level pruning by a trained 0.6B reranker-based skimmer",
+  "arm_b": "Token-level pruning (LLMLingua2, Selective-Context), function-chunk RAG (UniXCoder), LongCodeZip",
+  "delta": "Long Code Completion 8x: ES 57.58 / EM 31.0 at 10.92x vs RAG 55.82 / 29.0 at 6.60x and LongCodeZip 56.08 / 27.5 at 7.85x. Long Code QA 8x: 58.71% at 14.84x vs RAG 55.86% at 5.87x.",
+  "graph_class_check": "Not applicable (primary repr raw_window)."
+ },
+ {
+  "arxiv_id": "2603.25770",
+  "system": "ReCUBE",
+  "comparison": "Agent (bash-only mini-SWE-agent) vs Agent + CCE toolkit, GPT-5 Mini on ReCUBE-large (Table 6 APR, Table 7 cost). Same contrast on ReCUBE (Table 5), where CCE costs slightly more.",
+  "budget_control": "Not capped; realized per-instance cost reported for GPT-5 Mini only: ReCUBE-large $0.1166 (CCE) vs $0.1410 (agent), 19.81 vs 25.66 turns; on ReCUBE $0.1241 vs $0.1226 (CCE 1.2% more)",
+  "arm_a": "Agent with Caller-Centric Exploration tools over a dependency graph (caller patterns, call hierarchy, similar files, programmatic graph queries)",
+  "arm_b": "Bash-only agent exploring the repository",
+  "delta": "ReCUBE-large GPT-5 Mini APR 57.72 vs 54.47 (+3.25 pp); SPR/Cost 332.6 vs 221.4. ReCUBE overall SPR 38.78 vs 31.22 (+7.56 pp) at $0.1241 vs $0.1226.",
+  "graph_class_check": "Primary repr call_dep_graph. YES, narrowly: GPT-5 Mini on ReCUBE-large, where the dependency-graph tool arm uses less realized cost than the bash-only agent (Table 7) and scores higher APR (Table 6). Cost is not reported for the other models, and on ReCUBE the CCE arm costs 1.2% more, so only that single model and benchmark pair qualifies."
+ },
+ {
+  "arxiv_id": "2607.25431",
+  "system": "CodeNib",
+  "comparison": "Q6, Table 4: LocAgent with CodeNib provider (BM25 + SCIP symbol-graph views) vs LocAgent with native provider (LocAgent graph + BM25), plus the length-cut native control (Appendix O). Alternatives: Q5/Q7 Eager vs Compact (identical candidates, tokens 27.9%-123.3%); Q7 CodeNib eager vs Aider RepoMap eager (16 KiB nominal cap, bytes differ); Q1 dense vs graph-expansion retrieval (no LLM).",
+  "budget_control": "Realized tokens reported: total 179.31k (CodeNib) vs 222.79k (native), -43.48k [-82.01,-13.80] on 23/30 tasks with complete usage. Length-matched control cuts native observations at CodeNib's per-call median ('receives the same bytes per call').",
+  "arm_a": "CodeNib provider: bounded candidate packs and resolved symbol occurrences from manifest-backed BM25/symbol-graph views",
+  "arm_b": "Native LocAgent provider: its own code graph and BM25 index returning raw file text (and a variant cut to CodeNib's per-call length)",
+  "delta": "File Recall@5 60.37 vs 51.67 (+8.70 pp, 95% CI [-12.41,+29.50]); vs length-cut native +15.4 pp [-5.6,+35.5] (45.0 vs 60.4)",
+  "graph_class_check": "Primary repr hybrid (includes call_dep_graph). A budget-matched comparison exists (Q6), but both arms are graph-backed providers (CodeNib symbol-graph views vs LocAgent's graph), so it does not isolate graph vs non-graph. The graph-vs-dense test (Q1 'graph expansion') holds 'the same embedding index and per-instance candidate budget' but measures retrieval File Success@10 without an LLM, and 'Every model-level interval ... includes zero'."
+ }
+]

@@ -1,0 +1,50 @@
+[
+{
+"arxiv_id": "2306.10763",
+"title": "Guiding Language Models of Code with Global Context using Monitors"
+},
+{
+"arxiv_id": "2402.03630",
+"title": "Enhancing LLM-Based Coding Tools through Native Integration of IDE-Derived Static Context"
+},
+{
+"arxiv_id": "2406.01422",
+"title": "Alibaba LingmaAgent: Improving Automated Issue Resolution via Comprehensive Repository Exploration"
+},
+{
+"arxiv_id": "2406.18294",
+"title": "Hierarchical Context Pruning: Optimizing Real-World Code Completion with Repository-Level Pretrained Code LLMs"
+},
+{
+"arxiv_id": "2503.18305",
+"title": "Evolving Triple Knowledge-Augmented LLMs for Code Translation in Repository Context"
+},
+{
+"arxiv_id": "2508.02998",
+"title": "MRG-Bench: Evaluating and Exploring the Requirements of Context for Repository-Level Code Generation"
+},
+{
+"arxiv_id": "2510.04905",
+"title": "Retrieval-Augmented Code Generation: A Survey with Focus on Repository-Level Approaches"
+},
+{
+"arxiv_id": "2601.13933",
+"title": "VulnResolver: A Hybrid Agent Framework for LLM-Based Automated Vulnerability Issue Resolution"
+},
+{
+"arxiv_id": "2603.25770",
+"title": "ReCUBE: Evaluating Repository-Level Context Utilization in Code Generation"
+},
+{
+"arxiv_id": "2606.07297",
+"title": "SWE-Explore: Benchmarking How Coding Agents Explore Repositories"
+},
+{
+"arxiv_id": "2607.10621",
+"title": "WebDesignIter: Co-Evolving Design Knowledge for Repository-Level Front-End Code Generation"
+},
+{
+"arxiv_id": "2607.26805",
+"title": "MRCoder: An Efficient Context Selecting Approach for Repository-Level Code Generation"
+}
+]

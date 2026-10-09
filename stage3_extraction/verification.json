@@ -1,0 +1,2428 @@
+[
+ {
+  "arxiv_id": "2303.12570",
+  "numbers": [
+   {
+    "metric": "Exact Match, line completion (GPT-3.5-Turbo)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2a: RepoCoder Iter-2 56.81% vs In-File 40.56%, exact match to source."
+   },
+   {
+    "metric": "Pass Rate, function body (GPT-3.5-Turbo, all repos)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: 42.63% vs 23.32%, exact match."
+   },
+   {
+    "metric": "Retrieval budget",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Sec 4.2: K=10; Sw=20/Ss=10 for line/API completion, Sw=50/Ss=10 for function body completion."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three key numbers confirmed exactly via ar5iv. Facets and stop_detail check out; sparse-vs-dense retriever ablation (App. B) and Iter-0/1/2 comparisons at fixed K/window support the budget_matched_ablation label."
+ },
+ {
+  "arxiv_id": "2312.10101",
+  "numbers": [
+   {
+    "metric": "line completion exact match",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 4: RepoCoder Iter-2 EM 56.81% (rounds to ~57%) vs In-File 40.56%, exact."
+   },
+   {
+    "metric": "completion success rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 8: RLPG-H 68.51% vs Codex 58.73%, Oracle 79.63%, exact match."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "raw_window",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "repr_primary mislabeled: this review covers RepoCoder (BM25/Jaccard sliding-window snippets) and RLPG (rule-based context proposers + learned classifier) - neither uses embedding retrieval, so raw_window fits better than embedding_retrieval. Both key numbers confirmed exactly. Caveat: mechanism tag 'similarity_retrieval' only captures half the review (RLPG's learned-classifier selection leans closer to learned_pruning), but left as agree given no clean single alternative for a two-system survey."
+ },
+ {
+  "arxiv_id": "2405.19782",
+  "numbers": [
+   {
+    "metric": "Exact Match, CrossCodeEval (StarCoder-15.5B)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: DraCo 34.67% vs RepoCoder 29.12%, exact."
+   },
+   {
+    "metric": "Identifier F1, ReccEval (CodeGen25-7B)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 4: DraCo 60.40% vs RepoCoder 54.73%, exact."
+   },
+   {
+    "metric": "Prompt generation time (CodeGen-350M)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5: DraCo ~40ms vs RepoCoder ~4,062ms, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Typed dataflow graph representation, DFS graph-traversal mechanism, and stop_detail all verified. The 'w/o dataflow' ablation doesn't hold token budget constant, consistent with ablated_measured rather than budget_matched_ablation."
+ },
+ {
+  "arxiv_id": "2406.11612",
+  "numbers": [
+   {
+    "metric": "project-level completion accuracy delta",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "CodeLlama-7B: +16% infile, +53% inproject lines, exact quote match."
+   },
+   {
+    "metric": "bug localization MAP",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "GPT-4 achieves 0.39 MAP, exact."
+   },
+   {
+    "metric": "CI build repair success",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "GPT-3.5 resolves 17% of samples, exact."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "hybrid",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. repr_primary flagged: this is a 6-task benchmark with diverse per-task representations (BM25 keyword lists, file-tree proximity, raw diffs; embeddings appear only for bug localization) - hybrid better captures this than embedding_retrieval as a single tag."
+ },
+ {
+  "arxiv_id": "2412.08063",
+  "numbers": [
+   {
+    "metric": "Soft Exact Match, similar code (Python, 8k)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table III: 59.1% vs 49.77%, exact."
+   },
+   {
+    "metric": "Soft Exact Match, CKG symbol definition (struct init)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table IV: 17.41% vs 6.17%, exact."
+   },
+   {
+    "metric": "Production relative accept-rate improvement",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Sec V: 7.1%/6.3%/4.9% across the three context sources, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Hybrid three-channel representation and CKG graph-guided mechanism verified; stop_detail's 'ranked by cursor-click interaction' detail independently confirmed against Sec III-A text."
+ },
+ {
+  "arxiv_id": "2507.19942",
+  "numbers": [
+   {
+    "metric": "SWE-bench Verified resolution rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: 74.4%, exact."
+   },
+   {
+    "metric": "Cost reduction / resolution gain from working memory",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Sec 4.3.1/Fig 7: -45.4% cost, +25.0pp resolution (56%->70%), exact."
+   },
+   {
+    "metric": "Bug-reproduction-agent ablation impact",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5: 64.0% (-14.0pp vs 74.4% full system), exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Knowledge-graph representation and agentic multi-agent mechanism verified; the sub-query synthesis / multi-vector weighted retrieval / memory-miss-fallback-to-KG-traversal stop_detail matches Sec 2.2 precisely."
+ },
+ {
+  "arxiv_id": "2509.16112",
+  "numbers": [
+   {
+    "metric": "ReccEval EM, Qwen2.5-Coder-7B (100% data): CodeRAG vs DraCo",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: 47.48% vs 39.99%, exact."
+   },
+   {
+    "metric": "Ablation EM, StarCoder2-3B: full (df+s+d+lr) vs sparse-only",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: 42.69% (df+s+d+lr) vs 33.83% (sparse-only, CodeRAG_s), exact - verified against raw table after an initial fetch misread a different row."
+   },
+   {
+    "metric": "Avg per-query latency: CodeRAG vs RepoCoder vs DraCo",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 6: 0.23s vs 0.21s vs 0.04s, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. AST-derived knowledge base, BestFit reranker (sliding-window heap sort), and multi-path sparse/dense/dataflow retrieval all verified. Minor caveat: mechanism tag 'similarity_retrieval' undersells the dataflow-guided (graph) and LLM-reranking (learned_pruning) components, but no single clean alternative exists."
+ },
+ {
+  "arxiv_id": "2601.03708",
+  "numbers": [
+   {
+    "metric": "Qwen2.5-Coder-14B EM (V/SV), fine-tuned+retrieval",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5: 43.8%, exact."
+   },
+   {
+    "metric": "Fixed input context window across all evaluated models/methods",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Explicitly stated: 'All models use a fixed 2,048-token input window.'"
+   },
+   {
+    "metric": "Pre-trained baseline EM before fine-tuning",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5, Qwen2.5-Coder-14B preceding-context-only row: 0.0% (Chisel/V-SV/VHDL), 0.2% (HLS) - matches claimed 0.0-0.2% range exactly."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Fixed-budget whole-file concatenation with head/tail truncation, optionally replaced by RepoCoder/GraphCoder/RLCoder retrieval at the same 2,048-token budget, supports budget_matched_ablation. Minor tension: stop_detail frames retrieval as an 'optional' substitution while the headline key number (43.8%) is itself the retrieval-augmented result - not a material error, just worth flagging."
+ },
+ {
+  "arxiv_id": "2602.05892",
+  "numbers": [
+   {
+    "metric": "File-level F1 (\"Bitter Lesson\" finding)",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "SWE-agent File-level F1 = 0.544, not 0.625 (0.625 is SWE-agent's Block-level Recall, a different column, in the same Table 2 row). mini-SWE-Agent's 0.634 is correct.",
+    "note": "Verified independently against two fetch endpoints (arxiv.org/html and ar5iv.labs.arxiv.org) with consistent results."
+   },
+   {
+    "metric": "Block-level recall/precision/F1",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: GPT-5 0.369/0.375/0.606, Claude Sonnet 4.5 0.449/0.420/0.588 - verified across three independent fetches."
+   },
+   {
+    "metric": "Context \"usage drop\"",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5: Gemini 2.5 Pro 0.431, Devstral 2 0.435, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Key number 1 WRONG: SWE-agent's actual file-level F1 is 0.544, not 0.625 (0.625 is Block-level Recall for the same row). The qualitative 'Bitter Lesson' finding still holds since mini-SWE-agent's 0.634 > 0.544. Other two numbers confirmed exactly; facets and stop_detail all verified."
+ },
+ {
+  "arxiv_id": "2605.26177",
+  "numbers": [
+   {
+    "metric": "Baseline SWE-Bench Verified success rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: 66.80% averaged across eight models, exact."
+   },
+   {
+    "metric": "RepoMirage-Extend average success rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: 25.25%, exact."
+   },
+   {
+    "metric": "RepoAnchor gain on GPT-5 (Extend)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: 27.60% -> 62.60%, exact."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "repo_map_skeleton",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. repr_primary flagged: RepoAnchor's central artifact (INSTRUCTIONS.md, a structured map of editing locations/runtime relations/cross-file dependencies) reads as repo_map_skeleton rather than raw_window, and 2 of 3 key numbers concern RepoAnchor/Extend results specifically."
+ },
+ {
+  "arxiv_id": "2607.06065",
+  "numbers": [
+   {
+    "metric": "Opus 4.6 decision accuracy",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 5: 81.8%, exact."
+   },
+   {
+    "metric": "Resolve-rate-after-revision (RRR), Qwen3-30B after SFT",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "35.8% (not 35.1%); Table 2: Qwen3-30B-A3B RRR baseline 27.5% -> SWE-Review-30B-A3B 35.8% (+8.3pp).",
+    "note": "Verified twice against the raw Table 2 content; the baseline 27.5% is correct but the post-SFT figure is 35.8%, not 35.1%."
+   },
+   {
+    "metric": "Test-time scaling resolve rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Figure 5: 22.9% -> 38.4% at 5-sample budget, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Key number 2 WRONG: Table 2 shows Qwen3-30B-A3B post-SFT RRR is 35.8% (+8.3pp), not 35.1%. Other two numbers confirmed exactly. OpenHands-SDK scaffold and generate-review-revise loop description confirmed against Sec 3.1/Table 5."
+ },
+ {
+  "arxiv_id": "2607.24884",
+  "numbers": [
+   {
+    "metric": "GPT + OpenCoder selected-output correctness",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "RQ3/Table 3: 78.13%, exact."
+   },
+   {
+    "metric": "GPT baseline RAG selected-output correctness",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "RQ3/Table 3: 56.25%, exact."
+   },
+   {
+    "metric": "Gain (McNemar)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "+21.88pp, 95% CI [6.25,40.63], nominal McNemar p=.039, exact quote match."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": false,
+  "note": "stop_detail conflates two distinct formulas: the 0.4/0.4/0.2 weighted combination of token entropy/self-consistency/semantic variance is the paper's GENERATION uncertainty score, not the evidence filtering/ranking score. Evidence is actually filtered/ranked via Eq.6 (retrieval relevance x source-intent weight x (1-alpha*evidence_uncertainty), alpha=0.5, retain top 70% per source, then top-K=10 via Eq.7); the paper does not specify how evidence_uncertainty itself is computed. All three key numbers confirmed exactly; retrieval config (UniXcoder embeddings, up to 8 candidates/source) and budget-matched Baseline RAG comparison (identical retrieval/candidate budgets, only filtering differs) both verified."
+ },
+ {
+  "arxiv_id": "2306.03091",
+  "numbers": [
+   {
+    "metric": "RepoBench-C Python (All) Exact Match, StarCoder 15.5B",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: 31.67% exactly."
+   },
+   {
+    "metric": "RepoBench-P Python (All) Exact Match, Codex + UniXcoder-L2H retrieval",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 37.11% exactly."
+   },
+   {
+    "metric": "RepoBench-R Python XF-F Easy acc@1, UniXcoder",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: 25.94% exactly."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly against Tables 2-4. Cross-file context is inserted as commented raw code snippets parsed from import statements (tree-sitter); retrieval uses both lexical (Jaccard/Edit similarity) and embedding (CodeBERT/UniXcoder cosine) similarity, with UniXcoder embeddings performing best -- consistent with embedding_retrieval/similarity_retrieval labels."
+ },
+ {
+  "arxiv_id": "2401.07339",
+  "numbers": [
+   {
+    "metric": "CodeAgentBench Pass@1, GPT-4-turbo baseline vs Rule-based strategy",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: 21.8% -> 37.6% exactly."
+   },
+   {
+    "metric": "HumanEval Pass@1, GPT-3.5-turbo baseline vs Rule-based",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 72.6% -> 82.3% exactly."
+   },
+   {
+    "metric": "Per-tool ablation drop for Code Symbol Navigation (GPT-3.5-ReAct)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 5: 30.7% -> 22.8%, a -7.9pp drop, exactly."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Stop_detail's specific tool implementations (DuckDuckGo search, BM25 doc retrieval, tree-sitter code symbol navigation, Black formatter) are all verified verbatim in Section 4.1, and the four agent strategies (ReAct, Tool-Planning, OpenAIFunc, rule-based) are confirmed."
+ },
+ {
+  "arxiv_id": "2406.01359",
+  "numbers": [
+   {
+    "metric": "R2C2-Bench EM, StarCoder-7B + R2C2-Enhance (no fine-tune)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2, Average EM column: 24.8% exactly."
+   },
+   {
+    "metric": "CrossCodeEval+ EM/ES, DeepSeekCoder-6.7B + R2C2-Enhanced Tuning",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4, Average EM/ES columns: 53.6% EM / 79.3% ES exactly."
+   },
+   {
+    "metric": "Ablation EM: without snippet context vs both contexts",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 5: 'w.o. Snippet Context' at P=1,S=1 gives Average EM 31.2%, and full 'R2C2-Enhanced Tuning' at P=5,S=5 gives 42.1%. Both values are literally in the table, though they come from different P/S retrieval-window settings rather than a single matched-P/S pair -- worth noting as a slightly loose comparison."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All 3 numbers confirmed exactly. Minor citation error: stop_detail cites 'Sec. 2.2' for the R2C2-Enhance methodology (Tree-sitter AST abstract context, Jaccard retrieval, N=4096 token limit), but this is actually Section 3.1 (subsections 3.1.1/3.1.2)."
+ },
+ {
+  "arxiv_id": "2406.11927",
+  "numbers": [
+   {
+    "metric": "Pass@1, Full context (DeepSeek-R1)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 42.57%, and verified against the full table this is indeed the single highest Pass@1 across all models/prompt types, confirming the '(best)' annotation."
+   },
+   {
+    "metric": "Dependency Invocation Rate, Full context (GPT-4o)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 81.43%, and verified against the full table this is indeed the single highest DIR across all models/prompt types, confirming the '(best)' annotation."
+   },
+   {
+    "metric": "Avg. prompt tokens per context level",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Full 362.92 / Medium 253.05 / Small 179.66, exactly. Precise location is Table 1 within Section 4.1, which is consistent with the cited 'Sec 4'."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed, including independently verifying both 'best' claims against the complete Table 4 (BasePrompt + InstructPrompt, all models). Stop_detail cites '(Sec 3)' for the pydepcall tool and the three context-granularity levels, but these are actually described in Sec 4.1 and Sec 5.1 respectively (Sec 3 is 'Evaluation Paradigm')."
+ },
+ {
+  "arxiv_id": "2503.15301",
+  "numbers": [
+   {
+    "metric": "EM improvement, Python code spans (aiXcoder-7B-v2 vs base)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table I: +19.7% (48.6 -> 58.2 EM)."
+   },
+   {
+    "metric": "EM improvement, C++ code spans (DeepSeek-Coder-6.7B + COLA)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table IV: +35.3% (46.8 -> 63.3 EM)."
+   },
+   {
+    "metric": "Unseen-language generalization EM (C#, TypeScript)",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "Swap the pairing: TypeScript is +19.2% (46.96->55.96 EM) and C# is +20.6% (46.32->55.88 EM). The record lists '(C#, TypeScript)' = '+19.2%, +20.6%', which has the two languages reversed relative to Table III.",
+    "note": "Table III confirms both magnitudes (+19.2% and +20.6%) exist, but they are attributed to the wrong language in the record."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Metric 3 has swapped labels (see numbers[2]); the other two numbers and the full methodology (SCIP-derived dependency graph alternated with top-10 Jaccard-similarity retrieval until context window fills, then SFT+DPO training) are confirmed verbatim in Sections III-A2, III-B, and V-C."
+ },
+ {
+  "arxiv_id": "2507.23348",
+  "numbers": [
+   {
+    "metric": "Pass@1 issue resolution (SWE-bench-Verified)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 41.4% (207/500)."
+   },
+   {
+    "metric": "Ablation: without multi-chain generation",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: 31.4%, a -10.0pp drop from 41.4%, exactly."
+   },
+   {
+    "metric": "File-level localization Acc@1",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: 81.67% exactly."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Methodology fully verified: static dependency graph (calls/inheritance/imports/variable refs), BFS+DFS from K seed entities forming K\u00d7W chains, a three-round multi-agent debate ('three-round debate among specialized agents...along the fault propagation trace' quoted verbatim), then MCTS-based patch generation."
+ },
+ {
+  "arxiv_id": "2510.00446",
+  "numbers": [
+   {
+    "metric": "Completion Edit Similarity at 5.6x compression vs. uncompressed",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table II: 63.11 vs 64.04 exactly."
+   },
+   {
+    "metric": "RepoQA accuracy at 5.3x compression vs. no compression",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table IV: 80.7% vs 69.0% exactly."
+   },
+   {
+    "metric": "Generation latency reduction",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table IX: 15.70s -> 6.59s, consistent with '15.7s to 6.6s' under rounding."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed. Minor citation issue: stop_detail cites 'Section III-B' for both stages, but coarse-grained (perplexity-ranked function selection) is actually III-C and fine-grained (block boundaries + 0/1 knapsack) is III-D; III-B is just the method overview."
+ },
+ {
+  "arxiv_id": "2601.10112",
+  "numbers": [
+   {
+    "metric": "mean relative accuracy improvement with RIG",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Section VI: '+12.2%' relative accuracy improvement, exactly."
+   },
+   {
+    "metric": "mean completion time reduction with RIG",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Section VI: 53.9% reduction, exactly."
+   },
+   {
+    "metric": "average RIG size across 8 repos",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "~20,692 bytes / ~5,173 tokens average and ~15,019 tokens (60,076 bytes) for the largest repo, both matching. However, this data is actually in Section V-B (Tables II-III), not 'Section VI' as cited by the record."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": false,
+  "mechanism_suggested": "skeletonization",
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Mechanism mismatch: SPADE deterministically builds a whole-repo architectural map from CMake File API + CTest build/test metadata upfront -- this is better described as skeletonization (building an abstracted structural map) than slicing_static_analysis (which implies code slicing/dependency tracing from a query point, not performed here). Metric 3's table location is Section V-B, not Section VI as the record states."
+ },
+ {
+  "arxiv_id": "2603.01327",
+  "numbers": [
+   {
+    "metric": "SWE-Bench Lite resolve rate vs. SWE-agent (Claude-4.5)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: 71.3% vs 66.0% (+5.3pp), exactly."
+   },
+   {
+    "metric": "SWE-Bench Pro resolve rate vs. SWE-agent (Claude-4.5)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: 45.0% vs 39.5% (+5.5pp), exactly."
+   },
+   {
+    "metric": "Token usage vs. RepoGraph (GPT-5.2, Lite)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: SWE-Adept 197k tokens (70.8% Func Acc@5) vs RepoGraph 150k tokens (60.6% Func Acc@5) -- SWE-Adept uses more tokens but has higher accuracy, exactly as stated."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers and methodology confirmed verbatim, including exact section citation (Sec 3.1 code-structure tree with contains/invokes edges, Sec 3.2 dependency-aware DFS via find_child_unit with two-stage post-search filtering). Paper also contains genuine internal component ablations (Tables 4-6) supporting the ablated_measured label."
+ },
+ {
+  "arxiv_id": "2606.04397",
+  "numbers": [
+   {
+    "metric": "Input tokens, tutorial validation case study",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4 ('Efficiency for Case Study 2', the tutorial case study): 112.3K -> 76.8K, -31.6% (~-32%), exactly."
+   },
+   {
+    "metric": "Wall-clock time, tutorial validation case study",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Values correct (17.2 -> 11.4 min, -34%) but wrong table cited: this is in Table 4 ('Efficiency for Case Study 2'), not Table 3 (which covers Case Study 1 / API-reference, with unrelated values 4.1->3.2 min, -22%)."
+   },
+   {
+    "metric": "Issues surfaced",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Values correct (13 total with CAIS vs 5 baseline) but location is Table 1 within Section 6 ('Results and Discussion'), not 'Sec 4' (Section 4 is 'Case-Study Protocol')."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Two of three numbers have location-citation errors though the values themselves are correct (see numbers[1] and numbers[2] notes) -- both actually come from Table 4 and Table 1/Section 6. Methodology (BM25 + DRAMA dense embeddings fused via reciprocal rank fusion, agent-issued tool-call queries, Sec 3.2-3.3) confirmed verbatim."
+ },
+ {
+  "arxiv_id": "2607.09691",
+  "numbers": [
+   {
+    "metric": "behavioral probe correctness",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: raw source 27/45 (60.0%), frontier NL summary 4/45 (8.9%), 3B-model summary 4/45 (8.9%), signature+docstring 6/45 (13.3%) -- all exact."
+   },
+   {
+    "metric": "resolve rate, N=70 oracle-localized multi-file subset",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: oracle_full 19/70 (27.1%), oracle_tier 23/70 (32.9%), oracle_keep_drop 25/70 (35.7%) -- all exact."
+   },
+   {
+    "metric": "mean tokens per arm (resolve experiment)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "oracle_full ~25,426, oracle_tier ~8,629, oracle_keep_drop ~6,876 -- all exact, Section 3.2 (resolve@cost rig)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Methodology quoted almost verbatim: deterministic AST extraction (Subsystem->Component->File->Class->Function, Sec 3.1), six representation rungs (full-body/method-only/UML-class-skeleton/signature+doc/name/exclude, all deterministic, no LLM), and gold-edited units kept verbatim via keep/drop."
+ },
+ {
+  "arxiv_id": "2607.25431",
+  "numbers": [
+   {
+    "metric": "incremental index update speedup",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract/Sec 9.5: graph updates 8.7x faster, vector updates 25.4x faster than rebuild at median, exactly."
+   },
+   {
+    "metric": "static vs live-server navigation latency",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract/Sec 9.4: 4.7x median per-request latency ratio on the 63% of 1,000 requests with matching normalized locations, exactly."
+   },
+   {
+    "metric": "trajectory token reduction",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "50-87% fewer tokens than grep/read baseline within a 5% (epsilon=0.05) AnswerRecall@5 margin, across 5 agent models -- exact, but the actual results appear in Section 9.7 ('Q5: Agent Context Delivery'); Section 7.4 (cited by the record) is where the Compact policy mechanism is defined, not where these results are reported."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "Evaluation type mismatch: the Q5 token-reduction experiment holds quality constant (filters to policies where AnswerRecall@5 stays within an epsilon=0.05 margin of grep/read) and reports token usage as the measured outcome -- this is the inverse of budget_matched_ablation's required structure (held-constant token/line budget, measured quality), so ablated_measured fits better. All 3 numeric values confirmed; metric 3's citation conflates the mechanism-definition section (7.4) with the results section (9.7)."
+ },
+ {
+  "arxiv_id": "2306.10763",
+  "numbers": [
+   {
+    "metric": "Compilation Rate, SantaCoder-1.1B-MGD vs text-davinci-003",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1 (score@6): SC-1.1B-MGD 73.03% vs text-davinci-003 62.66%."
+   },
+   {
+    "metric": "Next Identifier Match, SantaCoder-MGD vs text-davinci-003",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 88.42% vs 86.18%."
+   },
+   {
+    "metric": "Improvement on high-complexity identifiers (36.97% of methods)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Appendix F reports relative improvement in the range 21%-28% for multi-subtoken identifiers on the 36.97%-of-methods subset, consistent with 21.79%-27.91%."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "All three key numbers confirmed exactly. Evaluation is a set of configuration comparisons across models/prompting/decoding strategies, not a budget-matched ablation (no held-constant token/line budget is being controlled) \u2014 'ablated_measured' fits better than 'budget_matched_ablation'."
+ },
+ {
+  "arxiv_id": "2402.03630",
+  "numbers": [
+   {
+    "metric": "Exact Match, IDECoder vs RAG baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 10.46% vs 9.77%."
+   },
+   {
+    "metric": "CodeBLEU, IDECoder vs RAG baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 34.16% vs 31.65%."
+   },
+   {
+    "metric": "Syntax Match, IDECoder vs RAG baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 50.73% vs 48.92%."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "demonstrated",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. No ablation study is present \u2014 the paper only compares IDECoder against baselines (in-file, all-import, RAG) with no isolation of its own components (e.g., linting refinement) or budget control, so 'demonstrated' fits better than 'ablated_measured'."
+ },
+ {
+  "arxiv_id": "2406.01422",
+  "numbers": [
+   {
+    "metric": "SWE-bench Lite resolved rate vs SWE-agent",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: LingmaAgent 21.33% vs SWE-agent 18.00% (18.5% relative improvement)."
+   },
+   {
+    "metric": "Function-level fault localization accuracy vs SWE-agent",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 5: 49.3% vs 45.3%."
+   },
+   {
+    "metric": "Alibaba Cloud in-house issue resolution",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Tables 7-8: 16.9% fully automated, 43.3% with human intervention."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Paper's Table 4 provides genuine ablations (removing call graph, summary module, MCTS), consistent with 'ablated_measured'. Structure-tree + call-graph representation and MCTS agentic exploration both check out."
+ },
+ {
+  "arxiv_id": "2406.18294",
+  "numbers": [
+   {
+    "metric": "input token reduction",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Section 1: 'reduced the input from over 50,000 tokens to approximately 8,000 tokens'."
+   },
+   {
+    "metric": "EM improvement, Starcoder2-7B",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "31.45% -> 35.76% is the correct Table 4 (top-k=5) EM. 35.22% is real but is the EM at Table 5's top-p=0.3 config (top-k fixed at 5), not Table 4's top-k=5 config as cited.",
+    "note": "Location/value mismatch: cited as 'Table 4 (HCP, top-k=5)' but Table 4 top-k=5 actually gives EM=35.76%, not 35.22%. The 35.22% figure belongs to a different table/config (Table 5, top-p=0.3)."
+   },
+   {
+    "metric": "Edit Similarity improvement",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "69.09 (Table 1/4 baseline) -> 70.64 (Table 5, top-p=0.3) confirmed."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "EM number WRONG: Table 4 top-k=5 gives 35.76% not 35.22% (35.22% is actually from Table 5, top-p=0.3 \u2014 a mislabeled location). Evaluation varies top-k/top-p, which changes the resulting token budget as a byproduct rather than holding it constant, so 'ablated_measured' fits better than 'budget_matched_ablation'."
+ },
+ {
+  "arxiv_id": "2503.18305",
+  "numbers": [
+   {
+    "metric": "Pass@1 (Claude-3.5-Sonnet, full K-Trans vs prompt-engineering baseline)",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "67.7% vs 49.1% is correct; the paper's own text calls this an 18.6-point/percent surpass ('substantially surpassing the best baseline PE by 17.8% and 18.6%'). 135.9% is the maximum relative improvement across ALL studied LLMs (specifically Qwen-2.5-Coder-14B) vs a Basic RAG baseline (per abstract), not Claude-3.5-Sonnet vs PE baseline.",
+    "note": "135.9% relative improvement figure is misattributed \u2014 it belongs to a different model/baseline pair, not Claude-3.5-Sonnet vs PE."
+   },
+   {
+    "metric": "CodeBLEU (Claude-3.5-Sonnet)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: 0.733 (K3Trans) vs 0.604 (PE baseline)."
+   },
+   {
+    "metric": "Target-language knowledge base size",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 2.2.2: 113,882,369 code examples from 671,240 GitHub projects."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Pass@1 relative-improvement figure (135.9%) is WRONG for this pairing \u2014 it's the max gain across all studied LLMs (Qwen-2.5-Coder-14B) vs a Basic RAG baseline, per the abstract; the paper's own text gives 18.6% for Claude-3.5-Sonnet vs the PE baseline. Raw 67.7%/49.1% values, CodeBLEU, and KB size all confirmed; other facets check out (Table 4 progressive K1/K2/K3Trans ablation)."
+ },
+ {
+  "arxiv_id": "2508.02998",
+  "numbers": [
+   {
+    "metric": "Best baseline Pass@1 (Claude 3.5 Sonnet, avg across languages)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 32.5%."
+   },
+   {
+    "metric": "In-file context effect on DeepSeek-Coder-33B Pass@1",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "6.4% (no context) -> 22.2% (in-file window)."
+   },
+   {
+    "metric": "RAG (Mix-RAG) underperforms in-file baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 7: 12.3% vs 22.2% Pass@1."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": false,
+  "note": "All three numbers confirmed exactly. stop_detail is NOT a fair paraphrase: failure attribution uses LLM-based annotation/voting among five SOTA models (GPT-4o, Claude-3.5-Sonnet, Gemini-2.5-Pro, DeepSeek-V3, Qwen2.5-72B), not human 'manual annotation'."
+ },
+ {
+  "arxiv_id": "2510.04905",
+  "numbers": [
+   {
+    "metric": "Papers synthesized",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "152 papers confirmed, but located in Section 3.3 ('Quality Assessment and Final Corpus'), not Section 3.5 ('Manuscript Organization') as cited."
+   },
+   {
+    "metric": "Agentless score cited from surveyed work",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 5.2.1: 'reaching competitive performance (e.g., 32% on SWE-bench Lite)'."
+   },
+   {
+    "metric": "CrossCodeEval benchmark scale",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 9,928 tasks across Python, Java, TypeScript, C#."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed, though the 152-papers figure sits in Section 3.3, not Section 3.5 as cited (minor citation slip, value itself correct). Facets and stop_detail otherwise check out for this literature-synthesis survey (not_evaluated, no new experiments)."
+ },
+ {
+  "arxiv_id": "2601.13933",
+  "numbers": [
+   {
+    "metric": "Resolution rate, full system vs base (SEC-bench Lite)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table V: 75.0% vs 48.8%."
+   },
+   {
+    "metric": "Cost per issue, base vs full",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec IV-A: $0.0296 vs $0.0718."
+   },
+   {
+    "metric": "Token share of context/report-generation stage (full config)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec IV-B2: agent-based report generation = 70.45% of total tokens."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "hybrid",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "repr_primary disagreement: CPCAgent's collected context is output as a natural-language Context Analysis Report with embedded code snippets/citations (no explicit graph structure built), and the system separately uses an Agentless-style skeleton representation (ellipsis-replaced bodies) elsewhere \u2014 'hybrid' fits better than 'call_dep_graph'. All three key numbers confirmed exactly, including clangd-backed symbol analysis and the ablation-style component study."
+ },
+ {
+  "arxiv_id": "2603.25770",
+  "numbers": [
+   {
+    "metric": "GPT-5 full-context strict pass rate (SPR)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 5: 37.57%."
+   },
+   {
+    "metric": "CCE improvement over vanilla agent (overall)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "'improvements of up to 7.56% [pp] in strict pass rate' over vanilla agent."
+   },
+   {
+    "metric": "Agent+CCE cost per instance (GPT-5 Mini)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 7: $0.1241 (Agent+CCE) vs $0.1226 (agent-only)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Heterogeneous directed graph (dir/file/class/function nodes; contain/import/invoke/inherit edges) with caller-pattern/graph-query/validation tools matches stop_detail closely."
+ },
+ {
+  "arxiv_id": "2606.07297",
+  "numbers": [
+   {
+    "metric": "Pearson correlation, Context Efficiency vs downstream repair success",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "r=0.950 for Context Efficiency (Table 4; also discussed in Sec 4.3)."
+   },
+   {
+    "metric": "HitFile (file-level hit rate), Oracle vs sparse retrievers (BM25/TF-IDF)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Oracle 0.923 vs BM25 0.079 / TF-IDF 0.140."
+   },
+   {
+    "metric": "Downstream Resolve Rate, Oracle vs CoSIL vs Claude Code",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: 59.7% vs 59.3% vs 48.0%."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Fixed 500-line budget across all explorers with precision/recall/F1, nDCG@500, HitFile/HitRegion, and Context Efficiency metrics matches a genuine budget_matched_ablation."
+ },
+ {
+  "arxiv_id": "2607.10621",
+  "numbers": [
+   {
+    "metric": "Pass@2, average gain over baseline agents",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: Gemini 2.5 Pro 49.40% vs 42.40%; average +9.55pp across nine models."
+   },
+   {
+    "metric": "Ablation: design-knowledge removal",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: Pass@1 drops from 34.90% to 23.50% (-11.40pp), the largest single-component drop."
+   },
+   {
+    "metric": "vs Claude Code, RQ4",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: WebDesignIter 33.53% Pass@1 @533K tokens vs Claude Code 21.27% @13,949K tokens."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. WebAppArchKG (Tree-sitter AST blocks + import deps + design annotations) with graph-node retrieval, diff-based patches, and sandbox validation matches stop_detail and facets."
+ },
+ {
+  "arxiv_id": "2607.26805",
+  "numbers": [
+   {
+    "metric": "Pass@1, CoderEval K=10 (DeepSeek-Coder)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "36.5% (MRCoder) vs 23.9% (RAG); (36.5-23.9)/23.9 = 52.7% relative, matches claim."
+   },
+   {
+    "metric": "Token consumption reduction vs RAG",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2 shows reductions of ~29.4%-52.2%, consistent with the claimed 30-50% range."
+   },
+   {
+    "metric": "Inference time reduction",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Up to 52.1% vs RAG; 47.6% vs RepoFormer (Sec 5.2)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": false,
+  "mechanism_suggested": "similarity_retrieval",
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "mechanism disagreement: Structure-Aware Draft-Guided Selection uses fixed rule-based signals (exact API-call overlap + BM25 similarity to an LLM-generated draft) with no trained/learned scorer or classifier \u2014 paper explicitly avoids the term 'pruning' for its own method (used only to describe a baseline, SlimCode) \u2014 so 'similarity_retrieval' fits better than 'learned_pruning'. All three key numbers confirmed exactly."
+ },
+ {
+  "arxiv_id": "2306.10998",
+  "numbers": [
+   {
+    "metric": "Success rate (exact match), best config",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Paper: 'RepoFusion (N=32, l=768) achieves a success rate of 77.32 \u00b1 0.10%' (Table 2)."
+   },
+   {
+    "metric": "RepoFusion (220M) vs StarCoderBase (70x larger)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: RepoFusion (N=32, l=2500) 78.33% vs StarCoderBase (post+prior context) 79.79%, ~70x param gap."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "Both numbers CONFIRMED exactly. Evaluation is likely NOT budget-matched: the paper varies N (num contexts) and l (length) independently across experiments rather than holding total token budget constant while comparing retrieval methods \u2014 suggest ablated_measured instead of budget_matched_ablation."
+ },
+ {
+  "arxiv_id": "2402.12317",
+  "numbers": [
+   {
+    "metric": "Execution accuracy (ChatGPT backbone), EVOR vs DocPrompting",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: EVOR 35.3% vs DocPrompting 19.2%."
+   },
+   {
+    "metric": "Token consumption, EVOR vs DocPrompting",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 7 (Appendix E): EVOR ~16,251 tokens vs DocPrompting ~3,751 tokens (ChatGPT)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Both numbers CONFIRMED exactly. Facets and stop_detail all check out \u2014 correctly labeled ablated_measured (not budget-matched: token budgets differ substantially across compared methods, ~4x more for EVOR)."
+ },
+ {
+  "arxiv_id": "2406.03283",
+  "numbers": [
+   {
+    "metric": "pass@5, CatCoder vs RepoCoder (Java)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 5: 57.5% vs 49.0%; relative gain (57.5-49.0)/49.0=17.35% matches abstract's 'up to 17.35%' pass@k figure."
+   },
+   {
+    "metric": "pass@1 drop removing Type Context (-TC)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 7 Java: 44.7%\u219239.5% (~11.6-11.8% relative decline, close to claimed 11.57%); Rust: 52.7%\u219249.9% (5.31% relative decline, matches claimed 5.3%). Note: the exact '11.57%' figure in the paper's prose appears tied to compile@k discussion, not literally pass@1 \u2014 worth a light re-check, but values are consistent within rounding."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Both numbers CONFIRMED (minor rounding ambiguity on Java -TC pass@1 figure, flagged above). Facets and stop_detail agree \u2014 component ablation (FULL vs -CR vs -TC) does not hold budget constant, correctly labeled ablated_measured."
+ },
+ {
+  "arxiv_id": "2407.19619",
+  "numbers": [
+   {
+    "metric": "CodeBLEU, Granite-34B zero-shot vs one-shot (HPC dataset)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Zero-shot 0.237, one-shot gain +0.363 \u2192 ~0.600 combined (Table II, HPC Fortran2CPP, Nomic-embed/L2)."
+   },
+   {
+    "metric": "CodeBLEU, GPT-4o zero-shot",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table I: GPT-4o 0.371\u00b10.002 CodeBLEU zero-shot on HPC Fortran2CPP."
+   },
+   {
+    "metric": "Pairwise similarity, Codestral/Llama3 zero-shot (Stack-V2)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Figure 7 / Sec IV-5: 'highest pairwise similarity...between Codestral and Llama3-70B...0.522'."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers CONFIRMED exactly. Facets and stop_detail agree \u2014 correctly not budget-matched (shot-count ablation, no token-budget control)."
+ },
+ {
+  "arxiv_id": "2504.08862",
+  "numbers": [
+   {
+    "metric": "Edit Similarity / Exact Match, RTLRepoCoder-DeepSeek vs. GPT-4",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: ES 84.3% vs 71.9%; EM 55.8% vs 48.5%."
+   },
+   {
+    "metric": "Fine-tuning impact vs. base model",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2 / Sec 5.2.1: base ES 48.6%\u2192fine-tuned 83.3% (+34.7%); base EM 16.8%\u219253.9% (+37.1%)."
+   },
+   {
+    "metric": "RAG impact on >10k-token samples",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: without RAG ES 81.2%/EM 50.3% \u2192 with RAG ES 83.5%/EM 55.0%, i.e. +2.3% ES, +4.7% EM."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": false,
+  "note": "IMPORTANT: stop_detail mischaracterizes the mechanism \u2014 the paper states retrieved chunks are CONCATENATED with in-file context (Sec 3.3), not used to REPLACE full-repo context once the budget is exceeded. All three numbers CONFIRMED exactly. Also no true budget-matched ablation found: Tables 5-6 vary chunk size and embedding model together without isolating a held-constant budget \u2014 suggest ablated_measured."
+ },
+ {
+  "arxiv_id": "2508.08322",
+  "numbers": [
+   {
+    "metric": "task success without correction, multi-agent vs baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 5: 'achieved...4 tasks (80%) without any human corrections. The single-agent baseline succeeded on only 2 tasks (40%)'."
+   },
+   {
+    "metric": "total tokens per task, multi-agent vs baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 5: '30-40 messages...roughly 100k tokens...single-agent...10k-20k tokens'."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "demonstrated",
+  "stop_detail_fair": true,
+  "note": "Both numbers CONFIRMED exactly. Evaluation label questionable: this is a small 5-task qualitative case study on a single codebase, which the paper itself frames as limited/non-rigorous rather than a controlled ablation \u2014 suggest 'demonstrated' rather than 'ablated_measured'."
+ },
+ {
+  "arxiv_id": "2510.08610",
+  "numbers": [
+   {
+    "metric": "Competition chrF score",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: 'received 0.660...in Kotlin and 0.636...in the Python track'; 'third place (Bronze) in the Kotlin track and...fourth place in the Python track'."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Number CONFIRMED exactly. Facets and stop_detail all agree \u2014 authors explicitly state no ablation study was performed, consistent with 'demonstrated' label."
+ },
+ {
+  "arxiv_id": "2601.16746",
+  "numbers": [
+   {
+    "metric": "SWE-Bench Verified token reduction & resolve rate, Claude Sonnet 4.5",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 0.911M\u21920.701M tokens (23.1% reduction); resolve rate 70.6\u219272.0 (+1.4pp)."
+   },
+   {
+    "metric": "SWE-Bench Verified, GLM 4.6",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1: 0.791M\u21920.488M tokens (38.3% reduction); resolve rate 55.4\u219256.6 (+1.2pp)."
+   },
+   {
+    "metric": "Long Code QA compression vs. accuracy",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: 14.84x compression ratio, 58.71% accuracy maintained."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "All three numbers CONFIRMED exactly. Evaluation is borderline: paper sets nominal 4x/8x compression targets across methods, but SWE-Pruner exceeds these targets vs. baselines at the 'same' nominal setting rather than a strict held-constant-budget comparison \u2014 leans toward ablated_measured rather than budget_matched_ablation."
+ },
+ {
+  "arxiv_id": "2603.28119",
+  "numbers": [
+   {
+    "metric": "issue resolution rate vs no compression",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "GPT-5.2: 0.578 vs 0.532 (+4.6pp) is a +8.6% relative improvement, NOT +9.2%. The +9.2% relative figure actually belongs to DeepSeek-V3.2 (0.522 vs 0.478, +4.4pp = +9.2% relative). Qwen3-Coder: 0.420 vs 0.400 (+2.0pp = +5.0% relative) is correct.",
+    "note": "The GPT-5.2 relative-% figure (+9.2%) is misattributed \u2014 it is actually DeepSeek-V3.2's relative improvement per Table 2; GPT-5.2's own relative gain is +8.6%."
+   },
+   {
+    "metric": "compression ratio",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "5.95x-6.55x, not 6.03x-6.55x. Table 2 per-model ratios: DeepSeek-V3.2 6.03x, Qwen3-Coder-Next 5.95x, GPT-5.2 6.55x \u2014 the true minimum across the three models is 5.95x (Qwen3-Coder-Next), which is excluded from the stated range.",
+    "note": "Range should start at 5.95x (Qwen3-Coder-Next), not 6.03x (which is the middle value, from DeepSeek-V3.2)."
+   },
+   {
+    "metric": "token reduction vs uncompressed",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: reductions of -60.3%/-69.1%/-51.8% (prompt) and -55.9%/-51.8%/-71.3% (total) \u2014 matches the claimed 51.8%-71.3% range."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Two of three numbers have errors: GPT-5.2's relative-% figure is misattributed (actually DeepSeek-V3.2's, per Table 2), and the compression-ratio range excludes the true minimum (5.95x for Qwen3-Coder-Next, not 6.03x). Token-reduction range CONFIRMED. Facets and stop_detail agree; evaluation correctly not budget-matched (paper explicitly reports only success-rate deltas, no held-constant-budget ablation)."
+ },
+ {
+  "arxiv_id": "2606.08135",
+  "numbers": [
+   {
+    "metric": "Pass@1 (DevEval, GPT-4o-mini)",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "31.01% is correct, but '+22.76 pts' is actually a RELATIVE percentage improvement over AllianceCoder (baseline 25.26%), not percentage points. Verified: (31.01-25.26)/25.26 = 22.76% relative \u2014 exact match. The absolute point gap is only ~5.75 pts.",
+    "note": "'pts' label is incorrect \u2014 22.76 is a relative-% improvement, not an absolute percentage-point gap."
+   },
+   {
+    "metric": "Pass@1 (CoderEval Python, DeepSeek-V3)",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "56.09% is correct, but '+7.90 pts' is likely a relative percentage improvement over AllianceCoder (baseline ~52.17%), not percentage points (absolute point gap is only ~3.9-4.1 pts).",
+    "note": "Same 'pts' mislabeling pattern as the DevEval figure; the paper marks these gains with '\u2191X%' notation which is relative, not absolute points."
+   },
+   {
+    "metric": "Average improvement over SOTA baselines",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: 'average improvement of 11.52%'; Sec 6.1 (RQ1): '11.25% across different benchmarks' \u2014 both figures present as stated."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Two key_numbers mislabel relative-% improvements as absolute percentage points (verified DevEval case matches exactly as relative %: 22.76% = (31.01-25.26)/25.26). Third number (11.52%/11.25% avg improvement) CONFIRMED exactly. Facets and stop_detail agree; ablation (Table 3, component removal) correctly not budget-matched."
+ },
+ {
+  "arxiv_id": "2607.11111",
+  "numbers": [
+   {
+    "metric": "Pass@1, ACQUIRE vs Mini-SWE-Agent baseline (DeepSeek-V3.2)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table I: ACQUIRE 70.8% (+4.4pp) vs baseline 66.4%."
+   },
+   {
+    "metric": "Average cost per instance, ACQUIRE vs baseline (DeepSeek-V3.2)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table I: $0.073 vs $0.055."
+   },
+   {
+    "metric": "QA factual reliability (human audit)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec V-B1: 'Of the 232 audited QA pairs, 230 (99.1%) are labeled Supported'."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers CONFIRMED exactly. Mechanism and stop_detail confirmed in detail (Questioner/Answerer via read-only shell shared with Mini-SWE-Agent, four question categories, QA text prepended to Resolver). repr_primary='hybrid' is a reasonable but not independently pinned-down label for the synthesized QA-knowledge representation \u2014 flagged as a soft judgment call, not a clear disagreement."
+ },
+ {
+  "arxiv_id": "2608.01927",
+  "numbers": [
+   {
+    "metric": "Relative Pass@1 improvement (DevEval)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: '59.73% on DevEval...compared with existing RAG-based methods'."
+   },
+   {
+    "metric": "Relative Pass@1 improvement (CoderEval)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: '25.63% on CoderEval'."
+   },
+   {
+    "metric": "Construction speedup vs. static graph baseline (RepoScope)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: '7.4x faster'; Table 2: DyCoder 13.09k tokens/$0.0039 vs RepoScope 5.11k tokens/$0.0020 per function (speedup is in construction time/cost per graph, not token count \u2014 DyCoder actually uses more tokens, consistent with the given figures)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers CONFIRMED exactly. Facets and stop_detail all agree \u2014 Table 3 ablations (w/o Similarity-based, w/o DyRetriever, w/o Multi-hop Reasoning) are genuine component ablations, no issues found."
+ },
+ {
+  "arxiv_id": "2309.12499",
+  "numbers": [
+   {
+    "metric": "Repositories passing validity checks (build without errors, correct edits)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Abstract verbatim: \"CodePlan is able to get 5/6 repositories to pass the validity checks ... whereas the baselines ... cannot get any of the repositories to pass them.\""
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All confirmed. Sec 2.2.2 confirms may-impact analysis via caller/callee (Rel(D,M,CalledBy)) and method-override relations; Sec 2.1 confirms enclosing-class sketching. Baseline comparison (no planning, same context) is a fair ablation, matching evaluation=ablated_measured."
+ },
+ {
+  "arxiv_id": "2402.14323",
+  "numbers": [
+   {
+    "metric": "Code EM relative gain, dual vs. analogy-only context",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Abstract: \"40.90% to 59.75% increase in exact match (EM) accuracy\"; Sec 4.4.1 attributes this to dual vs analogy comparison."
+   },
+   {
+    "metric": "DeepSeek-7B Code EM at 4096-token budget",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: AC 19.70, RC 21.13, DC 27.92 at 4096 tokens."
+   },
+   {
+    "metric": "Inference speedup, dual vs. analogy-only context",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Sec 4.4.2: \"RepoFuse surpasses existing methods by utilizing merely 75.4% of the context length typically required, while simultaneously enhancing inference speed by 26.8%\"; DC_512 vs AC/RC_4096 confirmed."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All three numbers and the RTG mechanism description (Eq. 2-3, rank + truncation constraints) confirmed verbatim in Sec 3.3/4.4."
+ },
+ {
+  "arxiv_id": "2406.04464",
+  "numbers": [
+   {
+    "metric": "SWE-bench Lite entity-level F1, BM25 baseline vs. custom ACR",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: 7.2 vs 28.9."
+   },
+   {
+    "metric": "LCA entity-level F1, BM25 baseline vs. custom ACR",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: 9.4 vs 20.2."
+   },
+   {
+    "metric": "Correlation: precision-vs-reasoning-complexity vs. recall-vs-context-length",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Text: precision-reasoning corr >0.7, recall-length corr 0.5 avg, recall-reasoning corr 0.1 avg \u2014 all three sub-values match."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "ast",
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Paper never mentions call/dependency graphs; it explicitly borrows AutoCodeRover's 'code structure-aware tools' (well-documented elsewhere as AST-based search_class/search_method/search_code APIs, not graph traversal), so call_dep_graph is unsupported by this text \u2014 ast is the better-evidenced tag. Five-strategy ReAct/ACR comparison and correlation stats all confirmed."
+ },
+ {
+  "arxiv_id": "2409.15204",
+  "numbers": [
+   {
+    "metric": "CodeBLEU / EM on RAMBO benchmark (DeepSeek Coder 6.7B) vs. RepoCoder",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: CodeBLEU 53.20 vs 50.31; EM 18.94% vs 15.53%."
+   },
+   {
+    "metric": "Defects4J EM vs. RepoCoder Oracle",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3, CodeLlama-7B row: Rambo 20.59 vs RepoCoder Oracle 19.61 (~5% relative gain). Note other model rows (DeepSeek 23.04/21.57) differ \u2014 confirm this is the CodeLlama row specifically."
+   },
+   {
+    "metric": "Retrieval-similarity ablation, lexical vs. semantic CodeBLEU",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 4: lexical 53.20 vs semantic 52.61."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Sec 3 confirms sketch generation -> element extraction/filtering vs actual declarations (Eq 1-3) -> usage retrieval/ranking by similarity, exactly as described. All numbers confirmed once matched to the correct model row."
+ },
+ {
+  "arxiv_id": "2504.10046",
+  "numbers": [
+   {
+    "metric": "Pass@1 DevEval, GPT-4o",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 4: GraphCodeAgent 58.14% vs Dense RACG 40.43% (GPT-4o column)."
+   },
+   {
+    "metric": "Pass@1 CoderEval, GPT-4o",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "58.14/53.91 vs 40.87% (not 42.17%)",
+    "note": "Table 4 row 'Sparse RACG | Text-based | 40.87 | 42.17' \u2014 the two numbers are GPT-4o and Gemini-1.5-Pro columns respectively. 40.87 is the GPT-4o value (and matches the stated 31.91% relative improvement: (53.91-40.87)/40.87=31.9%); 42.17 is Gemini-1.5-Pro's value, wrongly attributed to GPT-4o."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Paper states DevEval contains 1,825 test examples from 117 repositories."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "One wrong number: CoderEval GPT-4o baseline (Sparse RACG) is 40.87%, not 42.17% (42.17 is the Gemini-1.5-Pro value from the same table row, mismatched column). RGRetrieval/DualGraphMapping/SSCGTraverse ReAct pipeline confirmed."
+ },
+ {
+  "arxiv_id": "2508.17720",
+  "numbers": [
+   {
+    "metric": "Compile rate C#->Java",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table II: 55.34%."
+   },
+   {
+    "metric": "Pass rate C#->Java",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table II: 45.84%."
+   },
+   {
+    "metric": "No-Context-Agent ablation pass rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table IV: 32.20% (No Context Agent) vs 45.84% full system."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed. Sec III-B/III-C confirms Context Agent iteratively calling JSON tools (get_source_class_info, find_target_method_body, etc.) informed by hybrid dense+BM25 retrieval with RRF."
+ },
+ {
+  "arxiv_id": "2510.08850",
+  "numbers": [
+   {
+    "metric": "Exact match / Recall on small-medium repos (held-out queries)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Abstract: \"exact match up to 91% and recall 93% on held-out queries.\""
+   },
+   {
+    "metric": "Recall on PyTorch (~4k Python files)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Abstract: \"59% recall\" on PyTorch; Table 1 confirms PyTorch is the ~19k-file repo of which ~3.9k are Python, matching \"~4k Python files\"."
+   },
+   {
+    "metric": "training scale",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Text: \"train on tens of thousands of synthetic QA pairs\"; Fig. 1 confirms six strategies S1-S6 matching the stated order (per-file, repo overview, mid-level structures, fine AST details, repo overview+file summary, repo-batching)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": false,
+  "mechanism_suggested": "learned_compression",
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "Mechanism mismatch: nothing is pruned from a given context \u2014 the paper explicitly frames this as compiling retrieval into model weights (\"compact, parametric index of the repository\"), i.e. learned_compression of the retrieval function, not learned_pruning of an existing context. All three numbers and the S1-S6 pipeline description confirmed exactly."
+ },
+ {
+  "arxiv_id": "2601.19697",
+  "numbers": [
+   {
+    "metric": "EM on CrossCodeEval Python (DeepSeekCoder-1B): AlignCoder vs RLCoder vs RepoCoder",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table I: 28.37 vs 24.02 vs 20.23."
+   },
+   {
+    "metric": "EM improvement over RLCoder on CrossCodeEval",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table I / abstract: \"28.37 \u219118.1%\", matches abstract's 18.1% figure."
+   },
+   {
+    "metric": "EM on RepoEval line-level (DeepSeekCoder-7B): AlignCoder vs RLCoder",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table I: 49.56 vs 48.81."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All confirmed. Sec III confirms UniXcoder retriever RL-trained on perplexity-based reward (PPL(t|q,cmp)<=PPL(t|q,ci)), retrieving Split-Aggregate base + tree-sitter dependency snippets, query enhanced with sampled candidate completions."
+ },
+ {
+  "arxiv_id": "2604.24678",
+  "numbers": [
+   {
+    "metric": "Exact Match (Qwen2.5-Coder-7B)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: fine-tuned 0.629 vs raw zero-shot 0.076."
+   },
+   {
+    "metric": "Exact Match (DeepSeek-Coder-7B)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: fine-tuned 0.657 vs raw zero-shot 0.371."
+   },
+   {
+    "metric": "Structural Fidelity (DeepSeek-Coder-7B, fine-tuned)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 1: 1.000."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": false,
+  "evaluation_suggested": "ablated_measured",
+  "stop_detail_fair": true,
+  "note": "Evaluation mismatch: the representation (single nested-JSON full-project encoding) is held constant across ALL conditions \u2014 what's varied is the adaptation strategy (zero-shot / one-shot / QLoRA fine-tune), not representation/mechanism at a fixed budget. This is a plain adaptation-method ablation, not a budget_matched_ablation. All three numbers and the linearized-JSON, single-response method confirmed exactly."
+ },
+ {
+  "arxiv_id": "2606.14061",
+  "numbers": [
+   {
+    "metric": "input token change with multimodal graph integration (GPT-5-mini)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: -25% input tokens, -26% cost, accuracy 55.4% (+0.4 vs 55.0% baseline)."
+   },
+   {
+    "metric": "token reduction range across four MLLMs with multimodal integration",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "GPT-5-mini 25%, GPT-5.1 46%, Doubao-Seed-2.0-Lite 4.8%, matching stated 4.8%-46% range (Kimi K2.5 is a +5% outlier increase, excluded from the reduction range)."
+   },
+   {
+    "metric": "vision-only degradation",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "GPT-5-mini -13.6 pts, Doubao-Seed-2.0-Lite -34.1 pts; cost up to 268% higher for Doubao."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All confirmed. Tool description matches: Graphviz PNG of a distance-aware heterogeneous graph (contains/imports/invokes/inherits) built via AST analysis, agent-controlled depth."
+ },
+ {
+  "arxiv_id": "2607.15205",
+  "numbers": [
+   {
+    "metric": "File Acc@5 (best agent system)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "\"OpenHands with GPT-5.2...reaches 38.96 File@5\", best among agents."
+   },
+   {
+    "metric": "Function Acc@10 (best retriever)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "\"MM-IssueLoc-VL-Emb-8B achieves the best Func@10 score of 33.86\"."
+   },
+   {
+    "metric": "Image-input gain on File Acc@5",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: MM-IssueLoc-VL-Emb-2B 32.06 (with images) vs 27.15 (without) = +4.91 points."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All confirmed. Agent (tool-use exploration) vs retriever (InfoNCE contrastive dense embedding, hard negatives, optional VCE structured-text from screenshots) description matches paper."
+ },
+ {
+  "arxiv_id": "2608.02001",
+  "numbers": [
+   {
+    "metric": "End-to-End Advisory Recall (Hard split)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 2: DeepSeek-V4-Flash + OpenHands, 22.58% AR (best config)."
+   },
+   {
+    "metric": "Critical-Operation Localization File Recall (Hard split)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Table 3: DeepSeek-V4-Flash + MiniSWE, 51.16% File Recall."
+   },
+   {
+    "metric": "Failures attributable to missing/mislocalized vulnerable files or lines",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": null,
+    "note": "Sec 4.3: No-Endpoint-File (26.8%) + Endpoint-File-Only (29.7%) = 56.5% of all failures."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": null,
+  "mechanism_agree": true,
+  "mechanism_suggested": null,
+  "evaluation_agree": true,
+  "evaluation_suggested": null,
+  "stop_detail_fair": true,
+  "note": "All confirmed. Agents restricted to read-only shell commands (cat/find/grep/ls/rg/sed/tail plus nl/pwd/wc not listed in stop_detail but immaterial); T1 end-to-end plus T2-T4 oracle subtasks matches the three named subtasks."
+ },
+ {
+  "arxiv_id": "2310.11248",
+  "numbers": [
+   {
+    "metric": "Exact Match, StarCoder-15.5B Python, no-context vs retrieved-context",
+    "verdict": "CONFIRMED",
+    "note": "Table 4: 8.82% (in-file only) -> 15.72% (+Retrieval), exact."
+   },
+   {
+    "metric": "Exact Match with oracle retrieval",
+    "verdict": "CONFIRMED",
+    "note": "Table 4: 21.01% (+Retrieval w/ Ref.), exact."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "CONFIRMED",
+    "note": "Table 1: 10,000 examples, ~1,000 repos, 4 languages, exact."
+   }
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "raw_window",
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "The headline retrieved-context number (15.72%) is produced by BM25 lexical retrieval over raw contiguous code chunks (10-line fragments, top-5, capped at 512 BPE tokens) -- not dense embeddings -- so repr_primary should be raw_window (consistent with how this dataset labels analogous Jaccard/BM25 baselines elsewhere, e.g. M2RC-Eval, Weng26). All three key numbers confirmed exactly."
+ },
+ {
+  "arxiv_id": "2403.06095",
+  "numbers": [
+   {
+    "metric": "Context retrieval acc@3, RepoBench-R Easy/Hard (RepoHyper+UniXcoder vs UniXcoder baseline)",
+    "verdict": "CONFIRMED",
+    "note": "68.91%/49.51% vs 59.69%/39.02%, exact."
+   },
+   {
+    "metric": "End-to-end EM/CodeBLEU, RepoBench-P XF-F (RepoHyper-L2H+GPT-3.5 vs RepoCoder)",
+    "verdict": "CONFIRMED",
+    "note": "52.76%/61.49% vs 48.73%/57.62%, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both key numbers confirmed exactly against the RepoBench-R and RepoBench-P tables. Section 4.3 mechanism description (kNN-seeded BFS graph expansion + GraphSAGE link-prediction re-ranking) confirmed near-verbatim; RSG node/edge types match stop_detail exactly."
+ },
+ {
+  "arxiv_id": "2406.07003",
+  "numbers": [
+   {
+    "metric": "Code EM gain vs RepoCoder (API-level, avg)",
+    "verdict": "CONFIRMED",
+    "note": "+6.06 average gain, exact."
+   },
+   {
+    "metric": "Identifier EM gain vs RepoCoder (avg)",
+    "verdict": "CONFIRMED",
+    "note": "+6.23 average gain, exact."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "CONFIRMED",
+    "note": "RepoEval-Updated: 8,000 tasks, 20 repos (10 Python/10 Java), exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Section 4.3 mechanism (Jaccard coarse-grained filter, then decay-weighted subgraph edit distance re-ranking) confirmed verbatim, matching stop_detail precisely."
+ },
+ {
+  "arxiv_id": "2410.21157",
+  "numbers": [
+   {
+    "metric": "DeepSeekCoder-6.7B EM/ES after +Retrieval&Tuning (avg, 18 langs)",
+    "verdict": "CONFIRMED",
+    "note": "46.8% EM / 74.1% ES, exact."
+   },
+   {
+    "metric": "Baseline (in-file only) EM",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "22.6%",
+    "note": "Actual baseline EM for DeepSeekCoder-6.7B is 22.6%, slightly outside the stated '~20-22%' approximate range."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "CONFIRMED",
+    "note": "18 languages, 100 val / 500 test samples per language, 5,993 test repos, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Baseline EM value (22.6%) falls just above the stated '~20-22%' range -- minor WRONG. Retrieval setting details (L-line segments, Jaccard ranking, 4096-token cap) confirmed verbatim."
+ },
+ {
+  "arxiv_id": "2505.14394",
+  "numbers": [
+   {
+    "metric": "Pass@1 on EvoCodeBench",
+    "verdict": "CONFIRMED",
+    "note": "36.36% (KG+Claude 3.5 Sonnet) vs 20.73% (baseline+GPT-4) vs 7.27% (no-context+GPT-4), exact."
+   },
+   {
+    "metric": "Pass@1 comparison to prior structural-retrieval work",
+    "verdict": "CONFIRMED",
+    "note": "36.02% (CodeXGraph, GPT-4o) vs 33.45% (proposed, GPT-4o), exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both Pass@1 comparisons confirmed exactly. Graph node types (File/Class/Method/Function/Attribute + Generated Description), LLM-generated node descriptions, all-MiniLM-L6-v2 embeddings, and n-hop expansion + semantic ranking all confirmed verbatim in the Methodology section."
+ },
+ {
+  "arxiv_id": "2508.21433",
+  "numbers": [
+   {
+    "metric": "solve rate / cost reduction, Qwen3-Coder 480B",
+    "verdict": "CONFIRMED",
+    "note": "Masking 54.8%/-52.7% vs LLM-summary 53.8%/-50.4%, exact."
+   },
+   {
+    "metric": "hybrid approach improvement",
+    "verdict": "CONFIRMED",
+    "note": "7% vs masking / 11% vs LLM-summary additional cost reduction, +2.6pp solve rate on SWE-bench Verified-50, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": false,
+  "mechanism_suggested": "none_fixed_window",
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both numbers confirmed exactly. Labeling mechanism 'summarization' undersells the paper's central finding: fixed-window observation masking (none_fixed_window), not LLM summarization, is shown to be sufficient/preferred -- the paper's title and abstract explicitly argue against needing summarization."
+ },
+ {
+  "arxiv_id": "2510.12948",
+  "numbers": [
+   {
+    "metric": "chRF score, Kotlin track",
+    "verdict": "CONFIRMED",
+    "note": "0.748, matches abstract verbatim."
+   },
+   {
+    "metric": "chRF score, Python track",
+    "verdict": "CONFIRMED",
+    "note": "0.725, matches abstract verbatim."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both chrF numbers confirmed against the abstract. Independently confirmed both arxiv.org/html and ar5iv.labs.arxiv.org return 404/redirect-to-abs for this ID -- stop_detail's unavailability claim is accurate; facet judgments rest on the abstract only."
+ },
+ {
+  "arxiv_id": "2601.19929",
+  "numbers": [
+   {
+    "metric": "Context compression ratio",
+    "verdict": "CONFIRMED",
+    "note": "18:1 (239k -> 11k tokens), matches abstract verbatim."
+   },
+   {
+    "metric": "Success rate across 12 frontier models",
+    "verdict": "CONFIRMED",
+    "note": "94-97% success on 40 real-world issues across 12 frontier models, matches abstract verbatim."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both numbers confirmed against the abstract. Independently confirmed both arxiv.org/html and ar5iv.labs.arxiv.org fail to render full text for this ID (404 / redirect-to-abs) -- stop_detail's unavailability claim is accurate; facet judgments rest on the abstract only."
+ },
+ {
+  "arxiv_id": "2605.14478",
+  "numbers": [
+   {
+    "metric": "stale-reference rate increase, Qwen2.5-Coder-7B-Instruct (stale-only vs current-only)",
+    "verdict": "CONFIRMED",
+    "note": "+88.2pp (15/17 samples), exact."
+   },
+   {
+    "metric": "stale-reference rate increase, gpt-4.1-mini (stale-only vs current-only)",
+    "verdict": "CONFIRMED",
+    "note": "+76.5pp (13/17 samples), exact."
+   },
+   {
+    "metric": "stale-reference rate under mixed current/stale retrieval",
+    "verdict": "CONFIRMED",
+    "note": "23.5% Qwen (4/17), 29.4% gpt-4.1-mini (5/17), consistent across both mixed orders, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. The five-condition methodology (current-only, stale-only, no-retrieval, two mixed orders) confirmed verbatim, matching stop_detail precisely."
+ },
+ {
+  "arxiv_id": "2607.01138",
+  "numbers": [
+   {
+    "metric": "True positives detected, AntaeusO4.7 vs. best baselines",
+    "verdict": "CONFIRMED",
+    "note": "15/28 vs. 3/28 (Opus 4.7 agentic) and 5/28 (function-level, Opus 4.8 agentic), matches the stated 3-5/28 range."
+   },
+   {
+    "metric": "Cost per confirmed vulnerability, Antaeus vs. agentic baseline",
+    "verdict": "CONFIRMED",
+    "note": "~$30 (AntaeusO4.7) vs. ~$77 (Opus 4.7 agentic), exact."
+   },
+   {
+    "metric": "Functions retained after prioritization stage",
+    "verdict": "CONFIRMED",
+    "note": "4,859 functions retained (combined, from 44,142 total files/functions), ~30.8x reduction, matches stated ~30x."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": false,
+  "mechanism_suggested": "hybrid",
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Paper explicitly states its grounding approach 'combines local code detail with project-wide semantics rather than relying on graph-based retrieval or exhaustive agentic exploration' -- mechanism should be hybrid (keyword heuristics + agentic ranking + shallow call grounding), not graph_guided_retrieval."
+ },
+ {
+  "arxiv_id": "2607.18213",
+  "numbers": [
+   {
+    "metric": "SWE-Bench Verified resolve rate, MiMo-V2-Flash",
+    "verdict": "CONFIRMED",
+    "note": "345/500 (SWE-Pruner Pro) vs. 326/500 baseline (+3.8%), exact."
+   },
+   {
+    "metric": "Token savings, Qwen3-Coder-Next on SWE-QA-Pro",
+    "verdict": "CONFIRMED",
+    "note": "368K vs. 607K baseline tokens, 39.4% reduction, exact."
+   },
+   {
+    "metric": "Latency overhead from pruning calls",
+    "verdict": "CONFIRMED",
+    "note": "+15.0% aggregate wall time, exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Architecture details (frozen-backbone prefill reuse, LayerNorm + Linear-GELU-Dropout head, majority-vote token-to-line aggregation) confirmed verbatim in Sec. 3.1-3.2."
+ },
+ {
+  "arxiv_id": "2608.24188",
+  "numbers": [
+   {
+    "metric": "compression ratio vs quality retained (Paritok-4B, line-numbered input)",
+    "verdict": "CONFIRMED",
+    "note": "27.8% compression, 89.3% quality retained (Table 9), exact."
+   },
+   {
+    "metric": "identifier/path/number extractiveness",
+    "verdict": "CONFIRMED",
+    "note": "96.0% (training) / 96.2% (held-out), exact."
+   },
+   {
+    "metric": "intent-conditioning effect on retained-line relevance",
+    "verdict": "CONFIRMED",
+    "note": "+0.067, 95% CI [0.056, 0.078], exact."
+   }
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly against Table 9, Table 2, and Section 4.2 respectively."
+ },
+ {
+  "arxiv_id": "2312.05772",
+  "numbers": [
+   {
+    "metric": "Full A3-CodGen global-reuse F1 (GPT-3.5-Turbo-16k)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table IV, Global Reuse Awareness F1 for A3-CodGen (GPT-3.5-Turbo-16k) = 0.606, exact match."
+   },
+   {
+    "metric": "Third-party library coverage",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table IV, Library Coverage column = 0.940, exact match."
+   },
+   {
+    "metric": "Local-aware reuse F1 (best config)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table I, best local-aware configuration F1 = 0.649, exact match."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly in Tables I/III/IV. Facets and stop_detail check out: local context via AST parsing of the current file, global context via dual textual+semantic embedding retrieval (separate code-vector and summary-vector cosine similarity, then merged), third-party context via AST-extracted imports."
+ },
+ {
+  "arxiv_id": "2403.10059",
+  "numbers": [
+   {
+    "metric": "Repoformer-16B Line Edit Similarity (RepoEval)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2, SelectiveT/16B row, RepoEval Line Edit Similarity = 80.34."
+   },
+   {
+    "metric": "Inference speedup vs always-retrieve",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract and Sec 5.3 both state up to ~70% speedup from selective retrieval."
+   },
+   {
+    "metric": "Repoformer-1B Function unit-test pass rate",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2, SelectiveT/1B row, RepoEval Function unit-test pass rate = 28.79."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed in Table 2/abstract. Mechanism (self-supervised learned <cc>-token gate that self-triggers Jaccard-similarity top-k chunk retrieval or abstains, Sec 3.2-3.3) is accurately described; raw-window representation confirmed (cross-file context = consecutive-line chunks)."
+ },
+ {
+  "arxiv_id": "2406.10018",
+  "numbers": [
+   {
+    "metric": "Best combined (RAG + static analysis) Java Line EM",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "52.05 confirmed (RQ3 discussion: RAG + file-level dependency, post-processing-phase integration, DeepSeek-Coder-6.7B, Java), consistent with Figure 4."
+   },
+   {
+    "metric": "File-level prompting-phase Python Line EM",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "27.80 with +18.78 gain confirmed in Table 2 (DeepSeek-Coder-6.7B, Python, file-level dependency in prompting phase)."
+   },
+   {
+    "metric": "File-level prompting-phase Java Line EM",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "44.24 (+17.54) confirmed in Table 3."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed. Hierarchical module->class->signature/member skeleton and the three integration phases (prompting Sec 3.1, decoding-time logit masking Sec 3.2, post-generation candidate filtering Sec 3.3) match the paper exactly."
+ },
+ {
+  "arxiv_id": "2411.11532",
+  "numbers": [
+   {
+    "metric": "Average code coverage improvement vs. SOTA",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "8.73% is stated verbatim in the abstract/Sec IV, but it is not a literal Table I cell and its derivation is not documented \u2014 a naive per-library recompute of CKGFuzzer vs. PromptFuzz deltas from Table I's raw numbers does not cleanly reproduce 8.73% (gives roughly 2% by simple averaging, and two of eight libraries even show negative deltas vs. one baseline). Treated as CONFIRMED since it matches the paper's stated claim verbatim, but the exact averaging methodology (baseline selection per library) is opaque."
+   },
+   {
+    "metric": "Crash-review workload reduction",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "84.4% confirmed verbatim, Sec IV-D1."
+   },
+   {
+    "metric": "New bugs found",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "11 bugs / 9 previously unreported confirmed verbatim, Sec IV-D1 and Table III."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "Most important: the 8.73% average-coverage figure cannot be independently reconciled via simple per-library averaging from Table I, so its exact computation is opaque (flag for caution, not marked WRONG since it matches the paper's own stated claim). Paper does have a genuine internal ablation study (Sec IV-C 'RQ2', Table II: w/o repair, LLM-only repair, text-only retrieval variants), confirming 'ablated_measured' is fair. Code Knowledge Graph (Tree-sitter+CodeQL, CONTAINS/CALLS/LIBRARY_CALLS) and graph-guided retrieval both confirmed accurate."
+ },
+ {
+  "arxiv_id": "2507.14791",
+  "numbers": [
+   {
+    "metric": "Pass@1 on DevEval with Claude-3.5-Haiku (RepoScope vs best baseline)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: RepoScope 41.56% vs DRACO 30.48% = 36.35% relative improvement, exact match."
+   },
+   {
+    "metric": "Pass@1 on CoderEval with DeepSeek-V3 (RepoScope vs DRACO)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2: RepoScope 59.42% vs DRACO 47.34% = 17.15% relative improvement, exact match."
+   },
+   {
+    "metric": "Average prompt token usage (RepoScope)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 2, Avg. #Token column = 3679, consistent across both datasets."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly in Table 2, including the 4096-token max prompt length (Sec 4.4). Static one-shot pipeline claim (no agentic tool use / multi-turn LLM queries) is confirmed by the paper's own framing ('relies solely on static analysis, eliminating the need for additional training or multiple LLM queries')."
+ },
+ {
+  "arxiv_id": "2509.14635",
+  "numbers": [
+   {
+    "metric": "Best overall QA score",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3 confirms GPT-5.1 + OpenHands = 70.79; 'GPT-5.1' is a real model name cited to OpenAI (2025), not fabricated."
+   },
+   {
+    "metric": "Context-strategy progression (Kimi K2)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3: Direct 51.47 -> Sliding-Window RAG 62.44 -> SWE-agent 67.72, all exact."
+   },
+   {
+    "metric": "Token cost of agentic frameworks vs direct prompting",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Appendix C.2/Table 8 states agent frameworks use ~100x more tokens than direct prompting (and ~10x more than RAG)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly, including the specific and correctly-named GPT-5.1 model. Minor nuance (not a disagreement): the paper is a comparative benchmark of four context strategies rather than one fixed-representation system, so 'raw_window' is best read as the underlying content type consumed by the agentic SWE-QA-Agent (tool-read file text) rather than the paper's single approach."
+ },
+ {
+  "arxiv_id": "2601.00376",
+  "numbers": [
+   {
+    "metric": "RepoExec Exact Match, relative gain over strongest baseline",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "+29.73% EM confirmed verbatim in abstract and Sec 5.1."
+   },
+   {
+    "metric": "RepoExec BLEU, relative gain",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "+49.34% BLEU confirmed verbatim in abstract and Sec 5.1."
+   },
+   {
+    "metric": "DevEval Exact Match, relative improvement",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "+5.13% EM confirmed verbatim in Sec 5.1."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All three relative-gain numbers confirmed verbatim in Sec 5.1. Minor citation nicety in stop_detail: draft/anchor generation is actually Sec 3.2, not 3.3; the upstream-inlining and downstream-retrieval steps it also attributes to 'Sec 3.3' are correct (3.3.1/3.3.2). Overall mechanism description (parameter substitution, return normalization, inline expansion; AST parsing + substring matching for callees) verified accurate."
+ },
+ {
+  "arxiv_id": "2602.05780",
+  "numbers": [
+   {
+    "metric": "Levenshtein distance (function-call completion, DataB C/C++, Granite-8B)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3, Granite-8B FT on DataB func_call: optimal 42 vs baseline 84, full distance 45 vs 9,834 \u2014 exact match."
+   },
+   {
+    "metric": "model size vs accuracy",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "Paper only states that BASELINE (uncustomized) Llama-8B and Granite-8B are 'competitive... even relative to Qwen2.5-72B' (also uncustomized) \u2014 a baseline-vs-baseline comparison. It does not claim that CUSTOMIZED 8B models outperform uncustomized 72B Qwen2.5 across most categories.",
+    "note": "Mischaracterizes the comparison: the paper's finding is about uncustomized small models being competitive with an uncustomized large model, not customized-8B beating uncustomized-72B, and overstates 'competitive' as 'outperform ... across most categories'."
+   },
+   {
+    "metric": "context budget",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Confirmed: prefix capped at 3KB ('up to 3kB of code as a prefix'), semantic-scope units 50-1,000 bytes yield good results."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "Most important: key_number #2 misstates the paper's finding as customized-8B-beats-uncustomized-72B when the actual claim is baseline-8B-competitive-with-baseline-72B. Other two numbers and all facets/stop_detail (AST/bracket-matching-derived semantic scopes, all-MiniLM-L6-v2 embeddings, top-3/5 nearest neighbors, (prefix,scope) fine-tuning pairs) confirmed exactly."
+ },
+ {
+  "arxiv_id": "2605.15315",
+  "numbers": [
+   {
+    "metric": "extra token savings over SWE-Pruner baseline on multi-turn tasks (matched compression)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 1 (SWE-Bench Verified, Sonnet 4.5): LaMR 30.5% vs SWE-Pruner 23.1% total token reduction (7.4-point differential), within the stated 7-14% range and matching the specific 30.5%/23.1% figures exactly."
+   },
+   {
+    "metric": "head-to-head win rate on multi-turn comparisons",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 4.2: 'LaMR wins 12 and loses 4' out of 16 head-to-head multi-turn comparisons, exact match."
+   },
+   {
+    "metric": "Exact Match / Edit Similarity gain on LCC at 8x compression",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 3 (Long Code Completion, 8x): EM 34.5 vs 31.0 (+3.5), ES 59.21 vs 57.58 (+1.63), exact match."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly. Paper explicitly states 'all methods are evaluated under matched compression constraints' with a controlled ablation (Sec 4.3/Table 4), strongly confirming budget_matched_ablation. Two-CRF (semantic evidence/dependency support) + mixture-of-experts gate + AST-aware post-processing (Sec 3.4) description verified accurate."
+ },
+ {
+  "arxiv_id": "2607.01425",
+  "numbers": [
+   {
+    "metric": "semantic consistency improvement across folder levels (avg)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Abstract: 'Agent4cs improves semantic consistency across all folder levels by average 8%' vs two structured-prompting baselines \u2014 exact match."
+   },
+   {
+    "metric": "normalized keyword coverage rate gain (GPT-5)",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Sec 5.5: GPT-5 achieves a 38% improvement in normalized keyword coverage \u2014 exact match."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "WRONG",
+    "correct_value_if_wrong": "turicreate has 237 files (not 293) at depth 10; 1,725 functions is correct for turicreate. The 293-files figure in Table 1 belongs to a different repository in the benchmark (pants), not turicreate.",
+    "note": "File count is misattributed to turicreate; correct turicreate stats are 237 files / 1,725 functions. '6 repositories, depths 7-13' is otherwise correct."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "Most important: benchmark-scale number wrongly pairs '293 files' with turicreate \u2014 turicreate actually has 237 files (1,725 functions is correct); 293 files belongs to a different repo (pants) in the same Table 1. Other two numbers (+8% semantic consistency, +38% GPT-5 keyword coverage) and the bottom-up keyword-extraction/summarization/QA-agent mechanism (Sec 4.1-4.2) confirmed exactly."
+ },
+ {
+  "arxiv_id": "2607.24882",
+  "numbers": [
+   {
+    "metric": "Budgeted Context Yield @8k: RepoMap vs Qwen3-4B vs Qwen3-8B",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4 (complete positive leaderboard, 345 samples): RepoMap 0.3788, Qwen3-4B 0.3409, Qwen3-8B 0.3732 \u2014 exact match."
+   },
+   {
+    "metric": "Recall@20 / MRR, Qwen3-8B vs Qwen3-4B",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "Table 4: R@20 0.7029 vs 0.6306, MRR 0.2336 vs 0.2379 \u2014 exact match."
+   },
+   {
+    "metric": "benchmark scale",
+    "verdict": "CONFIRMED",
+    "correct_value_if_wrong": "",
+    "note": "427 samples, 25 repositories, 308 base-commit snapshots confirmed exactly; file/chunk counts are rounded from the exact manifest figures of 391,932 files and 7,922,369 chunks (tolerable rounding to 392,000/7.9M)."
+   }
+  ],
+  "repr_primary_agree": true,
+  "repr_primary_suggested": "",
+  "mechanism_agree": true,
+  "mechanism_suggested": "",
+  "evaluation_agree": true,
+  "evaluation_suggested": "",
+  "stop_detail_fair": true,
+  "note": "All numbers confirmed exactly (minor rounding on file/chunk counts, tolerated). Budgeted Context Yield is explicitly described by the paper as holding token budget constant while comparing BM25/RepoMap/embedding models/logged-agent context \u2014 a strong, clean exemplar of budget_matched_ablation. RepoMap confirmed vectorless and structure-aware (path/symbol/reference/repo-graph signals)."
+ }
+]

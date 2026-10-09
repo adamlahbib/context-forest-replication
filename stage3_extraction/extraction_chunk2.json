@@ -1,0 +1,551 @@
+[
+  {
+    "arxiv_id": "2306.10763",
+    "system": "MGD",
+    "year": 2023,
+    "venue": "NeurIPS 2023",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "ast"
+    ],
+    "mechanism": "slicing_static_analysis",
+    "pipeline_position": "in_loop",
+    "task": "completion",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "PragmaticCode",
+      "DotPrompts",
+      "MGDMicroBench"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Compilation Rate, SantaCoder-1.1B-MGD vs text-davinci-003",
+        "value": "73.03% vs 62.66%",
+        "where": "Table 1, §4.1"
+      },
+      {
+        "metric": "Next Identifier Match, SantaCoder-MGD vs text-davinci-003",
+        "value": "88.42% vs 86.18%",
+        "where": "Table 1, §4.1"
+      },
+      {
+        "metric": "Improvement on high-complexity identifiers (36.97% of methods)",
+        "value": "21.79%-27.91% gain",
+        "where": "Appendix F, Figure 6"
+      }
+    ],
+    "budget_tradeoff_detail": "Total context budget fixed at 2048 tokens (1536 prompt + 512 generation) held identically across MGD and non-MGD arms; no budget-vs-quality tradeoff curve reported beyond this fixed setting.",
+    "confound_note": "Primary comparison (§4.1) varies only presence/absence of monitor-guided logit masking; prompting strategy, decoding parameters, and token budgets are held constant, isolating the mechanism's effect.",
+    "stop_detail": "A monitor queries static analysis via the Language Server Protocol at trigger points (e.g., object dereferences) during decoding and reshapes next-token logits with type-consistent identifier masks (§2).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html; PragmaticCode is Java-only and restricted to object-dereference completion scenarios, limiting generalization of the reported gains."
+  },
+  {
+    "arxiv_id": "2402.03630",
+    "system": "IDECoder",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "repo_map_skeleton",
+      "ast"
+    ],
+    "mechanism": "slicing_static_analysis",
+    "pipeline_position": "prompt_assembly",
+    "task": "completion",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "CrossCodeEval"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "Exact Match, IDECoder vs RAG baseline",
+        "value": "10.46% vs 9.77%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "CodeBLEU, IDECoder vs RAG baseline",
+        "value": "34.16% vs 31.65%",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Syntax Match, IDECoder vs RAG baseline",
+        "value": "50.73% vs 48.92%",
+        "where": "Table 1"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Representation (skeletal IDE-derived signatures/docstrings vs full code) and retrieval mechanism (IDE static analysis vs semantic-similarity RAG) both vary simultaneously between arms; no token budget control is reported.",
+    "stop_detail": "IDE-native static analysis (AST construction, symbol tables, reference indexing) surfaces docstrings and typed signatures for cross-file symbols, injected via chain-of-thought prompting with post-hoc linting-based refinement (§3.1-3.3).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html; the paper itself calls its evaluation 'preliminary experiments' on a 10-repository sample, limiting statistical strength."
+  },
+  {
+    "arxiv_id": "2406.01422",
+    "system": "LingmaAgent",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "ast"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-bench Lite",
+      "Alibaba Cloud in-house issues"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-bench Lite resolved rate vs SWE-agent",
+        "value": "21.33% (18.5% relative improvement over SWE-agent's 18%)",
+        "where": "Table 1"
+      },
+      {
+        "metric": "Function-level fault localization accuracy vs SWE-agent",
+        "value": "49.3% vs 45.3%",
+        "where": "Table 5"
+      },
+      {
+        "metric": "Alibaba Cloud in-house issue resolution",
+        "value": "16.9% fully automated, 43.3% with human intervention",
+        "where": "Table 7-8"
+      }
+    ],
+    "budget_tradeoff_detail": "Average per-issue cost of $3.99 reported for GPT-4-Turbo (Table 1); no token-budget-vs-quality tradeoff curve given, only a fixed MCTS compute budget (600 iterations / 300s).",
+    "confound_note": "Baselines (BM25 RAG, SWE-agent, AutoCodeRover) differ from LingmaAgent in both representation (flat/local context vs hierarchical knowledge graph) and mechanism (static retrieval/local navigation vs MCTS-guided exploration); budget is not held constant.",
+    "stop_detail": "Repository is top-down organized into a hierarchical AST-based structure tree extended with a function-call reference graph, then dynamically explored via Monte Carlo Tree Search with LLM-scored rewards to acquire context (§3.2-3.3).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html; the in-house Alibaba Cloud production numbers are self-reported without external verification, and the MCTS budget is a compute/time limit rather than a token budget."
+  },
+  {
+    "arxiv_id": "2407.19619",
+    "system": "Bhattarai24",
+    "year": 2024,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "translation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "HPC Fortran2CPP",
+      "Numerical Recipes",
+      "Stack-V2"
+    ],
+    "budget_reported": false,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "function",
+    "key_numbers": [
+      {
+        "metric": "CodeBLEU, Granite-34B zero-shot vs one-shot (HPC dataset)",
+        "value": "0.237 to 0.600",
+        "where": "Results, HPC Fortran2CPP table"
+      },
+      {
+        "metric": "CodeBLEU, GPT-4o zero-shot",
+        "value": "0.371",
+        "where": "Results table"
+      },
+      {
+        "metric": "Pairwise similarity, Codestral/Llama3 zero-shot (Stack-V2)",
+        "value": "0.522",
+        "where": "Stack-V2 results"
+      }
+    ],
+    "budget_tradeoff_detail": "Zero-shot to one-shot retrieval substantially raises CodeBLEU (e.g., Granite-34B 0.237→0.600 on HPC dataset), but no explicit token-budget/cost figures are reported for the added few-shot context.",
+    "confound_note": "Retrieval mechanism (cosine similarity vs Euclidean distance), embedding model (Nomic-Embed/Starencoder/CodeBERT), and number of shots (0-3) all vary across reported comparisons; shot count changes effective context length without being held fixed as a budget.",
+    "stop_detail": "Existing code-translation pairs are embedded and indexed in a vector store (ChromaDB); at query time the top-k most similar pairs by cosine/Euclidean distance are retrieved to construct few-shot in-context prompts for translation (Section III, Few-Shot Learning).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html; retrieval draws from an external bank of pre-existing translation pairs rather than the repository being translated, so this measures example-selection quality more than in-repository structural context management."
+  },
+  {
+    "arxiv_id": "2503.15301",
+    "system": "aiXcoder-7B-v2",
+    "year": 2025,
+    "venue": "ASE 2025",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid",
+      "call_dep_graph",
+      "embedding_retrieval"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "prompt_assembly",
+    "task": "completion",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "CoLA-132K",
+      "CrossCodeEval"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "EM improvement, Python code spans (aiXcoder-7B-v2 vs base)",
+        "value": "+19.7%",
+        "where": "Table I"
+      },
+      {
+        "metric": "EM improvement, C++ code spans (DeepSeek-Coder-6.7B + COLA)",
+        "value": "+35.3%",
+        "where": "Table IV"
+      },
+      {
+        "metric": "Unseen-language generalization EM (C#, TypeScript)",
+        "value": "+19.2%, +20.6%",
+        "where": "Table III"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Training method varies (base vs. continual-pretraining-matched-tokens vs. COLA SFT+DPO) while the cross-file context construction (dependency-graph extraction + Jaccard-similarity retrieval, filled to window) is held fixed across arms — confound is training objective, not context representation.",
+    "stop_detail": "COLA builds cross-file context by alternating dependency-based snippets (SCIP-derived cross-file imports) and retrieval-based snippets (top-10 Jaccard-similarity chunks) until the model's context window is filled, then trains the LLM via SFT+DPO to attend to it (Section III).",
+    "threats_to_datum": "Full HTML text retrieved and read; quantitative values relayed via fetch-tool summaries of tables, not independently re-derived from raw table cells."
+  },
+  {
+    "arxiv_id": "2507.19942",
+    "system": "Prometheus",
+    "year": 2025,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid",
+      "ast",
+      "embedding_retrieval"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "in_loop",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "SWE-bench Verified",
+      "SWE-PolyBench Verified"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "SWE-bench Verified resolution rate",
+        "value": "74.4%",
+        "where": "Table 2 / RQ1"
+      },
+      {
+        "metric": "Cost reduction / resolution gain from working memory",
+        "value": "-45.4% cost, +25.0pp resolution (70% vs 56%)",
+        "where": "Section 4.3.1 / Figure 7"
+      },
+      {
+        "metric": "Bug-reproduction-agent ablation impact",
+        "value": "64.0% (-14.0pp vs full system)",
+        "where": "Table 5"
+      }
+    ],
+    "budget_tradeoff_detail": "Working memory reduces inference cost by ~45.4% ($200.79 vs $367.73 across 50 instances) while improving resolution rate by +25.0pp (70% vs 56%) — Section 4.3.1/Figure 7.",
+    "confound_note": "Ablations remove one agent/memory component at a time (working memory, multiple patch selection, bug reproduction, regression testing) from the full system while holding model and prompts fixed — varies mechanism/pipeline components, not a token-budget-matched representation comparison.",
+    "stop_detail": "The Context Retrieval Engine synthesizes structured sub-queries, then performs multi-vector weighted retrieval against a persistent working memory of prior context units (falling back to knowledge-graph traversal on a memory miss), reusing exploration across reasoning steps (Sections 2.2, Abstract).",
+    "threats_to_datum": "Full HTML text retrieved and read; cost/percentage figures relayed via fetch-tool summaries of tables/sections, not independently re-verified against raw table cells."
+  },
+  {
+    "arxiv_id": "2510.00446",
+    "system": "LongCodeZip",
+    "year": 2025,
+    "venue": "ASE 2025",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window"
+    ],
+    "mechanism": "learned_pruning",
+    "pipeline_position": "prompt_assembly",
+    "task": "general_mixed",
+    "evaluation": "budget_matched_ablation",
+    "benchmarks": [
+      "Long Code Completion",
+      "Long Module Summarization",
+      "RepoQA"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "Completion Edit Similarity at 5.6x compression vs. uncompressed",
+        "value": "63.11 vs 64.04",
+        "where": "Table II"
+      },
+      {
+        "metric": "RepoQA accuracy at 5.3x compression vs. no compression",
+        "value": "80.7% vs 69%",
+        "where": "Table IV"
+      },
+      {
+        "metric": "Generation latency reduction",
+        "value": "15.7s to 6.6s",
+        "where": "Table IX"
+      }
+    ],
+    "budget_tradeoff_detail": "Up to 5.6x (completion) / 5.3x (RepoQA) compression with performance within ~1pt of the uncompressed baseline; generation latency drops from 15.7s to 6.6s (Table IX).",
+    "confound_note": "Compression method is the sole varied factor: LongCodeZip, LLMLingua variants, RAG, DietCode, SlimCode, and random pruning are compared at matched compression ratios/token budgets against the same uncompressed baseline and target LLM.",
+    "stop_detail": "Coarse-grained stage ranks/retains function-level chunks by conditional perplexity w.r.t. the instruction; fine-grained stage detects perplexity-based semantic-block boundaries and solves a 0/1 knapsack to select blocks maximizing relevance under the token budget (Section III-B).",
+    "threats_to_datum": "Full HTML text retrieved and read; ASE 2025 acceptance confirmed via arXiv Comments field; numeric values relayed via fetch-tool summaries, not independently re-verified against raw table cells."
+  },
+  {
+    "arxiv_id": "2601.10112",
+    "system": "RIG",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "repo_map_skeleton",
+      "call_dep_graph"
+    ],
+    "mechanism": "slicing_static_analysis",
+    "pipeline_position": "prompt_assembly",
+    "task": "qa_reasoning",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "custom (8 repositories incl. MetaFFI; CMake/Maven/Meson/Cargo/npm/Go)"
+    ],
+    "budget_reported": true,
+    "wieringa": "evaluation",
+    "record_type": "system_tool",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "mean relative accuracy improvement with RIG",
+        "value": "+12.2%",
+        "where": "Section VI Evaluation Results"
+      },
+      {
+        "metric": "mean completion time reduction with RIG",
+        "value": "53.9%",
+        "where": "Section VI Evaluation Results"
+      },
+      {
+        "metric": "average RIG size across 8 repos",
+        "value": "~20,692 bytes (~5,173 tokens); up to ~15,000 tokens for largest repo",
+        "where": "Section VI, repo complexity table"
+      }
+    ],
+    "budget_tradeoff_detail": "RIG averages ~5.2K tokens (up to ~15K tokens for the largest/most complex repo) and yields a 12.2% mean accuracy gain plus 53.9% mean completion-time reduction, i.e. a modest fixed token overhead injected once per session for a session-wide efficiency/accuracy gain (Sec. VI).",
+    "confound_note": "Single binary arm compared (RIG injected vs. no RIG); representation, available structural information, and prompt token budget all change together between arms rather than budget being held constant across differing representations.",
+    "stop_detail": "SPADE deterministically extracts a build/test dependency graph (components, aggregators, runners, tests, packages) from CMake File API + CTest metadata (or manual construction for other build systems) and injects the full RIG as JSON into the agent's context at the start of the session as the 'authoritative' description of repo structure (Secs. III-IV).",
+    "threats_to_datum": "7 of 8 evaluation repositories are synthetic (only MetaFFI is real-world); small sample (8 repos x 30 questions) limits generalizability; three commercial agents (Claude Code, Cursor, Codex) tested but no standard SE benchmark used. Full text retrieved via arXiv HTML."
+  },
+  {
+    "arxiv_id": "2602.15843",
+    "system": "TAAC",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": false,
+    "demote_criterion": "E4",
+    "demote_reason": "Full text confirms this paper is about general LLM prompt compression for isolated, single-problem prompts (HumanEval, MBPP, HumanEval+, MultiPL-E function-level code problems vs. GSM8K/MATH/ARC/MMLU-STEM math-reasoning problems), comparing why code tolerates compression better than chain-of-thought math reasoning. There is no repository, codebase, multi-file, or cross-file structure of any kind -- no repo-map, dependency graph, or retrieval over a codebase is involved. It is a prompt-compression/perplexity study with no cross-file structural context-budget concern, so it falls outside the review's repository-level code-context-engineering scope."
+  },
+  {
+    "arxiv_id": "2605.14478",
+    "system": "Weng26",
+    "year": 2026,
+    "venue": "arXiv (submitted to Information and Software Technology)",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "raw_window"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "prompt_assembly",
+    "task": "completion",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "custom (17-sample stale-context diagnostic set; click, flask, httpx, requests, rich)"
+    ],
+    "budget_reported": false,
+    "wieringa": "evaluation",
+    "record_type": "empirical_study",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "stale-reference rate increase, Qwen2.5-Coder-7B-Instruct (stale-only vs current-only)",
+        "value": "+88.2 pp (15/17 samples)",
+        "where": "Results"
+      },
+      {
+        "metric": "stale-reference rate increase, gpt-4.1-mini (stale-only vs current-only)",
+        "value": "+76.5 pp (13/17 samples)",
+        "where": "Results"
+      },
+      {
+        "metric": "stale-reference rate under mixed current/stale retrieval",
+        "value": "23.5% (Qwen), 29.4% (gpt-4.1-mini)",
+        "where": "Results"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "The manipulated variable is content freshness (current-commit vs. parent-commit helper signature) not representation or mechanism; retrieval itself is oracle-controlled/hand-assigned rather than an automatic embedding or similarity system, and prompts are neutralized to hide commit timestamps and expected signatures so only staleness is isolated.",
+    "stop_detail": "A diagnostic harness manually substitutes current- vs. stale- (parent-commit) repository helper-function signatures as 'retrieved' context under five conditions (current-only, stale-only, no-retrieval, two mixed orders) to isolate whether stale retrieved context actively induces incompatible completions rather than acting as harmless noise (Methods).",
+    "threats_to_datum": "Very small curated sample (n=17) restricted to argument-signature changes only (excludes renames/removals/larger temporal gaps), across just 5 mature Python libraries; retrieval is oracle-controlled rather than a real embedding-based RAG pipeline, limiting ecological validity of the diagnosed effect. Full text retrieved via arXiv HTML; venue is a journal submission, acceptance/peer-review status not yet resolved."
+  },
+  {
+    "arxiv_id": "2606.08135",
+    "system": "TICoder",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "hybrid",
+      "embedding_retrieval",
+      "call_dep_graph"
+    ],
+    "mechanism": "graph_guided_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "generation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "CoderEval",
+      "DevEval"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "Pass@1 (DevEval, GPT-4o-mini)",
+        "value": "31.01% (+22.76 pts vs AllianceCoder)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Pass@1 (CoderEval Python, DeepSeek-V3)",
+        "value": "56.09% (+7.90 pts)",
+        "where": "Table 2"
+      },
+      {
+        "metric": "Average improvement over SOTA baselines",
+        "value": "11.52% (avg 11.25%)",
+        "where": "Abstract"
+      }
+    ],
+    "budget_tradeoff_detail": "Ablation (Table 3) shows token counts vary substantially across configurations (e.g., w/o usage patterns: 1407 tokens vs full-method 2824 tokens), but token budget is not held constant when the full method is compared against external baselines.",
+    "confound_note": "Main comparison varies the retrieval mechanism (dual-view similarity + RCG-derived usage patterns) and the test-driven iterative planning mechanism simultaneously against baselines lacking both, with prompt token count also differing across arms — representation, retriever, and budget are all confounded.",
+    "stop_detail": "A repository call graph (built via LSP) drives structure-based clustering of caller usage patterns, filtered by perplexity, while dual-view (functional + implementation) embedding similarity retrieves reusable functions; both are concatenated into the prompt alongside requirements and test cases for test-driven iterative generation (Sec. 3).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html HTML rendering; numeric results and token counts taken from a WebFetch summary of Tables 2-3 rather than direct inspection of raw table cells."
+  },
+  {
+    "arxiv_id": "2607.15205",
+    "system": "MM-IssueLoc",
+    "year": 2026,
+    "venue": "arXiv",
+    "peer_reviewed": false,
+    "eligible": true,
+    "repr_classes": [
+      "embedding_retrieval",
+      "agentic_exploration"
+    ],
+    "mechanism": "similarity_retrieval",
+    "pipeline_position": "retrieval_time",
+    "task": "editing_issue_resolution",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "MM-IssueLoc (652 issue-PR instances, 23 languages)"
+    ],
+    "budget_reported": false,
+    "wieringa": "evaluation",
+    "record_type": "benchmark_eval",
+    "scope": "repository",
+    "key_numbers": [
+      {
+        "metric": "File Acc@5 (best agent system)",
+        "value": "38.96% (OpenHands + GPT-5.2)",
+        "where": "Results/abstract"
+      },
+      {
+        "metric": "Function Acc@10 (best retriever)",
+        "value": "33.86% (MM-IssueLoc-VL-Emb-8B)",
+        "where": "Results/abstract"
+      },
+      {
+        "metric": "Image-input gain on File Acc@5",
+        "value": "+4.91 points (MM-IssueLoc-VL-Emb-2B)",
+        "where": "Table 3"
+      }
+    ],
+    "budget_tradeoff_detail": "none",
+    "confound_note": "Evaluated systems (AgentLess, LocAgent, OpenHands agents vs. BM25/dense-embedding retrievers vs. the paper's own MM-IssueLoc-VL-Embedding) differ simultaneously in retriever/agent architecture, tool-use scaffold, and text-only vs. multimodal (+image, +VCE) input condition — not a controlled representation-only or budget-matched comparison.",
+    "stop_detail": "Localization systems either iteratively explore the repository via tool-use (agents) or rank files/functions by dense-embedding similarity trained with contrastive (InfoNCE-style) loss and hard negatives, optionally with issue screenshots converted to structured text (VCE) appended to the prompt (Sec. on evaluated systems/benchmark construction).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html HTML rendering; this is primarily a benchmark/dataset contribution rather than a novel context-representation mechanism, so mechanism/pipeline fields describe the range of systems it evaluates rather than one proposed technique."
+  },
+  {
+    "arxiv_id": "2608.01927",
+    "system": "DyCoder (DyRetriever)",
+    "year": 2026,
+    "venue": "ASE 2026 (41st IEEE/ACM International Conference on Automated Software Engineering)",
+    "peer_reviewed": true,
+    "eligible": true,
+    "repr_classes": [
+      "call_dep_graph",
+      "embedding_retrieval",
+      "agentic_exploration"
+    ],
+    "mechanism": "agentic_exploration",
+    "pipeline_position": "retrieval_time",
+    "task": "generation",
+    "evaluation": "ablated_measured",
+    "benchmarks": [
+      "CoderEval",
+      "DevEval"
+    ],
+    "budget_reported": true,
+    "wieringa": "validation",
+    "record_type": "system_tool",
+    "scope": "cross_file",
+    "key_numbers": [
+      {
+        "metric": "Relative Pass@1 improvement (DevEval)",
+        "value": "59.73%",
+        "where": "Abstract"
+      },
+      {
+        "metric": "Relative Pass@1 improvement (CoderEval)",
+        "value": "25.63%",
+        "where": "Abstract"
+      },
+      {
+        "metric": "Construction speedup vs. static graph baseline (RepoScope)",
+        "value": "7.4x faster; 13.09k tokens / $0.0039 per function vs. RepoScope 5.11k tokens / $0.0020",
+        "where": "Table 2, Sec. 5.2"
+      }
+    ],
+    "budget_tradeoff_detail": "DyCoder consumes 1.95-2.43x more tokens than static graph-based baselines (13.09k vs 5.11k tokens; $0.0039 vs $0.0020 per function) in exchange for large Pass@1 gains, while being 7.4x faster to construct than a static global dependency graph (Table 2).",
+    "confound_note": "Comparison varies representation (static global dependency graph vs. dynamically built-and-discarded partial graph), retrieval mechanism (similarity-only vs. LLM-guided multi-hop select/visit/expand), and token budget simultaneously across baselines (Direct, SimpleRAG, RLCoder, AlignCoder, RepoScope vs. DyCoder) — not a budget-matched ablation.",
+    "stop_detail": "An LLM selects entry-point functions, then performs multi-hop select/visit/expand traversal to build a temporary partial dependency graph (call and lazy-import edges) validated against the repository and discarded after use; combined with embedding similarity retrieval in DyCoder (Sec. 3.1.2, Algorithm 1).",
+    "threats_to_datum": "Full text retrieved via arxiv.org/html HTML rendering; table values (Tables 2-4) taken from a WebFetch summary rather than direct inspection of the rendered tables."
+  }
+]

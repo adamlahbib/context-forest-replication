@@ -1,0 +1,156 @@
+[
+{
+  "arxiv_id": "2310.11248",
+  "numbers": [
+    {"metric": "Exact Match, StarCoder-15.5B Python, no-context vs retrieved-context", "verdict": "CONFIRMED", "note": "Table 4: 8.82% (in-file only) -> 15.72% (+Retrieval), exact."},
+    {"metric": "Exact Match with oracle retrieval", "verdict": "CONFIRMED", "note": "Table 4: 21.01% (+Retrieval w/ Ref.), exact."},
+    {"metric": "benchmark scale", "verdict": "CONFIRMED", "note": "Table 1: 10,000 examples, ~1,000 repos, 4 languages, exact."}
+  ],
+  "repr_primary_agree": false,
+  "repr_primary_suggested": "raw_window",
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "The headline retrieved-context number (15.72%) is produced by BM25 lexical retrieval over raw contiguous code chunks (10-line fragments, top-5, capped at 512 BPE tokens) -- not dense embeddings -- so repr_primary should be raw_window (consistent with how this dataset labels analogous Jaccard/BM25 baselines elsewhere, e.g. M2RC-Eval, Weng26). All three key numbers confirmed exactly."
+},
+{
+  "arxiv_id": "2403.06095",
+  "numbers": [
+    {"metric": "Context retrieval acc@3, RepoBench-R Easy/Hard (RepoHyper+UniXcoder vs UniXcoder baseline)", "verdict": "CONFIRMED", "note": "68.91%/49.51% vs 59.69%/39.02%, exact."},
+    {"metric": "End-to-end EM/CodeBLEU, RepoBench-P XF-F (RepoHyper-L2H+GPT-3.5 vs RepoCoder)", "verdict": "CONFIRMED", "note": "52.76%/61.49% vs 48.73%/57.62%, exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both key numbers confirmed exactly against the RepoBench-R and RepoBench-P tables. Section 4.3 mechanism description (kNN-seeded BFS graph expansion + GraphSAGE link-prediction re-ranking) confirmed near-verbatim; RSG node/edge types match stop_detail exactly."
+},
+{
+  "arxiv_id": "2406.07003",
+  "numbers": [
+    {"metric": "Code EM gain vs RepoCoder (API-level, avg)", "verdict": "CONFIRMED", "note": "+6.06 average gain, exact."},
+    {"metric": "Identifier EM gain vs RepoCoder (avg)", "verdict": "CONFIRMED", "note": "+6.23 average gain, exact."},
+    {"metric": "benchmark scale", "verdict": "CONFIRMED", "note": "RepoEval-Updated: 8,000 tasks, 20 repos (10 Python/10 Java), exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Section 4.3 mechanism (Jaccard coarse-grained filter, then decay-weighted subgraph edit distance re-ranking) confirmed verbatim, matching stop_detail precisely."
+},
+{
+  "arxiv_id": "2410.21157",
+  "numbers": [
+    {"metric": "DeepSeekCoder-6.7B EM/ES after +Retrieval&Tuning (avg, 18 langs)", "verdict": "CONFIRMED", "note": "46.8% EM / 74.1% ES, exact."},
+    {"metric": "Baseline (in-file only) EM", "verdict": "WRONG", "correct_value_if_wrong": "22.6%", "note": "Actual baseline EM for DeepSeekCoder-6.7B is 22.6%, slightly outside the stated '~20-22%' approximate range."},
+    {"metric": "benchmark scale", "verdict": "CONFIRMED", "note": "18 languages, 100 val / 500 test samples per language, 5,993 test repos, exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Baseline EM value (22.6%) falls just above the stated '~20-22%' range -- minor WRONG. Retrieval setting details (L-line segments, Jaccard ranking, 4096-token cap) confirmed verbatim."
+},
+{
+  "arxiv_id": "2505.14394",
+  "numbers": [
+    {"metric": "Pass@1 on EvoCodeBench", "verdict": "CONFIRMED", "note": "36.36% (KG+Claude 3.5 Sonnet) vs 20.73% (baseline+GPT-4) vs 7.27% (no-context+GPT-4), exact."},
+    {"metric": "Pass@1 comparison to prior structural-retrieval work", "verdict": "CONFIRMED", "note": "36.02% (CodeXGraph, GPT-4o) vs 33.45% (proposed, GPT-4o), exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both Pass@1 comparisons confirmed exactly. Graph node types (File/Class/Method/Function/Attribute + Generated Description), LLM-generated node descriptions, all-MiniLM-L6-v2 embeddings, and n-hop expansion + semantic ranking all confirmed verbatim in the Methodology section."
+},
+{
+  "arxiv_id": "2508.21433",
+  "numbers": [
+    {"metric": "solve rate / cost reduction, Qwen3-Coder 480B", "verdict": "CONFIRMED", "note": "Masking 54.8%/-52.7% vs LLM-summary 53.8%/-50.4%, exact."},
+    {"metric": "hybrid approach improvement", "verdict": "CONFIRMED", "note": "7% vs masking / 11% vs LLM-summary additional cost reduction, +2.6pp solve rate on SWE-bench Verified-50, exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": false,
+  "mechanism_suggested": "none_fixed_window",
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both numbers confirmed exactly. Labeling mechanism 'summarization' undersells the paper's central finding: fixed-window observation masking (none_fixed_window), not LLM summarization, is shown to be sufficient/preferred -- the paper's title and abstract explicitly argue against needing summarization."
+},
+{
+  "arxiv_id": "2510.12948",
+  "numbers": [
+    {"metric": "chRF score, Kotlin track", "verdict": "CONFIRMED", "note": "0.748, matches abstract verbatim."},
+    {"metric": "chRF score, Python track", "verdict": "CONFIRMED", "note": "0.725, matches abstract verbatim."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both chrF numbers confirmed against the abstract. Independently confirmed both arxiv.org/html and ar5iv.labs.arxiv.org return 404/redirect-to-abs for this ID -- stop_detail's unavailability claim is accurate; facet judgments rest on the abstract only."
+},
+{
+  "arxiv_id": "2601.19929",
+  "numbers": [
+    {"metric": "Context compression ratio", "verdict": "CONFIRMED", "note": "18:1 (239k -> 11k tokens), matches abstract verbatim."},
+    {"metric": "Success rate across 12 frontier models", "verdict": "CONFIRMED", "note": "94-97% success on 40 real-world issues across 12 frontier models, matches abstract verbatim."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "Both numbers confirmed against the abstract. Independently confirmed both arxiv.org/html and ar5iv.labs.arxiv.org fail to render full text for this ID (404 / redirect-to-abs) -- stop_detail's unavailability claim is accurate; facet judgments rest on the abstract only."
+},
+{
+  "arxiv_id": "2605.14478",
+  "numbers": [
+    {"metric": "stale-reference rate increase, Qwen2.5-Coder-7B-Instruct (stale-only vs current-only)", "verdict": "CONFIRMED", "note": "+88.2pp (15/17 samples), exact."},
+    {"metric": "stale-reference rate increase, gpt-4.1-mini (stale-only vs current-only)", "verdict": "CONFIRMED", "note": "+76.5pp (13/17 samples), exact."},
+    {"metric": "stale-reference rate under mixed current/stale retrieval", "verdict": "CONFIRMED", "note": "23.5% Qwen (4/17), 29.4% gpt-4.1-mini (5/17), consistent across both mixed orders, exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. The five-condition methodology (current-only, stale-only, no-retrieval, two mixed orders) confirmed verbatim, matching stop_detail precisely."
+},
+{
+  "arxiv_id": "2607.01138",
+  "numbers": [
+    {"metric": "True positives detected, AntaeusO4.7 vs. best baselines", "verdict": "CONFIRMED", "note": "15/28 vs. 3/28 (Opus 4.7 agentic) and 5/28 (function-level, Opus 4.8 agentic), matches the stated 3-5/28 range."},
+    {"metric": "Cost per confirmed vulnerability, Antaeus vs. agentic baseline", "verdict": "CONFIRMED", "note": "~$30 (AntaeusO4.7) vs. ~$77 (Opus 4.7 agentic), exact."},
+    {"metric": "Functions retained after prioritization stage", "verdict": "CONFIRMED", "note": "4,859 functions retained (combined, from 44,142 total files/functions), ~30.8x reduction, matches stated ~30x."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": false,
+  "mechanism_suggested": "hybrid",
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Paper explicitly states its grounding approach 'combines local code detail with project-wide semantics rather than relying on graph-based retrieval or exhaustive agentic exploration' -- mechanism should be hybrid (keyword heuristics + agentic ranking + shallow call grounding), not graph_guided_retrieval."
+},
+{
+  "arxiv_id": "2607.18213",
+  "numbers": [
+    {"metric": "SWE-Bench Verified resolve rate, MiMo-V2-Flash", "verdict": "CONFIRMED", "note": "345/500 (SWE-Pruner Pro) vs. 326/500 baseline (+3.8%), exact."},
+    {"metric": "Token savings, Qwen3-Coder-Next on SWE-QA-Pro", "verdict": "CONFIRMED", "note": "368K vs. 607K baseline tokens, 39.4% reduction, exact."},
+    {"metric": "Latency overhead from pruning calls", "verdict": "CONFIRMED", "note": "+15.0% aggregate wall time, exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly. Architecture details (frozen-backbone prefill reuse, LayerNorm + Linear-GELU-Dropout head, majority-vote token-to-line aggregation) confirmed verbatim in Sec. 3.1-3.2."
+},
+{
+  "arxiv_id": "2608.24188",
+  "numbers": [
+    {"metric": "compression ratio vs quality retained (Paritok-4B, line-numbered input)", "verdict": "CONFIRMED", "note": "27.8% compression, 89.3% quality retained (Table 9), exact."},
+    {"metric": "identifier/path/number extractiveness", "verdict": "CONFIRMED", "note": "96.0% (training) / 96.2% (held-out), exact."},
+    {"metric": "intent-conditioning effect on retained-line relevance", "verdict": "CONFIRMED", "note": "+0.067, 95% CI [0.056, 0.078], exact."}
+  ],
+  "repr_primary_agree": true,
+  "mechanism_agree": true,
+  "evaluation_agree": true,
+  "stop_detail_fair": true,
+  "note": "All three numbers confirmed exactly against Table 9, Table 2, and Section 4.2 respectively."
+}
+]

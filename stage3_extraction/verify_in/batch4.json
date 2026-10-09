@@ -1,0 +1,304 @@
+[
+{
+"arxiv_id": "2309.12499",
+"title": "CodePlan: Repository-level Coding using LLMs and Planning",
+"system": "CodePlan",
+"key_numbers": [
+{
+"metric": "Repositories passing validity checks (build without errors, correct edits)",
+"value": "CodePlan 5/6 vs. baselines 0/6",
+"where": "Section 1, Contributions"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "slicing_static_analysis",
+"evaluation": "ablated_measured",
+"stop_detail": "An adaptive planning algorithm synthesizes a multi-step edit chain guided by incremental dependency analysis and a change may-impact analysis (caller-callee, method-override relations) that identifies affected code blocks after each edit, sketching enclosing-class declarations as extra context per edit step (Sec. 3-4)."
+},
+{
+"arxiv_id": "2402.14323",
+"title": "REPOFUSE: Repository-Level Code Completion with Fused Dual Context",
+"system": "REPOFUSE",
+"key_numbers": [
+{
+"metric": "Code EM relative gain, dual vs. analogy-only context",
+"value": "40.90%-59.75%",
+"where": "Abstract; Sec. 4.4.1"
+},
+{
+"metric": "DeepSeek-7B Code EM at 4096-token budget",
+"value": "dual 27.92 vs. analogy 19.70 vs. rationale 21.13",
+"where": "Table 1"
+},
+{
+"metric": "Inference speedup, dual@512 vs. analogy@4096",
+"value": "26.8% faster, ~75.4% of context length",
+"where": "Abstract"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "budget_matched_ablation",
+"stop_detail": "Rank Truncated Generation (RTG) ranks a code-knowledge-graph-derived 'rationale' context and a BM25-retrieved 'analogy' context by relevance to the completion point and truncates the merged set to a fixed token length before prompting (Sec. 3.3, Eq. 2-3)."
+},
+{
+"arxiv_id": "2406.04464",
+"title": "On The Importance of Reasoning for Context Retrieval in Repository-Level Code Editing",
+"system": "Kovrigin24",
+"key_numbers": [
+{
+"metric": "SWE-bench Lite entity-level F1, BM25 baseline vs. custom ACR",
+"value": "7.2 vs. 28.9",
+"where": "Table 2"
+},
+{
+"metric": "LCA entity-level F1, BM25 baseline vs. custom ACR",
+"value": "9.4 vs. 20.2",
+"where": "Table 2"
+},
+{
+"metric": "Correlation: precision-vs-reasoning-complexity vs. recall-vs-context-length",
+"value": "precision-reasoning r>0.7; recall-length r~0.5; recall-reasoning r~0.1",
+"where": "Discussion/Findings"
+}
+],
+"repr_primary": "ast",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Decouples repository-level context retrieval from downstream editing and compares five ReAct-style reasoning strategies (from a single fixed BM25 query up to full AutoCodeRover tool+reasoning) for iteratively deciding when retrieved context is sufficient (Sec. 3-4)."
+},
+{
+"arxiv_id": "2409.15204",
+"title": "RAMBO: Enhancing RAG-based Repository-Level Method Body Completion",
+"system": "RAMBO",
+"key_numbers": [
+{
+"metric": "CodeBLEU / EM on RAMBO benchmark (DeepSeek Coder 6.7B) vs. RepoCoder",
+"value": "CodeBLEU 53.20 vs. 50.31; EM 18.94% vs. 15.53%",
+"where": "Table 2"
+},
+{
+"metric": "Defects4J EM vs. RepoCoder Oracle",
+"value": "20.59% vs. 19.61% (~5% relative gain)",
+"where": "Table 3"
+},
+{
+"metric": "Retrieval-similarity ablation, lexical vs. semantic CodeBLEU",
+"value": "53.20 vs. 52.61",
+"where": "Table 4"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Generates a rough 'sketch' method body via RAG, extracts essential repository-declared elements (classes/methods/fields) referenced in the sketch after filtering hallucinated names against actual declarations, then retrieves and ranks methods that use those elements by similarity to include as context (Sec. 3, Eq. 1-3)."
+},
+{
+"arxiv_id": "2504.10046",
+"title": "GraphCodeAgent: Dual Graph-Guided LLM Agent for Retrieval-Augmented Repo-Level Code Generation",
+"system": "GraphCodeAgent",
+"key_numbers": [
+{
+"metric": "Pass@1 DevEval, GPT-4o",
+"value": "58.14% vs 40.43% best baseline (Dense)",
+"where": "Results table"
+},
+{
+"metric": "Pass@1 CoderEval, GPT-4o",
+"value": "58.14/53.91 vs GPT-4o baseline 40.87%",
+"where": "Results table"
+},
+{
+"metric": "benchmark scale",
+"value": "DevEval: 1,825 examples, 117 repositories",
+"where": "Dataset description"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "A ReAct LLM agent alternates RGRetrieval (finds sub/similar requirements), DualGraphMapping (maps requirements to code nodes) and SSCGTraverse (multi-hop traversal of the structural-semantic code graph) tools to iteratively assemble cross-file context before code generation (ReAct tool pipeline section)."
+},
+{
+"arxiv_id": "2508.17720",
+"title": "RepoTransAgent: Multi-Agent LLM Framework for Repository-Aware Code Translation",
+"system": "RepoTransAgent",
+"key_numbers": [
+{
+"metric": "Compile rate C#->Java",
+"value": "55.34%",
+"where": "Table II / Abstract"
+},
+{
+"metric": "Pass rate C#->Java",
+"value": "45.84%",
+"where": "Table II"
+},
+{
+"metric": "No-Context-Agent ablation pass rate",
+"value": "32.20% (vs. 45.84% full)",
+"where": "Table IV"
+}
+],
+"repr_primary": "hybrid",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Context Agent iteratively calls JSON-returning lookup tools (class info, imports, method bodies) informed by hybrid dense+BM25 RAG retrieval with reciprocal-rank fusion, gathering context until sufficient before translation (Sec III-B/III-C)"
+},
+{
+"arxiv_id": "2510.08850",
+"title": "Repository-Aware File Path Retrieval via Fine-Tuned LLMs",
+"system": "Yanuganti25",
+"key_numbers": [
+{
+"metric": "Exact match / Recall on small-medium repos (held-out queries)",
+"value": "up to 91% EM / 93% Recall",
+"where": "Abstract / Results"
+},
+{
+"metric": "Recall on PyTorch (~4k Python files)",
+"value": "59%",
+"where": "Abstract / Results"
+},
+{
+"metric": "training scale",
+"value": "tens of thousands of synthetic QA pairs from 6 data-generation strategies (S1-S6)",
+"where": "Methodology, Figure 1"
+}
+],
+"repr_primary": "repo_map_skeleton",
+"mechanism": "learned_compression",
+"evaluation": "ablated_measured",
+"stop_detail": "Six AST- and repo-summary-based strategies (per-file, repo-overview, mid-level AST structures, fine AST details, repo overview+summary, repo-batching) generate synthetic question-to-relevant-file-paths QA pairs used to fine-tune Qwen3-8B via QLoRA so the model directly outputs relevant file paths in one forward pass (Methodology, Dataset Generation Pipeline)."
+},
+{
+"arxiv_id": "2601.19697",
+"title": "AlignCoder: Aligning Retrieval with Target Intent for Repository-Level Code Completion",
+"system": "AlignCoder",
+"key_numbers": [
+{
+"metric": "EM on CrossCodeEval Python (DeepSeekCoder-1B): AlignCoder vs RLCoder vs RepoCoder",
+"value": "28.37 vs 24.02 vs 20.23",
+"where": "CrossCodeEval Python results table"
+},
+{
+"metric": "EM improvement over RLCoder on CrossCodeEval",
+"value": "+18.1%",
+"where": "Abstract"
+},
+{
+"metric": "EM on RepoEval line-level (DeepSeekCoder-7B): AlignCoder vs RLCoder",
+"value": "49.56 vs 48.81",
+"where": "RepoEval results table"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "A UniXcoder-based dense retriever, RL-trained to select the code snippet minimizing target-code perplexity, retrieves both Split-Aggregate base snippets and tree-sitter-derived dependency snippets using a query enhanced by candidate completions (Section III, Codebase Construction / retriever training)."
+},
+{
+"arxiv_id": "2604.24678",
+"title": "Leveraging LLMs for Multi-File DSL Code Generation: An Industrial Case Study",
+"system": "Chand26",
+"key_numbers": [
+{
+"metric": "Exact Match (Qwen2.5-Coder-7B)",
+"value": "Fine-tuned 0.629 vs Raw zero-shot 0.076",
+"where": "Table 1"
+},
+{
+"metric": "Exact Match (DeepSeek-Coder-7B)",
+"value": "Fine-tuned 0.657 vs Raw zero-shot 0.371",
+"where": "Table 1"
+},
+{
+"metric": "Structural Fidelity (DeepSeek-Coder-7B, fine-tuned)",
+"value": "1.000",
+"where": "Table 1"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "none_fixed_window",
+"evaluation": "ablated_measured",
+"stop_detail": "Encodes the entire DSL project folder hierarchy as one nested JSON document (folders as objects, files as keys, contents as string values) and feeds the full linearized project state plus instruction as a single prompt, generating a complete updated JSON in one response (Sec 4.1)."
+},
+{
+"arxiv_id": "2606.14061",
+"title": "LLM Agents Can See Code Repositories",
+"system": "SeeRepo",
+"key_numbers": [
+{
+"metric": "input token change with multimodal graph integration (GPT-5-mini)",
+"value": "-25% input tokens, -26% cost, accuracy 55.4% (+0.4)",
+"where": "Table 2"
+},
+{
+"metric": "token reduction range across four MLLMs with multimodal integration",
+"value": "4.8%-46%",
+"where": "Results (RQ2)"
+},
+{
+"metric": "vision-only degradation",
+"value": "accuracy drops 13.6-34.1 points; cost rises up to 268%",
+"where": "Results (RQ1)"
+}
+],
+"repr_primary": "call_dep_graph",
+"mechanism": "graph_guided_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "During agent exploration, an external tool returns a Graphviz-rendered PNG of a distance-aware dependency subgraph (contains/imports/invokes/inherits edges) centered on the query target, with the agent autonomously controlling traversal depth, alongside standard text-based repo navigation."
+},
+{
+"arxiv_id": "2607.15205",
+"title": "MM-IssueLoc: A Controlled Benchmark for Evaluating Visual Evidence in Multimodal Repository-Level Issue Localization",
+"system": "MM-IssueLoc",
+"key_numbers": [
+{
+"metric": "File Acc@5 (best agent system)",
+"value": "38.96% (OpenHands + GPT-5.2)",
+"where": "Results/abstract"
+},
+{
+"metric": "Function Acc@10 (best retriever)",
+"value": "33.86% (MM-IssueLoc-VL-Emb-8B)",
+"where": "Results/abstract"
+},
+{
+"metric": "Image-input gain on File Acc@5",
+"value": "+4.91 points (MM-IssueLoc-VL-Emb-2B)",
+"where": "Table 3"
+}
+],
+"repr_primary": "embedding_retrieval",
+"mechanism": "similarity_retrieval",
+"evaluation": "ablated_measured",
+"stop_detail": "Localization systems either iteratively explore the repository via tool-use (agents) or rank files/functions by dense-embedding similarity trained with contrastive (InfoNCE-style) loss and hard negatives, optionally with issue screenshots converted to structured text (VCE) appended to the prompt (Sec. on evaluated systems/benchmark construction)."
+},
+{
+"arxiv_id": "2608.02001",
+"title": "VulnGym: Benchmarking Coding Agents for Repository-Level Vulnerability Detection",
+"system": "VulnGym",
+"key_numbers": [
+{
+"metric": "End-to-End Advisory Recall (Hard split)",
+"value": "22.58% (DeepSeek-V4-Flash + OpenHands, best config)",
+"where": "Table 2"
+},
+{
+"metric": "Critical-Operation Localization File Recall (Hard split)",
+"value": "51.16% (DeepSeek-V4-Flash + MiniSWE, best config)",
+"where": "Table 3"
+},
+{
+"metric": "Failures attributable to missing/mislocalized vulnerable files or lines",
+"value": "56.5% of all failures",
+"where": "Sec 4.3"
+}
+],
+"repr_primary": "raw_window",
+"mechanism": "agentic_exploration",
+"evaluation": "ablated_measured",
+"stop_detail": "Agents receive no pre-built structural index; they explore repositories turn-by-turn with read-only shell commands (find/ls/grep/rg/cat/head/tail/sed) to locate vulnerability-relevant code, with performance decomposed into end-to-end detection plus three oracle-based subtasks (critical-operation localization, entry-point identification, trace construction) (Sec 4.1-4.3)."
+}
+]
